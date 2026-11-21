@@ -17,7 +17,7 @@ items that COSD does not code are carried in the report text (pCR1020).
 Defined nationally by the National Disease Registration Service for reports
 sent to the cancer registry. Used here as the pathology report semantics a
 genomics laboratory needs alongside a reflex order - see [Pathology to Genomics
-Reflex](https://nw-gmsa.github.io/use-cases/PathologyToGenomicsReflex.html).
+Reflex](https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md).
 Each element's COSD data item is shown on the **Mappings** tab.
 """
 Characteristics: #can-be-target

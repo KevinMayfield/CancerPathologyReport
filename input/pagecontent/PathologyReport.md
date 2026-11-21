@@ -221,7 +221,7 @@ At least one topography or morphology code is required.
 {:.grid}
 
 Loss of MMR nuclear expression is the trigger for the Lynch syndrome reflex order
-to genomics - see [Pathology to Genomics Reflex](https://nw-gmsa.github.io/use-cases/PathologyToGenomicsReflex.html).
+to genomics - see [Pathology to Genomics Reflex](https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md).
 
 ### Results
 
@@ -565,7 +565,10 @@ Authorised: 21-Sep-2026 16:42 &nbsp;&middot;&nbsp; Example Pathology Laboratory
 
 ### Examples
 
+- [LAB-35 - Lynch Syndrome](LAB-35.html#example-lynch-syndrome) - a colorectal
+  cancer biopsy with MMR loss, as HL7 v2 prior results in a reflex order to
+  genomics, with the same report in human-readable form.
+
 <div class="alert alert-warning" role="alert">
-<b>TODO</b> - no examples yet. A colorectal cancer example with MMR loss (Lynch
-syndrome screening) is planned.
+<b>TODO</b> - no FHIR instance examples yet.
 </div>

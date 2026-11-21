@@ -79,7 +79,7 @@ described in [Pathway Stages](#pathway-stages) below.
 
 | Stage | What happens | In this guide | Workflow |
 |---|---|---|---|
-| Referral | Urgent suspected cancer referral, or a positive screening result | Context | - |
+| Referral | Urgent suspected cancer referral, or a positive screening result | Context | [Cancer Screening](Screening.html) |
 | Imaging | Lesion found; clinical staging (cTNM); image-guided biopsy | Context | [Imaging and Radiology](Imaging.html) |
 | Biopsy / resection | Specimen taken and sent to histopathology with a request | **In scope** | [LTW](LTW.html) LAB-1 |
 | Pathology | Diagnosis, grade, pathological stage, IHC; Cancer Pathology Report | **In scope** | [LTW](LTW.html) LAB-3 |

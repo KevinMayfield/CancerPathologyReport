@@ -13,7 +13,7 @@ as is. The **Mappings** tab gives the COSD data item (`pCR` code) for each eleme
 and an indicative FHIR mapping.
 
 It is used as the pathology report semantics in the
-[Pathology to Genomics Reflex](https://nw-gmsa.github.io/use-cases/PathologyToGenomicsReflex.html)
+[Pathology to Genomics Reflex](https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md)
 use case. Items genomics also needs but COSD does not cover, such as neoplastic
 cell content and the reflex order itself, are not in this model.
 

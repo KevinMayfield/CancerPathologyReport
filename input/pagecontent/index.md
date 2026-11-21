@@ -60,6 +60,31 @@ laboratory when the report is issued - see the [Cancer Pathway](CancerPathway.ht
   Base and HL7 Europe Laboratory, and aligned with mCODE where mCODE has an
   equivalent profile
 
+### Worked Example: Lynch Syndrome
+
+The NW GMSA
+[Pathology to Genomics Reflex](https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md)
+use case ties the pages of this guide together. Its worked example is genomic
+testing for Lynch syndrome in a patient with colorectal cancer (fictitious):
+
+| Step | What happens | Exchange | Page |
+|---|---|---|---|
+| 0 | Referral - urgent suspected cancer, or a positive bowel screening result | - | [Cancer Pathway](CancerPathway.html), [Cancer Screening](Screening.html) |
+| ① | A colonoscopy biopsy is sent to histopathology | LAB-1 | [LTW](LTW.html), [LAB-1](LAB-1.html) |
+| ② | Pathology finds loss of mismatch repair (MMR) proteins and reflexes MLH1 promoter hypermethylation (M1.5) to the Genomic Laboratory Hub, sending the pathology report as prior results. The result comes back to pathology | LAB-35, LAB-36 | [ILW](ILW.html), [LAB-35](LAB-35.html) (HL7 v2 example), [LAB-36](LAB-36.html), [Genomics](Genomics.html) |
+| ③ | The Cancer Pathology Report, with a supplementary report, goes back to the clinician | LAB-3 | [LAB-3](LAB-3.html), [Cancer Pathology Report](PathologyReport.html) |
+| ④ | The clinician orders germline testing for Lynch syndrome; the genomic report goes back to the clinician and to the Unified Genomic Record | Outside this guide | [Genomics](Genomics.html#not-reflex-orders) |
+| ⑤ | If a pathogenic variant is found, the family is referred to clinical genetics | Outside this guide | - |
+{:.grid}
+
+The genomics laboratory's requirements for step ② are the NHS England Genomics
+Master Dataset **Primary sample** items, modelled in the NW Genomics IG
+[Primary Sample](https://nw-gmsa.github.io/en/StructureDefinition-PrimarySample.html)
+logical model, which uses this guide for its tumour content - see
+[LAB-35](LAB-35.html#genomics-requirements-primary-sample). The scenario is also
+described in the LinkedIn article
+[One Year On: What a Cancer Pathway Taught Me About Interoperability](https://www.linkedin.com/feed/update/urn:li:ugcPost:7529858024396615680/).
+
 ### Sources
 
 | Source | Version | Used for |
@@ -77,6 +102,6 @@ laboratory when the report is issued - see the [Cancer Pathway](CancerPathway.ht
 
 ### Related
 
-- [Pathology to Genomics Reflex](https://nw-gmsa.github.io/use-cases/PathologyToGenomicsReflex.html) -
+- [Pathology to Genomics Reflex](https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md) -
   the use case that uses this report as the pathology report semantics of a reflex order
 - [NHS North West Genomics FHIR IG](https://nw-gmsa.github.io/en/)

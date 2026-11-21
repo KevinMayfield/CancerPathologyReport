@@ -125,6 +125,12 @@ is held as [Observations](StructureDefinition-PalliativeCareRecordObservation.ht
 * supportingInfo only Reference(PalliativeCareRecordObservation or RelatedPerson)
 * supportingInfo ^short = "The extracted answers, and the persons involved"
 
+RuleSet: IPSSubsectionSlicing(parent)
+* section[{parent}].section ^slicing.discriminator.type = #pattern
+* section[{parent}].section ^slicing.discriminator.path = "code"
+* section[{parent}].section ^slicing.rules = #open
+* section[{parent}].section ^short = "Subsections, coded with International Patient Summary section codes where the content matches"
+
 Profile:        PalliativeCareRecordComposition
 Parent:         Composition
 Id:             PalliativeCareRecordComposition
@@ -164,7 +170,7 @@ entries. An amended record is a new Composition that `replaces` the previous one
 * section ^slicing.ordered = true
 * section.code 1..1
 * section.text 1..1
-* section.entry only Reference(PalliativeCareRecordObservation or PalliativeCarePlan or PalliativeCareTeam or Condition or Patient or RelatedPerson or Practitioner or PractitionerRole or Organization)
+* section.entry only Reference(PalliativeCareRecordObservation or PalliativeCarePlan or PalliativeCareTeam or Condition or AllergyIntolerance or MedicationStatement or Consent or DocumentReference or Patient or RelatedPerson or Practitioner or PractitionerRole or Organization)
 * section contains
     planBelongsTo 1..1 MS and
     sharedUnderstanding 0..1 MS and
@@ -186,3 +192,87 @@ entries. An amended record is a new Composition that `replaces` the previous one
 * section[emergencyContacts].code = EOLDocumentSectionCS#respect-8
 * section[formReviewed].code = EOLDocumentSectionCS#respect-9
 * section[afterDeath].code = EOLDocumentSectionCS#after-death
+
+// IPS-coded subsections: where a ReSPECT section's content matches an
+// International Patient Summary section, it is a subsection with the IPS LOINC
+// section code (reuse of the codes, not IPS conformance).
+
+* insert IPSSubsectionSlicing(sharedUnderstanding)
+* section[sharedUnderstanding].section contains
+    problems 0..1 MS and
+    allergies 0..1 MS and
+    medications 0..1 MS and
+    functionalStatus 0..1 MS and
+    advanceDirectives 0..1 MS
+* section[sharedUnderstanding].section[problems].code = $loinc#11450-4 "Problem list - Reported"
+* section[sharedUnderstanding].section[problems] ^short = "IPS Problems - SCCI1580 items 26, 27 (Conditions addressed by the care plan)"
+* section[sharedUnderstanding].section[problems].text 1..1
+* section[sharedUnderstanding].section[allergies].code = $loinc#48765-2 "Allergies and adverse reactions Document"
+* section[sharedUnderstanding].section[allergies] ^short = "IPS Allergies and Intolerances - SCCI1580 item 30"
+* section[sharedUnderstanding].section[allergies].text 1..1
+* section[sharedUnderstanding].section[medications].code = $loinc#10160-0 "History of Medication use Narrative"
+* section[sharedUnderstanding].section[medications] ^short = "IPS Medication Summary - anticipatory medicines, SCCI1580 items 31, 32"
+* section[sharedUnderstanding].section[medications].text 1..1
+* section[sharedUnderstanding].section[functionalStatus].code = $loinc#47420-5 "Functional Status Assessment Note"
+* section[sharedUnderstanding].section[functionalStatus] ^short = "IPS Functional Status - SCCI1580 items 29, 28"
+* section[sharedUnderstanding].section[functionalStatus].text 1..1
+* section[sharedUnderstanding].section[advanceDirectives].code = $loinc#42348-3 "Advance Healthcare Directives"
+* section[sharedUnderstanding].section[advanceDirectives] ^short = "IPS Advance Directives - advance statement, ADRT, LPA, SCCI1580 items 35, 49-52"
+* section[sharedUnderstanding].section[advanceDirectives].text 1..1
+
+* insert IPSSubsectionSlicing(whatMattersToMe)
+* section[whatMattersToMe].section contains patientStory 0..1 MS
+* section[whatMattersToMe].section[patientStory].code = $loinc#81338-6 "Patient Goals, Preferences, and Priorities for Care Experience"
+* section[whatMattersToMe].section[patientStory] ^short = "IPS Patient Story - preferences, SCCI1580 items 35-43, 58"
+* section[whatMattersToMe].section[patientStory].text 1..1
+
+* insert IPSSubsectionSlicing(clinicalRecommendations)
+* section[clinicalRecommendations].section contains planOfCare 0..1 MS
+* section[clinicalRecommendations].section[planOfCare].code = $loinc#18776-5 "Plan of Care Note"
+* section[clinicalRecommendations].section[planOfCare] ^short = "IPS Plan of Care - the palliative care plan and contingency plans"
+* section[clinicalRecommendations].section[planOfCare].text 1..1
+
+* insert IPSSubsectionSlicing(emergencyContacts)
+* section[emergencyContacts].section contains socialHistory 0..1 MS
+* section[emergencyContacts].section[socialHistory].code = $loinc#29762-2 "Social history note"
+* section[emergencyContacts].section[socialHistory] ^short = "IPS Social History - main carer and availability of carer support, SCCI1580 items 16, 17"
+* section[emergencyContacts].section[socialHistory].text 1..1
+
+// Which resources each section holds
+
+* section[planBelongsTo].entry only Reference(Patient)
+* section[planBelongsTo].entry ^short = "The Patient - demographics, SCCI1580 items 5-13"
+* section[sharedUnderstanding].entry only Reference(PalliativeCareRecordObservation)
+* section[sharedUnderstanding].entry ^short = "Observations - likely prognosis (34), EoLC tool in use (33), palliative care register"
+* section[sharedUnderstanding].section[problems].entry only Reference(Condition)
+* section[sharedUnderstanding].section[problems].entry ^short = "Conditions addressed by the care plan - primary and other diagnoses (26, 27)"
+* section[sharedUnderstanding].section[allergies].entry only Reference(PalliativeCareRecordObservation or AllergyIntolerance)
+* section[sharedUnderstanding].section[allergies].entry ^short = "Observation (30), or AllergyIntolerance as in IPS"
+* section[sharedUnderstanding].section[medications].entry only Reference(PalliativeCareRecordObservation or MedicationStatement)
+* section[sharedUnderstanding].section[medications].entry ^short = "Observations - anticipatory medicines issued and location (31, 32), or MedicationStatement as in IPS"
+* section[sharedUnderstanding].section[functionalStatus].entry only Reference(PalliativeCareRecordObservation)
+* section[sharedUnderstanding].section[functionalStatus].entry ^short = "Observations - functional status (29), disability (28)"
+* section[sharedUnderstanding].section[advanceDirectives].entry only Reference(PalliativeCareRecordObservation or Consent or DocumentReference)
+* section[sharedUnderstanding].section[advanceDirectives].entry ^short = "Observations - advance statement, ADRT, LPA authority (35, 49, 50, 52); Consent or DocumentReference as in IPS"
+* section[whatMattersToMe].entry 0..0
+* section[whatMattersToMe].section[patientStory].entry only Reference(PalliativeCareRecordObservation)
+* section[whatMattersToMe].section[patientStory].entry ^short = "Observations - preferred place of death and other preferences (36-43, 58)"
+* section[clinicalRecommendations].entry only Reference(PalliativeCareRecordObservation)
+* section[clinicalRecommendations].entry ^short = "Observations - CPR decision, date and document location (44, 45, 47)"
+* section[clinicalRecommendations].section[planOfCare].entry only Reference(PalliativeCarePlan)
+* section[clinicalRecommendations].section[planOfCare].entry ^short = "The palliative care plan (with the care team and contingency plans)"
+* section[capacity].entry only Reference(PalliativeCareRecordObservation)
+* section[capacity].entry ^short = "Observation - consent status (1)"
+* section[involvement].entry only Reference(PalliativeCareRecordObservation or RelatedPerson)
+* section[involvement].entry ^short = "Observations - awareness of CPR decision and prognosis (48, 18); persons involved"
+* section[clinicianSignatures].entry only Reference(Practitioner or PractitionerRole)
+* section[clinicianSignatures].entry ^short = "The clinicians - also Composition.author and attester"
+* section[emergencyContacts].entry only Reference(PalliativeCareTeam or RelatedPerson or Practitioner or PractitionerRole or Organization)
+* section[emergencyContacts].entry ^short = "Care team (21-25), LPA and others involved in decisions (51-57), GP (19-20)"
+* section[emergencyContacts].section[socialHistory].entry only Reference(PalliativeCareRecordObservation or RelatedPerson)
+* section[emergencyContacts].section[socialHistory].entry ^short = "Main carer - availability of carer support (16) and RelatedPerson (16, 17)"
+* section[formReviewed].entry only Reference(PalliativeCareRecordObservation)
+* section[formReviewed].entry ^short = "Observation - CPR review date (46); planned review date (3) and last amended (4) are in the narrative and Composition.date"
+* section[afterDeath].entry only Reference(PalliativeCareRecordObservation)
+* section[afterDeath].entry ^short = "Observations - date and actual place of death (59, 60)"
+

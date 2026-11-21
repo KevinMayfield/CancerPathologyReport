@@ -83,24 +83,45 @@ example SNOMED CT `450476008` Not for cardiopulmonary resuscitation), and
 
 ### The FHIR Document
 
-The Document is a `Bundle` of type `document`. Its Composition's sections follow
-the **ReSPECT form's section order**, so the rendered and printed record reads like
-the form clinicians and families already know. Each section has a narrative for
-display and the Observations as entries.
+The Document is a `Bundle` of type `document`. Its Composition's top-level sections
+follow the **ReSPECT form's section order**, so the rendered and printed record reads
+like the form clinicians and families already know. Where a section's content is the
+same as a section of the **International Patient Summary** (IPS), it is held in a
+subsection with the IPS LOINC section code. Each section and subsection has a
+narrative for display; the profile fixes which resources each may hold as entries.
 
-| ReSPECT section | SCCI1580 items (PRSB) |
-|---|---|
-| 1 This plan belongs to | 5-13 demographics, 7 preferred name |
-| 2 Shared understanding of my health and current condition | 26-27 diagnoses, 34 likely prognosis, 28 disability, 29 functional status, 30 allergies, 31-32 anticipatory medicines; other care planning documents: 35 advance statement, 49-50 ADRT, 51-53 LPA, 33 EoLC tool in use |
-| 3 What matters to me in decisions about my treatment and care | 36-43 preferred place of death, 58 other issues or preferences, 35 advance statement requests and preferences |
-| 4 Clinical recommendations for emergency care and treatment | 44-47 CPR decision; (PRSB contingency plans) |
-| 5 Capacity for involvement in making this plan | 1 consent status (explicit, best interests decision or LPA); (PRSB mental capacity assessment) |
-| 6 Involvement in making this plan | 48 awareness of CPR decision, 18 carer aware of prognosis; (PRSB involvement in CPR decision) |
-| 7 Clinicians' signatures | `Composition.author` and `attester` |
-| 8 Emergency contacts and those involved in discussing this plan | 16-17 main carer, 54-57 others to be involved in decisions, 51-53 LPA, 19-20 GP, 21-22 key worker, 23-25 care workers |
-| 9 Form reviewed and remains relevant | 3 planned review date, 4 last amended, 46 CPR review date |
-| After death (not on ReSPECT) | 59-60 date and place of death |
+| ReSPECT section | IPS-coded subsection | SCCI1580 items (PRSB) | Entries |
+|---|---|---|---|
+| 1 This plan belongs to | - | 5-13 demographics, 7 preferred name | Patient |
+| 2 Shared understanding of my health and current condition | - | 34 likely prognosis, 33 EoLC tool in use; (PRSB palliative care register) | Observation |
+| | Problems `11450-4` | 26 primary and 27 other diagnoses | Condition (addressed by the care plan) |
+| | Allergies and Intolerances `48765-2` | 30 allergies | Observation, or AllergyIntolerance |
+| | Medication Summary `10160-0` | 31-32 anticipatory medicines and location | Observation, or MedicationStatement |
+| | Functional Status `47420-5` | 29 functional status, 28 disability | Observation |
+| | Advance Directives `42348-3` | 35 advance statement, 49-50 ADRT, 52 LPA authority | Observation, or Consent / DocumentReference |
+| 3 What matters to me in decisions about my treatment and care | Patient Story `81338-6` | 35 advance statement requests and preferences, 36-43 preferred place of death, 58 other issues or preferences | Observation |
+| 4 Clinical recommendations for emergency care and treatment | - | 44, 45, 47 CPR decision, date and document location | Observation |
+| | Plan of Care `18776-5` | (PRSB contingency plans) | Palliative Care Plan |
+| 5 Capacity for involvement in making this plan | - | 1 consent status; (PRSB mental capacity assessment) | Observation |
+| 6 Involvement in making this plan | - | 48 awareness of CPR decision, 18 carer aware of prognosis; (PRSB involvement in CPR decision) | Observation, RelatedPerson |
+| 7 Clinicians' signatures | - | `Composition.author` and `attester` | Practitioner, PractitionerRole |
+| 8 Emergency contacts and those involved in discussing this plan | - | 21-25 care team, 51-57 LPA and others involved in decisions, 19-20 GP | Palliative Care Team, RelatedPerson, Practitioner, Organization |
+| | Social History `29762-2` | 16-17 main carer and availability of carer support | Observation, RelatedPerson |
+| 9 Form reviewed and remains relevant | - | 3 planned review date, 4 last amended, 46 CPR review date | Observation |
+| After death (not on ReSPECT) | - | 59-60 date and place of death | Observation |
 {:.grid}
+
+**Reuse of the IPS section codes, not IPS conformance.** The Document remains an *End
+of Life Care Coordination Summary*, not an IPS (`60591-5` *Patient summary Document*),
+and its entries are not IPS profiles - for example IPS Functional Status entries are
+Condition or ClinicalImpression, and IPS Advance Directives entries are Consent or
+DocumentReference, where these are Observations. The overlap is deliberate: much of
+what the ReSPECT form carries - problems, allergies, medicines, functional status,
+advance directives - would in future be better served by the person's patient summary
+in the NHS England Single Patient Record, which is expected to use the HL7 Europe
+Patient Summary. Using the same section codes lets those sections be matched, and
+eventually referenced rather than repeated. IPS section codes are from IPS 2.0.1
+(`Composition-uv-ips`), checked on tx.fhir.org.
 
 An amendment produces a **new Document** whose Composition `relatesTo` (code
 `replaces`) points to the previous one; the previous DocumentReference becomes
@@ -148,7 +169,7 @@ changed in this version - a real viewer would not show the labels.
 <tr><td style="border:none; padding:2px 8px 2px 0;"><b>Date completed</b></td><td style="border:none;">12-Oct-2026</td><td style="border:none;"><b>Last amended</b></td><td style="border:none;">02-Nov-2026 10:00 <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></td></tr>
 </table>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-2 &middot; entry CarePlan, Conditions (26, 27) &middot; SCCI1580 34, 29, 28, 30, 31-32, 33, 35, 52 &middot; PRSB palliative care register</div>
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-2 &middot; SCCI1580 34, 33, PRSB register &middot; IPS subsections: Problems 11450-4 (Conditions 26, 27), Allergies 48765-2 (30), Medications 10160-0 (31-32), Functional Status 47420-5 (29, 28), Advance Directives 42348-3 (35, 52)</div>
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">2. Shared understanding of my health and current condition</div>
 <p style="margin:2px 0 6px;"><b>Diagnoses.</b> Malignant neoplasm of caecum, with metastases to the liver. On the end of life care register; Gold Standards Framework in use.</p>
 <p style="margin:2px 0 6px;"><b>Likely prognosis.</b> Last weeks of life <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
@@ -156,13 +177,13 @@ changed in this version - a real viewer would not show the labels.
 <p style="margin:2px 0 6px;"><b>Anticipatory medicines.</b> Just in case box issued - kept in the kitchen cupboard.</p>
 <p style="margin:2px 0 10px;"><b>Other care planning documents.</b> Advance statement (Mental Capacity Act 2005). Lasting power of attorney for personal welfare - see section 8.</p>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-3 &middot; SCCI1580 35, 36-43, 58</div>
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-3 &middot; IPS subsection Patient Story 81338-6 &middot; SCCI1580 35, 36-43, 58</div>
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">3. What matters to me in decisions about my treatment and care</div>
 <p style="margin:2px 0 6px;"><b>Advance statement.</b> Wishes to stay at home with his family, and does not want to go back into hospital.</p>
 <p style="margin:2px 0 6px;"><b>Preferred place of death.</b> 1st choice: hospice <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span> &middot; 2nd choice: own home <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
 <p style="margin:2px 0 10px;"><b>Other issues or preferences.</b> Ned now wishes to be cared for in the hospice if his symptoms cannot be controlled at home. Key safe by the front door - the code is held by the district nursing team. <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-4 &middot; SCCI1580 44, 45, 47 &middot; PRSB contingency plan</div>
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-4 &middot; SCCI1580 44, 45, 47 &middot; IPS subsection Plan of Care 18776-5 (care plan, PRSB contingency plan)</div>
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">4. Clinical recommendations for emergency care and treatment</div>
 <div style="border:2px solid #333; padding:8px 12px; margin:4px 0 8px; font-weight:bold;">CPR decision: Not for cardiopulmonary resuscitation &middot; decided 12-Oct-2026</div>
 <p style="margin:2px 0 6px;"><b>Location of CPR documentation.</b> ReSPECT form in the folder on the kitchen table.</p>
@@ -180,7 +201,7 @@ changed in this version - a real viewer would not show the labels.
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">7. Clinicians' signatures</div>
 <p style="margin:2px 0 10px;">Dr Priya FICTITIOUS, Consultant in Palliative Medicine (GMC C5678901) &middot; attested 02-Nov-2026 10:00</p>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-8 &middot; entry RelatedPerson, CareTeam (21-25) &middot; SCCI1580 16-17, 51-53, 19-20</div>
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-8 &middot; entry CareTeam (21-25) &middot; SCCI1580 51-53, 19-20 &middot; IPS subsection Social History 29762-2 (main carer 16-17, RelatedPerson)</div>
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">8. Emergency contacts and those involved in discussing this plan</div>
 <table style="width:100%; font-size:14px; margin-bottom:10px; border:none;">
 <tr><td style="border:none; padding:2px 8px 2px 0;"><b>Main carer and LPA (personal welfare)</b></td><td style="border:none;">Joan LIVERPOOL, wife</td><td style="border:none;">07700 900123</td></tr>
@@ -274,6 +295,11 @@ system for the NHS Data Model and Dictionary DEATH LOCATION TYPE CODE was found 
 **To confirm**.
 
 ### Open
+
+- **Scope.** Much of this record - CPR decision, contingency and treatment
+  escalation plans, ADRT, preferences - is advance care planning, and may be better
+  defined in an **anticipatory care plans** guide that this guide references, with
+  the IPS-aligned sections left to the patient summary.
 
 - Whether related items (for example 44-47, the CPR decision with its date, review
   date and document location) should be one Observation with components rather

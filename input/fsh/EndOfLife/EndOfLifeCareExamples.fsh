@@ -906,7 +906,7 @@ Usage:      #example
 Instance:   EolComposition1
 InstanceOf: PalliativeCareRecordComposition
 Title:      "Palliative Care Record for Ned LIVERPOOL (version 1)"
-Description: "Fictitious example. Palliative Care Record Document Composition, sections in ReSPECT order."
+Description: "Fictitious example. Palliative Care Record Document Composition: sections in ReSPECT order, with International Patient Summary coded subsections."
 Usage:      #inline
 * identifier.system = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/eol-record"
 * identifier.value = "EOL-0001-v1"
@@ -927,35 +927,63 @@ Usage:      #inline
 * section[sharedUnderstanding].title = "2. Shared understanding of my health and current condition"
 * section[sharedUnderstanding].code = EOLDocumentSectionCS#respect-2
 * section[sharedUnderstanding].text.status = #generated
-* section[sharedUnderstanding].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Primary end of life care diagnosis</td><td>Malignant neoplasm of caecum</td></tr><tr><td>Other relevant end of life care diagnoses and clinical issues</td><td>Metastatic malignant neoplasm to liver</td></tr><tr><td>Likely prognosis</td><td>Last months of life</td></tr><tr><td>Disability</td><td>No known disability</td></tr><tr><td>Functional status (Australia-modified Karnofsky Performance Status score 0-100)</td><td>50</td></tr><tr><td>Allergies/adverse drug reactions</td><td>No known allergy</td></tr><tr><td>Anticipatory medicines/just in case box issued</td><td>Issue of palliative care anticipatory medication box</td></tr><tr><td>Location of anticipatory medicines/just in case box</td><td>Just in case box in the kitchen cupboard</td></tr><tr><td>EoLC tool in use</td><td>On gold standards palliative care framework</td></tr><tr><td>Person is on the palliative care register (PRSB)</td><td>On end of life care register</td></tr><tr><td>Has advance statement</td><td>Has advance statement (Mental Capacity Act 2005)</td></tr><tr><td>Authority of LPA</td><td>Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)</td></tr></table></div>"
-* section[sharedUnderstanding].entry[+] = Reference(EolCarePlan)
-* section[sharedUnderstanding].entry[+] = Reference(PathPrimaryCancerCondition)
-* section[sharedUnderstanding].entry[+] = Reference(EolLiverMetastases)
+* section[sharedUnderstanding].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Likely prognosis</td><td>Last months of life</td></tr><tr><td>EoLC tool in use</td><td>On gold standards palliative care framework</td></tr><tr><td>Person is on the palliative care register (PRSB)</td><td>On end of life care register</td></tr></table></div>"
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-34)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-28)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-29)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-30)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-31)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-32)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-33)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-35)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-52)
+* section[sharedUnderstanding].section[problems].title = "Problems"
+* section[sharedUnderstanding].section[problems].code = http://loinc.org#11450-4 "Problem list - Reported"
+* section[sharedUnderstanding].section[problems].text.status = #generated
+* section[sharedUnderstanding].section[problems].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Primary end of life care diagnosis</td><td>Malignant neoplasm of caecum</td></tr><tr><td>Other relevant end of life care diagnoses and clinical issues</td><td>Metastatic malignant neoplasm to liver</td></tr></table></div>"
+* section[sharedUnderstanding].section[problems].entry[+] = Reference(PathPrimaryCancerCondition)
+* section[sharedUnderstanding].section[problems].entry[+] = Reference(EolLiverMetastases)
+* section[sharedUnderstanding].section[allergies].title = "Allergies and intolerances"
+* section[sharedUnderstanding].section[allergies].code = http://loinc.org#48765-2 "Allergies and adverse reactions Document"
+* section[sharedUnderstanding].section[allergies].text.status = #generated
+* section[sharedUnderstanding].section[allergies].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Allergies/adverse drug reactions</td><td>No known allergy</td></tr></table></div>"
+* section[sharedUnderstanding].section[allergies].entry[+] = Reference(EolObs1-30)
+* section[sharedUnderstanding].section[medications].title = "Medicines"
+* section[sharedUnderstanding].section[medications].code = http://loinc.org#10160-0 "History of Medication use Narrative"
+* section[sharedUnderstanding].section[medications].text.status = #generated
+* section[sharedUnderstanding].section[medications].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Anticipatory medicines/just in case box issued</td><td>Issue of palliative care anticipatory medication box</td></tr><tr><td>Location of anticipatory medicines/just in case box</td><td>Just in case box in the kitchen cupboard</td></tr></table></div>"
+* section[sharedUnderstanding].section[medications].entry[+] = Reference(EolObs1-31)
+* section[sharedUnderstanding].section[medications].entry[+] = Reference(EolObs1-32)
+* section[sharedUnderstanding].section[functionalStatus].title = "Functional status"
+* section[sharedUnderstanding].section[functionalStatus].code = http://loinc.org#47420-5 "Functional Status Assessment Note"
+* section[sharedUnderstanding].section[functionalStatus].text.status = #generated
+* section[sharedUnderstanding].section[functionalStatus].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Functional status (Australia-modified Karnofsky Performance Status score 0-100)</td><td>50</td></tr><tr><td>Disability</td><td>No known disability</td></tr></table></div>"
+* section[sharedUnderstanding].section[functionalStatus].entry[+] = Reference(EolObs1-29)
+* section[sharedUnderstanding].section[functionalStatus].entry[+] = Reference(EolObs1-28)
+* section[sharedUnderstanding].section[advanceDirectives].title = "Advance directives"
+* section[sharedUnderstanding].section[advanceDirectives].code = http://loinc.org#42348-3 "Advance Healthcare Directives"
+* section[sharedUnderstanding].section[advanceDirectives].text.status = #generated
+* section[sharedUnderstanding].section[advanceDirectives].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Has advance statement</td><td>Has advance statement (Mental Capacity Act 2005)</td></tr><tr><td>Authority of LPA</td><td>Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)</td></tr></table></div>"
+* section[sharedUnderstanding].section[advanceDirectives].entry[+] = Reference(EolObs1-35)
+* section[sharedUnderstanding].section[advanceDirectives].entry[+] = Reference(EolObs1-52)
 * section[whatMattersToMe].title = "3. What matters to me in decisions about my treatment and care"
 * section[whatMattersToMe].code = EOLDocumentSectionCS#respect-3
 * section[whatMattersToMe].text.status = #generated
-* section[whatMattersToMe].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Advance statement requests and preferences</td><td>Wishes to stay at home with his family, and does not want to go back into hospital.</td></tr><tr><td>Preferred place of death 1st choice</td><td>Patient&#x27;s own home</td></tr><tr><td>Preferred place of death (1st choice) is usual place of residence</td><td>Yes</td></tr><tr><td>Preferred place of death 2nd choice</td><td>Hospice</td></tr><tr><td>Preferred place of death organisation name (2nd choice)</td><td>FICTITIOUS Hospice</td></tr><tr><td>Other relevant issues or preferences about provision of care</td><td>Key safe by the front door - the code is held by the district nursing team. Ned&#x27;s dog is friendly.</td></tr></table></div>"
-* section[whatMattersToMe].entry[+] = Reference(EolObs1-36)
-* section[whatMattersToMe].entry[+] = Reference(EolObs1-39)
-* section[whatMattersToMe].entry[+] = Reference(EolObs1-40)
-* section[whatMattersToMe].entry[+] = Reference(EolObs1-41)
-* section[whatMattersToMe].entry[+] = Reference(EolObs1-58)
+* section[whatMattersToMe].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Recorded in the subsections below.</p></div>"
+* section[whatMattersToMe].section[patientStory].title = "My preferences"
+* section[whatMattersToMe].section[patientStory].code = http://loinc.org#81338-6 "Patient Goals, Preferences, and Priorities for Care Experience"
+* section[whatMattersToMe].section[patientStory].text.status = #generated
+* section[whatMattersToMe].section[patientStory].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Advance statement requests and preferences</td><td>Wishes to stay at home with his family, and does not want to go back into hospital.</td></tr><tr><td>Preferred place of death 1st choice</td><td>Patient&#x27;s own home</td></tr><tr><td>Preferred place of death (1st choice) is usual place of residence</td><td>Yes</td></tr><tr><td>Preferred place of death 2nd choice</td><td>Hospice</td></tr><tr><td>Preferred place of death organisation name (2nd choice)</td><td>FICTITIOUS Hospice</td></tr><tr><td>Other relevant issues or preferences about provision of care</td><td>Key safe by the front door - the code is held by the district nursing team. Ned&#x27;s dog is friendly.</td></tr></table></div>"
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs1-36)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs1-39)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs1-40)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs1-41)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs1-58)
 * section[clinicalRecommendations].title = "4. Clinical recommendations for emergency care and treatment"
 * section[clinicalRecommendations].code = EOLDocumentSectionCS#respect-4
 * section[clinicalRecommendations].text.status = #generated
-* section[clinicalRecommendations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Cardiopulmonary resuscitation decision</td><td>Not for cardiopulmonary resuscitation</td></tr><tr><td>Date of cardiopulmonary resuscitation decision</td><td>2026-10-12</td></tr><tr><td>Location of cardiopulmonary resuscitation documentation</td><td>ReSPECT form in the folder on the kitchen table</td></tr><tr><td>Contingency plan name</td><td>Treatment escalation plan</td></tr><tr><td>Trigger factors</td><td>Increasing pain, vomiting or new confusion</td></tr><tr><td>What should happen</td><td>Contact the community palliative care team, or the GP out of hours service. Manage at home using the anticipatory medicines. Hospital admission only for symptoms that cannot be controlled at home.</td></tr><tr><td>Date this plan was last updated</td><td>2026-10-12</td></tr></table></div>"
+* section[clinicalRecommendations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Cardiopulmonary resuscitation decision</td><td>Not for cardiopulmonary resuscitation</td></tr><tr><td>Date of cardiopulmonary resuscitation decision</td><td>2026-10-12</td></tr><tr><td>Location of cardiopulmonary resuscitation documentation</td><td>ReSPECT form in the folder on the kitchen table</td></tr></table></div>"
 * section[clinicalRecommendations].entry[+] = Reference(EolObs1-44)
 * section[clinicalRecommendations].entry[+] = Reference(EolObs1-45)
 * section[clinicalRecommendations].entry[+] = Reference(EolObs1-47)
+* section[clinicalRecommendations].section[planOfCare].title = "Care plan and contingency plans"
+* section[clinicalRecommendations].section[planOfCare].code = http://loinc.org#18776-5 "Plan of Care Note"
+* section[clinicalRecommendations].section[planOfCare].text.status = #generated
+* section[clinicalRecommendations].section[planOfCare].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Contingency plan name</td><td>Treatment escalation plan</td></tr><tr><td>Trigger factors</td><td>Increasing pain, vomiting or new confusion</td></tr><tr><td>What should happen</td><td>Contact the community palliative care team, or the GP out of hours service. Manage at home using the anticipatory medicines. Hospital admission only for symptoms that cannot be controlled at home.</td></tr><tr><td>Date this plan was last updated</td><td>2026-10-12</td></tr></table></div>"
+* section[clinicalRecommendations].section[planOfCare].entry[+] = Reference(EolCarePlan)
 * section[capacity].title = "5. Capacity for involvement in making this plan"
 * section[capacity].code = EOLDocumentSectionCS#respect-5
 * section[capacity].text.status = #generated
@@ -974,10 +1002,14 @@ Usage:      #inline
 * section[emergencyContacts].title = "8. Emergency contacts and those involved in discussing this plan"
 * section[emergencyContacts].code = EOLDocumentSectionCS#respect-8
 * section[emergencyContacts].text.status = #generated
-* section[emergencyContacts].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Availability of carer support</td><td>Has a carer</td></tr><tr><td>Main carer name</td><td>Joan LIVERPOOL</td></tr><tr><td>Main carer telephone numbers</td><td>07700 900123</td></tr><tr><td>Name of Lasting Power of Attorney for personal welfare</td><td>Joan LIVERPOOL</td></tr><tr><td>Telephone number(s) concerning Lasting Power of Attorney</td><td>07700 900123</td></tr><tr><td>Usual GP name</td><td>Dr Rachel FICTITIOUS</td></tr><tr><td>Practice details (ODS code)</td><td>GP001 - FICTITIOUS Medical Practice</td></tr><tr><td>Key worker name if not usual GP</td><td>Sarah FICTITIOUS, district nurse</td></tr><tr><td>Key worker telephone number</td><td>0151 496 0123</td></tr><tr><td>Care workers involved in care: name</td><td>Community Specialist Palliative Care Team</td></tr><tr><td>Care workers involved in care: professional group</td><td>Under care of palliative care specialist nurse</td></tr><tr><td>Telephone numbers for care workers involved in care</td><td>0151 496 0456</td></tr></table></div>"
-* section[emergencyContacts].entry[+] = Reference(EolCarer)
+* section[emergencyContacts].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Name of Lasting Power of Attorney for personal welfare</td><td>Joan LIVERPOOL</td></tr><tr><td>Telephone number(s) concerning Lasting Power of Attorney</td><td>07700 900123</td></tr><tr><td>Usual GP name</td><td>Dr Rachel FICTITIOUS</td></tr><tr><td>Practice details (ODS code)</td><td>GP001 - FICTITIOUS Medical Practice</td></tr><tr><td>Key worker name if not usual GP</td><td>Sarah FICTITIOUS, district nurse</td></tr><tr><td>Key worker telephone number</td><td>0151 496 0123</td></tr><tr><td>Care workers involved in care: name</td><td>Community Specialist Palliative Care Team</td></tr><tr><td>Care workers involved in care: professional group</td><td>Under care of palliative care specialist nurse</td></tr><tr><td>Telephone numbers for care workers involved in care</td><td>0151 496 0456</td></tr></table></div>"
 * section[emergencyContacts].entry[+] = Reference(EolCareTeam)
-* section[emergencyContacts].entry[+] = Reference(EolObs1-16)
+* section[emergencyContacts].section[socialHistory].title = "Main carer"
+* section[emergencyContacts].section[socialHistory].code = http://loinc.org#29762-2 "Social history note"
+* section[emergencyContacts].section[socialHistory].text.status = #generated
+* section[emergencyContacts].section[socialHistory].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Availability of carer support</td><td>Has a carer</td></tr><tr><td>Main carer name</td><td>Joan LIVERPOOL</td></tr><tr><td>Main carer telephone numbers</td><td>07700 900123</td></tr></table></div>"
+* section[emergencyContacts].section[socialHistory].entry[+] = Reference(EolCarer)
+* section[emergencyContacts].section[socialHistory].entry[+] = Reference(EolObs1-16)
 * section[formReviewed].title = "9. Form reviewed and remains relevant"
 * section[formReviewed].code = EOLDocumentSectionCS#respect-9
 * section[formReviewed].text.status = #generated
@@ -987,7 +1019,7 @@ Usage:      #inline
 Instance:   EolComposition2
 InstanceOf: PalliativeCareRecordComposition
 Title:      "Palliative Care Record for Ned LIVERPOOL (version 2)"
-Description: "Fictitious example. Palliative Care Record Document Composition, sections in ReSPECT order."
+Description: "Fictitious example. Palliative Care Record Document Composition: sections in ReSPECT order, with International Patient Summary coded subsections."
 Usage:      #inline
 * identifier.system = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/eol-record"
 * identifier.value = "EOL-0001-v2"
@@ -1011,34 +1043,62 @@ Usage:      #inline
 * section[sharedUnderstanding].title = "2. Shared understanding of my health and current condition"
 * section[sharedUnderstanding].code = EOLDocumentSectionCS#respect-2
 * section[sharedUnderstanding].text.status = #generated
-* section[sharedUnderstanding].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Primary end of life care diagnosis</td><td>Malignant neoplasm of caecum</td></tr><tr><td>Other relevant end of life care diagnoses and clinical issues</td><td>Metastatic malignant neoplasm to liver</td></tr><tr><td>Likely prognosis</td><td>Last weeks of life</td></tr><tr><td>Disability</td><td>No known disability</td></tr><tr><td>Functional status (Australia-modified Karnofsky Performance Status score 0-100)</td><td>30</td></tr><tr><td>Allergies/adverse drug reactions</td><td>No known allergy</td></tr><tr><td>Anticipatory medicines/just in case box issued</td><td>Issue of palliative care anticipatory medication box</td></tr><tr><td>Location of anticipatory medicines/just in case box</td><td>Just in case box in the kitchen cupboard</td></tr><tr><td>EoLC tool in use</td><td>On gold standards palliative care framework</td></tr><tr><td>Person is on the palliative care register (PRSB)</td><td>On end of life care register</td></tr><tr><td>Has advance statement</td><td>Has advance statement (Mental Capacity Act 2005)</td></tr><tr><td>Authority of LPA</td><td>Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)</td></tr></table></div>"
-* section[sharedUnderstanding].entry[+] = Reference(EolCarePlan)
-* section[sharedUnderstanding].entry[+] = Reference(PathPrimaryCancerCondition)
-* section[sharedUnderstanding].entry[+] = Reference(EolLiverMetastases)
+* section[sharedUnderstanding].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Likely prognosis</td><td>Last weeks of life</td></tr><tr><td>EoLC tool in use</td><td>On gold standards palliative care framework</td></tr><tr><td>Person is on the palliative care register (PRSB)</td><td>On end of life care register</td></tr></table></div>"
 * section[sharedUnderstanding].entry[+] = Reference(EolObs2-34)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-28)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs2-29)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-30)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-31)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-32)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-33)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-35)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-52)
+* section[sharedUnderstanding].section[problems].title = "Problems"
+* section[sharedUnderstanding].section[problems].code = http://loinc.org#11450-4 "Problem list - Reported"
+* section[sharedUnderstanding].section[problems].text.status = #generated
+* section[sharedUnderstanding].section[problems].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Primary end of life care diagnosis</td><td>Malignant neoplasm of caecum</td></tr><tr><td>Other relevant end of life care diagnoses and clinical issues</td><td>Metastatic malignant neoplasm to liver</td></tr></table></div>"
+* section[sharedUnderstanding].section[problems].entry[+] = Reference(PathPrimaryCancerCondition)
+* section[sharedUnderstanding].section[problems].entry[+] = Reference(EolLiverMetastases)
+* section[sharedUnderstanding].section[allergies].title = "Allergies and intolerances"
+* section[sharedUnderstanding].section[allergies].code = http://loinc.org#48765-2 "Allergies and adverse reactions Document"
+* section[sharedUnderstanding].section[allergies].text.status = #generated
+* section[sharedUnderstanding].section[allergies].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Allergies/adverse drug reactions</td><td>No known allergy</td></tr></table></div>"
+* section[sharedUnderstanding].section[allergies].entry[+] = Reference(EolObs1-30)
+* section[sharedUnderstanding].section[medications].title = "Medicines"
+* section[sharedUnderstanding].section[medications].code = http://loinc.org#10160-0 "History of Medication use Narrative"
+* section[sharedUnderstanding].section[medications].text.status = #generated
+* section[sharedUnderstanding].section[medications].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Anticipatory medicines/just in case box issued</td><td>Issue of palliative care anticipatory medication box</td></tr><tr><td>Location of anticipatory medicines/just in case box</td><td>Just in case box in the kitchen cupboard</td></tr></table></div>"
+* section[sharedUnderstanding].section[medications].entry[+] = Reference(EolObs1-31)
+* section[sharedUnderstanding].section[medications].entry[+] = Reference(EolObs1-32)
+* section[sharedUnderstanding].section[functionalStatus].title = "Functional status"
+* section[sharedUnderstanding].section[functionalStatus].code = http://loinc.org#47420-5 "Functional Status Assessment Note"
+* section[sharedUnderstanding].section[functionalStatus].text.status = #generated
+* section[sharedUnderstanding].section[functionalStatus].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Functional status (Australia-modified Karnofsky Performance Status score 0-100)</td><td>30</td></tr><tr><td>Disability</td><td>No known disability</td></tr></table></div>"
+* section[sharedUnderstanding].section[functionalStatus].entry[+] = Reference(EolObs2-29)
+* section[sharedUnderstanding].section[functionalStatus].entry[+] = Reference(EolObs1-28)
+* section[sharedUnderstanding].section[advanceDirectives].title = "Advance directives"
+* section[sharedUnderstanding].section[advanceDirectives].code = http://loinc.org#42348-3 "Advance Healthcare Directives"
+* section[sharedUnderstanding].section[advanceDirectives].text.status = #generated
+* section[sharedUnderstanding].section[advanceDirectives].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Has advance statement</td><td>Has advance statement (Mental Capacity Act 2005)</td></tr><tr><td>Authority of LPA</td><td>Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)</td></tr></table></div>"
+* section[sharedUnderstanding].section[advanceDirectives].entry[+] = Reference(EolObs1-35)
+* section[sharedUnderstanding].section[advanceDirectives].entry[+] = Reference(EolObs1-52)
 * section[whatMattersToMe].title = "3. What matters to me in decisions about my treatment and care"
 * section[whatMattersToMe].code = EOLDocumentSectionCS#respect-3
 * section[whatMattersToMe].text.status = #generated
-* section[whatMattersToMe].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Advance statement requests and preferences</td><td>Wishes to stay at home with his family, and does not want to go back into hospital.</td></tr><tr><td>Preferred place of death 1st choice</td><td>Hospice</td></tr><tr><td>Preferred place of death (1st choice) is usual place of residence</td><td>No</td></tr><tr><td>Preferred place of death 2nd choice</td><td>Patient&#x27;s own home</td></tr><tr><td>Other relevant issues or preferences about provision of care</td><td>Ned now wishes to be cared for in the hospice if his symptoms cannot be controlled at home. Key safe by the front door - the code is held by the district nursing team.</td></tr></table></div>"
-* section[whatMattersToMe].entry[+] = Reference(EolObs2-36)
-* section[whatMattersToMe].entry[+] = Reference(EolObs2-39)
-* section[whatMattersToMe].entry[+] = Reference(EolObs2-40)
-* section[whatMattersToMe].entry[+] = Reference(EolObs2-58)
+* section[whatMattersToMe].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Recorded in the subsections below.</p></div>"
+* section[whatMattersToMe].section[patientStory].title = "My preferences"
+* section[whatMattersToMe].section[patientStory].code = http://loinc.org#81338-6 "Patient Goals, Preferences, and Priorities for Care Experience"
+* section[whatMattersToMe].section[patientStory].text.status = #generated
+* section[whatMattersToMe].section[patientStory].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Advance statement requests and preferences</td><td>Wishes to stay at home with his family, and does not want to go back into hospital.</td></tr><tr><td>Preferred place of death 1st choice</td><td>Hospice</td></tr><tr><td>Preferred place of death (1st choice) is usual place of residence</td><td>No</td></tr><tr><td>Preferred place of death 2nd choice</td><td>Patient&#x27;s own home</td></tr><tr><td>Other relevant issues or preferences about provision of care</td><td>Ned now wishes to be cared for in the hospice if his symptoms cannot be controlled at home. Key safe by the front door - the code is held by the district nursing team.</td></tr></table></div>"
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs2-36)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs2-39)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs2-40)
+* section[whatMattersToMe].section[patientStory].entry[+] = Reference(EolObs2-58)
 * section[clinicalRecommendations].title = "4. Clinical recommendations for emergency care and treatment"
 * section[clinicalRecommendations].code = EOLDocumentSectionCS#respect-4
 * section[clinicalRecommendations].text.status = #generated
-* section[clinicalRecommendations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Cardiopulmonary resuscitation decision</td><td>Not for cardiopulmonary resuscitation</td></tr><tr><td>Date of cardiopulmonary resuscitation decision</td><td>2026-10-12</td></tr><tr><td>Location of cardiopulmonary resuscitation documentation</td><td>ReSPECT form in the folder on the kitchen table</td></tr><tr><td>Contingency plan name</td><td>Treatment escalation plan</td></tr><tr><td>Trigger factors</td><td>Increasing pain, vomiting or new confusion</td></tr><tr><td>What should happen</td><td>Contact the community palliative care team, or the GP out of hours service. Manage at home using the anticipatory medicines. Hospital admission only for symptoms that cannot be controlled at home.</td></tr><tr><td>Date this plan was last updated</td><td>2026-11-02</td></tr></table></div>"
+* section[clinicalRecommendations].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Cardiopulmonary resuscitation decision</td><td>Not for cardiopulmonary resuscitation</td></tr><tr><td>Date of cardiopulmonary resuscitation decision</td><td>2026-10-12</td></tr><tr><td>Location of cardiopulmonary resuscitation documentation</td><td>ReSPECT form in the folder on the kitchen table</td></tr></table></div>"
 * section[clinicalRecommendations].entry[+] = Reference(EolObs1-44)
 * section[clinicalRecommendations].entry[+] = Reference(EolObs1-45)
 * section[clinicalRecommendations].entry[+] = Reference(EolObs1-47)
+* section[clinicalRecommendations].section[planOfCare].title = "Care plan and contingency plans"
+* section[clinicalRecommendations].section[planOfCare].code = http://loinc.org#18776-5 "Plan of Care Note"
+* section[clinicalRecommendations].section[planOfCare].text.status = #generated
+* section[clinicalRecommendations].section[planOfCare].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Contingency plan name</td><td>Treatment escalation plan</td></tr><tr><td>Trigger factors</td><td>Increasing pain, vomiting or new confusion</td></tr><tr><td>What should happen</td><td>Contact the community palliative care team, or the GP out of hours service. Manage at home using the anticipatory medicines. Hospital admission only for symptoms that cannot be controlled at home.</td></tr><tr><td>Date this plan was last updated</td><td>2026-11-02</td></tr></table></div>"
+* section[clinicalRecommendations].section[planOfCare].entry[+] = Reference(EolCarePlan)
 * section[capacity].title = "5. Capacity for involvement in making this plan"
 * section[capacity].code = EOLDocumentSectionCS#respect-5
 * section[capacity].text.status = #generated
@@ -1057,10 +1117,14 @@ Usage:      #inline
 * section[emergencyContacts].title = "8. Emergency contacts and those involved in discussing this plan"
 * section[emergencyContacts].code = EOLDocumentSectionCS#respect-8
 * section[emergencyContacts].text.status = #generated
-* section[emergencyContacts].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Availability of carer support</td><td>Has a carer</td></tr><tr><td>Main carer name</td><td>Joan LIVERPOOL</td></tr><tr><td>Main carer telephone numbers</td><td>07700 900123</td></tr><tr><td>Name of Lasting Power of Attorney for personal welfare</td><td>Joan LIVERPOOL</td></tr><tr><td>Telephone number(s) concerning Lasting Power of Attorney</td><td>07700 900123</td></tr><tr><td>Usual GP name</td><td>Dr Rachel FICTITIOUS</td></tr><tr><td>Practice details (ODS code)</td><td>GP001 - FICTITIOUS Medical Practice</td></tr><tr><td>Key worker name if not usual GP</td><td>Sarah FICTITIOUS, district nurse</td></tr><tr><td>Key worker telephone number</td><td>0151 496 0123</td></tr><tr><td>Care workers involved in care: name</td><td>Community Specialist Palliative Care Team</td></tr><tr><td>Care workers involved in care: professional group</td><td>Under care of palliative care specialist nurse</td></tr><tr><td>Telephone numbers for care workers involved in care</td><td>0151 496 0456</td></tr></table></div>"
-* section[emergencyContacts].entry[+] = Reference(EolCarer)
+* section[emergencyContacts].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Name of Lasting Power of Attorney for personal welfare</td><td>Joan LIVERPOOL</td></tr><tr><td>Telephone number(s) concerning Lasting Power of Attorney</td><td>07700 900123</td></tr><tr><td>Usual GP name</td><td>Dr Rachel FICTITIOUS</td></tr><tr><td>Practice details (ODS code)</td><td>GP001 - FICTITIOUS Medical Practice</td></tr><tr><td>Key worker name if not usual GP</td><td>Sarah FICTITIOUS, district nurse</td></tr><tr><td>Key worker telephone number</td><td>0151 496 0123</td></tr><tr><td>Care workers involved in care: name</td><td>Community Specialist Palliative Care Team</td></tr><tr><td>Care workers involved in care: professional group</td><td>Under care of palliative care specialist nurse</td></tr><tr><td>Telephone numbers for care workers involved in care</td><td>0151 496 0456</td></tr></table></div>"
 * section[emergencyContacts].entry[+] = Reference(EolCareTeam)
-* section[emergencyContacts].entry[+] = Reference(EolObs1-16)
+* section[emergencyContacts].section[socialHistory].title = "Main carer"
+* section[emergencyContacts].section[socialHistory].code = http://loinc.org#29762-2 "Social history note"
+* section[emergencyContacts].section[socialHistory].text.status = #generated
+* section[emergencyContacts].section[socialHistory].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Availability of carer support</td><td>Has a carer</td></tr><tr><td>Main carer name</td><td>Joan LIVERPOOL</td></tr><tr><td>Main carer telephone numbers</td><td>07700 900123</td></tr></table></div>"
+* section[emergencyContacts].section[socialHistory].entry[+] = Reference(EolCarer)
+* section[emergencyContacts].section[socialHistory].entry[+] = Reference(EolObs1-16)
 * section[formReviewed].title = "9. Form reviewed and remains relevant"
 * section[formReviewed].code = EOLDocumentSectionCS#respect-9
 * section[formReviewed].text.status = #generated

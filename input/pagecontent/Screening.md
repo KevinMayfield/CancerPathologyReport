@@ -124,6 +124,17 @@ Screening Committee recommends 20 µg Hb/g as the optimum
 ([UK NSC blog, January 2026](https://nationalscreening.blog.gov.uk/2026/01/26/more-sensitive-bowel-cancer-screening-test-implemented-in-line-with-uk-nsc-recommendation),
 [Cancer Research UK](https://news.cancerresearchuk.org/2026/01/26/nhs-england-increasing-bowel-cancer-screening-fit-test-sensitivity/)).
 
+The difference is between a **programme outcome** and a **laboratory result**,
+not between England and elsewhere. The hub laboratory does measure faecal
+haemoglobin; BCSS turns the value into a programme category, and only the category
+is sent to the GP. A programme code such as *FOB test abnormal* means "at or above
+this programme's threshold at the time" - a threshold that is now changing. A value
+with a reference range carries its own threshold and can be reinterpreted later.
+Symptomatic FIT in England is reported as a value (see
+[below](#screening-fit-and-symptomatic-fit)), and qualitative results are common
+elsewhere (e.g. LOINC `29771-3` positive or negative in the US). What other
+European programmes send to primary care has not been checked.
+
 #### NHS004 codes (2014 specification)
 
 The NHS004 specification predates FIT and codes the result as a faecal occult blood

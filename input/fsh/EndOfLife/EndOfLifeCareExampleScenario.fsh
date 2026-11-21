@@ -69,6 +69,14 @@ Usage:          #definition
 * instance[=].version[=].description = "From the first completion"
 * instance[=].version[+].versionId = "obs-2"
 * instance[=].version[=].description = "From the amendment; replaced Observations are marked amended"
+* instance[+].resourceId = "careplan"
+* instance[=].resourceType = #CarePlan
+* instance[=].name = "End of life care plan"
+* instance[=].description = "Created on extraction. CarePlan.addresses the diagnoses (Conditions) - for a cancer patient the Primary Cancer Condition from the Cancer Pathology Report - and CarePlan.careTeam links to the care team."
+* instance[+].resourceId = "careteam"
+* instance[=].resourceType = #CareTeam
+* instance[=].name = "End of life care team"
+* instance[=].description = "The key worker and the care workers involved in care (SCCI1580 items 21-25)."
 * instance[+].resourceId = "document"
 * instance[=].resourceType = #Bundle
 * instance[=].name = "End of Life Care Record (FHIR Document)"
@@ -119,7 +127,7 @@ Usage:          #definition
 * process[=].step[=].operation.name = "Submit and extract"
 * process[=].step[=].operation.initiator = "formfiller"
 * process[=].step[=].operation.receiver = "epaccs"
-* process[=].step[=].operation.description = "The completed QuestionnaireResponse is submitted and $extract creates the Observations (and updates Patient and RelatedPerson)."
+* process[=].step[=].operation.description = "The completed QuestionnaireResponse is submitted. $extract creates the Observations, the CareTeam (key worker and care workers) and the CarePlan, which addresses the diagnoses and links to the CareTeam; Patient and RelatedPerson are updated."
 * process[=].step[=].operation.request.resourceId = "qr"
 * process[=].step[=].operation.request.versionId = "qr-1"
 * process[=].step[=].operation.response.resourceId = "observations"

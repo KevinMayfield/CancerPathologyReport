@@ -92,7 +92,13 @@ OBX|1|NM|TCC^Tumour cell content^690S0||40|%^percent^UCUM|||||F|||20230821110000
 
 LOINC codes checked on tx.fhir.org (`CodeSystem/$lookup`, 2026-11-21): `21855-2`,
 `31205-8`, `31206-6`, `77753-2`, `81691-8`, `81694-2`, `81692-6`, `81693-4`,
-`LA9634-2`, `LA9633-4`.
+`LA9634-2`, `LA9633-4`. SNOMED CT `35917007` *Adenocarcinoma*, as quoted from the
+NW Genomics IG, is **inactive** in the UK edition (20261021); its replacement is
+`1187332001` *Adenocarcinoma*, used in the FHIR example below.
+
+The same report as a FHIR Document, coded with the profiles in this guide:
+[PathDocument](Bundle-PathDocument.html) (Cancer Pathology Composition and
+Cancer Pathology Diagnostic Report).
 
 #### Mapping to the Cancer Pathology Report
 
@@ -107,7 +113,7 @@ are indicative.
 | `OBR-1` `OBX-1` `21855-2` Primary site | pCR6410 | `diagnosis.topography` | [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html) `bodySite` |
 | `OBR-2` `OBX-1` `31205-8` Histology | pCR6420 | `diagnosis.morphology` | [Histologic Behavior and Type](StructureDefinition-HistologicBehaviorAndType.html) |
 | `OBR-2` `OBX-2` `31206-6` Behaviour | pCR6420 (5th digit of the morphology) | `diagnosis.morphology` | [Histologic Behavior and Type](StructureDefinition-HistologicBehaviorAndType.html) |
-| `OBR-3` `OBX-1..4` MMR IHC | pCR7020-pCR7050 | `mmrImmunohistochemistry` | [Cancer Pathology Tumor Marker Test](StructureDefinition-CancerPathologyTumorMarkerTest.html) |
+| `OBR-3` `OBX-1..4` MMR IHC | pCR7020-pCR7050 | `mmrImmunohistochemistry` | [Tumor Marker Test](StructureDefinition-TumorMarkerTest.html) |
 | `OBR-4` Tumour assessment for molecular testing, `TCC` | - | Not modelled (COSD gap) | Not profiled |
 | `SPM` of the genomic order (block, fixative, collection) | pCR1010, pCR0760 | `specimen` | [Cancer Pathology Specimen](StructureDefinition-CancerPathologySpecimen.html) |
 {:.grid}

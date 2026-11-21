@@ -1,10 +1,9 @@
-// Fictitious examples for the End of Life Care scenario. Ned LIVERPOOL is the
 // patient of the Lynch syndrome example (LAB-35); his caecal adenocarcinoma has
 // since spread to the liver. GP001 is a placeholder, not an ODS code; phone
 // numbers are from the Ofcom drama ranges; the NHS number is a test number.
 
 Instance:   EolPatient
-InstanceOf: Patient
+InstanceOf: $EuPatient
 Title:      "Ned LIVERPOOL"
 Description: "Fictitious example patient."
 Usage:      #example
@@ -94,6 +93,8 @@ Usage:      #example
 * reasonCode.text = "Colorectal MDT 5 October 2026: metastatic caecal adenocarcinoma, liver metastases, not for further anti-cancer treatment"
 * output.type.text = "End of Life Care QuestionnaireResponse"
 * output.valueReference = Reference(EolQuestionnaireResponse1)
+* output[+].type.text = "End of life care plan"
+* output[=].valueReference = Reference(EolCarePlan)
 
 Instance:   EolDocumentReference1
 InstanceOf: DocumentReference
@@ -129,3 +130,70 @@ Usage:      #example
 * content[+].attachment.contentType = #application/pdf
 * content[=].attachment.url = "https://example.org/eol/EOL-0001-v2.pdf"
 * content[=].attachment.title = "End of Life Care Record (version 2) - printable copy"
+
+Instance:   EolKeyWorker
+InstanceOf: Practitioner
+Title:      "Sarah FICTITIOUS - district nurse, key worker"
+Description: "Fictitious example key worker (SCCI1580 items 21-22)."
+Usage:      #example
+* name.family = "FICTITIOUS"
+* name.given = "Sarah"
+* telecom.system = #phone
+* telecom.value = "0151 496 0123"
+
+Instance:   EolPalliativeCareService
+InstanceOf: Organization
+Title:      "Community Specialist Palliative Care Team"
+Description: "Fictitious example care service (SCCI1580 items 23-25)."
+Usage:      #example
+* name = "COMMUNITY SPECIALIST PALLIATIVE CARE TEAM"
+* telecom.system = #phone
+* telecom.value = "0151 496 0456"
+* partOf = Reference(EolProvider)
+
+Instance:   EolCareTeam
+InstanceOf: EndOfLifeCareTeam
+Title:      "End of life care team for Ned LIVERPOOL"
+Description: "Fictitious example. The key worker and care workers involved in care (SCCI1580 items 21-25)."
+Usage:      #example
+* status = #active
+* subject = Reference(EolPatient)
+* name = "End of life care team"
+* participant[+].role = http://snomed.info/sct#719240009 "Has end of life care key worker"
+* participant[=].role.text = "Key worker (district nurse)"
+* participant[=].member = Reference(EolKeyWorker)
+* participant[+].role = http://snomed.info/sct#850951000000107 "Under care of palliative care specialist nurse"
+* participant[=].member = Reference(EolPalliativeCareService)
+* participant[+].role.text = "Consultant in palliative medicine"
+* participant[=].member = Reference(EolPalliativeConsultant)
+
+Instance:   EolLiverMetastases
+InstanceOf: Condition
+Title:      "Metastatic malignant neoplasm to liver"
+Description: "Fictitious example. Other relevant end of life care diagnosis (SCCI1580 item 27)."
+Usage:      #example
+* clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
+* verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* category = http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item
+* code = http://snomed.info/sct#94381002 "Metastatic malignant neoplasm to liver"
+* subject = Reference(EolPatient)
+* recordedDate = "2026-09-28"
+
+Instance:   EolCarePlan
+InstanceOf: EndOfLifeCarePlan
+Title:      "End of life care plan for Ned LIVERPOOL"
+Description: "Fictitious example. Addresses the primary end of life care diagnosis - the Primary Cancer Condition from the Cancer Pathology Report - and the liver metastases, and links to the care team."
+Usage:      #example
+* status = #active
+* intent = #plan
+* category = http://snomed.info/sct#773981004 "Palliative care plan"
+* title = "End of life care plan"
+* subject = Reference(EolPatient)
+* period.start = "2026-10-12"
+* created = "2026-10-12T14:00:00+00:00"
+* author = Reference(EolPalliativeConsultant)
+* careTeam = Reference(EolCareTeam)
+* addresses[+] = Reference(PathPrimaryCancerCondition)
+* addresses[+] = Reference(EolLiverMetastases)
+* supportingInfo[+] = Reference(EolObs1-44)
+* supportingInfo[+] = Reference(EolCarer)

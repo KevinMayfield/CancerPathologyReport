@@ -57,6 +57,74 @@ amended, the Observation is updated with status `amended`.
 * derivedFrom only Reference(QuestionnaireResponse)
 * derivedFrom ^short = "The QuestionnaireResponse the answer was extracted from"
 
+Profile:        EndOfLifeCareTeam
+Parent:         CareTeam
+Id:             EndOfLifeCareTeam
+Title:          "End of Life Care Team"
+Description:    """
+**Proof of concept - not an authoritative source.**
+
+The people and services caring for the person: the key worker (SCCI1580 items
+21-22) and the care workers involved in care (items 23-25). Referenced by the
+[End of Life Care Plan](StructureDefinition-EndOfLifeCarePlan.html).
+"""
+* ^experimental = true
+* status MS
+* subject 1..1 MS
+* subject only Reference(Patient)
+* participant 1..* MS
+* participant.role 1..* MS
+* participant.role ^short = "Key worker, or professional group (SCCI1580 item 24)"
+* participant.role from EOLCareTeamRole (extensible)
+* participant.member 1..1 MS
+* participant.member only Reference(Practitioner or PractitionerRole or Organization or CareTeam)
+* participant.member ^short = "Key worker or care worker name (SCCI1580 items 21, 23); telephone (22, 25) on the Practitioner or Organization"
+
+ValueSet:       EOLCareTeamRole
+Id:             eol-care-team-role
+Title:          "End of Life Care Team Role"
+Description:    "Proof of concept - not an authoritative source. The key worker (SCCI1580 item 21, coded here with 719240009 Has end of life care key worker) and the care worker professional groups (SCCI1580 item 24)."
+* ^status = #draft
+* ^experimental = true
+* http://snomed.info/sct#719240009 "Has end of life care key worker"
+* include codes from valueset EOLCareWorkerGroup
+
+Profile:        EndOfLifeCarePlan
+Parent:         CarePlan
+Id:             EndOfLifeCarePlan
+Title:          "End of Life Care Plan"
+Description:    """
+**Proof of concept - not an authoritative source.**
+
+The person's end of life care plan. It `addresses` the diagnoses - the primary end
+of life care diagnosis (SCCI1580 item 26) and other relevant diagnoses and clinical
+issues (item 27) - and links to the [care team](StructureDefinition-EndOfLifeCareTeam.html)
+(items 21-25). The plan's content - preferences, CPR decision, legal information -
+is held as [Observations](StructureDefinition-EndOfLifeCareObservation.html) in
+`supportingInfo`.
+"""
+* ^experimental = true
+* status MS
+* intent = #plan
+* category 1..* MS
+* category = http://snomed.info/sct#773981004 "Palliative care plan"
+* subject 1..1 MS
+* subject only Reference(Patient)
+* period MS
+* period.start ^short = "Record creation date (SCCI1580 item 2)"
+* period.end ^short = "Date of death (SCCI1580 item 59), when the plan ends"
+* created MS
+* author MS
+* careTeam 0..* MS
+* careTeam only Reference(EndOfLifeCareTeam)
+* careTeam ^short = "Key worker and care workers (SCCI1580 items 21-25)"
+* addresses 1..* MS
+* addresses ^short = "Primary end of life care diagnosis (SCCI1580 item 26) first, then other diagnoses and clinical issues (item 27)"
+* addresses ^comment = "For a person on the cancer pathway, the primary diagnosis can be the Primary Cancer Condition recorded by the Cancer Pathology Report."
+* supportingInfo MS
+* supportingInfo only Reference(EndOfLifeCareObservation or RelatedPerson)
+* supportingInfo ^short = "The extracted answers, and the persons involved"
+
 Profile:        EndOfLifeCareComposition
 Parent:         Composition
 Id:             EndOfLifeCareComposition
@@ -96,7 +164,7 @@ entries. An amended record is a new Composition that `replaces` the previous one
 * section ^slicing.ordered = true
 * section.code 1..1
 * section.text 1..1
-* section.entry only Reference(EndOfLifeCareObservation or Patient or RelatedPerson or Practitioner or PractitionerRole or Organization)
+* section.entry only Reference(EndOfLifeCareObservation or EndOfLifeCarePlan or EndOfLifeCareTeam or Condition or Patient or RelatedPerson or Practitioner or PractitionerRole or Organization)
 * section contains
     planBelongsTo 1..1 MS and
     sharedUnderstanding 0..1 MS and

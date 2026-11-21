@@ -52,6 +52,8 @@ flowchart LR
 | [End of Life Care Record](StructureDefinition-EndOfLifeCareRecord.html) | Logical model: SCCI1580's 16 sections and 60 data items, plus PRSB items where SCCI1580 is silent. Mappings to SCCI1580, PRSB and the 2019 API |
 | [End of Life Care](Questionnaire-EndOfLifeCareQuestionnaire.html) Questionnaire | SDC capture form. linkIds are the SCCI1580 item numbers; each item's `definition` points to the logical model; coded items are extracted as Observations |
 | [SCCI1580 Data Item](CodeSystem-scci1580-data-item.html) code system | The 60 SCCI1580 data items, used as `Questionnaire.item.code` and `Observation.code` - a local proposal, as SCCI1580 publishes no code system |
+| [End of Life Care Plan](StructureDefinition-EndOfLifeCarePlan.html) | Profile: the person's palliative care plan. `addresses` the diagnoses (SCCI1580 items 26-27) as Conditions, `careTeam` links to the care team, `supportingInfo` holds the Observations |
+| [End of Life Care Team](StructureDefinition-EndOfLifeCareTeam.html) | Profile: the key worker (items 21-22) and care workers involved in care (items 23-25) |
 | [End of Life Care Observation](StructureDefinition-EndOfLifeCareObservation.html) | Profile for an extracted answer: `code` the SCCI1580 data item, `derivedFrom` the QuestionnaireResponse |
 | [End of Life Care Composition](StructureDefinition-EndOfLifeCareComposition.html) | Profile for the Document's Composition: type SNOMED CT `861421000000109` *End of Life Care Coordination Summary*, ordered sections in ReSPECT order ([section codes](CodeSystem-eol-document-section.html)) |
 | [End of Life Care Scenario](ExampleScenario-EndOfLifeCareScenario.html) | Example scenario: Task, capture, extraction, Document, print, retrieval and amendment |
@@ -84,7 +86,7 @@ sequenceDiagram
     FF->>E: 8 $populate from current Observations
     C->>FF: 9 Amend (e.g. CPR decision), submit, $extract
     E->>DR: 10 Replacement Document (relatesTo replaces)
-    E->>C: 11 Replacement PDF; old copy removed
+    E->>C: 11 Replacement PDF, old copy removed
 ```
 
 ### Content
@@ -101,15 +103,30 @@ SCCI1580's sections. Items marked * are mandatory in SCCI1580.
 | 5 Special requirements | 14 Interpreter, 15 Language, 29 Functional status, 28 Disability, 33 EoLC tool in use; PRSB palliative care register | `s5` | Observations |
 | 6 Information and advice given | 18 Carer aware of prognosis, 48 Awareness of CPR decision | `s6` | Observations |
 | 7 GP practice | 19 Usual GP name*, 20 Practice details* | `s7` | `Patient.generalPractitioner` |
-| 8 Key worker | 21-22 | `s8` | `CareTeam` - **Open** |
-| 9 Services and care | 23-25 Care workers and professional group | `s9` | `CareTeam` - **Open** |
-| 10 Diagnoses | 26 Primary end of life care diagnosis*, 27 Other diagnoses, 34 Likely prognosis | `s10` | Observations (`Condition` - **Open**) |
+| 8 Key worker | 21-22 | `s8` | `CareTeam.participant` (role key worker) |
+| 9 Services and care | 23-25 Care workers and professional group | `s9` | `CareTeam.participant` (role professional group) |
+| 10 Diagnoses | 26 Primary end of life care diagnosis*, 27 Other diagnoses, 34 Likely prognosis | `s10` | 26-27: `Condition`, addressed by the `CarePlan`; 34: Observation |
 | 11 Allergies | 30 Allergies/adverse drug reactions | `s11` | Observation (`AllergyIntolerance` - **Open**) |
 | 12 Medications and devices | 31 Anticipatory medicines/just in case box, 32 Location | `s12` | Observations |
 | 13 Legal information | 35 Advance statement, 49-50 ADRT, 51-53 LPA for personal welfare; PRSB mental capacity assessment and document locations | `s13` | Observations, `RelatedPerson` |
 | 14 Concerns, expectations and wishes | 36-43 Preferred place of death 1st and 2nd choice, 54-57 others to be involved in decisions, 58 Other issues or preferences; PRSB contingency plans | `s14` | Observations, `RelatedPerson` |
 | 15-16 After death | 60 Actual place of death, 59 Date of death | `s15` | Observations |
 {:.grid}
+
+The record is persisted around an [End of Life Care Plan](StructureDefinition-EndOfLifeCarePlan.html):
+
+```mermaid
+flowchart LR
+    CP["CarePlan<br/>(palliative care plan)"] -- "addresses" --> C1["Condition<br/>primary diagnosis (26)"]
+    CP -- "addresses" --> C2["Condition<br/>other diagnoses (27)"]
+    CP -- "careTeam" --> CT["CareTeam<br/>key worker (21-22),<br/>care workers (23-25)"]
+    CP -- "supportingInfo" --> O["Observations<br/>(coded answers)"]
+    C1 -. "cancer pathway" .-> PCC["Primary Cancer Condition<br/>(Cancer Pathology Report)"]
+```
+
+For a person on the cancer pathway the primary end of life care diagnosis need not
+be re-entered: the CarePlan can address the [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html)
+already recorded from the Cancer Pathology Report, as in the [examples](#examples).
 
 Each extracted Observation has `code` = the [SCCI1580 data item](CodeSystem-scci1580-data-item.html)
 (for example `scci1580-data-item#44` CPR decision), `value` = the answer (for
@@ -183,7 +200,7 @@ changed in this version - a real viewer would not show the labels.
 <tr><td style="border:none; padding:2px 8px 2px 0;"><b>Date completed</b></td><td style="border:none;">12-Oct-2026</td><td style="border:none;"><b>Last amended</b></td><td style="border:none;">02-Nov-2026 10:00 <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></td></tr>
 </table>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-2 &middot; SCCI1580 26, 27, 34, 29, 28, 30, 31-32, 33, 35, 52 &middot; PRSB palliative care register</div>
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-2 &middot; entry CarePlan, Conditions (26, 27) &middot; SCCI1580 34, 29, 28, 30, 31-32, 33, 35, 52 &middot; PRSB palliative care register</div>
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">2. Shared understanding of my health and current condition</div>
 <p style="margin:2px 0 6px;"><b>Diagnoses.</b> Malignant neoplasm of caecum, with metastases to the liver. On the end of life care register; Gold Standards Framework in use.</p>
 <p style="margin:2px 0 6px;"><b>Likely prognosis.</b> Last weeks of life <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
@@ -215,7 +232,7 @@ changed in this version - a real viewer would not show the labels.
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">7. Clinicians' signatures</div>
 <p style="margin:2px 0 10px;">Dr Priya FICTITIOUS, Consultant in Palliative Medicine (GMC C5678901) &middot; attested 02-Nov-2026 10:00</p>
 
-<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-8 &middot; entry RelatedPerson &middot; SCCI1580 16-17, 51-53, 19-25</div>
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-8 &middot; entry RelatedPerson, CareTeam (21-25) &middot; SCCI1580 16-17, 51-53, 19-20</div>
 <div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">8. Emergency contacts and those involved in discussing this plan</div>
 <table style="width:100%; font-size:14px; margin-bottom:10px; border:none;">
 <tr><td style="border:none; padding:2px 8px 2px 0;"><b>Main carer and LPA (personal welfare)</b></td><td style="border:none;">Joan LIVERPOOL, wife</td><td style="border:none;">07700 900123</td></tr>
@@ -255,6 +272,7 @@ of life*.
 |---|---|
 | 1 Task raised by the oncologist after the MDT | [EolTask](Task-EolTask.html) |
 | 3-4 First completion and extraction | [QuestionnaireResponse (first completion)](QuestionnaireResponse-EolQuestionnaireResponse1.html); Observations `EolObs1-*` (for example [CPR decision](Observation-EolObs1-44.html), [likely prognosis](Observation-EolObs1-34.html)) |
+| 4 Care plan and care team | [EolCarePlan](CarePlan-EolCarePlan.html) addressing the [Primary Cancer Condition](Condition-PathPrimaryCancerCondition.html) from the pathology example and [liver metastases](Condition-EolLiverMetastases.html), with [EolCareTeam](CareTeam-EolCareTeam.html) |
 | 5 Document version 1 | [EolDocument1](Bundle-EolDocument1.html), indexed by [EolDocumentReference1](DocumentReference-EolDocumentReference1.html) (now superseded) |
 | 8-9 Amendment - prognosis *last weeks of life*, hospice now the 1st choice of preferred place of death, functional status 30 | [QuestionnaireResponse (amendment)](QuestionnaireResponse-EolQuestionnaireResponse2.html); amended Observations `EolObs2-*` (for example [preferred place of death](Observation-EolObs2-36.html)) |
 | 10 Document version 2, which `replaces` version 1 | [EolDocument2](Bundle-EolDocument2.html), indexed by [EolDocumentReference2](DocumentReference-EolDocumentReference2.html) with the printable PDF |
@@ -321,8 +339,14 @@ system for the NHS Data Model and Dictionary DEATH LOCATION TYPE CODE was found 
 - Whether related items (for example 44-47, the CPR decision with its date, review
   date and document location) should be one Observation with components rather
   than one Observation each.
-- Which items should also become specific resources - `Consent` (1),
-  `Condition` (26-27), `AllergyIntolerance` (30), `CareTeam` (21-25).
+- Which other items should also become specific resources - `Consent` (1),
+  `AllergyIntolerance` (30).
+- SNOMED CT has no key worker role concept; `719240009` *Has end of life care key
+  worker* (a finding) is used as the CareTeam role, as SCCI1580 uses *Under care
+  of ...* findings for professional groups.
+- Extraction to Condition, CareTeam and CarePlan needs SDC definition-based (or
+  template-based) extraction; only observation-based extraction is declared in the
+  Questionnaire.
 - ReSPECT content that is in neither SCCI1580 nor PRSB - the care priority scale,
   CPR recommendation for adults or children, clinician signatures - needs a ReSPECT
   model, which the Resuscitation Council UK would own.

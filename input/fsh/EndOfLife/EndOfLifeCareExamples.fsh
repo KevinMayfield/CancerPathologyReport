@@ -669,32 +669,6 @@ Usage:      #example
 * valueCodeableConcept = $sct#975291000000108 "Family member informed of cardiopulmonary resuscitation clinical decision"
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
-Instance:   EolObs1-26
-InstanceOf: EndOfLifeCareObservation
-Title:      "SCCI1580 26 Primary end of life care diagnosis"
-Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
-Usage:      #example
-* status = #final
-* code = EOLDataItemCS#26
-* subject = Reference(EolPatient)
-* effectiveDateTime = "2026-10-12T14:00:00+00:00"
-* performer = Reference(EolPalliativeConsultant)
-* valueCodeableConcept = $sct#363350007 "Malignant neoplasm of caecum"
-* derivedFrom = Reference(EolQuestionnaireResponse1)
-
-Instance:   EolObs1-27
-InstanceOf: EndOfLifeCareObservation
-Title:      "SCCI1580 27 Other relevant end of life care diagnoses and clinical issues"
-Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
-Usage:      #example
-* status = #final
-* code = EOLDataItemCS#27
-* subject = Reference(EolPatient)
-* effectiveDateTime = "2026-10-12T14:00:00+00:00"
-* performer = Reference(EolPalliativeConsultant)
-* valueCodeableConcept = $sct#94381002 "Metastatic malignant neoplasm to liver"
-* derivedFrom = Reference(EolQuestionnaireResponse1)
-
 Instance:   EolObs1-34
 InstanceOf: EndOfLifeCareObservation
 Title:      "SCCI1580 34 Likely prognosis"
@@ -954,8 +928,9 @@ Usage:      #inline
 * section[sharedUnderstanding].code = EOLDocumentSectionCS#respect-2
 * section[sharedUnderstanding].text.status = #generated
 * section[sharedUnderstanding].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Primary end of life care diagnosis</td><td>Malignant neoplasm of caecum</td></tr><tr><td>Other relevant end of life care diagnoses and clinical issues</td><td>Metastatic malignant neoplasm to liver</td></tr><tr><td>Likely prognosis</td><td>Last months of life</td></tr><tr><td>Disability</td><td>No known disability</td></tr><tr><td>Functional status (Australia-modified Karnofsky Performance Status score 0-100)</td><td>50</td></tr><tr><td>Allergies/adverse drug reactions</td><td>No known allergy</td></tr><tr><td>Anticipatory medicines/just in case box issued</td><td>Issue of palliative care anticipatory medication box</td></tr><tr><td>Location of anticipatory medicines/just in case box</td><td>Just in case box in the kitchen cupboard</td></tr><tr><td>EoLC tool in use</td><td>On gold standards palliative care framework</td></tr><tr><td>Person is on the palliative care register (PRSB)</td><td>On end of life care register</td></tr><tr><td>Has advance statement</td><td>Has advance statement (Mental Capacity Act 2005)</td></tr><tr><td>Authority of LPA</td><td>Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)</td></tr></table></div>"
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-26)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-27)
+* section[sharedUnderstanding].entry[+] = Reference(EolCarePlan)
+* section[sharedUnderstanding].entry[+] = Reference(PathPrimaryCancerCondition)
+* section[sharedUnderstanding].entry[+] = Reference(EolLiverMetastases)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-34)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-28)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-29)
@@ -1001,6 +976,7 @@ Usage:      #inline
 * section[emergencyContacts].text.status = #generated
 * section[emergencyContacts].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Availability of carer support</td><td>Has a carer</td></tr><tr><td>Main carer name</td><td>Joan LIVERPOOL</td></tr><tr><td>Main carer telephone numbers</td><td>07700 900123</td></tr><tr><td>Name of Lasting Power of Attorney for personal welfare</td><td>Joan LIVERPOOL</td></tr><tr><td>Telephone number(s) concerning Lasting Power of Attorney</td><td>07700 900123</td></tr><tr><td>Usual GP name</td><td>Dr Rachel FICTITIOUS</td></tr><tr><td>Practice details (ODS code)</td><td>GP001 - FICTITIOUS Medical Practice</td></tr><tr><td>Key worker name if not usual GP</td><td>Sarah FICTITIOUS, district nurse</td></tr><tr><td>Key worker telephone number</td><td>0151 496 0123</td></tr><tr><td>Care workers involved in care: name</td><td>Community Specialist Palliative Care Team</td></tr><tr><td>Care workers involved in care: professional group</td><td>Under care of palliative care specialist nurse</td></tr><tr><td>Telephone numbers for care workers involved in care</td><td>0151 496 0456</td></tr></table></div>"
 * section[emergencyContacts].entry[+] = Reference(EolCarer)
+* section[emergencyContacts].entry[+] = Reference(EolCareTeam)
 * section[emergencyContacts].entry[+] = Reference(EolObs1-16)
 * section[formReviewed].title = "9. Form reviewed and remains relevant"
 * section[formReviewed].code = EOLDocumentSectionCS#respect-9
@@ -1036,8 +1012,9 @@ Usage:      #inline
 * section[sharedUnderstanding].code = EOLDocumentSectionCS#respect-2
 * section[sharedUnderstanding].text.status = #generated
 * section[sharedUnderstanding].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Primary end of life care diagnosis</td><td>Malignant neoplasm of caecum</td></tr><tr><td>Other relevant end of life care diagnoses and clinical issues</td><td>Metastatic malignant neoplasm to liver</td></tr><tr><td>Likely prognosis</td><td>Last weeks of life</td></tr><tr><td>Disability</td><td>No known disability</td></tr><tr><td>Functional status (Australia-modified Karnofsky Performance Status score 0-100)</td><td>30</td></tr><tr><td>Allergies/adverse drug reactions</td><td>No known allergy</td></tr><tr><td>Anticipatory medicines/just in case box issued</td><td>Issue of palliative care anticipatory medication box</td></tr><tr><td>Location of anticipatory medicines/just in case box</td><td>Just in case box in the kitchen cupboard</td></tr><tr><td>EoLC tool in use</td><td>On gold standards palliative care framework</td></tr><tr><td>Person is on the palliative care register (PRSB)</td><td>On end of life care register</td></tr><tr><td>Has advance statement</td><td>Has advance statement (Mental Capacity Act 2005)</td></tr><tr><td>Authority of LPA</td><td>Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)</td></tr></table></div>"
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-26)
-* section[sharedUnderstanding].entry[+] = Reference(EolObs1-27)
+* section[sharedUnderstanding].entry[+] = Reference(EolCarePlan)
+* section[sharedUnderstanding].entry[+] = Reference(PathPrimaryCancerCondition)
+* section[sharedUnderstanding].entry[+] = Reference(EolLiverMetastases)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs2-34)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs1-28)
 * section[sharedUnderstanding].entry[+] = Reference(EolObs2-29)
@@ -1082,6 +1059,7 @@ Usage:      #inline
 * section[emergencyContacts].text.status = #generated
 * section[emergencyContacts].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tr><td>Availability of carer support</td><td>Has a carer</td></tr><tr><td>Main carer name</td><td>Joan LIVERPOOL</td></tr><tr><td>Main carer telephone numbers</td><td>07700 900123</td></tr><tr><td>Name of Lasting Power of Attorney for personal welfare</td><td>Joan LIVERPOOL</td></tr><tr><td>Telephone number(s) concerning Lasting Power of Attorney</td><td>07700 900123</td></tr><tr><td>Usual GP name</td><td>Dr Rachel FICTITIOUS</td></tr><tr><td>Practice details (ODS code)</td><td>GP001 - FICTITIOUS Medical Practice</td></tr><tr><td>Key worker name if not usual GP</td><td>Sarah FICTITIOUS, district nurse</td></tr><tr><td>Key worker telephone number</td><td>0151 496 0123</td></tr><tr><td>Care workers involved in care: name</td><td>Community Specialist Palliative Care Team</td></tr><tr><td>Care workers involved in care: professional group</td><td>Under care of palliative care specialist nurse</td></tr><tr><td>Telephone numbers for care workers involved in care</td><td>0151 496 0456</td></tr></table></div>"
 * section[emergencyContacts].entry[+] = Reference(EolCarer)
+* section[emergencyContacts].entry[+] = Reference(EolCareTeam)
 * section[emergencyContacts].entry[+] = Reference(EolObs1-16)
 * section[formReviewed].title = "9. Form reviewed and remains relevant"
 * section[formReviewed].code = EOLDocumentSectionCS#respect-9
@@ -1110,6 +1088,26 @@ Usage:      #example
 * entry[=].resource = EolGPPractice
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/RelatedPerson/EolCarer"
 * entry[=].resource = EolCarer
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/CarePlan/EolCarePlan"
+* entry[=].resource = EolCarePlan
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/CareTeam/EolCareTeam"
+* entry[=].resource = EolCareTeam
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Practitioner/EolKeyWorker"
+* entry[=].resource = EolKeyWorker
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Organization/EolPalliativeCareService"
+* entry[=].resource = EolPalliativeCareService
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Condition/EolLiverMetastases"
+* entry[=].resource = EolLiverMetastases
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Condition/PathPrimaryCancerCondition"
+* entry[=].resource = PathPrimaryCancerCondition
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/PathHistologicType"
+* entry[=].resource = PathHistologicType
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Specimen/PathSpecimenH23-41022"
+* entry[=].resource = PathSpecimenH23-41022
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Practitioner/PathPathologist"
+* entry[=].resource = PathPathologist
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Organization/PathLaboratory"
+* entry[=].resource = PathLaboratory
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/QuestionnaireResponse/EolQuestionnaireResponse1"
 * entry[=].resource = EolQuestionnaireResponse1
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-1"
@@ -1138,10 +1136,6 @@ Usage:      #example
 * entry[=].resource = EolObs1-18
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-48"
 * entry[=].resource = EolObs1-48
-* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-26"
-* entry[=].resource = EolObs1-26
-* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-27"
-* entry[=].resource = EolObs1-27
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-34"
 * entry[=].resource = EolObs1-34
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-30"
@@ -1186,6 +1180,26 @@ Usage:      #example
 * entry[=].resource = EolGPPractice
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/RelatedPerson/EolCarer"
 * entry[=].resource = EolCarer
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/CarePlan/EolCarePlan"
+* entry[=].resource = EolCarePlan
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/CareTeam/EolCareTeam"
+* entry[=].resource = EolCareTeam
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Practitioner/EolKeyWorker"
+* entry[=].resource = EolKeyWorker
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Organization/EolPalliativeCareService"
+* entry[=].resource = EolPalliativeCareService
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Condition/EolLiverMetastases"
+* entry[=].resource = EolLiverMetastases
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Condition/PathPrimaryCancerCondition"
+* entry[=].resource = PathPrimaryCancerCondition
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/PathHistologicType"
+* entry[=].resource = PathHistologicType
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Specimen/PathSpecimenH23-41022"
+* entry[=].resource = PathSpecimenH23-41022
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Practitioner/PathPathologist"
+* entry[=].resource = PathPathologist
+* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Organization/PathLaboratory"
+* entry[=].resource = PathLaboratory
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/QuestionnaireResponse/EolQuestionnaireResponse1"
 * entry[=].resource = EolQuestionnaireResponse1
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/QuestionnaireResponse/EolQuestionnaireResponse2"
@@ -1216,10 +1230,6 @@ Usage:      #example
 * entry[=].resource = EolObs1-18
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-48"
 * entry[=].resource = EolObs1-48
-* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-26"
-* entry[=].resource = EolObs1-26
-* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-27"
-* entry[=].resource = EolObs1-27
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs2-34"
 * entry[=].resource = EolObs2-34
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-30"

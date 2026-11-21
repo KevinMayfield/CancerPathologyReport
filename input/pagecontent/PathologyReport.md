@@ -570,6 +570,12 @@ Authorised: 21-Sep-2026 16:42 &nbsp;&middot;&nbsp; Example Pathology Laboratory
   cancer biopsy with MMR loss, as HL7 v2 prior results in a reflex order to
   genomics, with the same report in human-readable form.
 
-<div class="alert alert-warning" role="alert">
-<b>TODO</b> - no FHIR instance examples yet.
-</div>
+- [PathDocument](Bundle-PathDocument.html) - the same Lynch syndrome biopsy report as
+  a FHIR Document: the [Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html)
+  (narrative surgical pathology sections and a synoptic report section) and the
+  [Cancer Pathology Diagnostic Report](DiagnosticReport-PathDiagnosticReport.html) referencing each other, with the
+  [specimen](Specimen-PathSpecimenH23-41022.html),
+  [primary cancer condition](Condition-PathPrimaryCancerCondition.html),
+  [histologic type](Observation-PathHistologicType.html) and the four MMR
+  [tumour marker results](Observation-PathMLH1.html). The patient is the same
+  person as the [End of Life Care](EndOfLifeCare.html#examples) examples.

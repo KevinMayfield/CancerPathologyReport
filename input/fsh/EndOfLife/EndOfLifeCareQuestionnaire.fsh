@@ -3,7 +3,9 @@
 // the PRSB Palliative and End of Life Care Standard (items marked PRSB).
 // linkIds are the SCCI1580 data item numbers. Items with a code (SCCI1580 data
 // item) are extracted as Observations (SDC observation-based extraction); the
-// rest (demographics, GP, contacts) map to Patient, Practitioner and RelatedPerson.
+// rest map to resources: demographics and GP to Patient, contacts to RelatedPerson,
+// key worker and care workers (21-25) to CareTeam, diagnoses (26-27) to Condition,
+// addressed by the end of life care CarePlan.
 // Each item's definition points to the EndOfLifeCareRecord logical model.
 
 Alias: $refResource = http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource
@@ -334,14 +336,12 @@ Usage:          #definition
   * item[=].type = #open-choice
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/EndOfLifeCareRecord#EndOfLifeCareRecord.primaryDiagnosis"
   * item[=].required = true
-  * item[=].code = EOLDataItemCS#26
   * item[=].answerValueSet = "http://snomed.info/sct?fhir_vs"
   * item[+].linkId = "27"
   * item[=].text = "Other relevant end of life care diagnoses and clinical issues"
   * item[=].type = #open-choice
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/EndOfLifeCareRecord#EndOfLifeCareRecord.otherDiagnosis"
   * item[=].repeats = true
-  * item[=].code = EOLDataItemCS#27
   * item[=].answerValueSet = "http://snomed.info/sct?fhir_vs"
   * item[+].linkId = "34"
   * item[=].text = "Likely prognosis"

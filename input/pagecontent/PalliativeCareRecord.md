@@ -81,6 +81,39 @@ Each extracted Observation has `code` = the [SCCI1580 data item](CodeSystem-scci
 example SNOMED CT `450476008` Not for cardiopulmonary resuscitation), and
 `derivedFrom` = the QuestionnaireResponse.
 
+### Towards Don't Repeat Yourself
+
+Much of the record - demographics, GP, diagnoses, allergies, medicines, functional
+status, advance directives - is already held elsewhere: in the Personal Demographics
+Service, the GP record, the cancer pathway and, in future, the person's patient
+summary in the NHS England Single Patient Record. Ideally the palliative care record
+would **reference** that information rather than **repeat** it
+([don't repeat yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)).
+That is not practical yet, so the guide takes steps that allow it later:
+
+| Step | How | Where |
+|---|---|---|
+| Know which items are owned elsewhere | Each data item is marked *this record* or *held elsewhere*, with its source | Logical model, **Authoritative source** mapping |
+| Populate rather than re-enter | The Questionnaire declares the patient as its SDC `launchContext`, and `initialExpression`s pre-fill demographics (5-13), GP practice (20), diagnoses (26-27, from active Conditions) and allergies (30, from AllergyIntolerance) | [Questionnaire](Questionnaire-PalliativeCareRecordQuestionnaire.html) |
+| Reference, don't copy, diagnoses | The care plan `addresses` existing Conditions - in the example, the Primary Cancer Condition recorded from the Cancer Pathology Report | [Palliative Care Plan](StructureDefinition-PalliativeCarePlan.html), [examples](#examples) |
+| Match sections to the patient summary | Overlapping sections carry the IPS section codes, and may hold IPS resources (AllergyIntolerance, MedicationStatement, Consent, DocumentReference) as well as Observations | [The FHIR Document](#the-fhir-document) |
+{:.grid}
+
+The **FHIR Document stays a snapshot**: a document must be complete and readable on
+its own, so it carries copies of what was known when it was signed - that is what is
+printed for the home. Don't repeat yourself applies to **capture and storage**: the
+EPaCCS record holds references to the authoritative resources, and the Document is
+assembled from them when it is issued.
+
+Next steps, when the Single Patient Record patient summary is available:
+
+- Populate the IPS-overlap items from the patient summary, read-only, with only the
+  palliative care items entered here.
+- Store references (by business identifier) to the patient summary's resources
+  instead of extracted Observations for those items.
+- Narrow this record to what only it holds - the ReSPECT recommendations, preferences
+  and contacts - which may then be best defined as an anticipatory care plan.
+
 ### The FHIR Document
 
 The Document is a `Bundle` of type `document`. Its Composition's top-level sections

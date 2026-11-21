@@ -3,6 +3,8 @@
 // the PRSB Palliative and End of Life Care Standard (items marked PRSB).
 // linkIds are the SCCI1580 data item numbers. Items with a code (SCCI1580 data
 // item) are extracted as Observations (SDC observation-based extraction); the
+// Items already held elsewhere are pre-populated (SDC launchContext and
+// initialExpression) rather than re-entered. The
 // rest map to resources: demographics and GP to Patient, contacts to RelatedPerson,
 // key worker and care workers (21-25) to CareTeam, diagnoses (26-27) to Condition,
 // addressed by the end of life care CarePlan.
@@ -12,6 +14,9 @@ Alias: $refResource = http://hl7.org/fhir/StructureDefinition/questionnaire-refe
 Alias: $minValue = http://hl7.org/fhir/StructureDefinition/minValue
 Alias: $maxValue = http://hl7.org/fhir/StructureDefinition/maxValue
 Alias: $observationExtract = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract
+Alias: $launchContext = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext
+Alias: $initialExpression = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression
+Alias: $variable = http://hl7.org/fhir/StructureDefinition/variable
 
 Instance:       PalliativeCareRecordQuestionnaire
 InstanceOf:     Questionnaire
@@ -28,6 +33,23 @@ Usage:          #definition
 * description = "Proof of concept - not an authoritative source. SCCI1580 Palliative Care Co-ordination: Core Content (v4.0), then the PRSB Palliative and End of Life Care Standard. linkIds are the SCCI1580 data item numbers."
 * extension[+].url = $observationExtract
 * extension[=].valueBoolean = true
+* extension[+].url = $launchContext
+* extension[=].extension[+].url = "name"
+* extension[=].extension[=].valueCoding = http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext#patient "Patient"
+* extension[=].extension[+].url = "type"
+* extension[=].extension[=].valueCode = #Patient
+* extension[=].extension[+].url = "description"
+* extension[=].extension[=].valueString = "The person the record is for - demographics and GP are populated from the Patient (PDS) rather than re-entered."
+* extension[+].url = $variable
+* extension[=].valueExpression.name = "conditions"
+* extension[=].valueExpression.language = #application/x-fhir-query
+* extension[=].valueExpression.expression = "Condition?patient={{%patient.id}}&clinical-status=active"
+* extension[=].valueExpression.description = "Active conditions held elsewhere - for example the Primary Cancer Condition from the Cancer Pathology Report, or the patient summary"
+* extension[+].url = $variable
+* extension[=].valueExpression.name = "allergies"
+* extension[=].valueExpression.language = #application/x-fhir-query
+* extension[=].valueExpression.expression = "AllergyIntolerance?patient={{%patient.id}}"
+* extension[=].valueExpression.description = "Allergies held in the GP record or patient summary"
 
 // 1 Consent
 
@@ -134,11 +156,17 @@ Usage:          #definition
 * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person"
 * item[=]
   * item[+].linkId = "5"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.name.first().family"
   * item[=].text = "Person family name"
   * item[=].type = #string
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.familyName"
   * item[=].required = true
   * item[+].linkId = "6"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.name.first().given.first()"
   * item[=].text = "Person forename"
   * item[=].type = #string
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.forename"
@@ -148,11 +176,17 @@ Usage:          #definition
   * item[=].type = #string
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.preferredName"
   * item[+].linkId = "8"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.birthDate"
   * item[=].text = "Person birth date"
   * item[=].type = #date
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.birthDate"
   * item[=].required = true
   * item[+].linkId = "9"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.identifier.where(system = 'https://fhir.nhs.uk/Id/nhs-number').value"
   * item[=].text = "NHS number"
   * item[=].type = #string
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.nhsNumber"
@@ -168,11 +202,17 @@ Usage:          #definition
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.gender"
   * item[=].answerValueSet = Canonical(EOLPersonGender)
   * item[+].linkId = "12"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.address.first().line.join(', ') + ', ' + %patient.address.first().city + ', ' + %patient.address.first().postalCode"
   * item[=].text = "Person address"
   * item[=].type = #text
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.address"
   * item[=].required = true
   * item[+].linkId = "13"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.telecom.where(system = 'phone').value"
   * item[=].text = "Person telephone numbers"
   * item[=].type = #string
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.person.telephone"
@@ -280,6 +320,9 @@ Usage:          #definition
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.gp.name"
   * item[=].required = true
   * item[+].linkId = "20"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%patient.generalPractitioner.first().resolve().identifier.value"
   * item[=].text = "Practice details (ODS code)"
   * item[=].type = #string
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.gp.practice"
@@ -332,12 +375,18 @@ Usage:          #definition
 * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.primaryDiagnosis"
 * item[=]
   * item[+].linkId = "26"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%conditions.entry.resource.first().code.coding.first()"
   * item[=].text = "Primary end of life care diagnosis"
   * item[=].type = #open-choice
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.primaryDiagnosis"
   * item[=].required = true
   * item[=].answerValueSet = "http://snomed.info/sct?fhir_vs"
   * item[+].linkId = "27"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%conditions.entry.resource.skip(1).code.coding.first()"
   * item[=].text = "Other relevant end of life care diagnoses and clinical issues"
   * item[=].type = #open-choice
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.otherDiagnosis"
@@ -358,6 +407,9 @@ Usage:          #definition
 * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.allergy"
 * item[=]
   * item[+].linkId = "30"
+  * item[=].extension[+].url = $initialExpression
+  * item[=].extension[=].valueExpression.language = #text/fhirpath
+  * item[=].extension[=].valueExpression.expression = "%allergies.entry.resource.code.coding.first()"
   * item[=].text = "Allergies/adverse drug reactions"
   * item[=].type = #open-choice
   * item[=].definition = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/StructureDefinition/PalliativeCareRecord#PalliativeCareRecord.allergy"

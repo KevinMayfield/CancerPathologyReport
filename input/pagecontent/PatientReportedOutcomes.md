@@ -29,7 +29,7 @@ PROMs are not a single step at the end of the pathway:
 | Kind | Who collects | When | Link to pathology |
 |---|---|---|---|
 | **National PROMs** - the [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | NHS England with NDRS | About **18 months after diagnosis**; EQ-5D and EORTC QLQ-C30 | Patients are identified from cancer registration data and results are analysed by tumour site and stage. The Cancer Pathology Report's diagnosis details (diagnosis date, site, morphology, stage) reach PROMs **through the registry**, not through any exchange in this guide |
-| **Clinical PROMs** | The care team | During and after treatment - symptoms, toxicity, quality of life | None directly; an exchange between the patient and the care team |
+| **Clinical PROMs** | The care team | During and after treatment - symptoms, toxicity, quality of life; in follow-up alongside Holistic Needs Assessments and symptom diaries - see [Cancer Monitoring](CancerMonitoring.html#patient-reported-outcomes-during-follow-up) | None directly; an exchange between the patient and the care team |
 {:.grid}
 
 In FHIR, an instrument is a `Questionnaire`; a patient's answers are a

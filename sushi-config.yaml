@@ -52,6 +52,9 @@ pages:
   Genomics.md:
     title: Genomic Testing and Reporting
     generation: markdown
+  CancerMonitoring.md:
+    title: Cancer Monitoring
+    generation: markdown
   PatientReportedOutcomes.md:
     title: Patient-Reported Outcomes
     generation: markdown
@@ -86,6 +89,7 @@ menu:
     Inter-Laboratory Workflow (ILW): ILW.html
     Imaging and Radiology: Imaging.html
     Genomic Testing and Reporting: Genomics.html
+    Cancer Monitoring: CancerMonitoring.html
     Patient-Reported Outcomes: PatientReportedOutcomes.html
   Interactions (Volume 2):
     Placer Order Management [LAB-1]: LAB-1.html

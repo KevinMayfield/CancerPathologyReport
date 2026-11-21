@@ -86,7 +86,7 @@ described in [Pathway Stages](#pathway-stages) below.
 | Genomics | Reflex order from pathology; genomic report | **In scope** (as the pathology report's consumer) | [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) |
 | MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and treatment plan | Context | - |
 | Treatment | Surgery, systemic anti-cancer therapy, radiotherapy | Out of scope | - |
-| Follow-up | Response to treatment, recurrence, surveillance | Out of scope | - |
+| Follow-up | Response to treatment, recurrence, surveillance | Out of scope | [Cancer Monitoring](CancerMonitoring.html) |
 | Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Patient-Reported Outcomes](PatientReportedOutcomes.html) |
 {:.grid}
 

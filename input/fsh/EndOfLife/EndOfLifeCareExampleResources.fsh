@@ -82,8 +82,8 @@ Usage:      #example
 * intent = #order
 * priority = #urgent
 * code = http://hl7.org/fhir/CodeSystem/task-code#fulfill "Fulfill the focal request"
-* description = "Complete the End of Life Care Record (advance care planning conversation)"
-* focus = Reference(EndOfLifeCareQuestionnaire)
+* description = "Complete the Palliative Care Record (advance care planning conversation)"
+* focus = Reference(PalliativeCareRecordQuestionnaire)
 * for = Reference(EolPatient)
 * authoredOn = "2026-10-05T16:30:00+00:00"
 * lastModified = "2026-10-12T14:05:00+00:00"
@@ -91,15 +91,15 @@ Usage:      #example
 * owner = Reference(EolPalliativeConsultant)
 * reasonCode = http://snomed.info/sct#968211000000101 "Last months of life"
 * reasonCode.text = "Colorectal MDT 5 October 2026: metastatic caecal adenocarcinoma, liver metastases, not for further anti-cancer treatment"
-* output.type.text = "End of Life Care QuestionnaireResponse"
+* output.type.text = "Palliative Care Record QuestionnaireResponse"
 * output.valueReference = Reference(EolQuestionnaireResponse1)
 * output[+].type.text = "End of life care plan"
 * output[=].valueReference = Reference(EolCarePlan)
 
 Instance:   EolDocumentReference1
 InstanceOf: DocumentReference
-Title:      "DocumentReference - End of Life Care Document version 1 (superseded)"
-Description: "Fictitious example. Indexes version 1 of the End of Life Care Document; superseded by version 2."
+Title:      "DocumentReference - Palliative Care Record Document version 1 (superseded)"
+Description: "Fictitious example. Indexes version 1 of the Palliative Care Record Document; superseded by version 2."
 Usage:      #example
 * status = #superseded
 * type = http://snomed.info/sct#861421000000109 "End of Life Care Coordination Summary"
@@ -109,12 +109,12 @@ Usage:      #example
 * custodian = Reference(EolProvider)
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Bundle/EolDocument1"
-* content.attachment.title = "End of Life Care Record (version 1)"
+* content.attachment.title = "Palliative Care Record (version 1)"
 
 Instance:   EolDocumentReference2
 InstanceOf: DocumentReference
-Title:      "DocumentReference - End of Life Care Document version 2 (current)"
-Description: "Fictitious example. Indexes version 2 of the End of Life Care Document, which replaces version 1, and its printable PDF."
+Title:      "DocumentReference - Palliative Care Record Document version 2 (current)"
+Description: "Fictitious example. Indexes version 2 of the Palliative Care Record Document, which replaces version 1, and its printable PDF."
 Usage:      #example
 * status = #current
 * type = http://snomed.info/sct#861421000000109 "End of Life Care Coordination Summary"
@@ -126,10 +126,10 @@ Usage:      #example
 * relatesTo.target = Reference(EolDocumentReference1)
 * content[+].attachment.contentType = #application/fhir+json
 * content[=].attachment.url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Bundle/EolDocument2"
-* content[=].attachment.title = "End of Life Care Record (version 2)"
+* content[=].attachment.title = "Palliative Care Record (version 2)"
 * content[+].attachment.contentType = #application/pdf
 * content[=].attachment.url = "https://example.org/eol/EOL-0001-v2.pdf"
-* content[=].attachment.title = "End of Life Care Record (version 2) - printable copy"
+* content[=].attachment.title = "Palliative Care Record (version 2) - printable copy"
 
 Instance:   EolKeyWorker
 InstanceOf: Practitioner
@@ -152,7 +152,7 @@ Usage:      #example
 * partOf = Reference(EolProvider)
 
 Instance:   EolCareTeam
-InstanceOf: EndOfLifeCareTeam
+InstanceOf: PalliativeCareTeam
 Title:      "End of life care team for Ned LIVERPOOL"
 Description: "Fictitious example. The key worker and care workers involved in care (SCCI1580 items 21-25)."
 Usage:      #example
@@ -180,7 +180,7 @@ Usage:      #example
 * recordedDate = "2026-09-28"
 
 Instance:   EolCarePlan
-InstanceOf: EndOfLifeCarePlan
+InstanceOf: PalliativeCarePlan
 Title:      "End of life care plan for Ned LIVERPOOL"
 Description: "Fictitious example. Addresses the primary end of life care diagnosis - the Primary Cancer Condition from the Cancer Pathology Report - and the liver metastases, and links to the care team."
 Usage:      #example

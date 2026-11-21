@@ -23,8 +23,8 @@ Genomics Reflex use case.
   `input/fsh/Terminology/`, `input/fsh/Examples/`; palliative care record
   (SCCI1580) in `input/fsh/EndOfLife/`
 - Pages: `input/pagecontent/`, organised as IHE volumes - Volume 1 Care Processes,
-  in pathway order (Cancer Pathway, Screening, Imaging, LTW, ILW, Genomics,
-  Monitoring, PROMs, Palliative and End of Life Care), Volume 2 Interactions
+  an overview (`CareProcesses.md`) then the processes in pathway order (Cancer Pathway, Screening, Imaging, LTW, ILW, Genomics,
+  Monitoring and PROMs, Palliative and End of Life Care), Volume 2 Interactions
   (LAB-1, LAB-3, LAB-35, LAB-36), Volume 3 Data Models - for each report a model
   page with its FHIR Document and an example rendering ("What the reader sees"),
   and its logical model (Cancer Pathology Report, Palliative Care Record).

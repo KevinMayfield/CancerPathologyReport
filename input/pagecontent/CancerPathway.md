@@ -86,8 +86,8 @@ described in [Pathway Stages](#pathway-stages) below.
 | Genomics | Reflex order from pathology; genomic report | **In scope** (as the pathology report's consumer) | [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) |
 | MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and treatment plan | Context | - |
 | Treatment | Surgery, systemic anti-cancer therapy, radiotherapy | Out of scope | - |
-| Follow-up | Response to treatment, recurrence, surveillance | Out of scope | [Cancer Monitoring](CancerMonitoring.html) |
-| Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Patient-Reported Outcomes](PatientReportedOutcomes.html) |
+| Follow-up | Response to treatment, recurrence, surveillance | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#follow-up-after-treatment) |
+| Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) |
 {:.grid}
 
 ### Timing Standards
@@ -122,7 +122,7 @@ are from [mCODE](https://hl7.org/fhir/us/mcode/), which this guide is aligned wi
 | Systemic anti-cancer therapy | [Systemic Anti-Cancer Therapy (SACT) data set](https://digital.nhs.uk/ndrs/data/data-sets/sact) | [Cancer-Related Medication Request](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-request.html) / [Administration](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-administration.html) |
 | Radiotherapy | [Radiotherapy Data Set (RTDS)](https://digital.nhs.uk/ndrs/data/data-sets/rtds) | [Radiotherapy Course Summary](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-radiotherapy-course-summary.html) |
 | Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) |
-| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Patient-Reported Outcomes](PatientReportedOutcomes.html) |
+| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) |
 | Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - |
 | Palliative and end of life care | [SCCI1580 Palliative Care Co-ordination: Core Content](https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content) | `Questionnaire` and logical model - see [End of Life Care](EndOfLifeCare.html) |
 {:.grid}

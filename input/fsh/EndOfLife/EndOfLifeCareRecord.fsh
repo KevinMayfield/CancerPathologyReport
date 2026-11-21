@@ -1,6 +1,6 @@
-Logical:        EndOfLifeCareRecord
-Id:             EndOfLifeCareRecord
-Title:          "End of Life Care Record"
+Logical:        PalliativeCareRecord
+Id:             PalliativeCareRecord
+Title:          "Palliative Care Record"
 Description:    """
 **Proof of concept - not an authoritative source.**
 
@@ -170,8 +170,8 @@ Characteristics: #can-be-target
 * actualPlaceOfDeath from EOLActualPlaceOfDeath (extensible)
 * dateOfDeath 0..1 date "Date of death (59)" "Required"
 
-Mapping:        EndOfLifeCareRecord-SCCI1580
-Source:         EndOfLifeCareRecord
+Mapping:        PalliativeCareRecord-SCCI1580
+Source:         PalliativeCareRecord
 Target:         "https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content"
 Id:             scci1580
 Title:          "SCCI1580 Palliative Care Co-ordination: Core Content (v4.0)"
@@ -232,8 +232,8 @@ Title:          "SCCI1580 Palliative Care Co-ordination: Core Content (v4.0)"
 * dateOfDeath -> "59 Date of death"
 * actualPlaceOfDeath -> "60 Actual place of death"
 
-Mapping:        EndOfLifeCareRecord-PRSB
-Source:         EndOfLifeCareRecord
+Mapping:        PalliativeCareRecord-PRSB
+Source:         PalliativeCareRecord
 Target:         "https://theprsb.org/standards/palliativeandendoflifecare/"
 Id:             prsb-peolc
 Title:          "PRSB Palliative and End of Life Care Standard (build 11.0)"
@@ -263,8 +263,8 @@ Title:          "PRSB Palliative and End of Life Care Standard (build 11.0)"
 * actualPlaceOfDeath -> "After death: Actual place of death"
 * dateOfDeath -> "After death: Date of death"
 
-Mapping:        EndOfLifeCareRecord-EOLAPI
-Source:         EndOfLifeCareRecord
+Mapping:        PalliativeCareRecord-EOLAPI
+Source:         PalliativeCareRecord
 Target:         "https://developer.nhs.uk/apis/eol-alpha/"
 Id:             eol-api
 Title:          "End of Life Care API (alpha, STU3, 2019)"
@@ -289,20 +289,20 @@ Title:          "End of Life Care API (alpha, STU3, 2019)"
 * otherIssuesOrPreferences -> "item.preferencesAndWishes, item.domesticAccessAndInformation (PRE001.2, PRE001.3)"
 * contingencyPlan -> "EOL-ATP-CarePlan-1, EOL-ATPProblemHeader-Condition-1 (ATP001.1)"
 
-Mapping:        EndOfLifeCareRecord-FHIR
-Source:         EndOfLifeCareRecord
+Mapping:        PalliativeCareRecord-FHIR
+Source:         PalliativeCareRecord
 Target:         "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport"
 Id:             fhir
 Title:          "FHIR (this IG)"
-* -> "EndOfLifeCarePlan, with the EndOfLifeCareObservations as supportingInfo; shared as EndOfLifeCareComposition"
-* consentStatus -> "EndOfLifeCareObservation (code 1)"
-* recordCreationDate -> "EndOfLifeCarePlan.period.start"
-* lastAmended -> "EndOfLifeCareComposition.date"
-* plannedReviewDate -> "EndOfLifeCareComposition section respect-9 (not coded)"
-* cprDecision.decision -> "EndOfLifeCareObservation (code 44)"
-* cprDecision.date -> "EndOfLifeCareObservation (code 45)"
-* cprDecision.reviewDate -> "EndOfLifeCareObservation (code 46)"
-* cprDecision.documentLocation -> "EndOfLifeCareObservation (code 47)"
+* -> "PalliativeCarePlan, with the PalliativeCareRecordObservations as supportingInfo; shared as PalliativeCareRecordComposition"
+* consentStatus -> "PalliativeCareRecordObservation (code 1)"
+* recordCreationDate -> "PalliativeCarePlan.period.start"
+* lastAmended -> "PalliativeCareRecordComposition.date"
+* plannedReviewDate -> "PalliativeCareRecordComposition section respect-9 (not coded)"
+* cprDecision.decision -> "PalliativeCareRecordObservation (code 44)"
+* cprDecision.date -> "PalliativeCareRecordObservation (code 45)"
+* cprDecision.reviewDate -> "PalliativeCareRecordObservation (code 46)"
+* cprDecision.documentLocation -> "PalliativeCareRecordObservation (code 47)"
 * person -> "Patient"
 * person.familyName -> "Patient.name.family"
 * person.forename -> "Patient.name.given"
@@ -310,20 +310,20 @@ Title:          "FHIR (this IG)"
 * person.nhsNumber -> "Patient.identifier (https://fhir.nhs.uk/Id/nhs-number)"
 * person.address -> "Patient.address"
 * person.telephone -> "Patient.telecom"
-* mainCarer.availability -> "EndOfLifeCareObservation (code 16)"
+* mainCarer.availability -> "PalliativeCareRecordObservation (code 16)"
 * mainCarer.name -> "RelatedPerson.name"
 * mainCarer.telephone -> "RelatedPerson.telecom"
 * gp -> "Patient.generalPractitioner"
-* keyWorker -> "EndOfLifeCareTeam.participant (role 719240009 Has end of life care key worker)"
-* keyWorker.name -> "EndOfLifeCareTeam.participant.member (Practitioner)"
+* keyWorker -> "PalliativeCareTeam.participant (role 719240009 Has end of life care key worker)"
+* keyWorker.name -> "PalliativeCareTeam.participant.member (Practitioner)"
 * keyWorker.telephone -> "Practitioner.telecom"
-* careWorker -> "EndOfLifeCareTeam.participant"
-* careWorker.name -> "EndOfLifeCareTeam.participant.member"
-* careWorker.professionalGroup -> "EndOfLifeCareTeam.participant.role"
+* careWorker -> "PalliativeCareTeam.participant"
+* careWorker.name -> "PalliativeCareTeam.participant.member"
+* careWorker.professionalGroup -> "PalliativeCareTeam.participant.role"
 * careWorker.telephone -> "Practitioner.telecom or Organization.telecom"
-* primaryDiagnosis -> "EndOfLifeCarePlan.addresses (Condition), first"
-* otherDiagnosis -> "EndOfLifeCarePlan.addresses (Condition)"
-* likelyPrognosis -> "EndOfLifeCareObservation (code 34)"
+* primaryDiagnosis -> "PalliativeCarePlan.addresses (Condition), first"
+* otherDiagnosis -> "PalliativeCarePlan.addresses (Condition)"
+* likelyPrognosis -> "PalliativeCareRecordObservation (code 34)"
 * lastingPowerOfAttorney.name -> "RelatedPerson (relationship HPOWATT)"
-* actualPlaceOfDeath -> "EndOfLifeCareObservation (code 60)"
-* dateOfDeath -> "EndOfLifeCareObservation (code 59); EndOfLifeCarePlan.period.end"
+* actualPlaceOfDeath -> "PalliativeCareRecordObservation (code 60)"
+* dateOfDeath -> "PalliativeCareRecordObservation (code 59); PalliativeCarePlan.period.end"

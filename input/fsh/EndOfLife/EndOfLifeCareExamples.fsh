@@ -1,12 +1,12 @@
-// Fictitious examples for the End of Life Care Record - generated from the
-// End of Life Care Questionnaire. Version 1: first completion; version 2: amendment.
+// Fictitious examples for the Palliative Care Record - generated from the
+// Palliative Care Record Questionnaire. Version 1: first completion; version 2: amendment.
 
 Instance:   EolQuestionnaireResponse1
 InstanceOf: QuestionnaireResponse
-Title:      "End of Life Care - QuestionnaireResponse (first completion)"
-Description: "Fictitious example. Answers to the End of Life Care Questionnaire for Ned LIVERPOOL."
+Title:      "Palliative Care Record - QuestionnaireResponse (first completion)"
+Description: "Fictitious example. Answers to the Palliative Care Record Questionnaire for Ned LIVERPOOL."
 Usage:      #example
-* questionnaire = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Questionnaire/EndOfLifeCareQuestionnaire"
+* questionnaire = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Questionnaire/PalliativeCareRecordQuestionnaire"
 * status = #completed
 * subject = Reference(EolPatient)
 * authored = "2026-10-12T14:00:00+00:00"
@@ -254,10 +254,10 @@ Usage:      #example
 
 Instance:   EolQuestionnaireResponse2
 InstanceOf: QuestionnaireResponse
-Title:      "End of Life Care - QuestionnaireResponse (amendment)"
-Description: "Fictitious example. Answers to the End of Life Care Questionnaire for Ned LIVERPOOL."
+Title:      "Palliative Care Record - QuestionnaireResponse (amendment)"
+Description: "Fictitious example. Answers to the Palliative Care Record Questionnaire for Ned LIVERPOOL."
 Usage:      #example
-* questionnaire = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Questionnaire/EndOfLifeCareQuestionnaire"
+* questionnaire = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Questionnaire/PalliativeCareRecordQuestionnaire"
 * status = #amended
 * subject = Reference(EolPatient)
 * authored = "2026-11-02T10:00:00+00:00"
@@ -501,7 +501,7 @@ Usage:      #example
     * item[=].answer[+].valueDate = "2026-11-02"
 
 Instance:   EolObs1-1
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 1 Consent status"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -514,7 +514,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-44
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 44 Cardiopulmonary resuscitation decision"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -527,7 +527,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-45
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 45 Date of cardiopulmonary resuscitation decision"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -540,7 +540,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-46
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 46 Date for review of cardiopulmonary resuscitation decision"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -553,7 +553,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-47
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 47 Location of cardiopulmonary resuscitation documentation"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -566,7 +566,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-16
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 16 Availability of carer support"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -579,7 +579,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-14
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 14 Need for an interpreter"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -592,7 +592,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-15
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 15 Preferred spoken language"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -605,7 +605,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-29
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 29 Functional status (Australia-modified Karnofsky Performance Status score 0-100)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -618,7 +618,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-28
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 28 Disability"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -631,7 +631,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-33
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 33 EoLC tool in use"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -644,7 +644,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-18
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 18 Is main carer aware of person's prognosis?"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -657,7 +657,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-48
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 48 Awareness of cardiopulmonary resuscitation decision"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -670,7 +670,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-34
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 34 Likely prognosis"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -683,7 +683,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-30
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 30 Allergies/adverse drug reactions"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -696,7 +696,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-31
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 31 Anticipatory medicines/just in case box issued"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -709,7 +709,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-32
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 32 Location of anticipatory medicines/just in case box"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -722,7 +722,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-35
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 35 Has advance statement"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -735,7 +735,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-52
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 52 Authority of LPA"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -748,7 +748,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-36
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 36 Preferred place of death 1st choice"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -761,7 +761,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-39
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 39 Preferred place of death (1st choice) is usual place of residence"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -774,7 +774,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-40
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 40 Preferred place of death 2nd choice"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -787,7 +787,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-41
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 41 Preferred place of death organisation name (2nd choice)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -800,7 +800,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs1-58
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 58 Other relevant issues or preferences about provision of care"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse1."
 Usage:      #example
@@ -813,7 +813,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse1)
 
 Instance:   EolObs2-46
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 46 Date for review of cardiopulmonary resuscitation decision"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -826,7 +826,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolObs2-29
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 29 Functional status (Australia-modified Karnofsky Performance Status score 0-100)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -839,7 +839,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolObs2-34
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 34 Likely prognosis"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -852,7 +852,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolObs2-36
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 36 Preferred place of death 1st choice"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -865,7 +865,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolObs2-39
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 39 Preferred place of death (1st choice) is usual place of residence"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -878,7 +878,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolObs2-40
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 40 Preferred place of death 2nd choice"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -891,7 +891,7 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolObs2-58
-InstanceOf: EndOfLifeCareObservation
+InstanceOf: PalliativeCareRecordObservation
 Title:      "SCCI1580 58 Other relevant issues or preferences about provision of care"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
@@ -904,9 +904,9 @@ Usage:      #example
 * derivedFrom = Reference(EolQuestionnaireResponse2)
 
 Instance:   EolComposition1
-InstanceOf: EndOfLifeCareComposition
-Title:      "End of Life Care Record for Ned LIVERPOOL (version 1)"
-Description: "Fictitious example. End of Life Care Document Composition, sections in ReSPECT order."
+InstanceOf: PalliativeCareRecordComposition
+Title:      "Palliative Care Record for Ned LIVERPOOL (version 1)"
+Description: "Fictitious example. Palliative Care Record Document Composition, sections in ReSPECT order."
 Usage:      #inline
 * identifier.system = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/eol-record"
 * identifier.value = "EOL-0001-v1"
@@ -914,7 +914,7 @@ Usage:      #inline
 * subject = Reference(EolPatient)
 * date = "2026-10-12T14:00:00+00:00"
 * author = Reference(EolPalliativeConsultant)
-* title = "End of Life Care Record"
+* title = "Palliative Care Record"
 * attester.mode = #professional
 * attester.time = "2026-10-12T14:00:00+00:00"
 * attester.party = Reference(EolPalliativeConsultant)
@@ -985,9 +985,9 @@ Usage:      #inline
 * section[formReviewed].entry[+] = Reference(EolObs1-46)
 
 Instance:   EolComposition2
-InstanceOf: EndOfLifeCareComposition
-Title:      "End of Life Care Record for Ned LIVERPOOL (version 2)"
-Description: "Fictitious example. End of Life Care Document Composition, sections in ReSPECT order."
+InstanceOf: PalliativeCareRecordComposition
+Title:      "Palliative Care Record for Ned LIVERPOOL (version 2)"
+Description: "Fictitious example. Palliative Care Record Document Composition, sections in ReSPECT order."
 Usage:      #inline
 * identifier.system = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/eol-record"
 * identifier.value = "EOL-0001-v2"
@@ -995,7 +995,7 @@ Usage:      #inline
 * subject = Reference(EolPatient)
 * date = "2026-11-02T10:00:00+00:00"
 * author = Reference(EolPalliativeConsultant)
-* title = "End of Life Care Record"
+* title = "Palliative Care Record"
 * attester.mode = #professional
 * attester.time = "2026-11-02T10:00:00+00:00"
 * attester.party = Reference(EolPalliativeConsultant)
@@ -1069,8 +1069,8 @@ Usage:      #inline
 
 Instance:   EolDocument1
 InstanceOf: Bundle
-Title:      "End of Life Care Document for Ned LIVERPOOL (version 1)"
-Description: "Fictitious example. The End of Life Care Document - a Bundle of type document."
+Title:      "Palliative Care Record Document for Ned LIVERPOOL (version 1)"
+Description: "Fictitious example. The Palliative Care Record Document - a Bundle of type document."
 Usage:      #example
 * identifier.system = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/eol-document"
 * identifier.value = "EOL-0001-v1"
@@ -1161,8 +1161,8 @@ Usage:      #example
 
 Instance:   EolDocument2
 InstanceOf: Bundle
-Title:      "End of Life Care Document for Ned LIVERPOOL (version 2)"
-Description: "Fictitious example. The End of Life Care Document - a Bundle of type document."
+Title:      "Palliative Care Record Document for Ned LIVERPOOL (version 2)"
+Description: "Fictitious example. The Palliative Care Record Document - a Bundle of type document."
 Usage:      #example
 * identifier.system = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/eol-document"
 * identifier.value = "EOL-0001-v2"

@@ -1,4 +1,4 @@
-// End of Life Care value sets.
+// Palliative Care Record value sets.
 // Order of precedence: SCCI1580 Palliative Care Co-ordination: Core Content
 // (Amd 11/2015, v4.0, with the January 2016 corrigendum), then the PRSB
 // Palliative and End of Life Care Standard. Codes checked on tx.fhir.org against
@@ -13,7 +13,7 @@ RuleSet: SCCI1580ValueSet(item)
 
 ValueSet:       EOLConsentStatus
 Id:             eol-consent-status
-Title:          "End of Life Consent Status"
+Title:          "Palliative Care Consent Status"
 Description:    "Proof of concept - not an authoritative source. How consent to create and share the end of life care co-ordination record was given, or that it was withdrawn. SCCI1580 data item 1 Consent status."
 * insert SCCI1580ValueSet(1 Consent status)
 * $sct#882921000000109 "Consent given for sharing end of life care coordination record"
@@ -25,7 +25,7 @@ Description:    "Proof of concept - not an authoritative source. How consent to 
 
 ValueSet:       EOLPersonGender
 Id:             eol-person-gender
-Title:          "End of Life Person Gender"
+Title:          "Palliative Care Person Gender"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 11 Person gender, SNOMED CT option. SCCI1580 also allows the NHS Data Model and Dictionary codes 1 Male, 2 Female, 9 Indeterminate."
 * insert SCCI1580ValueSet(11 Person gender)
 * $sct#248152002 "Female"
@@ -35,7 +35,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLInterpreterNeeded
 Id:             eol-interpreter-needed
-Title:          "End of Life Need for an Interpreter"
+Title:          "Palliative Care Need for an Interpreter"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 14 Need for an interpreter."
 * insert SCCI1580ValueSet(14 Need for an interpreter)
 * $sct#315594003 "Interpreter needed"
@@ -45,7 +45,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLCarerAvailability
 Id:             eol-carer-availability
-Title:          "End of Life Availability of Carer Support"
+Title:          "Palliative Care Availability of Carer Support"
 Description:    "Proof of concept - not an authoritative source. Whether the person has a carer; the coded content is mandatory, and unknown is recorded as text. SCCI1580 data item 16 Main carer name."
 * insert SCCI1580ValueSet(16 Main carer name)
 * $sct#184156005 "Has a carer"
@@ -55,7 +55,7 @@ Description:    "Proof of concept - not an authoritative source. Whether the per
 
 ValueSet:       EOLCarerAwareOfPrognosis
 Id:             eol-carer-aware-of-prognosis
-Title:          "End of Life Main Carer Aware of Prognosis"
+Title:          "Palliative Care Main Carer Aware of Prognosis"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 18 Is main carer aware of person's prognosis?, with 473316003 replacing 751961000000104 per the January 2016 corrigendum."
 * insert SCCI1580ValueSet(18 Is main carer aware of person's prognosis?)
 * $sct#473316003 "Relative aware of prognosis"
@@ -67,7 +67,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLCareWorkerGroup
 Id:             eol-care-worker-group
-Title:          "End of Life Care Worker Professional Group"
+Title:          "Palliative Care Worker Professional Group"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 24 Care workers involved in care: professional group. SCCI1580 also allows free text or a local pick list."
 * insert SCCI1580ValueSet(24 Care workers involved in care: professional group)
 * $sct#305602008 "Under care of dietician"
@@ -100,7 +100,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLDisability
 Id:             eol-disability
-Title:          "End of Life Disability"
+Title:          "Palliative Care Disability"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 28 Disability. SCCI1580 also allows the NHS Data Model and Dictionary disability codes or free text."
 * insert SCCI1580ValueSet(28 Disability)
 * $sct#15188001 "Hearing loss"
@@ -125,7 +125,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLLikelyPrognosis
 Id:             eol-likely-prognosis
-Title:          "End of Life Likely Prognosis"
+Title:          "Palliative Care Likely Prognosis"
 Description:    "Proof of concept - not an authoritative source. A clinical judgement of the anticipated time until death: days (< 1 week), weeks (< 1 month) or months (< 1 year). SCCI1580 data item 34 Likely prognosis, with 968211000000101 confirmed by the January 2016 corrigendum."
 * insert SCCI1580ValueSet(34 Likely prognosis)
 * $sct#511401000000102 "Last days of life"
@@ -136,7 +136,7 @@ Description:    "Proof of concept - not an authoritative source. A clinical judg
 
 ValueSet:       EOLAnticipatoryMedicines
 Id:             eol-anticipatory-medicines
-Title:          "End of Life Anticipatory Medicines"
+Title:          "Palliative Care Anticipatory Medicines"
 Description:    "Proof of concept - not an authoritative source. Anticipatory medicines or a just in case box have been issued. SCCI1580 data item 31 Anticipatory medicines/just in case box issued."
 * insert SCCI1580ValueSet(31 Anticipatory medicines/just in case box issued)
 * $sct#376201000000102 "Issue of palliative care anticipatory medication box"
@@ -146,7 +146,7 @@ Description:    "Proof of concept - not an authoritative source. Anticipatory me
 
 ValueSet:       EOLAdvanceStatement
 Id:             eol-advance-statement
-Title:          "End of Life Advance Statement"
+Title:          "Palliative Care Advance Statement"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 35 Advance statement requests and preferences."
 * insert SCCI1580ValueSet(35 Advance statement requests and preferences)
 * $sct#816281000000101 "Has advance statement (Mental Capacity Act 2005)"
@@ -155,7 +155,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLADRT
 Id:             eol-adrt
-Title:          "End of Life Advance Decision to Refuse Treatment"
+Title:          "Palliative Care Advance Decision to Refuse Treatment"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 49 Person has made an advance decision to refuse treatment."
 * insert SCCI1580ValueSet(49 Person has made an advance decision to refuse treatment)
 * $sct#816301000000100 "Has advance decision to refuse treatment (Mental Capacity Act 2005)"
@@ -166,7 +166,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLLPAAuthority
 Id:             eol-lpa-authority
-Title:          "End of Life Authority of Lasting Power of Attorney"
+Title:          "Palliative Care Authority of Lasting Power of Attorney"
 Description:    "Proof of concept - not an authoritative source. Whether the person appointed with a lasting power of attorney for personal welfare has authority for life sustaining decisions. SCCI1580 data item 52 Authority of LPA."
 * insert SCCI1580ValueSet(52 Authority of LPA)
 * $sct#816361000000101 "Has appointed person with personal welfare lasting power of attorney (Mental Capacity Act 2005)"
@@ -192,7 +192,7 @@ Description:    "Proof of concept - not an authoritative source. Death location 
 
 ValueSet:       EOLPreferredPlaceOfDeath
 Id:             eol-preferred-place-of-death
-Title:          "End of Life Preferred Place of Death"
+Title:          "Palliative Care Preferred Place of Death"
 Description:    "Proof of concept - not an authoritative source. The death location type, or a SNOMED CT code for when no preference can be recorded. SCCI1580 data items 36 Preferred place of death 1st choice and 40 Preferred place of death 2nd choice."
 * insert SCCI1580ValueSet(36 and 40 Preferred place of death)
 * include codes from system EOLDeathLocationTypeCS
@@ -203,7 +203,7 @@ Description:    "Proof of concept - not an authoritative source. The death locat
 
 ValueSet:       EOLActualPlaceOfDeath
 Id:             eol-actual-place-of-death
-Title:          "End of Life Actual Place of Death"
+Title:          "Palliative Care Actual Place of Death"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 60 Actual place of death."
 * ^status = #draft
 * ^experimental = true
@@ -213,7 +213,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLCPRDecision
 Id:             eol-cpr-decision
-Title:          "End of Life Cardiopulmonary Resuscitation Decision"
+Title:          "Palliative Care Cardiopulmonary Resuscitation Decision"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 data item 44 Cardiopulmonary resuscitation decision. 'Resuscitation status unknown' is recorded as text."
 * insert SCCI1580ValueSet(44 Cardiopulmonary resuscitation decision)
 * $sct#450475007 "For cardiopulmonary resuscitation"
@@ -221,7 +221,7 @@ Description:    "Proof of concept - not an authoritative source. SCCI1580 data i
 
 ValueSet:       EOLCPRAwareness
 Id:             eol-cpr-awareness
-Title:          "End of Life Awareness of CPR Decision"
+Title:          "Palliative Care Awareness of CPR Decision"
 Description:    "Proof of concept - not an authoritative source. Whether the person, family or carer is aware of the CPR decision. SCCI1580 data item 48 Awareness of cardiopulmonary resuscitation decision, with the codes confirmed by the January 2016 corrigendum."
 * insert SCCI1580ValueSet(48 Awareness of cardiopulmonary resuscitation decision)
 * $sct#845151000000104 "Not aware of do not attempt cardiopulmonary resuscitation clinical decision"
@@ -232,7 +232,7 @@ Description:    "Proof of concept - not an authoritative source. Whether the per
 
 ValueSet:       EOLRegister
 Id:             eol-register
-Title:          "End of Life Palliative Care Register"
+Title:          "Palliative Care Register"
 Description:    "Proof of concept - not an authoritative source. The person is on the palliative care register (PRSB Palliative and End of Life Care Standard; not an SCCI1580 data item). Code from the NHS Digital End of Life Care API value set EOL-Register-Code-1."
 * ^status = #draft
 * ^experimental = true

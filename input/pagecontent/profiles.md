@@ -41,9 +41,9 @@ for them can be added later.
 
 **End of life care** profiles are outside the COSD model and are described on
 [Palliative Care Record](PalliativeCareRecord.html): the
-[End of Life Care Composition](StructureDefinition-EndOfLifeCareComposition.html)
+[Palliative Care Record Composition](StructureDefinition-PalliativeCareRecordComposition.html)
 (sections in ReSPECT order) and the
-[End of Life Care Observation](StructureDefinition-EndOfLifeCareObservation.html).
+[Palliative Care Record Observation](StructureDefinition-PalliativeCareRecordObservation.html).
 
 Value sets for the COSD national codes and for SNOMED CT topography and
 morphology are listed on the [Terminology](terminology.html) page.

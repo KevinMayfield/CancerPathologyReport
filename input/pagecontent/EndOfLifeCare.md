@@ -43,7 +43,7 @@ rendering - is described in [Palliative Care Record](PalliativeCareRecord.html).
 
 ### Example Scenario
 
-The [example scenario](ExampleScenario-EndOfLifeCareScenario.html) starts from the
+The [example scenario](ExampleScenario-PalliativeCareRecordScenario.html) starts from the
 cancer pathway: a poor prognosis (for example *last months of life*, SCCI1580 item
 34) at the MDT raises a **Task** to complete the record.
 
@@ -78,12 +78,12 @@ Observations, care plan and both Document versions - are listed in the
 ### Relationship to the Cancer Pathway
 
 - The **Task** that starts the record comes from the cancer pathway: a poor
-  prognosis at the MDT, or when [Cancer Monitoring](CancerMonitoring.html) shows the
+  prognosis at the MDT, or when [Cancer Monitoring](PatientReportedOutcomes.html#follow-up-after-treatment) shows the
   cancer is no longer curable.
 - `$populate` can pre-fill item 26 **primary end of life care diagnosis** from the
   cancer diagnosis - for example the [Cancer Pathology Report](PathologyReport.html)
   morphology and topography.
-- [Patient-Reported Outcomes](PatientReportedOutcomes.html) and Holistic Needs
+- [Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) and Holistic Needs
   Assessments continue alongside.
 
 ### Open

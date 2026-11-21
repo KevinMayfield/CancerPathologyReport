@@ -27,19 +27,19 @@ example rendering. How the record is used is described in Volume 1,
 
 | Artifact | Role |
 |---|---|
-| [End of Life Care Record](StructureDefinition-EndOfLifeCareRecord.html) | Logical model: SCCI1580's 16 sections and 60 data items, plus PRSB items where SCCI1580 is silent. Mappings to SCCI1580, PRSB and the 2019 API |
-| [End of Life Care](Questionnaire-EndOfLifeCareQuestionnaire.html) Questionnaire | SDC capture form. linkIds are the SCCI1580 item numbers; each item's `definition` points to the logical model; coded items are extracted as Observations |
+| [Palliative Care Record](StructureDefinition-PalliativeCareRecord.html) | Logical model: SCCI1580's 16 sections and 60 data items, plus PRSB items where SCCI1580 is silent. Mappings to SCCI1580, PRSB and the 2019 API |
+| [Palliative Care Record](Questionnaire-PalliativeCareRecordQuestionnaire.html) Questionnaire | SDC capture form. linkIds are the SCCI1580 item numbers; each item's `definition` points to the logical model; coded items are extracted as Observations |
 | [SCCI1580 Data Item](CodeSystem-scci1580-data-item.html) code system | The 60 SCCI1580 data items, used as `Questionnaire.item.code` and `Observation.code` - a local proposal, as SCCI1580 publishes no code system |
-| [End of Life Care Plan](StructureDefinition-EndOfLifeCarePlan.html) | Profile: the person's palliative care plan. `addresses` the diagnoses (SCCI1580 items 26-27) as Conditions, `careTeam` links to the care team, `supportingInfo` holds the Observations |
-| [End of Life Care Team](StructureDefinition-EndOfLifeCareTeam.html) | Profile: the key worker (items 21-22) and care workers involved in care (items 23-25) |
-| [End of Life Care Observation](StructureDefinition-EndOfLifeCareObservation.html) | Profile for an extracted answer: `code` the SCCI1580 data item, `derivedFrom` the QuestionnaireResponse |
-| [End of Life Care Composition](StructureDefinition-EndOfLifeCareComposition.html) | Profile for the Document's Composition: type SNOMED CT `861421000000109` *End of Life Care Coordination Summary*, ordered sections in ReSPECT order ([section codes](CodeSystem-eol-document-section.html)) |
-| [End of Life Care Scenario](ExampleScenario-EndOfLifeCareScenario.html) | Example scenario: Task, capture, extraction, Document, print, retrieval and amendment |
+| [Palliative Care Plan](StructureDefinition-PalliativeCarePlan.html) | Profile: the person's palliative care plan. `addresses` the diagnoses (SCCI1580 items 26-27) as Conditions, `careTeam` links to the care team, `supportingInfo` holds the Observations |
+| [Palliative Care Team](StructureDefinition-PalliativeCareTeam.html) | Profile: the key worker (items 21-22) and care workers involved in care (items 23-25) |
+| [Palliative Care Record Observation](StructureDefinition-PalliativeCareRecordObservation.html) | Profile for an extracted answer: `code` the SCCI1580 data item, `derivedFrom` the QuestionnaireResponse |
+| [Palliative Care Record Composition](StructureDefinition-PalliativeCareRecordComposition.html) | Profile for the Document's Composition: type SNOMED CT `861421000000109` *End of Life Care Coordination Summary*, ordered sections in ReSPECT order ([section codes](CodeSystem-eol-document-section.html)) |
+| [Palliative Care Record Scenario](ExampleScenario-PalliativeCareRecordScenario.html) | Example scenario: Task, capture, extraction, Document, print, retrieval and amendment |
 {:.grid}
 
 ### Content
 
-The [logical model](StructureDefinition-EndOfLifeCareRecord.html) follows
+The [logical model](StructureDefinition-PalliativeCareRecord.html) follows
 SCCI1580's sections. Items marked * are mandatory in SCCI1580.
 
 | SCCI1580 section | Data items | Questionnaire | Extracted to |
@@ -61,7 +61,7 @@ SCCI1580's sections. Items marked * are mandatory in SCCI1580.
 | 15-16 After death | 60 Actual place of death, 59 Date of death | `s15` | Observations |
 {:.grid}
 
-The record is persisted around an [End of Life Care Plan](StructureDefinition-EndOfLifeCarePlan.html):
+The record is persisted around an [Palliative Care Plan](StructureDefinition-PalliativeCarePlan.html):
 
 ```mermaid
 flowchart LR
@@ -117,7 +117,7 @@ ReSPECT form rather than an EPaCCS record laid out like one.
 #### What the reader sees
 
 Like the [Cancer Pathology Report](PathologyReport.html#what-the-reader-sees), the
-End of Life Care Document is a real document: a viewer shows each section's
+Palliative Care Record Document is a real document: a viewer shows each section's
 narrative (`Composition.section.text`) in order, and the same view is printed for
 the copy kept at home. The coded Observations sit behind the narrative.
 
@@ -133,7 +133,7 @@ changed in this version - a real viewer would not show the labels.
 <div style="font-family:Arial,sans-serif; font-size:11px; color:#888; text-align:right;">Composition.title &middot; type SNOMED CT 861421000000109 &middot; identifier EOL-0001-v2 &middot; relatesTo replaces EOL-0001-v1</div>
 <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #333; padding-bottom:8px; margin-bottom:12px;">
   <div>
-    <div style="font-size:22px; font-weight:bold;">End of Life Care Record</div>
+    <div style="font-size:22px; font-weight:bold;">Palliative Care Record</div>
     <div>Manchester University NHS Foundation Trust (R0A) &middot; Version 2, replaces version 1 of 12-Oct-2026</div>
   </div>
   <div style="font-family:Arial,sans-serif; font-size:12px; color:#c00; font-weight:bold; border:1px solid #c00; padding:2px 6px;">FICTITIOUS EXAMPLE</div>

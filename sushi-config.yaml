@@ -35,6 +35,9 @@ pages:
   index.md:
     title: Home
     generation: markdown
+  CareProcesses.md:
+    title: Care Processes Overview
+    generation: markdown
   CancerPathway.md:
     title: Cancer Pathway
     generation: markdown
@@ -53,11 +56,8 @@ pages:
   Genomics.md:
     title: Genomic Testing and Reporting
     generation: markdown
-  CancerMonitoring.md:
-    title: Cancer Monitoring
-    generation: markdown
   PatientReportedOutcomes.md:
-    title: Patient-Reported Outcomes
+    title: Cancer Monitoring and Patient-Reported Outcomes
     generation: markdown
   EndOfLifeCare.md:
     title: Palliative and End of Life Care
@@ -90,14 +90,14 @@ pages:
 menu:
   Home: index.html
   Care Processes (Volume 1):
+    Overview: CareProcesses.html
     Cancer Pathway: CancerPathway.html
     Cancer Screening: Screening.html
     Imaging and Radiology: Imaging.html
     Laboratory Testing Workflow (LTW): LTW.html
     Inter-Laboratory Workflow (ILW): ILW.html
     Genomic Testing and Reporting: Genomics.html
-    Cancer Monitoring: CancerMonitoring.html
-    Patient-Reported Outcomes: PatientReportedOutcomes.html
+    Cancer Monitoring and Patient-Reported Outcomes: PatientReportedOutcomes.html
     Palliative and End of Life Care: EndOfLifeCare.html
   Interactions (Volume 2):
     Placer Order Management [LAB-1]: LAB-1.html
@@ -108,7 +108,7 @@ menu:
     Cancer Pathology Report: PathologyReport.html
     Cancer Pathology Report Logical Model: StructureDefinition-PathologyReport.html
     Palliative Care Record: PalliativeCareRecord.html
-    Palliative Care Record Logical Model: StructureDefinition-EndOfLifeCareRecord.html
+    Palliative Care Record Logical Model: StructureDefinition-PalliativeCareRecord.html
     Profiles: profiles.html
     Terminology: terminology.html
   Artifacts: artifacts.html

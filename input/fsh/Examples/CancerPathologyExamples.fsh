@@ -1,6 +1,6 @@
 // Fictitious example: Ned LIVERPOOL's caecal biopsy (H23-41022), the histopathology
 // report of the Lynch syndrome example on LAB-35, as a Cancer Pathology Report
-// FHIR Document. The patient is the End of Life Care example patient (EolPatient).
+// FHIR Document. The patient is the Palliative Care Record example patient (EolPatient).
 
 Alias: $obscat = http://terminology.hl7.org/CodeSystem/observation-category
 

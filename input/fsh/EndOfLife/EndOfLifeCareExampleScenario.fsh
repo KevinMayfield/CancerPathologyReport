@@ -1,13 +1,13 @@
-// End of Life Care - from a poor prognosis on the cancer pathway to a shared,
+// Palliative Care Record - from a poor prognosis on the cancer pathway to a shared,
 // printable end of life care record (ReSPECT-style FHIR Document), and its amendment.
 
-Instance:       EndOfLifeCareScenario
+Instance:       PalliativeCareRecordScenario
 InstanceOf:     ExampleScenario
-Title:          "End of Life Care Record - capture, share, print and amend"
+Title:          "Palliative Care Record - capture, share, print and amend"
 Description:    "Proof of concept - not an authoritative source. A poor prognosis on the cancer pathway starts a Task to complete the end of life care record. The record is captured with an SDC Questionnaire, persisted as Observations, shared as a FHIR Document laid out like the ReSPECT form, and printed for the person's home. It is later amended, producing a replacement Document and printed copy."
 Usage:          #definition
-* url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/ExampleScenario/EndOfLifeCareScenario"
-* name = "EndOfLifeCareScenario"
+* url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/ExampleScenario/PalliativeCareRecordScenario"
+* name = "PalliativeCareRecordScenario"
 * status = #draft
 * experimental = true
 * purpose = "Shows the Questionnaire - QuestionnaireResponse - Observation - Document pattern for SCCI1580 Palliative Care Co-ordination: Core Content."
@@ -51,7 +51,7 @@ Usage:          #definition
 * instance[=].description = "Requests completion of the end of life care record. Task.focus is the Questionnaire; Task.reasonReference is the prognosis or MDT outcome; Task.owner is the palliative care team or GP."
 * instance[+].resourceId = "questionnaire"
 * instance[=].resourceType = #Questionnaire
-* instance[=].name = "EndOfLifeCareQuestionnaire"
+* instance[=].name = "PalliativeCareRecordQuestionnaire"
 * instance[=].description = "The SCCI1580 SDC Questionnaire."
 * instance[+].resourceId = "qr"
 * instance[=].resourceType = #QuestionnaireResponse
@@ -79,7 +79,7 @@ Usage:          #definition
 * instance[=].description = "The key worker and the care workers involved in care (SCCI1580 items 21-25)."
 * instance[+].resourceId = "document"
 * instance[=].resourceType = #Bundle
-* instance[=].name = "End of Life Care Record (FHIR Document)"
+* instance[=].name = "Palliative Care Record (FHIR Document)"
 * instance[=].description = "Bundle of type document. The Composition's sections follow the ReSPECT form's section order, and each section's entries are the Observations; each section has a narrative for display."
 * instance[=].version[+].versionId = "doc-1"
 * instance[=].version[=].description = "First issue"
@@ -103,7 +103,7 @@ Usage:          #definition
 * process[+].title = "Create, share and print the end of life care record"
 * process[=].description = "From a poor prognosis on the cancer pathway to a shared Document and printed copy."
 * process[=].preConditions = "The person has a cancer diagnosis, and the MDT or treating clinician judges the prognosis to be poor (e.g. last months of life)."
-* process[=].postConditions = "A current End of Life Care Record Document is available to urgent and emergency care, and a printed copy is in the person's home."
+* process[=].postConditions = "A current Palliative Care Record Document is available to urgent and emergency care, and a printed copy is in the person's home."
 * process[=].step[+].operation.number = "1"
 * process[=].step[=].operation.name = "Raise Task"
 * process[=].step[=].operation.initiator = "mdt"
@@ -159,7 +159,7 @@ Usage:          #definition
 
 * process[+].title = "Amend the end of life care record"
 * process[=].description = "A change - e.g. a new CPR decision or preferred place of death - is made from the previous answers, producing a replacement Document and printed copy."
-* process[=].preConditions = "A current End of Life Care Record Document (doc-1) and printed copy (pdf-1) exist."
+* process[=].preConditions = "A current Palliative Care Record Document (doc-1) and printed copy (pdf-1) exist."
 * process[=].postConditions = "doc-2 replaces doc-1, and the printed copy in the home is replaced by pdf-2."
 * process[=].step[+].operation.number = "8"
 * process[=].step[=].operation.name = "Populate from previous answers"

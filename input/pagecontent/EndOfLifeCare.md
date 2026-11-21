@@ -149,6 +149,102 @@ Summary*. The UK edition also has `1382601000000107` *ReSPECT (Recommended Summa
 Plan for Emergency Care and Treatment) form*, which would suit a document that is a
 ReSPECT form rather than an EPaCCS record laid out like one.
 
+#### What the reader sees
+
+Like the [Cancer Pathology Report](PathologyReport.html#what-the-reader-sees), the
+End of Life Care Document is a real document: a viewer shows each section's
+narrative (`Composition.section.text`) in order, and the same view is printed for
+the copy kept at home. The coded Observations sit behind the narrative.
+
+The mock below is version 2 of the fictitious [example](#examples)
+([EolDocument2](Bundle-EolDocument2.html)), after the amendment. It follows the
+ReSPECT form's **section order and headings only** - not its wording or design,
+which are licensed CC BY-NC-ND. The small grey labels show the Composition section
+and the SCCI1580 data items each block comes from, and **amended** marks answers
+changed in this version - a real viewer would not show the labels.
+
+<div style="border:1px solid #bbb; box-shadow:0 2px 8px rgba(0,0,0,0.15); background:#fff; color:#222; max-width:820px; margin:16px auto; padding:28px 36px; font-family:Georgia,'Times New Roman',serif; font-size:15px; line-height:1.5;">
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888; text-align:right;">Composition.title &middot; type SNOMED CT 861421000000109 &middot; identifier EOL-0001-v2 &middot; relatesTo replaces EOL-0001-v1</div>
+<div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #333; padding-bottom:8px; margin-bottom:12px;">
+  <div>
+    <div style="font-size:22px; font-weight:bold;">End of Life Care Record</div>
+    <div>Manchester University NHS Foundation Trust (R0A) &middot; Version 2, replaces version 1 of 12-Oct-2026</div>
+  </div>
+  <div style="font-family:Arial,sans-serif; font-size:12px; color:#c00; font-weight:bold; border:1px solid #c00; padding:2px 6px;">FICTITIOUS EXAMPLE</div>
+</div>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-1 &middot; entry Patient &middot; SCCI1580 5-13</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">1. This plan belongs to</div>
+<table style="width:100%; font-size:14px; margin-bottom:10px; border:none;">
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Full name</b></td><td style="border:none;">LIVERPOOL, Ned</td><td style="border:none;"><b>Preferred name</b></td><td style="border:none;">Ned</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Date of birth</b></td><td style="border:none;">18-Jun-1942</td><td style="border:none;"><b>NHS number</b></td><td style="border:none;">973 738 3206 (verified)</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Address</b></td><td style="border:none;">20 Forthlin Road, LIVERPOOL, L18 9TN</td><td style="border:none;"><b>Telephone</b></td><td style="border:none;">0151 496 0201</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Date completed</b></td><td style="border:none;">12-Oct-2026</td><td style="border:none;"><b>Last amended</b></td><td style="border:none;">02-Nov-2026 10:00 <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></td></tr>
+</table>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-2 &middot; SCCI1580 26, 27, 34, 29, 28, 30, 31-32, 33, 35, 52 &middot; PRSB palliative care register</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">2. Shared understanding of my health and current condition</div>
+<p style="margin:2px 0 6px;"><b>Diagnoses.</b> Malignant neoplasm of caecum, with metastases to the liver. On the end of life care register; Gold Standards Framework in use.</p>
+<p style="margin:2px 0 6px;"><b>Likely prognosis.</b> Last weeks of life <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
+<p style="margin:2px 0 6px;"><b>Functional status.</b> Australia-modified Karnofsky Performance Status 30 <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span> &middot; No known disability &middot; No known allergy</p>
+<p style="margin:2px 0 6px;"><b>Anticipatory medicines.</b> Just in case box issued - kept in the kitchen cupboard.</p>
+<p style="margin:2px 0 10px;"><b>Other care planning documents.</b> Advance statement (Mental Capacity Act 2005). Lasting power of attorney for personal welfare - see section 8.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-3 &middot; SCCI1580 35, 36-43, 58</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">3. What matters to me in decisions about my treatment and care</div>
+<p style="margin:2px 0 6px;"><b>Advance statement.</b> Wishes to stay at home with his family, and does not want to go back into hospital.</p>
+<p style="margin:2px 0 6px;"><b>Preferred place of death.</b> 1st choice: hospice <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span> &middot; 2nd choice: own home <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
+<p style="margin:2px 0 10px;"><b>Other issues or preferences.</b> Ned now wishes to be cared for in the hospice if his symptoms cannot be controlled at home. Key safe by the front door - the code is held by the district nursing team. <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-4 &middot; SCCI1580 44, 45, 47 &middot; PRSB contingency plan</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">4. Clinical recommendations for emergency care and treatment</div>
+<div style="border:2px solid #333; padding:8px 12px; margin:4px 0 8px; font-weight:bold;">CPR decision: Not for cardiopulmonary resuscitation &middot; decided 12-Oct-2026</div>
+<p style="margin:2px 0 6px;"><b>Location of CPR documentation.</b> ReSPECT form in the folder on the kitchen table.</p>
+<p style="margin:2px 0 10px;"><b>Treatment escalation plan.</b> If there is increasing pain, vomiting or new confusion: contact the community palliative care team, or the GP out of hours service. Manage at home using the anticipatory medicines. Hospital admission only for symptoms that cannot be controlled at home. (Updated 02-Nov-2026.)</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-5 &middot; SCCI1580 1 &middot; PRSB mental capacity assessment</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">5. Capacity for involvement in making this plan</div>
+<p style="margin:2px 0 10px;">Consent given for sharing the end of life care co-ordination record.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-6 &middot; SCCI1580 48, 18 &middot; PRSB involvement in CPR decision</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">6. Involvement in making this plan</div>
+<p style="margin:2px 0 10px;">Joan LIVERPOOL (wife) was present at the CPR discussion. Family member informed of the CPR decision. Relative aware of prognosis.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-7 &middot; Composition.author, attester</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">7. Clinicians' signatures</div>
+<p style="margin:2px 0 10px;">Dr Priya FICTITIOUS, Consultant in Palliative Medicine (GMC C5678901) &middot; attested 02-Nov-2026 10:00</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-8 &middot; entry RelatedPerson &middot; SCCI1580 16-17, 51-53, 19-25</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">8. Emergency contacts and those involved in discussing this plan</div>
+<table style="width:100%; font-size:14px; margin-bottom:10px; border:none;">
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Main carer and LPA (personal welfare)</b></td><td style="border:none;">Joan LIVERPOOL, wife</td><td style="border:none;">07700 900123</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>GP</b></td><td style="border:none;">Dr Rachel FICTITIOUS, FICTITIOUS Medical Practice</td><td style="border:none;"></td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Key worker</b></td><td style="border:none;">Sarah FICTITIOUS, district nurse</td><td style="border:none;">0151 496 0123</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Care team</b></td><td style="border:none;">Community Specialist Palliative Care Team</td><td style="border:none;">0151 496 0456</td></tr>
+</table>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section respect-9 &middot; SCCI1580 3, 4, 46</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">9. Form reviewed and remains relevant</div>
+<p style="margin:2px 0 4px;">Reviewed and amended 02-Nov-2026. Next review of the record and of the CPR decision: 16-Nov-2026 <span style="font-family:Arial,sans-serif; font-size:11px; color:#c60;">amended</span></p>
+</div>
+
+**Reading the mock**
+
+- The **header** comes from the `Composition` itself: title, custodian, version
+  (`identifier`) and the version it `replaces`.
+- Each numbered heading is one `Composition.section`, in the order the profile
+  fixes, shown from its `section.text`. Empty sections - for example *After death* -
+  are left out.
+- The **CPR decision** is boxed because it is what urgent and emergency care look
+  for first; how a viewer highlights it is a rendering choice, not part of the
+  Document.
+- **Amended** answers are new Observations with status `amended`; unchanged ones
+  are carried over from version 1. A viewer could highlight changes by comparing
+  with the version the Document replaces.
+- The printed copy is this same view rendered to PDF. When a new version is
+  issued, the old printed copy in the home is replaced.
+
 ### Examples
 
 Fictitious. Ned LIVERPOOL, the patient of the [Lynch syndrome example](LAB-35.html#example-lynch-syndrome),

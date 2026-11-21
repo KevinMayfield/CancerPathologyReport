@@ -357,8 +357,9 @@ report. A layout can be **inferred** by combining three sources:
 #### Inferred layout
 
 <div class="alert alert-warning" role="alert">
-<b>Proposal.</b> This layout is inferred for this proof of concept. A Cancer
-Pathology Composition profile has not been created yet.
+<b>Proposal.</b> This layout is inferred for this proof of concept. It is profiled
+as the <a href="StructureDefinition-CancerPathologyComposition.html">Cancer Pathology
+Composition</a>.
 </div>
 
 ```mermaid

@@ -124,6 +124,7 @@ are from [mCODE](https://hl7.org/fhir/us/mcode/), which this guide is aligned wi
 | Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) |
 | Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Patient-Reported Outcomes](PatientReportedOutcomes.html) |
 | Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - |
+| Palliative and end of life care | [SCCI1580 Palliative Care Co-ordination: Core Content](https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content) | `Questionnaire` and logical model - see [End of Life Care](EndOfLifeCare.html) |
 {:.grid}
 
 ### Operational Management (FDP Cancer 360)

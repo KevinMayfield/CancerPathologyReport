@@ -13,6 +13,7 @@ mapped easily. mCODE itself is not a dependency, because it is built on US Core.
 
 | Profile | Parent | mCODE equivalent | COSD Pathology items |
 |---|---|---|---|
+| [Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) | `Composition-eu-lab` | None - see US Pathology Composition in [Cancer Pathology Data Sharing](https://hl7.org/fhir/us/cancer-reporting/index.html) | pCR1020 (final diagnosis text), pCR0800, pCR7130/7140, pCR0780 |
 | [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html) | `DiagnosticReport-eu-lab` | None - see US Pathology Diagnostic Report in [Cancer Pathology Data Sharing](https://hl7.org/fhir/us/cancer-reporting/index.html) | pCR0950, pCR0960, pCR0780, pCR1020, pCR0800, pCR7130/7140 |
 | [Cancer Pathology Specimen](StructureDefinition-CancerPathologySpecimen.html) | `Specimen-eu-lab` | Human Specimen | pCR0970, pCR0760, pCR1010, pCR0770 |
 | [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html) | `condition-eu-core` | Primary Cancer Condition | pCR0810, pCR6410, pCR0820 |
@@ -37,6 +38,12 @@ mapped easily. mCODE itself is not a dependency, because it is built on US Core.
 invasion, excision margins, synchronous tumour and lymph node counts - are
 results on the report using the base `Observation-resultslab-eu-lab`. Profiles
 for them can be added later.
+
+**End of life care** profiles are outside the COSD model and are described on
+[End of Life Care](EndOfLifeCare.html): the
+[End of Life Care Composition](StructureDefinition-EndOfLifeCareComposition.html)
+(sections in ReSPECT order) and the
+[End of Life Care Observation](StructureDefinition-EndOfLifeCareObservation.html).
 
 Value sets for the COSD national codes and for SNOMED CT topography and
 morphology are listed on the [Terminology](terminology.html) page.

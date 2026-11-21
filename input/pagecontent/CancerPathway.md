@@ -87,7 +87,7 @@ described in [Pathway Stages](#pathway-stages) below.
 | MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and treatment plan | Context | - |
 | Treatment | Surgery, systemic anti-cancer therapy, radiotherapy | Out of scope | - |
 | Follow-up | Response to treatment, recurrence, surveillance | Out of scope | - |
-| Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | - |
+| Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Patient-Reported Outcomes](PatientReportedOutcomes.html) |
 {:.grid}
 
 ### Timing Standards
@@ -122,7 +122,7 @@ are from [mCODE](https://hl7.org/fhir/us/mcode/), which this guide is aligned wi
 | Systemic anti-cancer therapy | [Systemic Anti-Cancer Therapy (SACT) data set](https://digital.nhs.uk/ndrs/data/data-sets/sact) | [Cancer-Related Medication Request](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-request.html) / [Administration](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-administration.html) |
 | Radiotherapy | [Radiotherapy Data Set (RTDS)](https://digital.nhs.uk/ndrs/data/data-sets/rtds) | [Radiotherapy Course Summary](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-radiotherapy-course-summary.html) |
 | Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) |
-| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` |
+| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Patient-Reported Outcomes](PatientReportedOutcomes.html) |
 | Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - |
 {:.grid}
 
@@ -368,16 +368,7 @@ through the trust's local cancer register - varies by trust (**to confirm**).
 
 ### Patient-Reported Outcomes
 
-PROMs are not a single step at the end of the pathway:
-
-- **National PROMs** - the
-  [Cancer Quality of Life Survey](https://england.nhs.uk/wp-content/uploads/2021/11/Cancer-quality-of-life-survey-summary-report-first-data-release.pdf),
-  run by NHS England with NDRS, invites people about **18 months after diagnosis**
-  to complete the EQ-5D and EORTC QLQ-C30 questionnaires. Patients are identified
-  from the cancer registration data, and results are analysed by tumour site and
-  stage - so the diagnosis details in the Cancer Pathology Report (diagnosis date,
-  site, morphology, stage) reach PROMs **through the registry**, not through any
-  exchange defined in this guide.
-- **Clinical PROMs** - some services collect symptom and toxicity reports from
-  patients during and after treatment, as part of their care. These are exchanges
-  between the patient and the care team, with no pathology content.
+PROMs are not a single step at the end of the pathway: the national Cancer Quality
+of Life Survey reaches patients through the registry about 18 months after
+diagnosis, and clinical PROMs are collected by the care team during and after
+treatment. See [Patient-Reported Outcomes](PatientReportedOutcomes.html).

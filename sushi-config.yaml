@@ -52,6 +52,9 @@ pages:
   Genomics.md:
     title: Genomic Testing and Reporting
     generation: markdown
+  PatientReportedOutcomes.md:
+    title: Patient-Reported Outcomes
+    generation: markdown
   LAB-1.md:
     title: Placer Order Management [LAB-1]
     generation: markdown
@@ -83,6 +86,7 @@ menu:
     Inter-Laboratory Workflow (ILW): ILW.html
     Imaging and Radiology: Imaging.html
     Genomic Testing and Reporting: Genomics.html
+    Patient-Reported Outcomes: PatientReportedOutcomes.html
   Interactions (Volume 2):
     Placer Order Management [LAB-1]: LAB-1.html
     Order Results Management [LAB-3]: LAB-3.html

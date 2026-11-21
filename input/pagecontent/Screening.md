@@ -223,6 +223,55 @@ Why it matters:
 - **NHS004 could carry it.** The specification's result segment has optional
   measurement value and unit elements, but does not use them.
 
+#### Example: FIT Screening Result (HL7 v2 ORU_R01)
+
+Fictitious, and an **assumption** to be confirmed: that the hub laboratory's LIMS
+reports the FIT as an HL7 v2 `ORU^R01`, which is then converted into the NHS004
+EDIFACT message to the GP practice. The NHS004 specification says all messages
+come from "BCS" as a single trading partner, so the conversion is assumed to happen
+in, or after, BCSS. Organisation codes `HUB01` (hub laboratory) and `GP001` (GP
+practice) are placeholders, not ODS codes; the NHS number is in the test range.
+The analyser is illustrative - **To confirm**.
+
+```
+MSH|^~\&|LIMS|HUB01|BCSS|BCSS|20251104101500+0000||ORU^R01^ORU_R01|urn:uuid:5b0e7c2a-1f4d-4a8e-9c3b-7d2e6f1a9b40|T|2.5.1|||AL
+PID|1||9991000003^^^NHS^NH||PRESTON^Margaret^^^^^L||19620411|F|||14 Fishergate^^PRESTON^^PR1 2NJ
+PD1|||FICTITIOUS PRACTICE^^GP001^^^ODS
+ORC|RE|BCS25-0438812^BCSS|F25-118204^HUB01||CM||||20251104101500+0000|||^BCSP Hub Manager
+OBR|1|BCS25-0438812^BCSS|F25-118204^HUB01|FITSCR^Bowel cancer screening faecal immunochemical test^HUB01|||20251029|||||||||^BCSP Hub Manager||||||20251104101500+0000|||F|||GP001^FICTITIOUS PRACTICE
+OBX|1|NM|27396-1^Hemoglobin [Mass/mass] in Stool from gastrointestinal^LN^1049361000000101^Quantitative faecal immunochemical test^SNM3||142|ug/g^microgram per gram^UCUM|<120|H|||F|||20251103|||IMMUNOASSAY|HM-JACKarc-02^^HUB01
+OBX|2|CWE|29771-3^Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay^LN||LA6576-8^Positive^LN||||||F|||20251103
+OBX|3|CWE|368481000000103^Bowel cancer screening programme: faecal occult blood result^SNM3||1101371000000105^Bowel cancer screening programme liquid faecal immunochemical test abnormal^SNM3||||||F|||20251104
+NTE|1||Further tests needed. Referred to specialist screening practitioner clinic.
+SPM|1|F25-118204-K1&HUB01||119339001^Stool specimen^SNM3|||||||||||||20251029|20251031101500+0000
+```
+
+A normal result below the analyser's measuring range would use a structured
+numeric (`SN`) value, with no abnormal flag:
+
+```
+OBX|1|SN|27396-1^Hemoglobin [Mass/mass] in Stool from gastrointestinal^LN^1049361000000101^Quantitative faecal immunochemical test^SNM3||<^7|ug/g^microgram per gram^UCUM|<120|N|||F|||20251103
+OBX|2|CWE|29771-3^Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay^LN||LA6577-6^Negative^LN||||||F|||20251103
+OBX|3|CWE|368481000000103^Bowel cancer screening programme: faecal occult blood result^SNM3||1101361000000103^Bowel cancer screening programme liquid faecal immunochemical test normal^SNM3||||||F|||20251104
+```
+
+| Segment | Content | Notes |
+|---|---|---|
+| `ORC-2` / `OBR-2` | Placer number `BCS25-0438812^BCSS` | The programme (BCSS) is the placer - it sent the kit. Assigning authority for BCSS **To confirm** (no ODS code identified) |
+| `ORC-3` / `OBR-3` | Filler number `F25-118204^HUB01` | Hub laboratory accession number |
+| `OBR-4` | Local `FITSCR` | No national order code; LOINC `57803-9` Occult blood panel - Stool by Immunoassay is a US multi-sample panel, so not used |
+| `OBR-28` | GP practice | Result copy recipient - the NHS004 recipient (`ReceivingGPPracticeCode`). `OBR-28` is a person (`XCN`); putting the practice code in it is indicative |
+| `OBX-1` | Faecal haemoglobin, LOINC `27396-1` with SNOMED CT `1049361000000101` | `OBX-5` value, `OBX-6` µg/g, `OBX-7` the threshold applied (`<120`), `OBX-8` flag, `OBX-17` method, `OBX-18` analyser |
+| `OBX-2` | Presence, LOINC `29771-3` | Positive or negative against the threshold |
+| `OBX-3` | Programme outcome, SNOMED CT | The only result NHS004 carries. Whether the LIMS or BCSS assigns it is **To confirm**; the FOB investigation code is used because no FIT equivalent was found |
+| `SPM` | Kit sample, `119339001` Stool specimen | `SPM-17` sample date (from the kit), `SPM-18` received |
+{:.grid}
+
+Converting to NHS004 keeps the patient (`PID`), the GP practice (`PD1-3` /
+`OBR-28`) and `OBX-3`. The value, threshold, flag and analyser (`OBX-1`, `OBX-2`)
+have nowhere to go, because the specification does not use the result segment's
+measurement elements: the detail exists in the ORU, and is lost in the conversion.
+
 #### Screening FIT and symptomatic FIT
 
 FIT is also ordered by GPs for patients **with symptoms**, to decide whether to
@@ -308,6 +357,8 @@ Screening systems and result flows for breast, cervical and lung screening are
 - The NHS004 specification (2014) codes FOB results; FIT-specific SNOMED CT result
   codes exist, but whether they are used is **To confirm**. No LOINC code matches a
   quantitative FIT result in µg Hb/g.
+- **Open** whether the hub LIMS sends an HL7 v2 `ORU^R01` that is converted to
+  NHS004 (as assumed in the [example](#example-fit-screening-result-hl7-v2-oru_r01)).
 - Screening results to GPs carry the category only, not the faecal haemoglobin
   concentration - see [More detailed FIT result](#more-detailed-fit-result).
 - Screening results to GP practices use EDIFACT (NHS004). No FHIR R4 equivalent was

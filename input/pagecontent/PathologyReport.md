@@ -578,4 +578,86 @@ Authorised: 21-Sep-2026 16:42 &nbsp;&middot;&nbsp; Example Pathology Laboratory
   [primary cancer condition](Condition-PathPrimaryCancerCondition.html),
   [histologic type](Observation-PathHistologicType.html) and the four MMR
   [tumour marker results](Observation-PathMLH1.html). The patient is the same
-  person as the [End of Life Care](EndOfLifeCare.html#examples) examples.
+  person as the [Palliative Care Record](PalliativeCareRecord.html#examples) examples.
+
+#### What the reader sees: PathDocument
+
+The [PathDocument](Bundle-PathDocument.html) example as a document viewer would show
+it - the section narratives of its
+[Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html),
+in order. Unlike the [general mock](#what-the-reader-sees) above, this is exactly the
+content of the example. The small grey labels show the Composition element, the
+section slice and its LOINC code, and the entries behind each block - a real viewer
+would not show them.
+
+<div style="border:1px solid #bbb; box-shadow:0 2px 8px rgba(0,0,0,0.15); background:#fff; color:#222; max-width:820px; margin:16px auto; padding:28px 36px; font-family:Georgia,'Times New Roman',serif; font-size:15px; line-height:1.5;">
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888; text-align:right;">Composition.title &middot; type LOINC 60567-5 &middot; identifier H23-41022 &middot; custodian 690S0</div>
+<div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #333; padding-bottom:8px; margin-bottom:12px;">
+  <div>
+    <div style="font-size:22px; font-weight:bold;">Histopathology Report</div>
+    <div>Manchester Royal Infirmary Laboratory (690S0)</div>
+  </div>
+  <div style="font-family:Arial,sans-serif; font-size:12px; color:#c00; font-weight:bold; border:1px solid #c00; padding:2px 6px;">FICTITIOUS EXAMPLE</div>
+</div>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">Composition.subject (Patient) &middot; identifier &middot; date &middot; status &middot; DiagnosticReport.basedOn (order)</div>
+<table style="width:100%; font-size:14px; margin-bottom:14px; border:none;">
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Patient</b></td><td style="border:none;">LIVERPOOL, Ned (M)</td><td style="border:none;"><b>NHS Number</b></td><td style="border:none;">973 738 3206</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Date of birth</b></td><td style="border:none;">18-Jun-1942</td><td style="border:none;"><b>Report number</b></td><td style="border:none;">H23-41022</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Order number</b></td><td style="border:none;">1583320 (R0A)</td><td style="border:none;"><b>Report status</b></td><td style="border:none;">Final</td></tr>
+<tr><td style="border:none; padding:2px 8px 2px 0;"><b>Collected</b></td><td style="border:none;">14-Aug-2023</td><td style="border:none;"><b>Authorised</b></td><td style="border:none;">21-Aug-2023 09:00</td></tr>
+</table>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[surgicalPathology] &middot; Surgical pathology study (LOINC 11529-5)</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">Report</div>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[clinicalHistory] &middot; 22636-5 &middot; section.text</div>
+<p style="margin:2px 0 10px;"><b>Clinical details.</b> Change in bowel habit. Colonoscopy: ulcerated mass in the caecum.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[siteOfOrigin] &middot; 22633-2 &middot; section.text, entry Cancer Pathology Specimen</div>
+<p style="margin:2px 0 10px;"><b>Specimen.</b> A: Caecal mass, colonoscopic biopsies, collected 14-Aug-2023. Fixed in buffered 10% formalin.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[grossDescription] &middot; 22634-0 &middot; section.text</div>
+<p style="margin:2px 0 10px;"><b>Macroscopy.</b> Four cores of tan tissue, 2 to 5 mm. All embedded in block A1.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[microscopicObservation] &middot; 22635-7 &middot; section.text</div>
+<p style="margin:2px 0 10px;"><b>Microscopy.</b> Fragments of large bowel mucosa infiltrated by an adenocarcinoma, forming irregular glands with a desmoplastic stroma. Tumour-infiltrating lymphocytes are prominent. Mismatch repair immunohistochemistry: MLH1 loss of nuclear expression; PMS2 loss of nuclear expression; MSH2 retained; MSH6 retained.</p>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[finalDiagnosis] &middot; 22637-3 &middot; section.text (pCR1020), entry Primary Cancer Condition</div>
+<div style="border:1px solid #999; padding:8px 12px; margin:4px 0 12px;"><b>Diagnosis.</b> Caecum, biopsy: adenocarcinoma. Mismatch repair deficient (loss of MLH1 and PMS2). MLH1 promoter hypermethylation testing requested to assess for Lynch syndrome.</div>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">section[synopticReport] &middot; Pathology synoptic report (LOINC 60568-3) &middot; entries: Specimen, Primary Cancer Condition, Histologic Behavior and Type, 4 &times; Tumor Marker Test</div>
+<div style="font-size:17px; font-weight:bold; border-bottom:1px solid #999; margin:10px 0 6px;">Cancer data summary</div>
+<table style="width:100%; font-size:14px; margin-bottom:12px;">
+<tr><td>Specimen nature (pCR0970)</td><td>Primary tumour</td></tr>
+<tr><td>Investigation type (pCR0760)</td><td>Biopsy</td></tr>
+<tr><td>Topography (pCR6410)</td><td>Caecum structure</td></tr>
+<tr><td>Diagnosis (pCR0810)</td><td>C18.0 Caecum</td></tr>
+<tr><td>Morphology (pCR6420)</td><td>Adenocarcinoma</td></tr>
+<tr><td>MLH1 nuclear expression intact (pCR7020)</td><td><b>No - lost</b></td></tr>
+<tr><td>PMS2 nuclear expression intact (pCR7030)</td><td><b>No - lost</b></td></tr>
+<tr><td>MSH2 nuclear expression intact (pCR7040)</td><td>Yes</td></tr>
+<tr><td>MSH6 nuclear expression intact (pCR7050)</td><td>Yes</td></tr>
+</table>
+
+<div style="font-family:Arial,sans-serif; font-size:11px; color:#888;">Composition.author, attester (legal) &middot; custodian</div>
+<p style="font-size:14px; border-top:1px solid #333; padding-top:4px; margin:4px 0;">Reported and authorised by: Dr Anika FICTITIOUS (GMC C2468013), Consultant Histopathologist &middot; 21-Aug-2023 09:00 &middot; Manchester Royal Infirmary Laboratory</p>
+</div>
+
+**Reading the example**
+
+- The **header** comes from the Composition and its `subject`. The order number
+  comes from the [Diagnostic Report](DiagnosticReport-PathDiagnosticReport.html)
+  (`basedOn`), which the Composition references through its `diagnosticReport`
+  extension; the two share the report number `H23-41022` and type `60567-5`, as the
+  HL7 Europe Laboratory Bundle rules require.
+- The **Report** sections are narrative only, apart from the specimen and the
+  diagnosis, which also reference the coded resources.
+- The **Cancer data summary** is the synoptic report section. Its narrative is
+  generated from its entries - the same resources the Diagnostic Report has as
+  `specimen` and `result` - so a receiver can read the text or use the codes.
+- The **supplementary report** (tumour assessment for molecular testing, block A1,
+  tumour cell content 40%) shown on [LAB-35](LAB-35.html#the-same-report-human-readable)
+  is not in this example: tumour cell content is not a COSD core item - see
+  [LAB-35 Gaps](LAB-35.html#gaps).

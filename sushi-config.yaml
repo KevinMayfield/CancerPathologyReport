@@ -41,14 +41,14 @@ pages:
   Screening.md:
     title: Cancer Screening
     generation: markdown
+  Imaging.md:
+    title: Imaging and Radiology
+    generation: markdown
   LTW.md:
     title: Laboratory Testing Workflow (LTW)
     generation: markdown
   ILW.md:
     title: Inter-Laboratory Workflow (ILW)
-    generation: markdown
-  Imaging.md:
-    title: Imaging and Radiology
     generation: markdown
   Genomics.md:
     title: Genomic Testing and Reporting
@@ -60,7 +60,7 @@ pages:
     title: Patient-Reported Outcomes
     generation: markdown
   EndOfLifeCare.md:
-    title: End of Life Care
+    title: Palliative and End of Life Care
     generation: markdown
   LAB-1.md:
     title: Placer Order Management [LAB-1]
@@ -77,6 +77,9 @@ pages:
   PathologyReport.md:
     title: Cancer Pathology Report
     generation: markdown
+  PalliativeCareRecord.md:
+    title: Palliative Care Record
+    generation: markdown
   profiles.md:
     title: Profiles
     generation: markdown
@@ -86,16 +89,16 @@ pages:
 
 menu:
   Home: index.html
-  Analysis and Design (Volume 1):
+  Care Processes (Volume 1):
     Cancer Pathway: CancerPathway.html
     Cancer Screening: Screening.html
+    Imaging and Radiology: Imaging.html
     Laboratory Testing Workflow (LTW): LTW.html
     Inter-Laboratory Workflow (ILW): ILW.html
-    Imaging and Radiology: Imaging.html
     Genomic Testing and Reporting: Genomics.html
     Cancer Monitoring: CancerMonitoring.html
     Patient-Reported Outcomes: PatientReportedOutcomes.html
-    End of Life Care: EndOfLifeCare.html
+    Palliative and End of Life Care: EndOfLifeCare.html
   Interactions (Volume 2):
     Placer Order Management [LAB-1]: LAB-1.html
     Order Results Management [LAB-3]: LAB-3.html
@@ -103,10 +106,9 @@ menu:
     Sub-order Results Delivery [LAB-36]: LAB-36.html
   Data Models (Volume 3):
     Cancer Pathology Report: PathologyReport.html
-    Logical Model: StructureDefinition-PathologyReport.html
-    End of Life Care Record: StructureDefinition-EndOfLifeCareRecord.html
-    End of Life Care Questionnaire: Questionnaire-EndOfLifeCareQuestionnaire.html
-    End of Life Care Scenario: ExampleScenario-EndOfLifeCareScenario.html
+    Cancer Pathology Report Logical Model: StructureDefinition-PathologyReport.html
+    Palliative Care Record: PalliativeCareRecord.html
+    Palliative Care Record Logical Model: StructureDefinition-EndOfLifeCareRecord.html
     Profiles: profiles.html
     Terminology: terminology.html
   Artifacts: artifacts.html

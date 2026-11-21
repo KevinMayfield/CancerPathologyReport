@@ -19,10 +19,15 @@ Genomics Reflex use case.
 ## Layout
 
 - FSH: `input/fsh/PathologyReport.fsh` (logical model),
-  `input/fsh/Profiles/CancerPathologyReport.fsh`, `input/fsh/Terminology/`
-- Pages: `input/pagecontent/`, organised as IHE volumes - Volume 1 Analysis and
-  Design (LTW, ILW, Imaging, Genomics), Volume 2 Interactions (LAB-1, LAB-3,
-  LAB-35, LAB-36), Volume 3 Data Models.
+  `input/fsh/Profiles/` (including the Cancer Pathology Composition),
+  `input/fsh/Terminology/`, `input/fsh/Examples/`; palliative care record
+  (SCCI1580) in `input/fsh/EndOfLife/`
+- Pages: `input/pagecontent/`, organised as IHE volumes - Volume 1 Care Processes,
+  in pathway order (Cancer Pathway, Screening, Imaging, LTW, ILW, Genomics,
+  Monitoring, PROMs, Palliative and End of Life Care), Volume 2 Interactions
+  (LAB-1, LAB-3, LAB-35, LAB-36), Volume 3 Data Models - for each report a model
+  page with its FHIR Document and an example rendering ("What the reader sees"),
+  and its logical model (Cancer Pathology Report, Palliative Care Record).
 - A new page must be added to both `pages:` and `menu:` in `sushi-config.yaml`.
 - Research notes and open questions that should not be published:
   `notes/research.md` (outside `input/`, so the IG Publisher ignores it).

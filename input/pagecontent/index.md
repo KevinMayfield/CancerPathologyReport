@@ -59,6 +59,14 @@ laboratory when the report is issued - see the [Cancer Pathway](CancerPathway.ht
 - [Profiles](profiles.html) - FHIR profiles for that content, built on HL7 Europe
   Base and HL7 Europe Laboratory, and aligned with mCODE where mCODE has an
   equivalent profile
+- [Palliative Care Record](PalliativeCareRecord.html) - outside the cancer pathology
+  model: the SCCI1580 Palliative Care Co-ordination: Core Content record, with its
+  logical model, SDC Questionnaire and a FHIR Document laid out in ReSPECT order;
+  its care process is [Palliative and End of Life Care](EndOfLifeCare.html)
+
+The guide is organised as IHE volumes: **Volume 1** care processes along the
+pathway, **Volume 2** interactions, and **Volume 3** data models - for each report a
+model page with its FHIR Document and an example rendering, and its logical model.
 
 ### Worked Example: Lynch Syndrome
 

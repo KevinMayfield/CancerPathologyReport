@@ -1536,8 +1536,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N82035"
-* destination.endpoint = "http://www.acme.org/Endpoint/N82035"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -1551,19 +1551,20 @@ Title:      "Laboratory Report (LAB-3) - NHS England HbA1c - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383206"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999468"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0742315"
+* identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "LIVERPOOL"
-* name.given = "Ned"
-* birthDate = "1942-06-18"
+* name.family = "WELSH"
+* name.given = "Joel"
+* birthDate = "1972-08-23"
 * gender = #male
-* address.line[+] = "20 Forthlin Road"
-* address.city = "LIVERPOOL"
-* address.postalCode = "L18 9TN"
+* address.line[+] = "ACONBURY"
+* address.line[+] = "LARPOOL DRIVE"
+* address.city = "WHITBY"
+* address.postalCode = "YO22 4ND"
 
 Instance:   HL7v2Msg-NHSE-HbA1c-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -1571,10 +1572,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England HbA1c - Specimen 1"
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N82035"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220129-000362"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220129-008927"
@@ -1592,10 +1593,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England HbA1c - ServiceRequest 1"
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N82035"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220129-000241"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220130-007843"
@@ -1607,7 +1608,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:51375e90-72df-5a62-b44c-4b674a374462"
 * occurrenceDateTime = "2022-01-29T10:18:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1678,8 +1679,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-Specimen-1
 * entry[+].fullUrl = "urn:uuid:ec84115c-88f7-5221-b13e-c1d0247bb40d"
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:3f5f18cd-ffbc-5861-9976-1756c4887b0b"
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-Observation-1
 * entry[+].fullUrl = "urn:uuid:1d887601-4235-59a0-8581-e2e5b0d136c3"
@@ -1761,8 +1762,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-Specimen-1
 * entry[+].fullUrl = "urn:uuid:3f5f18cd-ffbc-5861-9976-1756c4887b0b"
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-Observation-1
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-CRP-MessageHeader
 InstanceOf: MessageHeader
@@ -1771,8 +1772,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N82035"
-* destination.endpoint = "http://www.acme.org/Endpoint/N82035"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -1786,19 +1787,20 @@ Title:      "Laboratory Report (LAB-3) - NHS England CRP - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383206"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999468"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0742315"
+* identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "LIVERPOOL"
-* name.given = "Ned"
-* birthDate = "1942-06-18"
+* name.family = "WELSH"
+* name.given = "Joel"
+* birthDate = "1972-08-23"
 * gender = #male
-* address.line[+] = "20 Forthlin Road"
-* address.city = "LIVERPOOL"
-* address.postalCode = "L18 9TN"
+* address.line[+] = "ACONBURY"
+* address.line[+] = "LARPOOL DRIVE"
+* address.city = "WHITBY"
+* address.postalCode = "YO22 4ND"
 
 Instance:   HL7v2Msg-NHSE-CRP-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -1806,10 +1808,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England CRP - Specimen 1"
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N82035"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220307-000105"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220307-007856"
@@ -1827,10 +1829,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England CRP - ServiceRequest 1"
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N82035"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220307-000142"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220308-004205"
@@ -1843,7 +1845,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:02ef74c9-a078-507a-b085-b63cd50dd5a6"
 * occurrenceDateTime = "2022-03-07T11:42:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1909,8 +1911,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-CRP-Specimen-1
 * entry[+].fullUrl = "urn:uuid:656c7a84-36d0-5227-b5ea-65070eaccb09"
 * entry[=].resource = HL7v2Msg-NHSE-CRP-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:fda2d6ca-2b66-5053-b3bd-eed37cdbd488"
 * entry[=].resource = HL7v2Msg-NHSE-CRP-Observation-1
 * entry[+].fullUrl = "urn:uuid:5d1dca01-fd9b-5920-95c4-a3d432187e6e"
@@ -1993,8 +1995,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-CRP-Specimen-1
 * entry[+].fullUrl = "urn:uuid:fda2d6ca-2b66-5053-b3bd-eed37cdbd488"
 * entry[=].resource = HL7v2Msg-NHSE-CRP-Observation-1
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-LFT-UandE-MessageHeader
 InstanceOf: MessageHeader
@@ -2003,8 +2005,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N82035"
-* destination.endpoint = "http://www.acme.org/Endpoint/N82035"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -2020,19 +2022,20 @@ Title:      "Laboratory Report (LAB-3) - NHS England LFT and U&E - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383206"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999468"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0742315"
+* identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "LIVERPOOL"
-* name.given = "Ned"
-* birthDate = "1942-06-18"
+* name.family = "WELSH"
+* name.given = "Joel"
+* birthDate = "1972-08-23"
 * gender = #male
-* address.line[+] = "20 Forthlin Road"
-* address.city = "LIVERPOOL"
-* address.postalCode = "L18 9TN"
+* address.line[+] = "ACONBURY"
+* address.line[+] = "LARPOOL DRIVE"
+* address.city = "WHITBY"
+* address.postalCode = "YO22 4ND"
 
 Instance:   HL7v2Msg-NHSE-LFT-UandE-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -2040,10 +2043,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England LFT and U&E - Specimen 1"
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N82035"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220307-000014"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220307-007856"
@@ -2061,10 +2064,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England LFT and U&E - ServiceReques
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N82035"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220307-000046-001"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220308-008902"
@@ -2076,7 +2079,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
 * occurrenceDateTime = "2022-03-07T10:02:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2197,10 +2200,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England LFT and U&E - ServiceReques
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N82035"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220307-000046-002"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220308-008902"
@@ -2212,7 +2215,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
 * occurrenceDateTime = "2022-03-07T10:02:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2370,8 +2373,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-Specimen-1
 * entry[+].fullUrl = "urn:uuid:cf7f23e4-778c-5c89-a160-ff7b6df40c36"
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:20151d8d-5901-5c45-bc69-312fc8f07c65"
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-Observation-1
 * entry[+].fullUrl = "urn:uuid:e697e681-b763-5602-b12b-5755e2c8b616"
@@ -2512,8 +2515,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-Observation-8
 * entry[+].fullUrl = "urn:uuid:0439317a-a859-56fe-a18c-c1e484b76aef"
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-Observation-9
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-Lipids-HbA1c-MessageHeader
 InstanceOf: MessageHeader
@@ -2522,8 +2525,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N82035"
-* destination.endpoint = "http://www.acme.org/Endpoint/N82035"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -2539,19 +2542,20 @@ Title:      "Laboratory Report (LAB-3) - NHS England Lipids and HbA1c - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383206"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999468"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0742315"
+* identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "LIVERPOOL"
-* name.given = "Ned"
-* birthDate = "1942-06-18"
+* name.family = "WELSH"
+* name.given = "Joel"
+* birthDate = "1972-08-23"
 * gender = #male
-* address.line[+] = "20 Forthlin Road"
-* address.city = "LIVERPOOL"
-* address.postalCode = "L18 9TN"
+* address.line[+] = "ACONBURY"
+* address.line[+] = "LARPOOL DRIVE"
+* address.city = "WHITBY"
+* address.postalCode = "YO22 4ND"
 
 Instance:   HL7v2Msg-NHSE-Lipids-HbA1c-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -2559,10 +2563,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England Lipids and HbA1c - Specimen
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N82035"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220705-000004"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220705-006215"
@@ -2580,10 +2584,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England Lipids and HbA1c - ServiceR
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N82035"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220704-000027-001"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220706-002378"
@@ -2595,7 +2599,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
 * occurrenceDateTime = "2022-07-05T08:52:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2710,10 +2714,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England Lipids and HbA1c - ServiceR
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N82035"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220704-000027-002"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N82035"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220706-002378"
@@ -2725,7 +2729,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
 * occurrenceDateTime = "2022-07-05T08:52:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2789,8 +2793,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-Specimen-1
 * entry[+].fullUrl = "urn:uuid:c6d58731-d961-5bb6-81d8-338227728339"
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:87ddd916-2f81-54b9-acf0-c08e3fe4fc1b"
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-Observation-1
 * entry[+].fullUrl = "urn:uuid:2a03dc13-84b2-50e7-9102-12fddec7dc16"
@@ -2907,8 +2911,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-Observation-4
 * entry[+].fullUrl = "urn:uuid:3e325ba8-720b-5206-842e-572661cf4fb2"
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-Observation-5
-* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-FBC-MessageHeader
 InstanceOf: MessageHeader
@@ -2917,8 +2921,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N81027"
-* destination.endpoint = "http://www.acme.org/Endpoint/N81027"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -2932,20 +2936,19 @@ Title:      "Laboratory Report (LAB-3) - NHS England FBC - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383281"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999549"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0482113"
+* identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "CONGLETON"
-* name.given = "Margaery"
-* birthDate = "1982-02-11"
+* name.family = "MOXEY"
+* name.given = "Judy"
+* birthDate = "2004-05-06"
 * gender = #female
-* address.line[+] = "Town Hall"
-* address.line[+] = "7 High Street"
-* address.city = "CONGLETON"
-* address.postalCode = "CW12 1BN"
+* address.line[+] = "1 CASTLEGATE"
+* address.city = "PICKERING"
+* address.postalCode = "YO18 7AY"
 
 Instance:   HL7v2Msg-NHSE-FBC-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -2953,10 +2956,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England FBC - Specimen 1"
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220208-000016"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220208-001397"
@@ -2974,10 +2977,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England FBC - ServiceRequest 1"
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N81027"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220129-000012"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220209-001369"
@@ -2989,7 +2992,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
 * occurrenceDateTime = "2022-02-08T10:23:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -3298,8 +3301,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-FBC-Specimen-1
 * entry[+].fullUrl = "urn:uuid:0cd51dda-64c9-535f-9af3-49a9ba688387"
 * entry[=].resource = HL7v2Msg-NHSE-FBC-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:b991b175-d7dc-5407-9ffb-cced5ccb476d"
 * entry[=].resource = HL7v2Msg-NHSE-FBC-Observation-1
 * entry[+].fullUrl = "urn:uuid:41a81087-220a-53b4-8132-6e64656a0cea"
@@ -3453,8 +3456,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-FBC-Observation-12
 * entry[+].fullUrl = "urn:uuid:45fef1cd-0ea8-51cb-9e1b-bc90d0f9cdd9"
 * entry[=].resource = HL7v2Msg-NHSE-FBC-Observation-13
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-HBsAg-MessageHeader
 InstanceOf: MessageHeader
@@ -3463,8 +3466,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N81027"
-* destination.endpoint = "http://www.acme.org/Endpoint/N81027"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -3478,20 +3481,19 @@ Title:      "Laboratory Report (LAB-3) - NHS England HBsAg - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383281"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999549"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0482113"
+* identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "CONGLETON"
-* name.given = "Margaery"
-* birthDate = "1982-02-11"
+* name.family = "MOXEY"
+* name.given = "Judy"
+* birthDate = "2004-05-06"
 * gender = #female
-* address.line[+] = "Town Hall"
-* address.line[+] = "7 High Street"
-* address.city = "CONGLETON"
-* address.postalCode = "CW12 1BN"
+* address.line[+] = "1 CASTLEGATE"
+* address.city = "PICKERING"
+* address.postalCode = "YO18 7AY"
 
 Instance:   HL7v2Msg-NHSE-HBsAg-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -3499,10 +3501,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England HBsAg - Specimen 1"
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220307-000051"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220307-006130"
@@ -3520,10 +3522,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England HBsAg - ServiceRequest 1"
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N81027"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220307-000004"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220311-003927"
@@ -3536,7 +3538,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:b6bfe811-d89b-5d9b-b89d-dc889461f450"
 * occurrenceDateTime = "2022-03-07T13:21:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -3599,8 +3601,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-Specimen-1
 * entry[+].fullUrl = "urn:uuid:50081a17-cc59-5dd5-ade2-248104e391f7"
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:8f9f5107-af5b-5356-ba0f-d5b7e7f256bf"
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-Observation-1
 * entry[+].fullUrl = "urn:uuid:92341675-2f84-54dd-988b-faf862929f69"
@@ -3683,8 +3685,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-Specimen-1
 * entry[+].fullUrl = "urn:uuid:8f9f5107-af5b-5356-ba0f-d5b7e7f256bf"
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-Observation-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-HPV-MessageHeader
 InstanceOf: MessageHeader
@@ -3693,8 +3695,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N81027"
-* destination.endpoint = "http://www.acme.org/Endpoint/N81027"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -3708,20 +3710,19 @@ Title:      "Laboratory Report (LAB-3) - NHS England HPV - Patient"
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383281"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999549"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0482113"
+* identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "CONGLETON"
-* name.given = "Margaery"
-* birthDate = "1982-02-11"
+* name.family = "MOXEY"
+* name.given = "Judy"
+* birthDate = "2004-05-06"
 * gender = #female
-* address.line[+] = "Town Hall"
-* address.line[+] = "7 High Street"
-* address.city = "CONGLETON"
-* address.postalCode = "CW12 1BN"
+* address.line[+] = "1 CASTLEGATE"
+* address.city = "PICKERING"
+* address.postalCode = "YO18 7AY"
 
 Instance:   HL7v2Msg-NHSE-HPV-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -3729,10 +3730,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England HPV - Specimen 1"
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220321-000065"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220322-005962"
@@ -3750,10 +3751,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England HPV - ServiceRequest 1"
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N81027"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220321-000017"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220403-008209"
@@ -3765,7 +3766,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:471dc517-a1fb-5059-974a-e92228d5d403"
 * occurrenceDateTime = "2022-03-22T11:04:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -3828,8 +3829,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HPV-Specimen-1
 * entry[+].fullUrl = "urn:uuid:7f55a586-fba6-53fb-a42f-b7da665cbbbd"
 * entry[=].resource = HL7v2Msg-NHSE-HPV-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:9eff41ef-66da-5a44-a2b1-ad469f9de46e"
 * entry[=].resource = HL7v2Msg-NHSE-HPV-Observation-1
 * entry[+].fullUrl = "urn:uuid:48e8d73e-3888-5394-9fc2-1183c8f87230"
@@ -3911,8 +3912,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HPV-Specimen-1
 * entry[+].fullUrl = "urn:uuid:9eff41ef-66da-5a44-a2b1-ad469f9de46e"
 * entry[=].resource = HL7v2Msg-NHSE-HPV-Observation-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-GTT-MessageHeader
 InstanceOf: MessageHeader
@@ -3921,8 +3922,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N81027"
-* destination.endpoint = "http://www.acme.org/Endpoint/N81027"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -3936,20 +3937,19 @@ Title:      "Laboratory Report (LAB-3) - NHS England GTT (unstructured) - Patien
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383281"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999549"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0482113"
+* identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "CONGLETON"
-* name.given = "Margaery"
-* birthDate = "1982-02-11"
+* name.family = "MOXEY"
+* name.given = "Judy"
+* birthDate = "2004-05-06"
 * gender = #female
-* address.line[+] = "Town Hall"
-* address.line[+] = "7 High Street"
-* address.city = "CONGLETON"
-* address.postalCode = "CW12 1BN"
+* address.line[+] = "1 CASTLEGATE"
+* address.city = "PICKERING"
+* address.postalCode = "YO18 7AY"
 
 Instance:   HL7v2Msg-NHSE-GTT-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -3957,10 +3957,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England GTT (unstructured) - Specim
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220209-000082"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220209-001531"
@@ -3978,10 +3978,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England GTT (unstructured) - Specim
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220209-000083"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220209-001549"
@@ -3999,10 +3999,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England GTT (unstructured) - Specim
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220209-000084"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220209-001587"
@@ -4020,10 +4020,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England GTT (unstructured) - Servic
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N81027"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220207-000013"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220210-000218"
@@ -4035,7 +4035,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:502b150c-d487-5452-b64b-6a02ae623589"
 * occurrenceDateTime = "2022-02-09T10:01:23+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -4107,8 +4107,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-GTT-Specimen-3
 * entry[+].fullUrl = "urn:uuid:26ae572d-e0c9-57b5-8d71-4004beca9399"
 * entry[=].resource = HL7v2Msg-NHSE-GTT-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:12b5b401-3f29-5d65-a808-791da244b8bf"
 * entry[=].resource = HL7v2Msg-NHSE-GTT-Observation-1
 * entry[+].fullUrl = "urn:uuid:a7f560c2-d33c-5a01-b95a-3a72ac9a7d7c"
@@ -4201,8 +4201,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-GTT-Specimen-3
 * entry[+].fullUrl = "urn:uuid:12b5b401-3f29-5d65-a808-791da244b8bf"
 * entry[=].resource = HL7v2Msg-NHSE-GTT-Observation-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-NHSE-UrineMCS-MessageHeader
 InstanceOf: MessageHeader
@@ -4211,8 +4211,8 @@ Description: "Fictitious example: the message header (HL7 v2 MSH), event R01."
 Usage:      #inline
 * eventCoding = http://terminology.hl7.org/CodeSystem/v2-0003#R01
 * destination.receiver.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* destination.receiver.identifier.value = "N81027"
-* destination.endpoint = "http://www.acme.org/Endpoint/N81027"
+* destination.receiver.identifier.value = "B82033"
+* destination.endpoint = "http://www.acme.org/Endpoint/B82033"
 * sender.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * sender.identifier.value = "Y8J7D"
 * source.endpoint = "http://www.acme.org/Endpoint/Y8J7D"
@@ -4226,20 +4226,19 @@ Title:      "Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured) -
 Description: "Fictitious example: the patient (HL7 v2 PID)."
 Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
-* identifier[=].value = "9737383281"
-* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PI
+* identifier[=].value = "9999999549"
+* identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 * identifier[=].system = "http://www.acme.org/patient/Y8J7D"
-* identifier[=].value = "Y8J7D0482113"
+* identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
-* name.family = "CONGLETON"
-* name.given = "Margaery"
-* birthDate = "1982-02-11"
+* name.family = "MOXEY"
+* name.given = "Judy"
+* birthDate = "2004-05-06"
 * gender = #female
-* address.line[+] = "Town Hall"
-* address.line[+] = "7 High Street"
-* address.city = "CONGLETON"
-* address.postalCode = "CW12 1BN"
+* address.line[+] = "1 CASTLEGATE"
+* address.city = "PICKERING"
+* address.postalCode = "YO18 7AY"
 
 Instance:   HL7v2Msg-NHSE-UrineMCS-Specimen-1
 InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Specimen-eu-lab
@@ -4247,10 +4246,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured) -
 Description: "Fictitious example: the specimen (HL7 v2 SPM)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/specimen/N81027"
+* identifier[=].system = "http://www.acme.org/specimen/B82033"
 * identifier[=].value = "SPC-REQ-20220221-000024"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/specimen/Y8J7D"
 * identifier[=].value = "SPC-Lab-20220221-004306"
@@ -4268,10 +4267,10 @@ Title:      "Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured) -
 Description: "Fictitious example: the order (HL7 v2 ORC/OBR)."
 Usage:      #inline
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#PLAC
-* identifier[=].system = "http://www.acme.org/servicerequest/N81027"
+* identifier[=].system = "http://www.acme.org/servicerequest/B82033"
 * identifier[=].value = "REQ-20220221-000018"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* identifier[=].assigner.identifier.value = "N81027"
+* identifier[=].assigner.identifier.value = "B82033"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#FILL
 * identifier[=].system = "http://www.acme.org/servicerequest/Y8J7D"
 * identifier[=].value = "REP-20220225-006301"
@@ -4283,7 +4282,7 @@ Usage:      #inline
 * subject.reference = "urn:uuid:61aca9c4-c09d-5862-8a2a-a5bb4db0eff0"
 * occurrenceDateTime = "2022-02-21T11:07:00+00:00"
 * requester.type = "PractitionerRole"
-* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* requester.reference = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -4357,8 +4356,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-Specimen-1
 * entry[+].fullUrl = "urn:uuid:b60b590e-434c-52d6-9ac4-25a91f4978eb"
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-ServiceRequest-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 * entry[+].fullUrl = "urn:uuid:36dbbc3d-5f80-5be0-85bc-8ab9c771b8ed"
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-Observation-1
 * entry[+].fullUrl = "urn:uuid:00ecf3b0-de20-5a41-9e94-877ed4a70e09"
@@ -4445,8 +4444,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-Specimen-1
 * entry[+].fullUrl = "urn:uuid:36dbbc3d-5f80-5be0-85bc-8ab9c771b8ed"
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-Observation-1
-* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
-* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
+* entry[+].fullUrl = "urn:uuid:0919e4e9-5bfb-50c2-b792-e9fefa1f22c1"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-B82033
 
 Instance:   HL7v2Msg-FIT-MessageHeader
 InstanceOf: MessageHeader
@@ -4811,29 +4810,17 @@ Usage:      #inline
 * organization.identifier.value = "7A1"
 * organization.display = "BETSI CADWALADR UNIVERSITY LOCAL HEALTH BOARD"
 
-Instance:   HL7v2-PractitionerRole-C1008215-N82035
+Instance:   HL7v2-PractitionerRole-C1008215-B82033
 InstanceOf: http://hl7.eu/fhir/base/StructureDefinition/practitionerRole-eu-core
-Title:      "PractitionerRole - Dr Gale GASKELL (N82035)"
+Title:      "PractitionerRole - Dr Gale GASKELL (B82033)"
 Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
 Usage:      #inline
 * practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * practitioner.identifier.value = "C1008215"
 * practitioner.display = "Dr Gale GASKELL"
 * organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* organization.identifier.value = "N82035"
-* organization.display = "MATHER AVENUE SURGERY"
-
-Instance:   HL7v2-PractitionerRole-C1008215-N81027
-InstanceOf: http://hl7.eu/fhir/base/StructureDefinition/practitionerRole-eu-core
-Title:      "PractitionerRole - Dr Gale GASKELL (N81027)"
-Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
-Usage:      #inline
-* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
-* practitioner.identifier.value = "C1008215"
-* practitioner.display = "Dr Gale GASKELL"
-* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
-* organization.identifier.value = "N81027"
-* organization.display = "READESMOOR MEDICAL GROUP PRACTICE"
+* organization.identifier.value = "B82033"
+* organization.display = "PICKERING MEDICAL PRACTICE"
 
 Instance:   HL7v2-PractitionerRole-BCSP-Hub-Manager-BCSS
 InstanceOf: http://hl7.eu/fhir/base/StructureDefinition/practitionerRole-eu-core

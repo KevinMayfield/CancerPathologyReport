@@ -120,9 +120,7 @@ OBX|4|CWE|81693-4^MSH-6 Ag [Presence] in Cancer specimen by Immune stain^LN^pCR7
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - Histopathology](Bundle-HL7v2Msg-LAB3-Histopathology.html)
 
-> FHIR Document Example (HL7 Europe Laboratory Report): [Cancer Pathology Report - Histopathology report H23-41022](Bundle-PathDocument.html)
-
-> FHIR: [PathDocument](Bundle-PathDocument.html) - the same report as a FHIR Document ([Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) and [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html)); see [What the reader sees](PathologyReport.html#what-the-reader-sees)
+> FHIR Document Example (HL7 Europe Laboratory Report): [Cancer Pathology Report - Histopathology report H23-41022](Bundle-PathDocument.html) - [Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) and [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html); see [What the reader sees](PathologyReport.html#what-the-reader-sees)
 
 The supplementary *tumour assessment for molecular testing* (block A1, tumour cell
 content 40%) follows as a further `OBR` (`TMA`) - see the [LAB-35](LAB-35.html#example-lynch-syndrome)
@@ -277,24 +275,31 @@ The examples from the NHS England
 `ORU_R01`. The conversion follows the NW GMSA conventions for identifiers (ODS codes as
 assigning authorities for the order numbers and specimen identifiers) but **keeps the
 examples' own coding** - SNOMED CT for the tests - as laboratories send their own codes in
-practice. The laboratory (`Y8J7D`) is that of the NHS England examples; the requesting
-practice is each patient's registered GP practice on PDS (the NHS England examples use
-Pickering Medical Practice, `B82033`).
+practice. The laboratory (`Y8J7D`) and the requesting GP practice (Pickering Medical Practice,
+`B82033`) are those of the NHS England examples.
 
-The patients are **NW Genomics test patients**, which are on the NHS England PDS INT
-environment, so the messages can be used to test the NW GMSA RIE:
+The patients keep the **names and demographics of the NHS England examples**, but their NHS
+numbers are replaced. The originals (for example `972 771 0638`) are not on the NHS England PDS INT
+environment, so the messages could not be traced or used to test the NW GMSA RIE. Pathology
+messaging has traditionally been tested with the
+[NHS England EDI test patients](https://nw-gmsa.github.io/en/testing.html#nhs-england-edi--test-patients),
+which are on PDS INT, so each patient is given an EDITESTPATIENT NHS number:
 
-| Patient | NHS number | Registered GP practice (requester) | Laboratory patient number (`PID-3`, `PI`) | Replaces (earlier conversion) | Examples |
-|---|---|---|---|---|---|
-| LIVERPOOL, Ned (M, 18-Jun-1942) | `973 738 3206` | Mather Avenue Surgery (`N82035`) | `Y8J7D0742315` (new) | EDITESTPATIENT ONE | HbA1c, CRP, LFT and U&E, Lipids and HbA1c |
-| CONGLETON, Margaery (F, 11-Feb-1982) | `973 738 3281` | Readesmoor Medical Group Practice (`N81027`) | `Y8J7D0482113` (new) | EDITESTPATIENT NINE | FBC, HBsAg, HPV, GTT, Urine MC&S |
+| Patient (NHS England example) | Original NHS number | NHS number used (EDI test patient) | Laboratory MRN (`PID-3`, `MR`) | Examples |
+|---|---|---|---|---|
+| WELSH, Joel (M, 23-Aug-1972) | `972 771 0638` | `999 999 9468` (EDITESTPATIENT ONE) | `Y8J7D0381527` | HbA1c, CRP, LFT and U&E, Lipids and HbA1c |
+| MOXEY, Judy (F, 6-May-2004) | `972 771 0859` | `999 999 9549` (EDITESTPATIENT NINE) | `Y8J7D0592374` | FBC, HBsAg, HPV, GTT, Urine MC&S |
 {:.grid}
 
-The laboratory patient numbers are new synthetic identifiers, to be added to the NW GMSA
-Testing [MRN-Mapping](https://github.com/nw-gmsa/Testing/blob/main/MRN-Mapping.md) `Y8J7D`
-column. Earlier conversions of the same examples, with NHS England EDI test patients, are
-in [PathologyAndLaboratory](https://github.com/KevinMayfield/PathologyAndLaboratory)
-(`examples/hl7v2/ORU_R01/`).
+Only the NHS number matches PDS INT: a PDS trace returns the EDITESTPATIENT demographics, not the
+example's name, date of birth and address, so tests that check demographics against PDS will see a
+mismatch. The laboratory medical record numbers (MRN, identifier type `MR` with the laboratory ODS code as assigning authority) are those of the earlier conversions of the same examples in
+[PathologyAndLaboratory](https://github.com/KevinMayfield/PathologyAndLaboratory)
+(`examples/hl7v2/ORU_R01/`); they are to be added to the NW GMSA Testing
+[MRN-Mapping](https://github.com/nw-gmsa/Testing/blob/main/MRN-Mapping.md) `Y8J7D` column. The
+original patients were taken from the examples in
+[ryma2fhir/FHIR_IG_PATHOLOGY_TEST](https://github.com/ryma2fhir/FHIR_IG_PATHOLOGY_TEST/tree/main/examples)
+(**To confirm** against 0.5.1).
 
 Each example therefore has **two FHIR Documents**: the NHS England original, which the
 `ORU_R01` was created from, and the FHIR Document generated here from the `ORU_R01`, which
@@ -322,98 +327,98 @@ has only two levels, the `OBR` test and its `OBX` results, so any further struct
 original is not carried through (**To confirm**).
 
 
-**HbA1c** - HbA1c (LIVERPOOL, Ned) - NHS England original: [Bundle-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HbA1c-Report-Example?version=0.5.1):
+**HbA1c** - HbA1c (WELSH, Joel) - NHS England original: [Bundle-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HbA1c-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0001|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383206^^^NHS^NH~Y8J7D0742315^^^Y8J7D^PI||LIVERPOOL^Ned^^^^^L||19420618|M|||20 Forthlin Road^^LIVERPOOL^^L18 9TN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^MATHER AVENUE SURGERY^N82035|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220129-000241^N82035|REP-20220130-007843^Y8J7D||CM||||202201291024+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||MATHER AVENUE SURGERY^^^^^^^^^N82035
-OBR|1|REQ-20220129-000241^N82035|REP-20220130-007843^Y8J7D|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT|||202201291018+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202201301248+0000||CH|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0001|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999468^^^NHS^NH~Y8J7D0381527^^^Y8J7D^MR||WELSH^Joel^^^^^L||19720823|M|||ACONBURY^LARPOOL DRIVE^WHITBY^^YO22 4ND|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220129-000241^B82033|REP-20220130-007843^Y8J7D||CM||||202201291024+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220129-000241^B82033|REP-20220130-007843^Y8J7D|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT|||202201291018+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202201301248+0000||CH|F
 OBX|1|NM|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT||54|mmol/mol^mmol/mol^UCUM|||||F|||202201291018+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 NTE|1|L|DIAGNOSIS OF DIABETES MELLITUS:\.br\HbA1c of 48 mmol/mol and above is diagnostic of DM (WHO 2011)\.br\42 - 47 mmol/mol indicates high risk of DM (NICE Guidance PH38 2012)\.br\\.br\MONITORING OF DIABETES MELLITUS (ADULTS):\.br\Type 2 target values: 48 mmol/mol – 57 mmol/mol (NICE Guidelines NG28)\.br\Type 1 target values: 48 mmol/mol or lower (NICE Guidelines NG17)
-SPM|1|SPC-REQ-20220129-000362&N82035^SPC-Lab-20220129-008927&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202201291018+0000|202201291514+0000
+SPM|1|SPC-REQ-20220129-000362&B82033^SPC-Lab-20220129-008927&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202201291018+0000|202201291514+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England HbA1c](Bundle-HL7v2Msg-NHSE-HbA1c.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England HbA1c](Bundle-HL7v2Msg-NHSE-HbA1c-Document.html)
 
-**CRP** - C-reactive protein (LIVERPOOL, Ned) - NHS England original: [Bundle-CRP-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-CRP-Report-Example?version=0.5.1):
+**CRP** - C-reactive protein (WELSH, Joel) - NHS England original: [Bundle-CRP-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-CRP-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0002|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383206^^^NHS^NH~Y8J7D0742315^^^Y8J7D^PI||LIVERPOOL^Ned^^^^^L||19420618|M|||20 Forthlin Road^^LIVERPOOL^^L18 9TN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^MATHER AVENUE SURGERY^N82035|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220307-000142^N82035|REP-20220308-004205^Y8J7D||CM||||202201291024+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||MATHER AVENUE SURGERY^^^^^^^^^N82035
-OBR|1|REQ-20220307-000142^N82035|REP-20220308-004205^Y8J7D|1001371000000100^Serum CRP (C reactive protein) level^SCT^1106741000000105^CRP (C reactive protein) mass concentration in serum^SCT|||202203071142+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203081209+0000||CH|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0002|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999468^^^NHS^NH~Y8J7D0381527^^^Y8J7D^MR||WELSH^Joel^^^^^L||19720823|M|||ACONBURY^LARPOOL DRIVE^WHITBY^^YO22 4ND|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220307-000142^B82033|REP-20220308-004205^Y8J7D||CM||||202201291024+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220307-000142^B82033|REP-20220308-004205^Y8J7D|1001371000000100^Serum CRP (C reactive protein) level^SCT^1106741000000105^CRP (C reactive protein) mass concentration in serum^SCT|||202203071142+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203081209+0000||CH|F
 OBX|1|NM|1001371000000100^Serum CRP (C reactive protein) level^SCT^1106741000000105^CRP (C reactive protein) mass concentration in serum^SCT||200|^mg/L|0-5|H|||F|||202203071142+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220307-000105&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071142+0000|202203071458+0000
+SPM|1|SPC-REQ-20220307-000105&B82033^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071142+0000|202203071458+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England CRP](Bundle-HL7v2Msg-NHSE-CRP.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England CRP](Bundle-HL7v2Msg-NHSE-CRP-Document.html)
 
-**LFT and U&E** - Liver function tests and urea and electrolytes - two ORDER_OBSERVATION groups (LIVERPOOL, Ned) - NHS England original: [Bundle-LFT-UandE-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-LFT-UandE-Report-Example?version=0.5.1):
+**LFT and U&E** - Liver function tests and urea and electrolytes - two ORDER_OBSERVATION groups (WELSH, Joel) - NHS England original: [Bundle-LFT-UandE-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-LFT-UandE-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0007|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383206^^^NHS^NH~Y8J7D0742315^^^Y8J7D^PI||LIVERPOOL^Ned^^^^^L||19420618|M|||20 Forthlin Road^^LIVERPOOL^^L18 9TN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^MATHER AVENUE SURGERY^N82035|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220307-000046-001^N82035|REP-20220308-008902^Y8J7D||CM||||202203070948+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||MATHER AVENUE SURGERY^^^^^^^^^N82035
-OBR|1|REQ-20220307-000046-001^N82035|REP-20220308-008902^Y8J7D|1031081000000108^Liver function tests^SCT|||202203071002+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203081423+0000||CH|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0007|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999468^^^NHS^NH~Y8J7D0381527^^^Y8J7D^MR||WELSH^Joel^^^^^L||19720823|M|||ACONBURY^LARPOOL DRIVE^WHITBY^^YO22 4ND|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220307-000046-001^B82033|REP-20220308-008902^Y8J7D||CM||||202203070948+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220307-000046-001^B82033|REP-20220308-008902^Y8J7D|1031081000000108^Liver function tests^SCT|||202203071002+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203081423+0000||CH|F
 OBX|1|NM|997591000000109^Serum total bilirubin level^SCT^1107221000000109^Total bilirubin substance concentration in serum^SCT||6|umol/L^umol/L^UCUM|<21||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|2|NM|1000821000000103^Serum albumin level^SCT^1105861000000106^Albumin mass concentration in serum^SCT||47|g/L^g/L^UCUM|35-50||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|3|NM|1000621000000104^Serum alkaline phosphatase level^SCT^1106051000000106^Alkaline phosphatase enzyme activity in serum^SCT||96|[iU]/L^iu/L^UCUM|30-130||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|4|NM|1018251000000107^Serum alanine aminotransferase level^SCT^1106081000000100^Alanine aminotransferase enzyme activity in serum^SCT||15|[iU]/L^iu/L^UCUM|<40||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220307-000014&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071002+0000|202203071454+0000
-ORC|RE|REQ-20220307-000046-002^N82035|REP-20220308-008902^Y8J7D||CM||||202203070948+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||MATHER AVENUE SURGERY^^^^^^^^^N82035
-OBR|2|REQ-20220307-000046-002^N82035|REP-20220308-008902^Y8J7D|1000971000000107^Urea and electrolytes level^SCT|||202203071002+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203081423+0000||CH|F
+SPM|1|SPC-REQ-20220307-000014&B82033^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071002+0000|202203071454+0000
+ORC|RE|REQ-20220307-000046-002^B82033|REP-20220308-008902^Y8J7D||CM||||202203070948+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|2|REQ-20220307-000046-002^B82033|REP-20220308-008902^Y8J7D|1000971000000107^Urea and electrolytes level^SCT|||202203071002+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203081423+0000||CH|F
 OBX|1|NM|1000951000000103^Serum urea level^SCT^1110281000000107^Urea substance concentration in serum^SCT||3.7|mmol/L^mmol/L^UCUM|2.5-7.8||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|2|NM|1000661000000107^Serum sodium level^SCT^1107871000000107^Sodium substance concentration in serum^SCT||139|mmol/L^mmol/L^UCUM|133-146||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|3|NM|1000651000000109^Serum potassium level^SCT^1107761000000109^Potassium substance concentration in serum^SCT||4.7|mmol/L^mmol/L^UCUM|3.5-5.3||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|4|NM|1000731000000107^Serum creatinine level^SCT^1107001000000108^Creatinine substance concentration in serum^SCT||73|umol/L^umol/L^UCUM|59-104||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|5|NM|1011481000000105^eGFR (estimated glomerular filtration rate) using creatinine Chronic Kidney Disease Epidemiology Collaboration equation per 1.73 square metres^SCT||100|mL/min/((173/100).m2)^mL/min/1.73m2^UCUM|||||F|||202203071002+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 NTE|1|L|Calculated eGFR is not valid in children or pregnancy.\.br\Less accurate with acute change in creatinine (AKI).\.br\Caution with high or low muscle mass or amputation.\.br\Avoid blood sampling within 12 hours of eating meat.\.br\Ethnicity factor comment removed Dec21 NG203.\.br\
-SPM|1|SPC-REQ-20220307-000014&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071002+0000|202203071454+0000
+SPM|1|SPC-REQ-20220307-000014&B82033^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071002+0000|202203071454+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England LFT and U&E](Bundle-HL7v2Msg-NHSE-LFT-UandE.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England LFT and U&E](Bundle-HL7v2Msg-NHSE-LFT-UandE-Document.html)
 
-**Lipids and HbA1c** - Serum lipids and HbA1c - two ORDER_OBSERVATION groups (LIVERPOOL, Ned) - NHS England original: [Bundle-Lipids-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Lipids-HbA1c-Report-Example?version=0.5.1):
+**Lipids and HbA1c** - Serum lipids and HbA1c - two ORDER_OBSERVATION groups (WELSH, Joel) - NHS England original: [Bundle-Lipids-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Lipids-HbA1c-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0006|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383206^^^NHS^NH~Y8J7D0742315^^^Y8J7D^PI||LIVERPOOL^Ned^^^^^L||19420618|M|||20 Forthlin Road^^LIVERPOOL^^L18 9TN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^MATHER AVENUE SURGERY^N82035|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220704-000027-001^N82035|REP-20220706-002378^Y8J7D||CM||||202207041105+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||MATHER AVENUE SURGERY^^^^^^^^^N82035
-OBR|1|REQ-20220704-000027-001^N82035|REP-20220706-002378^Y8J7D|1005661000000103^Serum lipids level^SCT|||202207050852+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202207061049+0000||CH|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0006|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999468^^^NHS^NH~Y8J7D0381527^^^Y8J7D^MR||WELSH^Joel^^^^^L||19720823|M|||ACONBURY^LARPOOL DRIVE^WHITBY^^YO22 4ND|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220704-000027-001^B82033|REP-20220706-002378^Y8J7D||CM||||202207041105+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220704-000027-001^B82033|REP-20220706-002378^Y8J7D|1005661000000103^Serum lipids level^SCT|||202207050852+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202207061049+0000||CH|F
 OBX|1|NM|1005671000000105^Serum cholesterol level^SCT^1106541000000101^Cholesterol substance concentration in serum^SCT||6.1|mmol/L^mmol/L^UCUM|||||F|||202207050852+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|2|NM|1005681000000107^Serum high density lipoprotein cholesterol level^SCT^1107681000000108^HDL (high density lipoprotein) cholesterol substance concentration in serum^SCT||1.44|mmol/L^mmol/L^UCUM|||||F|||202207050852+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|3|NM|1015681000000109^Serum cholesterol/high density lipoprotein ratio^SCT^1107741000000108^HDL (high density lipoprotein) cholesterol/total cholesterol ratio in serum^SCT||4.2|^1/1|||||F|||202207050852+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|4|NM|1006191000000106^Serum non high density lipoprotein cholesterol level^SCT^12021000237106^Non-HDL (high density lipoprotein) cholesterol molar concentration in serum^SCT||4.7|mmol/L^mmol/L^UCUM|||||F|||202207050852+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220705-000004&N82035^SPC-Lab-20220705-006215&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202207050852+0000|202207051517+0000
-ORC|RE|REQ-20220704-000027-002^N82035|REP-20220706-002378^Y8J7D||CM||||202207041105+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||MATHER AVENUE SURGERY^^^^^^^^^N82035
-OBR|2|REQ-20220704-000027-002^N82035|REP-20220706-002378^Y8J7D|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT|||202207050852+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202207061049+0000||CH|F
+SPM|1|SPC-REQ-20220705-000004&B82033^SPC-Lab-20220705-006215&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202207050852+0000|202207051517+0000
+ORC|RE|REQ-20220704-000027-002^B82033|REP-20220706-002378^Y8J7D||CM||||202207041105+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|2|REQ-20220704-000027-002^B82033|REP-20220706-002378^Y8J7D|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT|||202207050852+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202207061049+0000||CH|F
 OBX|1|NM|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT||38|mmol/mol^mmol/mol^UCUM|||||F|||202207050852+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220705-000004&N82035^SPC-Lab-20220705-006215&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202207050852+0000|202207051517+0000
+SPM|1|SPC-REQ-20220705-000004&B82033^SPC-Lab-20220705-006215&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202207050852+0000|202207051517+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England Lipids and HbA1c](Bundle-HL7v2Msg-NHSE-Lipids-HbA1c.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England Lipids and HbA1c](Bundle-HL7v2Msg-NHSE-Lipids-HbA1c-Document.html)
 
-**FBC** - Full blood count (CONGLETON, Margaery) - NHS England original: [Bundle-FBC-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-FBC-Report-Example?version=0.5.1):
+**FBC** - Full blood count (MOXEY, Judy) - NHS England original: [Bundle-FBC-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-FBC-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202202091117+0000||ORU^R01^ORU_R01|NHSE-EX-0005|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383281^^^NHS^NH~Y8J7D0482113^^^Y8J7D^PI||CONGLETON^Margaery^^^^^L||19820211|F|||Town Hall^7 High Street^CONGLETON^^CW12 1BN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^READESMOOR MEDICAL GROUP PRACTICE^N81027|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220129-000012^N81027|REP-20220209-001369^Y8J7D||CM||||202202070917+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||READESMOOR MEDICAL GROUP PRACTICE^^^^^^^^^N81027
-OBR|1|REQ-20220129-000012^N81027|REP-20220209-001369^Y8J7D|1022441000000101^FBC - full blood count^SCT|||202202081023+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202202091117+0000||HM|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202202091117+0000||ORU^R01^ORU_R01|NHSE-EX-0005|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999549^^^NHS^NH~Y8J7D0592374^^^Y8J7D^MR||MOXEY^Judy^^^^^L||20040506|F|||1 CASTLEGATE^^PICKERING^NORTH YORKSHIRE^YO18 7AY|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220129-000012^B82033|REP-20220209-001369^Y8J7D||CM||||202202070917+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220129-000012^B82033|REP-20220209-001369^Y8J7D|1022441000000101^FBC - full blood count^SCT|||202202081023+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202202091117+0000||HM|F
 OBX|1|NM|1022541000000102^Total white cell count^SCT^1110441000000100^White blood cell count in blood^SCT||4.76|^10*9/L|4-11||||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|2|NM|1022451000000103^Red blood cell count^SCT||3.63|^10*12/L|4.1-5.1|L|||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|3|NM|1022431000000105^Haemoglobin estimation^SCT^1107511000000100^Haemoglobin mass concentration in blood^SCT||108|^g/L|120-150|L|||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
@@ -427,77 +432,77 @@ OBX|10|NM|1022581000000105^Lymphocyte count^SCT^67541000237108^Lymphocyte count 
 OBX|11|NM|1022591000000107^Monocyte count^SCT^1107991000000100^Monocyte count in blood^SCT||1.3|^10*9/L|0.2-1|H|||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|12|NM|1022561000000101^Eosinophil count^SCT^1107391000000104^Eosinophil count in blood^SCT||0.07|^10*9/L|0.02-0.5||||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 OBX|13|NM|1022571000000108^Basophil count^SCT^1106091000000103^Basophil count in blood^SCT||0.03|^10*9/L|0.01-0.1||||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220208-000016&N81027^SPC-Lab-20220208-001397&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202202081023+0000|202202081603+0000
+SPM|1|SPC-REQ-20220208-000016&B82033^SPC-Lab-20220208-001397&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202202081023+0000|202202081603+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England FBC](Bundle-HL7v2Msg-NHSE-FBC.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England FBC](Bundle-HL7v2Msg-NHSE-FBC-Document.html)
 
-**HBsAg** - Hepatitis B surface antigen (CONGLETON, Margaery) - NHS England original: [Bundle-HBsAg-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HBsAg-Report-Example?version=0.5.1):
+**HBsAg** - Hepatitis B surface antigen (MOXEY, Judy) - NHS England original: [Bundle-HBsAg-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HBsAg-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0003|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383281^^^NHS^NH~Y8J7D0482113^^^Y8J7D^PI||CONGLETON^Margaery^^^^^L||19820211|F|||Town Hall^7 High Street^CONGLETON^^CW12 1BN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^READESMOOR MEDICAL GROUP PRACTICE^N81027|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220307-000004^N81027|REP-20220311-003927^Y8J7D||CM||||202203070953+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||READESMOOR MEDICAL GROUP PRACTICE^^^^^^^^^N81027
-OBR|1|REQ-20220307-000004^N81027|REP-20220311-003927^Y8J7D|1014211000000100^Hepatitis B surface antigen level^SCT^51061000237103^Hepatitis B surface antigen in serum qualitative result^SCT|||202203071321+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203111006+0000||SR|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0003|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999549^^^NHS^NH~Y8J7D0592374^^^Y8J7D^MR||MOXEY^Judy^^^^^L||20040506|F|||1 CASTLEGATE^^PICKERING^NORTH YORKSHIRE^YO18 7AY|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220307-000004^B82033|REP-20220311-003927^Y8J7D||CM||||202203070953+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220307-000004^B82033|REP-20220311-003927^Y8J7D|1014211000000100^Hepatitis B surface antigen level^SCT^51061000237103^Hepatitis B surface antigen in serum qualitative result^SCT|||202203071321+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202203111006+0000||SR|F
 OBX|1|ST|1014211000000100^Hepatitis B surface antigen level^SCT^51061000237103^Hepatitis B surface antigen in serum qualitative result^SCT||Negative||||||F|||202203071321+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220307-000051&N81027^SPC-Lab-20220307-006130&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071321+0000|202203071534+0000
+SPM|1|SPC-REQ-20220307-000051&B82033^SPC-Lab-20220307-006130&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071321+0000|202203071534+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England HBsAg](Bundle-HL7v2Msg-NHSE-HBsAg.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England HBsAg](Bundle-HL7v2Msg-NHSE-HBsAg-Document.html)
 
-**HPV** - Cervical screening HPV test (CONGLETON, Margaery) - NHS England original: [Bundle-HPV-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HPV-Report-Example?version=0.5.1):
+**HPV** - Cervical screening HPV test (MOXEY, Judy) - NHS England original: [Bundle-HPV-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HPV-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0004|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383281^^^NHS^NH~Y8J7D0482113^^^Y8J7D^PI||CONGLETON^Margaery^^^^^L||19820211|F|||Town Hall^7 High Street^CONGLETON^^CW12 1BN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^READESMOOR MEDICAL GROUP PRACTICE^N81027|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220321-000017^N81027|REP-20220403-008209^Y8J7D||CM||||202203211017+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||READESMOOR MEDICAL GROUP PRACTICE^^^^^^^^^N81027
-OBR|1|REQ-20220321-000017^N81027|REP-20220403-008209^Y8J7D|50121000237101^Human papilloma virus RNA nucleic acid amplification qualitative result^SCT|||202203221104+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202204031543+0000||CP|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0004|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999549^^^NHS^NH~Y8J7D0592374^^^Y8J7D^MR||MOXEY^Judy^^^^^L||20040506|F|||1 CASTLEGATE^^PICKERING^NORTH YORKSHIRE^YO18 7AY|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220321-000017^B82033|REP-20220403-008209^Y8J7D||CM||||202203211017+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220321-000017^B82033|REP-20220403-008209^Y8J7D|50121000237101^Human papilloma virus RNA nucleic acid amplification qualitative result^SCT|||202203221104+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202204031543+0000||CP|F
 OBX|1|ST|50121000237101^Human papilloma virus RNA nucleic acid amplification qualitative result^SCT||Not detected||||||F|||202203221104+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 NTE|1|L|No cytology result (HPV Screening)
 NTE|2|L|Suggested management : Normal  Recall
-SPM|1|SPC-REQ-20220321-000065&N81027^SPC-Lab-20220322-005962&Y8J7D||^^^^^^^^Cervical swab|||||||||||||202203221104+0000|202203221525+0000
+SPM|1|SPC-REQ-20220321-000065&B82033^SPC-Lab-20220322-005962&Y8J7D||^^^^^^^^Cervical swab|||||||||||||202203221104+0000|202203221525+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England HPV](Bundle-HL7v2Msg-NHSE-HPV.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England HPV](Bundle-HL7v2Msg-NHSE-HPV-Document.html)
 
-**GTT (unstructured)** - Glucose tolerance test as formatted text, three specimens (CONGLETON, Margaery) - NHS England original: [Bundle-GTT-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-GTT-Unstructured-Report-Example?version=0.5.1):
+**GTT (unstructured)** - Glucose tolerance test as formatted text, three specimens (MOXEY, Judy) - NHS England original: [Bundle-GTT-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-GTT-Unstructured-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0008|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383281^^^NHS^NH~Y8J7D0482113^^^Y8J7D^PI||CONGLETON^Margaery^^^^^L||19820211|F|||Town Hall^7 High Street^CONGLETON^^CW12 1BN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^READESMOOR MEDICAL GROUP PRACTICE^N81027|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220207-000013^N81027|REP-20220210-000218^Y8J7D||CM||||202202070920+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||READESMOOR MEDICAL GROUP PRACTICE^^^^^^^^^N81027
-OBR|1|REQ-20220207-000013^N81027|REP-20220210-000218^Y8J7D|1005711000000106^Glucose tolerance test^SCT|||20220209100123+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202202101149+0000||CH|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0008|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999549^^^NHS^NH~Y8J7D0592374^^^Y8J7D^MR||MOXEY^Judy^^^^^L||20040506|F|||1 CASTLEGATE^^PICKERING^NORTH YORKSHIRE^YO18 7AY|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220207-000013^B82033|REP-20220210-000218^Y8J7D||CM||||202202070920+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220207-000013^B82033|REP-20220210-000218^Y8J7D|1005711000000106^Glucose tolerance test^SCT|||20220209100123+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202202101149+0000||CH|F
 NTE|1|L|Fasting glucose below 5.1, 1hr below 10.0 and 2hr below 8.5 mmol/L. Normal response to glucose load, no further action required.
 OBX|1|FT|1005711000000106^Glucose tolerance test^SCT||GTT Fasting Glucose   4.8 mmol/L \.br\ GTT Glucose 60 min    8.8 mmol/L\.br\ GTT Glucose 120 min   6.4 mmol/L||||||F|||20220209100123+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220209-000082&N81027^SPC-Lab-20220209-001531&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209100123+0000|20220209141706+0000
-SPM|2|SPC-REQ-20220209-000083&N81027^SPC-Lab-20220209-001549&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209110307+0000|20220209141706+0000
-SPM|3|SPC-REQ-20220209-000084&N81027^SPC-Lab-20220209-001587&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209120217+0000|20220209141706+0000
+SPM|1|SPC-REQ-20220209-000082&B82033^SPC-Lab-20220209-001531&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209100123+0000|20220209141706+0000
+SPM|2|SPC-REQ-20220209-000083&B82033^SPC-Lab-20220209-001549&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209110307+0000|20220209141706+0000
+SPM|3|SPC-REQ-20220209-000084&B82033^SPC-Lab-20220209-001587&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209120217+0000|20220209141706+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England GTT (unstructured)](Bundle-HL7v2Msg-NHSE-GTT.html)
 
 > FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England GTT (unstructured)](Bundle-HL7v2Msg-NHSE-GTT-Document.html)
 
-**Urine MC&S (unstructured)** - Urine microscopy, culture and sensitivities as formatted text (CONGLETON, Margaery) - NHS England original: [Bundle-Urine-MCS-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Urine-MCS-Unstructured-Report-Example?version=0.5.1):
+**Urine MC&S (unstructured)** - Urine microscopy, culture and sensitivities as formatted text (MOXEY, Judy) - NHS England original: [Bundle-Urine-MCS-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Urine-MCS-Unstructured-Report-Example?version=0.5.1):
 
 ```
-MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0009|P|2.5.1|||AL|||UNICODE UTF-8
-PID|1||9737383281^^^NHS^NH~Y8J7D0482113^^^Y8J7D^PI||CONGLETON^Margaery^^^^^L||19820211|F|||Town Hall^7 High Street^CONGLETON^^CW12 1BN|||||||||||||||||||||01
-PV1|1|O|^^^^^^^^READESMOOR MEDICAL GROUP PRACTICE^N81027|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
-ORC|RE|REQ-20220221-000018^N81027|REP-20220225-006301^Y8J7D||CM||||202202211029+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||READESMOOR MEDICAL GROUP PRACTICE^^^^^^^^^N81027
-OBR|1|REQ-20220221-000018^N81027|REP-20220225-006301^Y8J7D|995581000000104^Urinary microscopy, culture and sensitivities^SCT|||202202211107+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202202251347+0000||MB|F
+MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|B82033|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0009|P|2.5.1|||AL|||UNICODE UTF-8
+PID|1||9999999549^^^NHS^NH~Y8J7D0592374^^^Y8J7D^MR||MOXEY^Judy^^^^^L||20040506|F|||1 CASTLEGATE^^PICKERING^NORTH YORKSHIRE^YO18 7AY|||||||||||||||||||||01
+PV1|1|O|^^^^^^^^PICKERING MEDICAL PRACTICE^B82033|||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN
+ORC|RE|REQ-20220221-000018^B82033|REP-20220225-006301^Y8J7D||CM||||202202211029+0000|||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN|||||||||PICKERING MEDICAL PRACTICE^^^^^^^^^B82033
+OBR|1|REQ-20220221-000018^B82033|REP-20220225-006301^Y8J7D|995581000000104^Urinary microscopy, culture and sensitivities^SCT|||202202211107+0000|||||||||C1008215^GASKELL^Gale^^^Dr^^^GMC^^^^DN||||||202202251347+0000||MB|F
 NTE|1|L|Likely to be clinically significant.
 OBX|1|FT|995581000000104^Urinary microscopy, culture and sensitivities^SCT||Microscopy\.br\Casts  None seen\.br\White cells  >35 x10*6/L\.br\Red cells  10-35 x10*6/L\.br\Epithelial cells  +\.br\\.br\Culture\.br\1. Staphylococcus aureus   Scanty growth\.br\\.br\Sensitivities  1\.br\Flucloxacillin   S\.br\Trimethoprim  S\.br\Nitrofurantoin  R||||||F|||202202211107+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
-SPM|1|SPC-REQ-20220221-000024&N81027^SPC-Lab-20220221-004306&Y8J7D||^^^^^^^^Urine specimen|||||||||||||202202211107+0000|202202211458+0000
+SPM|1|SPC-REQ-20220221-000024&B82033^SPC-Lab-20220221-004306&Y8J7D||^^^^^^^^Urine specimen|||||||||||||202202211107+0000|202202211458+0000
 ```
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured)](Bundle-HL7v2Msg-NHSE-UrineMCS.html)

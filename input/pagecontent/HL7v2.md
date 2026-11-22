@@ -15,6 +15,27 @@ coding) are defined there and are not repeated here. HL7 v2.5.1. All examples ar
 fictitious; report PDFs are shortened (<code>JVBERi0x...</code>).
 </div>
 
+### Summary of Changes
+
+How these messages differ from a typical NHS laboratory HL7 v2 interface. **Order
+Filler** means the laboratory (LIMS) sending a report, including a laboratory that
+places a reflex or subcontracted order.
+
+| # | Change | HL7 v2 | Guidance |
+|---|---|---|---|
+| 1 | **Based on the HL7 Europe Laboratory Report, the NHS England HL7 v2 ADT specification and the DHCW `ORU_R01` specification** - not UK Core, whose diagnostics profiles are still draft | All segments | [HL7 Europe Laboratory Report](https://hl7.eu/fhir/laboratory/) for the content; [NHS England HL7 v2 ADT Message Specification](https://drive.google.com/drive/folders/1FRkyZvWpZB1nCKbvQbo-eW_q9VtlR3Ws) for `MSH`, `PID`, `PV1` and the data types; [DHCW HL7 ORU_R01 2.5.1](https://nw-gmsa.github.io/DHCW-HL7-v2-5-1-ORUR01-Specification.pdf) for the report |
+| 2 | **Specimen type is SNOMED CT** - the main change from following HL7 Europe | `SPM-4` | Coded from the HL7 Europe [Specimen Types](https://hl7.eu/fhir/laboratory/ValueSet-lab-specimenType-eu-lab.html) value set (`Specimen.type`), not HL7 v2 table 0487 - e.g. `119297000^Blood specimen^SNM3` |
+| 3 | **Hospital Spell strongly suggested, as an Account Number** | `PV1-19` (`CX`, identifier type `AN`) | The NHS England Hospital Provider Spell, with the ODS code as assigning authority - e.g. `SP2308140915^^^R0A^AN`. Using a visit or consultant episode identifier for `PV1` is **discouraged**. The Order Filler should populate it in the report if it was supplied in the order |
+| 4 | **Medical Record Number strongly recommended** | `PID-3` (`CX`, identifier type `MR`) | The hospital number, with the ODS code of the organisation that assigned it - e.g. `7742315^^^R0A^MR`, alongside the NHS number (`^^^NHS^NH`). Use of the [Local Patient Identifier](https://www.datadictionary.nhs.uk/attributes/local_patient_identifier.html) (no assigning organisation) is **discouraged** |
+| 5 | **Order Placer Number recommended - for both the reflex order and the original order** | `ORC-2`, `OBR-2` (`EI`); original order in `ORC-8` and `OBR-29` (parent, `EIP`) | With the ODS code of the organisation that placed it - e.g. `1583320^R0A`. An Order Filler should include it in the report if it was provided in the order. A reflex order carries its own placer number and the original order's (see the [LAB-35](LAB-35.html#example-lynch-syndrome) example) |
+| 6 | **Placer Group Number recommended - for reflex and subcontracted orders** | `ORC-4` (`EI`) | Groups the orders placed together. An Order Filler should include it in the report if it was provided in the order |
+| 7 | **LOINC or SNOMED CT for observations encouraged** - including LOINC as well as SNOMED CT is encouraged | `OBX-3`, and `OBR-4` for the test or panel (`CWE`, LOINC and SNOMED CT as primary and alternate codes) | LOINC resolves practical issues, such as a test with no SNOMED CT code - for example the COSD items and most genomic tests. The SNOMED CT **UK edition** pathology concepts (used by the NHS England examples) and the concepts from the **LOINC - SNOMED CT collaboration** are not currently the same, so the two cannot be assumed to be interchangeable - e.g. `718-7^Hemoglobin [Mass/volume] in Blood^LN^1107511000000100^Haemoglobin mass concentration in blood^SCT`. Local codes remain common in practice and are kept in the converted examples |
+{:.grid}
+
+The examples on this page follow these recommendations where the source example has the
+information; the NHS England and DHCW examples are converted, so some (for example a
+Hospital Spell) are not available.
+
 ### OML_O21 Laboratory Order
 
 #### References

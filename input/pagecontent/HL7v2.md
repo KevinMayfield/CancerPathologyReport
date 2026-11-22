@@ -62,8 +62,8 @@ OBR|1|1583320^R0A||HISTO^Histopathology^690S0|||20230814100000+0000|||||||||C345
 NTE|1||Change in bowel habit. Colonoscopy: ulcerated mass in the caecum.
 SPM|1|1583320-A&R0A||258415003^Biopsy specimen^SNM3||BF10^Buffered 10% formalin^HL70371|86273004^Biopsy^SNM3|32713005^Caecum structure^SNM3||||||A: Caecal mass, colonoscopic biopsies|||20230814100000+0000|||Y
 ```
-> FHIR Message Example: [Bundle Message - Laboratory Order (LAB-1) - Histopathology](Bundle-HL7v2Msg-LAB1-Histopathology.html)
 
+> FHIR Message Example: [Bundle Message - Laboratory Order (LAB-1) - Histopathology](Bundle-HL7v2Msg-LAB1-Histopathology.html)
 
 > FHIR: [Cancer Pathology Specimen](StructureDefinition-CancerPathologySpecimen.html) - example [Specimen A](Specimen-PathSpecimenH23-41022.html)
 
@@ -117,8 +117,10 @@ OBX|2|CWE|81694-2^PMS2 Ag [Presence] in Cancer specimen by Immune stain^LN^pCR70
 OBX|3|CWE|81692-6^MSH-2 Ag [Presence] in Cancer specimen by Immune stain^LN^pCR7040^MSH2 Nuclear Expression Intact^COSD||LA9633-4^Present^LN||||||F
 OBX|4|CWE|81693-4^MSH-6 Ag [Presence] in Cancer specimen by Immune stain^LN^pCR7050^MSH6 Nuclear Expression Intact^COSD||LA9633-4^Present^LN||||||F
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - Histopathology](Bundle-HL7v2Msg-LAB3-Histopathology.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Cancer Pathology Report - Histopathology report H23-41022](Bundle-PathDocument.html)
 
 > FHIR: [PathDocument](Bundle-PathDocument.html) - the same report as a FHIR Document ([Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) and [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html)); see [What the reader sees](PathologyReport.html#what-the-reader-sees)
 
@@ -147,8 +149,10 @@ OBX|3|NM|751-8^Neutrophils [#/volume] in Blood by Automated count^LN||0.6|10*9/L
 OBX|4|NM|777-3^Platelets [#/volume] in Blood by Automated count^LN||85|10*9/L^billion per litre^UCUM|150-450|L|||F|||20261118112500+0000
 SPM|1|LB26-552901-1&POL01||119297000^Blood specimen^SNM3||EDTK^Potassium/K EDTA^HL70371|||||||||||20261118090000+0000|20261118100500+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - Full Blood Count with Result Copy](Bundle-HL7v2Msg-LAB3-FBC-ResultCopy.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - Full Blood Count with Result Copy](Bundle-HL7v2Msg-LAB3-FBC-ResultCopy-Document.html)
 
 The same message goes to the shared care unit (Order Placer) and to the treatment centre
 (result copy). The neutropenia (neutrophils 0.6 x 10<sup>9</sup>/L) is the kind of result the
@@ -215,8 +219,10 @@ OBX|6|NM|B0309^Mean cell volume (MCV)^REM||120|fL^femtolitre^UCUM|80-100|H|||F||
 OBX|7|NM|B0310^Mean cell haemoglobin (MCH)^REM||34.0|pg^picogram^UCUM|27.0-33.0|H|||F|||201803091500
 SPM|1|^9146949283&REM||119297000^Blood specimen^SNM3|||||||||||||201803091400|201803091500
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - DHCW Pathology Result, adapted](Bundle-HL7v2Msg-DHCW-PathologyResult.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - DHCW Pathology Result, adapted](Bundle-HL7v2Msg-DHCW-PathologyResult-Document.html)
 
 **Text based report** (DHCW section 7.1) - a urine microscopy, culture and sensitivity
 report from Mid Cheshire Hospitals to Betsi Cadwaladr, sent as lines of text. The report
@@ -246,8 +252,10 @@ OBX|13|TX|RPT^Report line^RBT|13| Amoxicillin         R||||||F|||201805240000
 OBX|14|TX|RPT^Report line^RBT|14|||||||F|||201805240000
 SPM|1|^8005372251&RBT||258574006^Mid-stream urine specimen^SNM3|||||||||||||201805240000|201805240000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - DHCW Text Based Report, adapted](Bundle-HL7v2Msg-DHCW-TextReport.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - DHCW Text Based Report, adapted](Bundle-HL7v2Msg-DHCW-TextReport-Document.html)
 
 **For the NW GMSA Testing repository:** the patient and trust pairs are existing
 MRN-Mapping entries, so no new MRNs are needed. The two ordering providers are new
@@ -301,8 +309,10 @@ OBX|1|NM|999791000000106^Haemoglobin A1c level - International Federation of Cli
 NTE|1|L|DIAGNOSIS OF DIABETES MELLITUS:\.br\HbA1c of 48 mmol/mol and above is diagnostic of DM (WHO 2011)\.br\42 - 47 mmol/mol indicates high risk of DM (NICE Guidance PH38 2012)\.br\\.br\MONITORING OF DIABETES MELLITUS (ADULTS):\.br\Type 2 target values: 48 mmol/mol – 57 mmol/mol (NICE Guidelines NG28)\.br\Type 1 target values: 48 mmol/mol or lower (NICE Guidelines NG17)
 SPM|1|SPC-REQ-20220129-000362&N82035^SPC-Lab-20220129-008927&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202201291018+0000|202201291514+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England HbA1c](Bundle-HL7v2Msg-NHSE-HbA1c.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England HbA1c](Bundle-HL7v2Msg-NHSE-HbA1c-Document.html)
 
 **CRP** - C-reactive protein (LIVERPOOL, Ned) - NHS England original: [Bundle-CRP-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-CRP-Report-Example?version=0.5.1):
 
@@ -315,8 +325,10 @@ OBR|1|REQ-20220307-000142^N82035|REP-20220308-004205^Y8J7D|1001371000000100^Seru
 OBX|1|NM|1001371000000100^Serum CRP (C reactive protein) level^SCT^1106741000000105^CRP (C reactive protein) mass concentration in serum^SCT||200|^mg/L|0-5|H|||F|||202203071142+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 SPM|1|SPC-REQ-20220307-000105&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071142+0000|202203071458+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England CRP](Bundle-HL7v2Msg-NHSE-CRP.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England CRP](Bundle-HL7v2Msg-NHSE-CRP-Document.html)
 
 **LFT and U&E** - Liver function tests and urea and electrolytes - two ORDER_OBSERVATION groups (LIVERPOOL, Ned) - NHS England original: [Bundle-LFT-UandE-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-LFT-UandE-Report-Example?version=0.5.1):
 
@@ -341,8 +353,10 @@ OBX|5|NM|1011481000000105^eGFR (estimated glomerular filtration rate) using crea
 NTE|1|L|Calculated eGFR is not valid in children or pregnancy.\.br\Less accurate with acute change in creatinine (AKI).\.br\Caution with high or low muscle mass or amputation.\.br\Avoid blood sampling within 12 hours of eating meat.\.br\Ethnicity factor comment removed Dec21 NG203.\.br\
 SPM|1|SPC-REQ-20220307-000014&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071002+0000|202203071454+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England LFT and U&E](Bundle-HL7v2Msg-NHSE-LFT-UandE.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England LFT and U&E](Bundle-HL7v2Msg-NHSE-LFT-UandE-Document.html)
 
 **Lipids and HbA1c** - Serum lipids and HbA1c - two ORDER_OBSERVATION groups (LIVERPOOL, Ned) - NHS England original: [Bundle-Lipids-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Lipids-HbA1c-Report-Example?version=0.5.1):
 
@@ -362,8 +376,10 @@ OBR|2|REQ-20220704-000027-002^N82035|REP-20220706-002378^Y8J7D|999791000000106^H
 OBX|1|NM|999791000000106^Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised^SCT||38|mmol/mol^mmol/mol^UCUM|||||F|||202207050852+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 SPM|1|SPC-REQ-20220705-000004&N82035^SPC-Lab-20220705-006215&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202207050852+0000|202207051517+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England Lipids and HbA1c](Bundle-HL7v2Msg-NHSE-Lipids-HbA1c.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England Lipids and HbA1c](Bundle-HL7v2Msg-NHSE-Lipids-HbA1c-Document.html)
 
 **FBC** - Full blood count (CONGLETON, Margaery) - NHS England original: [Bundle-FBC-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-FBC-Report-Example?version=0.5.1):
 
@@ -388,8 +404,10 @@ OBX|12|NM|1022561000000101^Eosinophil count^SCT^1107391000000104^Eosinophil coun
 OBX|13|NM|1022571000000108^Basophil count^SCT^1106091000000103^Basophil count in blood^SCT||0.03|^10*9/L|0.01-0.1||||F|||202202081023+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 SPM|1|SPC-REQ-20220208-000016&N81027^SPC-Lab-20220208-001397&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202202081023+0000|202202081603+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England FBC](Bundle-HL7v2Msg-NHSE-FBC.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England FBC](Bundle-HL7v2Msg-NHSE-FBC-Document.html)
 
 **HBsAg** - Hepatitis B surface antigen (CONGLETON, Margaery) - NHS England original: [Bundle-HBsAg-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HBsAg-Report-Example?version=0.5.1):
 
@@ -402,8 +420,10 @@ OBR|1|REQ-20220307-000004^N81027|REP-20220311-003927^Y8J7D|1014211000000100^Hepa
 OBX|1|ST|1014211000000100^Hepatitis B surface antigen level^SCT^51061000237103^Hepatitis B surface antigen in serum qualitative result^SCT||Negative||||||F|||202203071321+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 SPM|1|SPC-REQ-20220307-000051&N81027^SPC-Lab-20220307-006130&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071321+0000|202203071534+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England HBsAg](Bundle-HL7v2Msg-NHSE-HBsAg.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England HBsAg](Bundle-HL7v2Msg-NHSE-HBsAg-Document.html)
 
 **HPV** - Cervical screening HPV test (CONGLETON, Margaery) - NHS England original: [Bundle-HPV-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HPV-Report-Example?version=0.5.1):
 
@@ -418,8 +438,10 @@ NTE|1|L|No cytology result (HPV Screening)
 NTE|2|L|Suggested management : Normal  Recall
 SPM|1|SPC-REQ-20220321-000065&N81027^SPC-Lab-20220322-005962&Y8J7D||^^^^^^^^Cervical swab|||||||||||||202203221104+0000|202203221525+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England HPV](Bundle-HL7v2Msg-NHSE-HPV.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England HPV](Bundle-HL7v2Msg-NHSE-HPV-Document.html)
 
 **GTT (unstructured)** - Glucose tolerance test as formatted text, three specimens (CONGLETON, Margaery) - NHS England original: [Bundle-GTT-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-GTT-Unstructured-Report-Example?version=0.5.1):
 
@@ -435,8 +457,10 @@ SPM|1|SPC-REQ-20220209-000082&N81027^SPC-Lab-20220209-001531&Y8J7D||^^^^^^^^Veno
 SPM|2|SPC-REQ-20220209-000083&N81027^SPC-Lab-20220209-001549&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209110307+0000|20220209141706+0000
 SPM|3|SPC-REQ-20220209-000084&N81027^SPC-Lab-20220209-001587&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209120217+0000|20220209141706+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England GTT (unstructured)](Bundle-HL7v2Msg-NHSE-GTT.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England GTT (unstructured)](Bundle-HL7v2Msg-NHSE-GTT-Document.html)
 
 **Urine MC&S (unstructured)** - Urine microscopy, culture and sensitivities as formatted text (CONGLETON, Margaery) - NHS England original: [Bundle-Urine-MCS-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Urine-MCS-Unstructured-Report-Example?version=0.5.1):
 
@@ -450,8 +474,10 @@ NTE|1|L|Likely to be clinically significant.
 OBX|1|FT|995581000000104^Urinary microscopy, culture and sensitivities^SCT||Microscopy\.br\Casts  None seen\.br\White cells  >35 x10*6/L\.br\Red cells  10-35 x10*6/L\.br\Epithelial cells  +\.br\\.br\Culture\.br\1. Staphylococcus aureus   Scanty growth\.br\\.br\Sensitivities  1\.br\Flucloxacillin   S\.br\Trimethoprim  S\.br\Nitrofurantoin  R||||||F|||202202211107+0000|||||||||TD008362 PATH LAB 001^^^^^^^^^Y8J7D
 SPM|1|SPC-REQ-20220221-000024&N81027^SPC-Lab-20220221-004306&Y8J7D||^^^^^^^^Urine specimen|||||||||||||202202211107+0000|202202211458+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured)](Bundle-HL7v2Msg-NHSE-UrineMCS.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured)](Bundle-HL7v2Msg-NHSE-UrineMCS-Document.html)
 
 ##### Laboratory Report (LAB-3) - Bowel Cancer Screening FIT
 
@@ -475,8 +501,10 @@ OBX|3|CWE|368481000000103^Bowel cancer screening programme: faecal occult blood 
 NTE|1||Further tests needed. Referred to specialist screening practitioner clinic.
 SPM|1|F25-118204-K1&HUB01||119339001^Stool specimen^SNM3|||||||||||||20251029|20251031101500+0000
 ```
+
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - Bowel Cancer Screening FIT](Bundle-HL7v2Msg-FIT.html)
 
+> FHIR Document Example (HL7 Europe Laboratory Report): [Bundle Document - Laboratory Report (LAB-3) - Bowel Cancer Screening FIT](Bundle-HL7v2Msg-FIT-Document.html)
 
 A normal result below the analyser's measuring range uses a structured numeric (`SN`)
 value:

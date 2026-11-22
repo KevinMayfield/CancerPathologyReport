@@ -256,7 +256,7 @@ in [PathologyAndLaboratory](https://github.com/KevinMayfield/PathologyAndLaborat
 (`examples/hl7v2/ORU_R01/`).
 
 
-**HbA1c** - HbA1c (LIVERPOOL, Ned):
+**HbA1c** - HbA1c (LIVERPOOL, Ned) - NHS England original: [Bundle-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HbA1c-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0001|P|2.5.1|||AL|||UNICODE UTF-8
@@ -269,7 +269,7 @@ NTE|1|L|DIAGNOSIS OF DIABETES MELLITUS:\.br\HbA1c of 48 mmol/mol and above is di
 SPM|1|SPC-REQ-20220129-000362&N82035^SPC-Lab-20220129-008927&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202201291018+0000|202201291514+0000
 ```
 
-**CRP** - C-reactive protein (LIVERPOOL, Ned):
+**CRP** - C-reactive protein (LIVERPOOL, Ned) - NHS England original: [Bundle-CRP-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-CRP-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0002|P|2.5.1|||AL|||UNICODE UTF-8
@@ -281,7 +281,7 @@ OBX|1|NM|1001371000000100^Serum CRP (C reactive protein) level^SCT^1106741000000
 SPM|1|SPC-REQ-20220307-000105&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071142+0000|202203071458+0000
 ```
 
-**LFT and U&E** - Liver function tests and urea and electrolytes - two ORDER_OBSERVATION groups (LIVERPOOL, Ned):
+**LFT and U&E** - Liver function tests and urea and electrolytes - two ORDER_OBSERVATION groups (LIVERPOOL, Ned) - NHS England original: [Bundle-LFT-UandE-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-LFT-UandE-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0007|P|2.5.1|||AL|||UNICODE UTF-8
@@ -305,7 +305,7 @@ NTE|1|L|Calculated eGFR is not valid in children or pregnancy.\.br\Less accurate
 SPM|1|SPC-REQ-20220307-000014&N82035^SPC-Lab-20220307-007856&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071002+0000|202203071454+0000
 ```
 
-**Lipids and HbA1c** - Serum lipids and HbA1c - two ORDER_OBSERVATION groups (LIVERPOOL, Ned):
+**Lipids and HbA1c** - Serum lipids and HbA1c - two ORDER_OBSERVATION groups (LIVERPOOL, Ned) - NHS England original: [Bundle-Lipids-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Lipids-HbA1c-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N82035|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0006|P|2.5.1|||AL|||UNICODE UTF-8
@@ -324,7 +324,7 @@ OBX|1|NM|999791000000106^Haemoglobin A1c level - International Federation of Cli
 SPM|1|SPC-REQ-20220705-000004&N82035^SPC-Lab-20220705-006215&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202207050852+0000|202207051517+0000
 ```
 
-**FBC** - Full blood count (CONGLETON, Margaery):
+**FBC** - Full blood count (CONGLETON, Margaery) - NHS England original: [Bundle-FBC-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-FBC-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202202091117+0000||ORU^R01^ORU_R01|NHSE-EX-0005|P|2.5.1|||AL|||UNICODE UTF-8
@@ -348,7 +348,7 @@ OBX|13|NM|1022571000000108^Basophil count^SCT^1106091000000103^Basophil count in
 SPM|1|SPC-REQ-20220208-000016&N81027^SPC-Lab-20220208-001397&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202202081023+0000|202202081603+0000
 ```
 
-**HBsAg** - Hepatitis B surface antigen (CONGLETON, Margaery):
+**HBsAg** - Hepatitis B surface antigen (CONGLETON, Margaery) - NHS England original: [Bundle-HBsAg-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HBsAg-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0003|P|2.5.1|||AL|||UNICODE UTF-8
@@ -360,7 +360,7 @@ OBX|1|ST|1014211000000100^Hepatitis B surface antigen level^SCT^51061000237103^H
 SPM|1|SPC-REQ-20220307-000051&N81027^SPC-Lab-20220307-006130&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||202203071321+0000|202203071534+0000
 ```
 
-**HPV** - Cervical screening HPV test (CONGLETON, Margaery):
+**HPV** - Cervical screening HPV test (CONGLETON, Margaery) - NHS England original: [Bundle-HPV-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HPV-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0004|P|2.5.1|||AL|||UNICODE UTF-8
@@ -374,7 +374,7 @@ NTE|2|L|Suggested management : Normal  Recall
 SPM|1|SPC-REQ-20220321-000065&N81027^SPC-Lab-20220322-005962&Y8J7D||^^^^^^^^Cervical swab|||||||||||||202203221104+0000|202203221525+0000
 ```
 
-**GTT (unstructured)** - Glucose tolerance test as formatted text, three specimens (CONGLETON, Margaery):
+**GTT (unstructured)** - Glucose tolerance test as formatted text, three specimens (CONGLETON, Margaery) - NHS England original: [Bundle-GTT-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-GTT-Unstructured-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0008|P|2.5.1|||AL|||UNICODE UTF-8
@@ -389,7 +389,7 @@ SPM|2|SPC-REQ-20220209-000083&N81027^SPC-Lab-20220209-001549&Y8J7D||^^^^^^^^Veno
 SPM|3|SPC-REQ-20220209-000084&N81027^SPC-Lab-20220209-001587&Y8J7D||^^^^^^^^Venous blood specimen|||||||||||||20220209120217+0000|20220209141706+0000
 ```
 
-**Urine MC&S (unstructured)** - Urine microscopy, culture and sensitivities as formatted text (CONGLETON, Margaery):
+**Urine MC&S (unstructured)** - Urine microscopy, culture and sensitivities as formatted text (CONGLETON, Margaery) - NHS England original: [Bundle-Urine-MCS-Unstructured-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-Urine-MCS-Unstructured-Report-Example?version=0.5.1):
 
 ```
 MSH|^~\&|LIMS|Y8J7D|GPSYSTEM|N81027|202203081209+0000||ORU^R01^ORU_R01|NHSE-EX-0009|P|2.5.1|||AL|||UNICODE UTF-8
@@ -404,9 +404,35 @@ SPM|1|SPC-REQ-20220221-000024&N81027^SPC-Lab-20220221-004306&Y8J7D||^^^^^^^^Urin
 
 ##### Laboratory Report (LAB-3) - Bowel Cancer Screening FIT
 
-A screening hub laboratory's faecal immunochemical test result, with the measured value,
-threshold and programme outcome - on the [Cancer Screening](Screening.html#example-fit-screening-result-hl7-v2-oru_r01)
-page.
+A bowel cancer screening hub laboratory's faecal immunochemical test (FIT) result, with the
+measured faecal haemoglobin, the threshold applied and the programme outcome - fictitious,
+from [Cancer Screening](Screening.html#example-fit-screening-result-hl7-v2-oru_r01), where the
+segments and the conversion to the NHS004 message to the GP are explained. The patient is
+the NW Genomics test patient MANCHESTER, Sansa (NHS `973 738 3192`, PDS INT), with her
+registered GP practice, Ancoats Urban Village Medical Practice (`P84673`). `HUB01` (hub
+laboratory) is a placeholder, not an ODS code.
+
+```
+MSH|^~\&|LIMS|HUB01|BCSS|BCSS|20251104101500+0000||ORU^R01^ORU_R01|urn:uuid:5b0e7c2a-1f4d-4a8e-9c3b-7d2e6f1a9b40|T|2.5.1|||AL
+PID|1||9737383192^^^NHS^NH||MANCHESTER^Sansa^^^^^L||19720921|F|||Oxford Rd^^MANCHESTER^^M13 9PL
+PD1|||ANCOATS URBAN VILLAGE MEDICAL PRACTICE^^P84673^^^ODS
+ORC|RE|BCS25-0438812^BCSS|F25-118204^HUB01||CM||||20251104101500+0000|||^BCSP Hub Manager
+OBR|1|BCS25-0438812^BCSS|F25-118204^HUB01|FITSCR^Bowel cancer screening faecal immunochemical test^HUB01|||20251029|||||||||^BCSP Hub Manager||||||20251104101500+0000|||F|||P84673^ANCOATS URBAN VILLAGE MEDICAL PRACTICE
+OBX|1|NM|27396-1^Hemoglobin [Mass/mass] in Stool from gastrointestinal^LN^1049361000000101^Quantitative faecal immunochemical test^SNM3||142|ug/g^microgram per gram^UCUM|<120|H|||F|||20251103|||IMMUNOASSAY|HM-JACKarc-02^^HUB01
+OBX|2|CWE|29771-3^Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay^LN||LA6576-8^Positive^LN||||||F|||20251103
+OBX|3|CWE|368481000000103^Bowel cancer screening programme: faecal occult blood result^SNM3||1101371000000105^Bowel cancer screening programme liquid faecal immunochemical test abnormal^SNM3||||||F|||20251104
+NTE|1||Further tests needed. Referred to specialist screening practitioner clinic.
+SPM|1|F25-118204-K1&HUB01||119339001^Stool specimen^SNM3|||||||||||||20251029|20251031101500+0000
+```
+
+A normal result below the analyser's measuring range uses a structured numeric (`SN`)
+value:
+
+```
+OBX|1|SN|27396-1^Hemoglobin [Mass/mass] in Stool from gastrointestinal^LN^1049361000000101^Quantitative faecal immunochemical test^SNM3||<^7|ug/g^microgram per gram^UCUM|<120|N|||F|||20251103
+OBX|2|CWE|29771-3^Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay^LN||LA6577-6^Negative^LN||||||F|||20251103
+OBX|3|CWE|368481000000103^Bowel cancer screening programme: faecal occult blood result^SNM3||1101361000000103^Bowel cancer screening programme liquid faecal immunochemical test normal^SNM3||||||F|||20251104
+```
 
 ### Conventions Used
 

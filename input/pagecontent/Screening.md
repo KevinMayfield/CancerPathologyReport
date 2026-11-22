@@ -230,16 +230,18 @@ Fictitious, and an **assumption** to be confirmed: that the hub laboratory's LIM
 reports the FIT as an HL7 v2 `ORU^R01`, which is then converted into the NHS004
 EDIFACT message to the GP practice. The NHS004 specification says all messages
 come from "BCS" as a single trading partner, so the conversion is assumed to happen
-in, or after, BCSS. Organisation codes `HUB01` (hub laboratory) and `GP001` (GP
-practice) are placeholders, not ODS codes; the NHS number is in the test range.
+in, or after, BCSS. `HUB01` (hub laboratory) is a placeholder, not an ODS code. The
+patient is the NW Genomics test patient MANCHESTER, Sansa (NHS `973 738 3192`, on the
+NHS England PDS INT environment), with her registered GP practice, Ancoats Urban
+Village Medical Practice (`P84673`).
 The analyser is illustrative - **To confirm**.
 
 ```
 MSH|^~\&|LIMS|HUB01|BCSS|BCSS|20251104101500+0000||ORU^R01^ORU_R01|urn:uuid:5b0e7c2a-1f4d-4a8e-9c3b-7d2e6f1a9b40|T|2.5.1|||AL
-PID|1||9991000003^^^NHS^NH||PRESTON^Margaret^^^^^L||19620411|F|||14 Fishergate^^PRESTON^^PR1 2NJ
-PD1|||FICTITIOUS PRACTICE^^GP001^^^ODS
+PID|1||9737383192^^^NHS^NH||MANCHESTER^Sansa^^^^^L||19720921|F|||Oxford Rd^^MANCHESTER^^M13 9PL
+PD1|||ANCOATS URBAN VILLAGE MEDICAL PRACTICE^^P84673^^^ODS
 ORC|RE|BCS25-0438812^BCSS|F25-118204^HUB01||CM||||20251104101500+0000|||^BCSP Hub Manager
-OBR|1|BCS25-0438812^BCSS|F25-118204^HUB01|FITSCR^Bowel cancer screening faecal immunochemical test^HUB01|||20251029|||||||||^BCSP Hub Manager||||||20251104101500+0000|||F|||GP001^FICTITIOUS PRACTICE
+OBR|1|BCS25-0438812^BCSS|F25-118204^HUB01|FITSCR^Bowel cancer screening faecal immunochemical test^HUB01|||20251029|||||||||^BCSP Hub Manager||||||20251104101500+0000|||F|||P84673^ANCOATS URBAN VILLAGE MEDICAL PRACTICE
 OBX|1|NM|27396-1^Hemoglobin [Mass/mass] in Stool from gastrointestinal^LN^1049361000000101^Quantitative faecal immunochemical test^SNM3||142|ug/g^microgram per gram^UCUM|<120|H|||F|||20251103|||IMMUNOASSAY|HM-JACKarc-02^^HUB01
 OBX|2|CWE|29771-3^Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay^LN||LA6576-8^Positive^LN||||||F|||20251103
 OBX|3|CWE|368481000000103^Bowel cancer screening programme: faecal occult blood result^SNM3||1101371000000105^Bowel cancer screening programme liquid faecal immunochemical test abnormal^SNM3||||||F|||20251104

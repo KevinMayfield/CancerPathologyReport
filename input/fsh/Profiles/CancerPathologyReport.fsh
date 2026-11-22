@@ -84,15 +84,23 @@ The specimen a cancer pathology report is about. Based on HL7 Europe Laboratory
 // Diagnosis
 
 Profile:        PrimaryCancerCondition
-Parent:         http://hl7.eu/fhir/base/StructureDefinition/condition-eu-core
+Parent:         Condition
 Id:             PrimaryCancerCondition
 Title:          "Primary Cancer Condition"
 Description:    """
 **Proof of concept - not an authoritative source.**
 
-The cancer diagnosis recorded by the pathology report. Based on HL7 Europe Base
-`condition-eu-core`, aligned with the mCODE [Primary Cancer Condition](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-primary-cancer-condition.html)
+The cancer diagnosis recorded by the pathology report. Aligned with the mCODE
+[Primary Cancer Condition](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-primary-cancer-condition.html)
 profile and the HL7 Europe Common Cancer Model `CancerConditionAtDiagnosis`.
+
+**Temporarily based on core `Condition`, not HL7 Europe Base `condition-eu-core`.**
+`condition-eu-core` (2.0.1) has an additional binding on `Condition.code` to the eHDSI
+Illness and Disorder value set (0.2.0), which contains about 3,400 codes that are not
+valid ICD-10 codes (for example `T12.X1`). The validator reports every one of them
+for any coded Condition, which hid all other validation results. To be moved back to
+`condition-eu-core` once the value set is corrected.
+
 """
 * ^experimental = true
 * code MS

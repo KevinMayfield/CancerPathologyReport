@@ -98,7 +98,7 @@ described in the LinkedIn article
 | Source | Version | Used for |
 |---|---|---|
 | [COSD Pathology](https://nhsd-proxy.openprescribing.net/ndrs/data/data-sets/cosd/cosd-pathology-user-guide-v5.0/core---pathology) - National Disease Registration Service, NHS England | v5 | **Primary source of requirements** - the data items and their national codes (`pCR` items) |
-| [HL7 Europe Base](https://hl7.eu/fhir/base/) | 2.0.1 | Base profiles: `condition-eu-core`, `patient-eu-core` |
+| [HL7 Europe Base](https://hl7.eu/fhir/base/) | 2.0.1 | Base profiles: `patient-eu-core` (`condition-eu-core` temporarily not used - see [Profiles](profiles.html)) |
 | [HL7 Europe Laboratory Report](https://hl7.eu/fhir/laboratory/) | 2.1.0 | Base profiles: `DiagnosticReport-eu-lab`, `Observation-resultslab-eu-lab`, `Specimen-eu-lab` |
 | [mCODE (minimal Common Oncology Data Elements)](https://hl7.org/fhir/us/mcode/) | 4.0.0 (STU4) | Profile structure and names where the content matches: Primary Cancer Condition, Histologic Behavior and Type, Histologic Grade, Tumor Size, TNM categories and stage group, Tumor Marker Test, Human Specimen |
 | [HL7 US Cancer Pathology Data Sharing](https://hl7.org/fhir/us/cancer-reporting/index.html) | 2.0.0 (STU2) | The overall aim and the pathology Diagnostic Report pattern |

@@ -21,6 +21,7 @@ Dates are when the source was checked.
 | 9 | Does NPEx carry cellular pathology referrals (e.g. MMR IHC to MFT) and/or the pathology → NW GLH reflex order today? If so, NPEx is the Intermediary for LAB-35/LAB-36 in this guide. Does it carry the pathology report as supporting information? | Labgnostic; an NPEx-connected laboratory | Open |
 | 10 | NPEx HL7 interface specification - message types, whether the original clinical order number (`ORC-4`/`ORC-8`) is carried | Labgnostic / NHS England | Open (also in NW GMSA use cases) |
 | 11 | For solid tumours, does HODS (or an equivalent) produce a combined pathology + genomic report, or only for haemato-oncology? HODS is an existing example of the orchestrated-order pattern on the Genomics page | MFT HODS | Open |
+| 12 | Report to HL7 Europe: `condition-eu-core` 2.0.1 additional binding to eHDSI Illness and Disorder 0.2.0 includes ~3,400 codes not valid in ICD-10 (e.g. `T12.X1`, `T02.91`); the IG Publisher reports each for any coded Condition. Primary Cancer Condition moved to core `Condition` as a workaround (2026-11-22) | HL7 Europe (Base / eHDSI terminology) | Open |
 
 ## Existing Implementations (checked 2026-11-01)
 

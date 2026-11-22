@@ -16,7 +16,7 @@ mapped easily. mCODE itself is not a dependency, because it is built on US Core.
 | [Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) | `Composition-eu-lab` | None - see US Pathology Composition in [Cancer Pathology Data Sharing](https://hl7.org/fhir/us/cancer-reporting/index.html) | pCR1020 (final diagnosis text), pCR0800, pCR7130/7140, pCR0780 |
 | [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html) | `DiagnosticReport-eu-lab` | None - see US Pathology Diagnostic Report in [Cancer Pathology Data Sharing](https://hl7.org/fhir/us/cancer-reporting/index.html) | pCR0950, pCR0960, pCR0780, pCR1020, pCR0800, pCR7130/7140 |
 | [Cancer Pathology Specimen](StructureDefinition-CancerPathologySpecimen.html) | `Specimen-eu-lab` | Human Specimen | pCR0970, pCR0760, pCR1010, pCR0770 |
-| [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html) | `condition-eu-core` | Primary Cancer Condition | pCR0810, pCR6410, pCR0820 |
+| [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html) | `Condition` (temporarily - see below) | Primary Cancer Condition | pCR0810, pCR6410, pCR0820 |
 | [Histologic Behavior and Type](StructureDefinition-HistologicBehaviorAndType.html) | `Observation-resultslab-eu-lab` | Histologic Behavior and Type | pCR6420 |
 | [Histologic Grade](StructureDefinition-HistologicGrade.html) | `Observation-resultslab-eu-lab` | Histologic Grade | pCR0860 |
 | [Tumor Size](StructureDefinition-TumorSize.html) | `Observation-resultslab-eu-lab` | Tumor Size | pCR0830 |
@@ -26,6 +26,13 @@ mapped easily. mCODE itself is not a dependency, because it is built on US Core.
 | [TNM Stage Group](StructureDefinition-TNMStageGroup.html) | `Observation-resultslab-eu-lab` | TNM Stage Group | pCR0940, pCR1000 |
 | [Tumor Marker Test](StructureDefinition-TumorMarkerTest.html) | `Observation-resultslab-eu-lab` | Tumor Marker Test | pCR7000/7010 (Ki-67), pCR7020-7050 (MMR IHC) |
 {:.grid}
+
+**Primary Cancer Condition is temporarily based on core `Condition`.** HL7 Europe
+Base `condition-eu-core` (2.0.1) binds `Condition.code` (additional binding) to the
+eHDSI Illness and Disorder value set (0.2.0), which contains about 3,400 invalid
+ICD-10 codes; validating any coded Condition against it produced over 13,000 errors.
+The profile will move back to `condition-eu-core` when the value set is fixed - to be
+reported to HL7 Europe.
 
 **Differences from mCODE**
 

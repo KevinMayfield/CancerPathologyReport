@@ -55,8 +55,9 @@ Description: "Fictitious example diagnosis (pCR0810, pCR6410)."
 Usage:      #example
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
-* code = http://snomed.info/sct#363350007 "Malignant neoplasm of caecum"
-* code.text = "Adenocarcinoma of the caecum (ICD-10 C18.0)"
+* code = http://hl7.org/fhir/sid/icd-10#C18.0 "Caecum"
+* code.coding[+] = http://snomed.info/sct#363350007 "Malignant neoplasm of caecum"
+* code.text = "Adenocarcinoma of the caecum"
 * bodySite = http://snomed.info/sct#32713005 "Caecum structure"
 * subject = Reference(EolPatient)
 * recordedDate = "2023-08-21"

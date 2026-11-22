@@ -291,7 +291,7 @@ Title:          "End of Life Care API (alpha, STU3, 2019)"
 
 Mapping:        PalliativeCareRecord-FHIR
 Source:         PalliativeCareRecord
-Target:         "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport"
+Target:         "https://fhir.acme.example.org/CancerPathologyReport"
 Id:             fhir
 Title:          "FHIR (this IG)"
 * -> "PalliativeCarePlan, with the PalliativeCareRecordObservations as supportingInfo; shared as PalliativeCareRecordComposition"

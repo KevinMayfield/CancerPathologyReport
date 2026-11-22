@@ -180,7 +180,7 @@ Title:          "COSD Pathology v5"
 
 Mapping:        PathologyReport-FHIR
 Source:         PathologyReport
-Target:         "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport"
+Target:         "https://fhir.acme.example.org/CancerPathologyReport"
 Id:             fhir
 Title:          "FHIR (this IG)"
 * -> "CancerPathologyDiagnosticReport"

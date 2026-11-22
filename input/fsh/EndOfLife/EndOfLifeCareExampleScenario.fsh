@@ -6,7 +6,7 @@ InstanceOf:     ExampleScenario
 Title:          "Palliative Care Record - capture, share, print and amend"
 Description:    "Proof of concept - not an authoritative source. A poor prognosis on the cancer pathway starts a Task to complete the end of life care record. The record is captured with an SDC Questionnaire, persisted as Observations, shared as a FHIR Document laid out like the ReSPECT form, and printed for the person's home. It is later amended, producing a replacement Document and printed copy."
 Usage:          #definition
-* url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/ExampleScenario/PalliativeCareRecordScenario"
+* url = "https://fhir.acme.example.org/CancerPathologyReport/ExampleScenario/PalliativeCareRecordScenario"
 * name = "PalliativeCareRecordScenario"
 * status = #draft
 * experimental = true

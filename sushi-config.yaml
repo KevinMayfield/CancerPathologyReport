@@ -1,16 +1,16 @@
 # sushi-config.yaml is documented https://fshschool.org/docs/sushi/configuration/
-id: fhir.nwgenomics.nhs.uk.cancerpathologyreport
-canonical: https://fhir.nwgenomics.nhs.uk/CancerPathologyReport
+id: fhir.acme.example.org.cancerpathologyreport
+canonical: https://fhir.acme.example.org/CancerPathologyReport
 version: 0.1.0
 name: CancerPathologyReport
-title: Cancer Pathology Report (Proof of Concept)
-description: PROOF OF CONCEPT ONLY - not an authoritative source. Structured cancer pathology reports based on COSD Pathology (v5), built on HL7 Europe Base and Laboratory, aligned with mCODE
+title: Cancer Pathway Interoperability (Proof of Concept)
+description: PROOF OF CONCEPT ONLY - not an authoritative source. Interoperability along a cancer pathway - screening, diagnostic testing, genomics, treatment monitoring, patient-reported outcomes and palliative care - using IHE laboratory workflow (HL7 v2) for orders and results and FHIR Documents for sharing. Report models for the Cancer Pathology Report (COSD Pathology v5) and the Palliative Care Record (SCCI1580), built on HL7 Europe Laboratory and aligned with mCODE
 releaseLabel: proof-of-concept
 status: draft
 experimental: true
 publisher:
-  - name: NHS North West Genomics
-  - url: https://www.nwgenomics.nhs.uk/contact-us
+  name: Kevin Mayfield
+  url: https://github.com/KevinMayfield
 license: CC-BY-4.0
 fhirVersion: 4.0.1
 jurisdiction: urn:iso:std:iso:3166#GB "United Kingdom of Great Britain and Northern Ireland"
@@ -39,6 +39,9 @@ pages:
   CareProcesses.md:
     title: Care Processes Overview
     generation: markdown
+  PathwayInteroperability.md:
+    title: Sharing and Workflow - Lessons from a Cancer Pathway
+    generation: markdown
   CancerPathway.md:
     title: Cancer Pathway
     generation: markdown
@@ -56,6 +59,9 @@ pages:
     generation: markdown
   Genomics.md:
     title: Genomic Testing and Reporting
+    generation: markdown
+  ChildrensCancerSharedCare.md:
+    title: Children's Cancer Shared Care - Test Orders and Results
     generation: markdown
   PatientReportedOutcomes.md:
     title: Cancer Monitoring and Patient-Reported Outcomes
@@ -75,6 +81,9 @@ pages:
   LAB-36.md:
     title: Sub-order Results Delivery [LAB-36]
     generation: markdown
+  HL7v2.md:
+    title: HL7 v2 Pathology Examples
+    generation: markdown
   PathologyReport.md:
     title: Cancer Pathology Report
     generation: markdown
@@ -92,12 +101,14 @@ menu:
   Home: index.html
   Care Processes (Volume 1):
     Overview: CareProcesses.html
+    Sharing and Workflow - Lessons from a Cancer Pathway: PathwayInteroperability.html
     Cancer Pathway: CancerPathway.html
     Cancer Screening: Screening.html
     Imaging and Radiology: Imaging.html
     Laboratory Testing Workflow (LTW): LTW.html
     Inter-Laboratory Workflow (ILW): ILW.html
     Genomic Testing and Reporting: Genomics.html
+    Children's Cancer Shared Care - Test Orders and Results: ChildrensCancerSharedCare.html
     Cancer Monitoring and Patient-Reported Outcomes: PatientReportedOutcomes.html
     Palliative and End of Life Care: EndOfLifeCare.html
   Interactions (Volume 2):
@@ -105,6 +116,7 @@ menu:
     Order Results Management [LAB-3]: LAB-3.html
     Sub-order Management [LAB-35]: LAB-35.html
     Sub-order Results Delivery [LAB-36]: LAB-36.html
+    HL7 v2 Pathology Examples: HL7v2.html
   Data Models (Volume 3):
     Cancer Pathology Report: PathologyReport.html
     Cancer Pathology Report Logical Model: StructureDefinition-PathologyReport.html

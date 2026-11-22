@@ -2,16 +2,34 @@
 <b>Proof of concept.</b> This implementation guide is a demonstration only. It is
 <b>not</b> an authoritative source, is not endorsed by NHS England, the National
 Disease Registration Service or HL7, and must not be used for implementation or
-clinical purposes. The authoritative source for COSD Pathology is the
-<a href="https://nhsd-proxy.openprescribing.net/ndrs/data/data-sets/cosd/cosd-pathology-user-guide-v5.0/core---pathology">COSD Pathology User Guide</a>.
+clinical purposes. The authoritative sources are the standards each page references -
+for example the <a href="https://nhsd-proxy.openprescribing.net/ndrs/data/data-sets/cosd/cosd-pathology-user-guide-v5.0/core---pathology">COSD Pathology User Guide</a>
+or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content">SCCI1580</a>.
 </div>
 
 ### Aim
 
-This guide defines how a **structured cancer pathology report** is shared with
-FHIR, so that its findings can be used by other systems involved in a patient's
-cancer care - for example a genomics laboratory receiving a reflex order, the
-clinical team, and the patient's electronic patient record.
+This guide describes **interoperability along a cancer pathway** - how a person's
+screening, diagnostic tests, genomic tests, treatment monitoring, patient-reported
+outcomes and palliative care are ordered, reported and shared between the
+organisations involved. It uses IHE laboratory workflow (HL7 v2) for orders and
+results, and FHIR Documents for sharing reports - see
+[Sharing and Workflow](PathwayInteroperability.html) and the
+[Care Processes Overview](CareProcesses.html).
+
+It defines two report models:
+
+- the **[Cancer Pathology Report](PathologyReport.html)** - the structured cancer
+  pathology report, based on COSD Pathology; and
+- the **[Palliative Care Record](PalliativeCareRecord.html)** - the palliative care
+  co-ordination record, based on SCCI1580.
+
+#### Cancer Pathology Report
+
+The Cancer Pathology Report is shared with FHIR so that its findings can be used by
+other systems involved in a patient's cancer care - for example a genomics laboratory
+receiving a reflex order, the clinical team, and the patient's electronic patient
+record.
 
 Its aim is similar to the HL7 US
 [Cancer Pathology Data Sharing](https://hl7.org/fhir/us/cancer-reporting/index.html)
@@ -30,7 +48,7 @@ codes added. RCPath sets the professional standard for what a pathologist report
 and how; COSD codes the subset the registry needs. This guide models **COSD core
 only** - COSD site-specific items and RCPath non-core items are not modelled.
 
-#### Why not use registry data?
+##### Why not use registry data?
 
 Registry data is built for audit, research and national statistics, not for
 use while a patient is on the pathway:
@@ -51,6 +69,9 @@ laboratory when the report is issued - see the [Cancer Pathway](CancerPathway.ht
 
 ### Content
 
+- [Sharing and Workflow - Lessons from a Cancer Pathway](PathwayInteroperability.html) -
+  why this guide uses HL7 v2 for workflow and FHIR Documents for sharing, and what
+  that means for the Single Patient Record
 - [Cancer Pathology Report](PathologyReport.html) - the report's domain archetype
   and detailed model, with COSD, HL7 v2 and FHIR mappings
 - [Pathology Report](StructureDefinition-PathologyReport.html) - logical model of the

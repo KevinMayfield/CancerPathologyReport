@@ -2,8 +2,9 @@
 <b>Proof of concept.</b> This implementation guide is a demonstration only. It is
 <b>not</b> an authoritative source, is not endorsed by NHS England, the National
 Disease Registration Service or HL7, and must not be used for implementation or
-clinical purposes. The authoritative source for COSD Pathology is the
-<a href="https://nhsd-proxy.openprescribing.net/ndrs/data/data-sets/cosd/cosd-pathology-user-guide-v5.0/core---pathology">COSD Pathology User Guide</a>.
+clinical purposes. The authoritative sources are the standards each page references -
+for example the <a href="https://nhsd-proxy.openprescribing.net/ndrs/data/data-sets/cosd/cosd-pathology-user-guide-v5.0/core---pathology">COSD Pathology User Guide</a>
+or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content">SCCI1580</a>.
 </div>
 
 Volume 1 describes the care processes around a cancer pathology report: how a person
@@ -35,7 +36,7 @@ flowchart LR
 |---|---|---|---|---|
 | Screening | A national programme invitation (e.g. FIT kit from a bowel screening hub) | Screening result to the GP (EDIFACT NHS004); referral to a screening centre | Screening result | [Cancer Screening](Screening.html) |
 | Diagnostic testing | A positive screening result or an urgent suspected cancer referral | Imaging orders and reports; histopathology order and report ([LTW](LTW.html) LAB-1, LAB-3); reflex genomic order ([ILW](ILW.html) LAB-35, LAB-36) | **[Cancer Pathology Report](PathologyReport.html)** (Volume 3); genomic report | [Imaging and Radiology](Imaging.html), [LTW](LTW.html), [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) |
-| MDT and treatment | The diagnostic results | Outside this guide | Integrated stage, treatment plan | [Cancer Pathway](CancerPathway.html) |
+| MDT and treatment | The diagnostic results | Treatment itself is outside this guide; blood tests during treatment are LTW orders and results, often across organisations | Integrated stage, treatment plan; laboratory reports | [Cancer Pathway](CancerPathway.html), [Children's Cancer Shared Care](ChildrensCancerSharedCare.html) |
 | Monitoring and PROMs | The end of treatment with curative intent | Surveillance tests (blood tests, imaging, colonoscopy) as ordinary LTW orders and results; patient-reported outcomes; remote monitoring | Results; PROM responses; a new Cancer Pathology Report if a recurrence is biopsied | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html) |
 | Palliative and end of life care | A poor prognosis at the MDT, or monitoring showing the cancer is no longer curable - a **Task** to complete the record | SDC Questionnaire, extraction, FHIR Document, printed copy; retrieval by urgent and emergency care | **[Palliative Care Record](PalliativeCareRecord.html)** (Volume 3) | [Palliative and End of Life Care](EndOfLifeCare.html) |
 {:.grid}
@@ -88,4 +89,6 @@ matched and reused across organisations:
   SCCI1580 data item codes alongside where a national dataset defines the item.
 - **HL7 v2 for workflow, FHIR Documents for sharing** - orders and results run on
   IHE LTW and ILW; the reports are shared as FHIR Documents that can be rendered and
-  printed.
+  printed - see
+  [Sharing and Workflow - Lessons from a Cancer Pathway](PathwayInteroperability.html)
+  for why.

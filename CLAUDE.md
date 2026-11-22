@@ -1,9 +1,16 @@
 # CLAUDE.md
 
-Proof-of-concept FHIR Implementation Guide for a structured cancer pathology
-report, based on COSD Pathology v5 Core - Pathology. Published at
-https://kevinmayfield.github.io/CancerPathologyReport/. Supports the NW GMSA Pathology to
-Genomics Reflex use case.
+Proof-of-concept FHIR Implementation Guide, **Cancer Pathway Interoperability**:
+orders, results and reports along a cancer pathway (IHE LTW/ILW, HL7 v2 for workflow,
+FHIR Documents for sharing), with two report models - the Cancer Pathology Report
+(COSD Pathology v5 Core - Pathology) and the Palliative Care Record (SCCI1580).
+Published at https://kevinmayfield.github.io/CancerPathologyReport/. Supports the NW
+GMSA Pathology to Genomics Reflex use case. The repository and published site keep
+the original `CancerPathologyReport` name - do not rename them without a planned
+migration (inbound links from the NW Genomics IG would break). The canonical is on an
+example domain, `https://fhir.acme.example.org/CancerPathologyReport` (package id
+`fhir.acme.example.org.cancerpathologyreport`) - never `fhir.nwgenomics.nhs.uk` or
+another NHS domain.
 
 ## Scope
 
@@ -24,8 +31,12 @@ Genomics Reflex use case.
   (SCCI1580) in `input/fsh/EndOfLife/`
 - Pages: `input/pagecontent/`, organised as IHE volumes - Volume 1 Care Processes,
   an overview (`CareProcesses.md`) then the processes in pathway order (Cancer Pathway, Screening, Imaging, LTW, ILW, Genomics,
-  Monitoring and PROMs, Palliative and End of Life Care), Volume 2 Interactions
-  (LAB-1, LAB-3, LAB-35, LAB-36), Volume 3 Data Models - for each report a model
+  Children's Cancer Shared Care, Monitoring and PROMs, Palliative and End of
+  Life Care); use cases follow the NW GMSA use case layout (References, Clinical
+  Pathway Overview, Actors, Transactions, Current Process, Future Process, Data
+  Requirements), Volume 2 Interactions
+  (LAB-1, LAB-3, LAB-35, LAB-36, and `HL7v2.md` - pathology HL7 v2 examples only,
+  following the NW Genomics HL7 v2 page for segment definitions), Volume 3 Data Models - for each report a model
   page with its FHIR Document and an example rendering ("What the reader sees"),
   and its logical model (Cancer Pathology Report, Palliative Care Record).
 - A new page must be added to both `pages:` and `menu:` in `sushi-config.yaml`.

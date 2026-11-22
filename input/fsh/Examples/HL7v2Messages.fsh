@@ -85,6 +85,8 @@ Usage:      #inline
 * subject.reference = "urn:uuid:9cd7128b-ad0c-5a39-aea1-3cb09521960c"
 * encounter.reference = "urn:uuid:166f1161-b412-51e2-9ef8-7348c79c0e67"
 * occurrenceDateTime = "2023-08-14T10:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:a5971f10-38af-5605-b979-36174612eab2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C3456789"
 * requester.display = "Dr Samuel Darwin"
@@ -110,6 +112,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-LAB1-Histopathology-Specimen-1
 * entry[+].fullUrl = "urn:uuid:9f7f2dc8-92e5-5603-a8bf-1ff6c104a3ce"
 * entry[=].resource = HL7v2Msg-LAB1-Histopathology-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:a5971f10-38af-5605-b979-36174612eab2"
+* entry[=].resource = HL7v2-PractitionerRole-C3456789-R0A
 
 Instance:   HL7v2Msg-LAB3-Histopathology-MessageHeader
 InstanceOf: MessageHeader
@@ -205,6 +209,8 @@ Usage:      #inline
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
 * occurrenceDateTime = "2023-08-14T10:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:a5971f10-38af-5605-b979-36174612eab2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C3456789"
 * requester.display = "Dr Samuel Darwin"
@@ -221,6 +227,9 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/COSD#pCR6410 "Topography (SNOMED)"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://terminology.hl7.org/CodeSystem/icd-o-3#C18.0 "Cecum"
 * valueCodeableConcept.coding[+] = http://snomed.info/sct#32713005 "Caecum structure"
@@ -272,6 +281,8 @@ Usage:      #inline
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
 * occurrenceDateTime = "2023-08-14T10:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:a5971f10-38af-5605-b979-36174612eab2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C3456789"
 * requester.display = "Dr Samuel Darwin"
@@ -287,6 +298,9 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/COSD#pCR6420 "Morphology (SNOMED)"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://terminology.hl7.org/CodeSystem/icd-o-3#8140 "Adenocarcinoma, NOS"
 * valueCodeableConcept.coding[+] = http://snomed.info/sct#1187332001 "Adenocarcinoma"
@@ -301,6 +315,9 @@ Usage:      #inline
 * code.coding[+] = http://loinc.org#31206-6 "Behavior ICD-O-3 Cancer"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://terminology.hl7.org/CodeSystem/icd-o-3#3 "Malignant, primary site"
 
@@ -347,6 +364,8 @@ Usage:      #inline
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
 * occurrenceDateTime = "2023-08-14T10:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:a5971f10-38af-5605-b979-36174612eab2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C3456789"
 * requester.display = "Dr Samuel Darwin"
@@ -362,6 +381,9 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/COSD#pCR7020 "MLH1 Nuclear Expression Intact"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://loinc.org#LA9634-2 "Absent"
 
@@ -376,6 +398,9 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/COSD#pCR7030 "PMS2 Nuclear Expression Intact"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://loinc.org#LA9634-2 "Absent"
 
@@ -390,6 +415,9 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/COSD#pCR7040 "MSH2 Nuclear Expression Intact"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://loinc.org#LA9633-4 "Present"
 
@@ -404,6 +432,9 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/COSD#pCR7050 "MSH6 Nuclear Expression Intact"
 * subject.reference = "urn:uuid:406dc7d1-959e-5d55-a070-38a20c82edc0"
 * encounter.reference = "urn:uuid:5e9af4d6-ae43-5064-8bf2-7b8ae694fd86"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "690S0"
+* performer.type = "Organization"
 * effectiveDateTime = "2023-08-14T10:00:00+00:00"
 * valueCodeableConcept.coding[+] = http://loinc.org#LA9633-4 "Present"
 
@@ -450,6 +481,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-LAB3-Histopathology-Specimen-1
 * entry[+].fullUrl = "urn:uuid:30133afa-d8b3-5dee-846e-02b244c68813"
 * entry[=].resource = HL7v2Msg-LAB3-Histopathology-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:a5971f10-38af-5605-b979-36174612eab2"
+* entry[=].resource = HL7v2-PractitionerRole-C3456789-R0A
 * entry[+].fullUrl = "urn:uuid:44947fce-37d2-51eb-b506-8123d4ed69b0"
 * entry[=].resource = HL7v2Msg-LAB3-Histopathology-Observation-1
 * entry[+].fullUrl = "urn:uuid:6d21c153-a0a0-58c7-b9f3-d48ef67118d4"
@@ -547,6 +580,8 @@ Usage:      #inline
 * code.coding[+] = http://loinc.org#58410-2 "CBC panel - Blood by Automated count"
 * subject.reference = "urn:uuid:8abb28b0-4485-5207-9bb9-f89d3d88eb56"
 * occurrenceDateTime = "2026-11-18T09:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:6c693b5d-d4b2-5e14-af82-293fb305e793"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C7654321"
 * requester.display = "Dr Alex FICTITIOUS"
@@ -561,6 +596,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://loinc.org#718-7 "Hemoglobin [Mass/volume] in Blood"
 * subject.reference = "urn:uuid:8abb28b0-4485-5207-9bb9-f89d3d88eb56"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "POL01"
+* performer.type = "Organization"
 * effectiveDateTime = "2026-11-18T11:25:00+00:00"
 * valueQuantity.value = 98
 * valueQuantity.unit = "gram per litre"
@@ -579,6 +617,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://loinc.org#6690-2 "Leukocytes [#/volume] in Blood by Automated count"
 * subject.reference = "urn:uuid:8abb28b0-4485-5207-9bb9-f89d3d88eb56"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "POL01"
+* performer.type = "Organization"
 * effectiveDateTime = "2026-11-18T11:25:00+00:00"
 * valueQuantity.value = 2.1
 * valueQuantity.unit = "billion per litre"
@@ -597,6 +638,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://loinc.org#751-8 "Neutrophils [#/volume] in Blood by Automated count"
 * subject.reference = "urn:uuid:8abb28b0-4485-5207-9bb9-f89d3d88eb56"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "POL01"
+* performer.type = "Organization"
 * effectiveDateTime = "2026-11-18T11:25:00+00:00"
 * valueQuantity.value = 0.6
 * valueQuantity.unit = "billion per litre"
@@ -615,6 +659,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://loinc.org#777-3 "Platelets [#/volume] in Blood by Automated count"
 * subject.reference = "urn:uuid:8abb28b0-4485-5207-9bb9-f89d3d88eb56"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "POL01"
+* performer.type = "Organization"
 * effectiveDateTime = "2026-11-18T11:25:00+00:00"
 * valueQuantity.value = 85
 * valueQuantity.unit = "billion per litre"
@@ -665,6 +712,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-LAB3-FBC-ResultCopy-Specimen-1
 * entry[+].fullUrl = "urn:uuid:68702cdf-c6e1-5615-a43d-b7d58fa556fb"
 * entry[=].resource = HL7v2Msg-LAB3-FBC-ResultCopy-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:6c693b5d-d4b2-5e14-af82-293fb305e793"
+* entry[=].resource = HL7v2-PractitionerRole-C7654321-POS01
 * entry[+].fullUrl = "urn:uuid:6f300b25-0e71-583d-8bb7-1a3f81351873"
 * entry[=].resource = HL7v2Msg-LAB3-FBC-ResultCopy-Observation-1
 * entry[+].fullUrl = "urn:uuid:f19ffa45-fbc4-5c89-88b1-506fa3d1832e"
@@ -735,6 +784,8 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B3051 "HbA1c (IFCC traceable)"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
 * occurrenceDateTime = "2018-03-09T15:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:64444755-864f-5b4f-8c71-525f014b2314"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C9000115"
 * requester.display = "Dr Andar FICTITIOUS"
@@ -748,6 +799,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B3553 "HbA1c (IFCC traceable)"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 49
 * valueQuantity.unit = "millimole per mole"
@@ -813,6 +867,8 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0001 "Full blood count"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
 * occurrenceDateTime = "2018-03-09T15:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:64444755-864f-5b4f-8c71-525f014b2314"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C9000115"
 * requester.display = "Dr Andar FICTITIOUS"
@@ -827,6 +883,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0300 "White blood cell (WBC) count"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 3.5
 * valueQuantity.unit = "billion per litre"
@@ -845,6 +904,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0307 "Haemoglobin (Hb)"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 200
 * valueQuantity.unit = "gram per litre"
@@ -863,6 +925,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0314 "Platelet (PLT) count"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 500
 * valueQuantity.unit = "billion per litre"
@@ -881,6 +946,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0306 "Red blood cell (RBC) count"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 6.00
 * valueQuantity.unit = "trillion per litre"
@@ -899,6 +967,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0308 "Haematocrit (Hct)"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 0.60
 * valueQuantity.unit = "litre per litre"
@@ -917,6 +988,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0309 "Mean cell volume (MCV)"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 120
 * valueQuantity.unit = "femtolitre"
@@ -935,6 +1009,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/REM#B0310 "Mean cell haemoglobin (MCH)"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "REM"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-03-09T15:00:00+00:00"
 * valueQuantity.value = 34.0
 * valueQuantity.unit = "picogram"
@@ -986,6 +1063,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-DHCW-PathologyResult-Patient
 * entry[+].fullUrl = "urn:uuid:ad1c743f-b753-5bf6-8ec5-5c997d415e28"
 * entry[=].resource = HL7v2Msg-DHCW-PathologyResult-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:64444755-864f-5b4f-8c71-525f014b2314"
+* entry[=].resource = HL7v2-PractitionerRole-C9000115-7A1
 * entry[+].fullUrl = "urn:uuid:34b556cf-6148-596d-a414-65376c072e9a"
 * entry[=].resource = HL7v2Msg-DHCW-PathologyResult-Observation-1
 * entry[+].fullUrl = "urn:uuid:8fcf1db2-20fb-5dfd-a3c2-940d58a56ad9"
@@ -1081,6 +1160,8 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/RBT#M0007 "Urine MC&S"
 * subject.reference = "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
 * occurrenceDateTime = "2018-05-24T00:00:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:e1edcc39-9592-5ee2-83a5-d0a3bd859ede"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C9000116"
 * requester.display = "Dr Jane FICTITIOUS"
@@ -1095,6 +1176,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://www.acme.org/CodeSystem/RBT#RPT "Report line"
 * subject.reference = "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "RBT"
+* performer.type = "Organization"
 * effectiveDateTime = "2018-05-24T00:00:00+00:00"
 * valueString = "Specimen received: Mid Stream Urine
 
@@ -1149,6 +1233,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-DHCW-TextReport-Specimen-1
 * entry[+].fullUrl = "urn:uuid:a268a2d3-bcd0-5dbc-acfe-12ff4df4b9cb"
 * entry[=].resource = HL7v2Msg-DHCW-TextReport-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:e1edcc39-9592-5ee2-83a5-d0a3bd859ede"
+* entry[=].resource = HL7v2-PractitionerRole-C9000116-7A1
 * entry[+].fullUrl = "urn:uuid:c5d5e1fd-b7b4-51b0-9a7f-cbd1eecf8b6e"
 * entry[=].resource = HL7v2Msg-DHCW-TextReport-Observation-1
 * entry[+].fullUrl = "urn:uuid:fd948bb2-e7d2-5ea2-b6ec-cb4b5791eed2"
@@ -1231,6 +1317,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#999791000000106 "Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised"
 * subject.reference = "urn:uuid:51375e90-72df-5a62-b44c-4b674a374462"
 * occurrenceDateTime = "2022-01-29T10:18:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1245,6 +1333,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#999791000000106 "Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised"
 * subject.reference = "urn:uuid:51375e90-72df-5a62-b44c-4b674a374462"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-01-29T10:18:00+00:00"
 * valueQuantity.value = 54
 * valueQuantity.unit = "mmol/mol"
@@ -1298,6 +1389,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-Specimen-1
 * entry[+].fullUrl = "urn:uuid:ec84115c-88f7-5221-b13e-c1d0247bb40d"
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
 * entry[+].fullUrl = "urn:uuid:3f5f18cd-ffbc-5861-9976-1756c4887b0b"
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-Observation-1
 * entry[+].fullUrl = "urn:uuid:1d887601-4235-59a0-8581-e2e5b0d136c3"
@@ -1381,6 +1474,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1106741000000105 "CRP (C reactive protein) mass concentration in serum"
 * subject.reference = "urn:uuid:02ef74c9-a078-507a-b085-b63cd50dd5a6"
 * occurrenceDateTime = "2022-03-07T11:42:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1396,6 +1491,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1001371000000100 "Serum CRP (C reactive protein) level"
 * code.coding[+] = http://snomed.info/sct#1106741000000105 "CRP (C reactive protein) mass concentration in serum"
 * subject.reference = "urn:uuid:02ef74c9-a078-507a-b085-b63cd50dd5a6"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T11:42:00+00:00"
 * valueQuantity.value = 200
 * valueQuantity.unit = "mg/L"
@@ -1443,6 +1541,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-CRP-Specimen-1
 * entry[+].fullUrl = "urn:uuid:656c7a84-36d0-5227-b5ea-65070eaccb09"
 * entry[=].resource = HL7v2Msg-NHSE-CRP-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
 * entry[+].fullUrl = "urn:uuid:fda2d6ca-2b66-5053-b3bd-eed37cdbd488"
 * entry[=].resource = HL7v2Msg-NHSE-CRP-Observation-1
 * entry[+].fullUrl = "urn:uuid:5d1dca01-fd9b-5920-95c4-a3d432187e6e"
@@ -1527,6 +1627,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1031081000000108 "Liver function tests"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
 * occurrenceDateTime = "2022-03-07T10:02:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1542,6 +1644,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#997591000000109 "Serum total bilirubin level"
 * code.coding[+] = http://snomed.info/sct#1107221000000109 "Total bilirubin substance concentration in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 6
 * valueQuantity.unit = "umol/L"
@@ -1560,6 +1665,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000821000000103 "Serum albumin level"
 * code.coding[+] = http://snomed.info/sct#1105861000000106 "Albumin mass concentration in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 47
 * valueQuantity.unit = "g/L"
@@ -1578,6 +1686,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000621000000104 "Serum alkaline phosphatase level"
 * code.coding[+] = http://snomed.info/sct#1106051000000106 "Alkaline phosphatase enzyme activity in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 96
 * valueQuantity.unit = "iu/L"
@@ -1596,6 +1707,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1018251000000107 "Serum alanine aminotransferase level"
 * code.coding[+] = http://snomed.info/sct#1106081000000100 "Alanine aminotransferase enzyme activity in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 15
 * valueQuantity.unit = "iu/L"
@@ -1649,6 +1763,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000971000000107 "Urea and electrolytes level"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
 * occurrenceDateTime = "2022-03-07T10:02:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1664,6 +1780,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000951000000103 "Serum urea level"
 * code.coding[+] = http://snomed.info/sct#1110281000000107 "Urea substance concentration in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 3.7
 * valueQuantity.unit = "mmol/L"
@@ -1682,6 +1801,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000661000000107 "Serum sodium level"
 * code.coding[+] = http://snomed.info/sct#1107871000000107 "Sodium substance concentration in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 139
 * valueQuantity.unit = "mmol/L"
@@ -1700,6 +1822,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000651000000109 "Serum potassium level"
 * code.coding[+] = http://snomed.info/sct#1107761000000109 "Potassium substance concentration in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 4.7
 * valueQuantity.unit = "mmol/L"
@@ -1718,6 +1843,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1000731000000107 "Serum creatinine level"
 * code.coding[+] = http://snomed.info/sct#1107001000000108 "Creatinine substance concentration in serum"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 73
 * valueQuantity.unit = "umol/L"
@@ -1735,6 +1863,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#1011481000000105 "eGFR (estimated glomerular filtration rate) using creatinine Chronic Kidney Disease Epidemiology Collaboration equation per 1.73 square metres"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T10:02:00+00:00"
 * valueQuantity.value = 100
 * valueQuantity.unit = "mL/min/1.73m2"
@@ -1791,6 +1922,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-Specimen-1
 * entry[+].fullUrl = "urn:uuid:cf7f23e4-778c-5c89-a160-ff7b6df40c36"
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
 * entry[+].fullUrl = "urn:uuid:20151d8d-5901-5c45-bc69-312fc8f07c65"
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-Observation-1
 * entry[+].fullUrl = "urn:uuid:e697e681-b763-5602-b12b-5755e2c8b616"
@@ -1895,6 +2028,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1005661000000103 "Serum lipids level"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
 * occurrenceDateTime = "2022-07-05T08:52:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -1910,6 +2045,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1005671000000105 "Serum cholesterol level"
 * code.coding[+] = http://snomed.info/sct#1106541000000101 "Cholesterol substance concentration in serum"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-07-05T08:52:00+00:00"
 * valueQuantity.value = 6.1
 * valueQuantity.unit = "mmol/L"
@@ -1927,6 +2065,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1005681000000107 "Serum high density lipoprotein cholesterol level"
 * code.coding[+] = http://snomed.info/sct#1107681000000108 "HDL (high density lipoprotein) cholesterol substance concentration in serum"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-07-05T08:52:00+00:00"
 * valueQuantity.value = 1.44
 * valueQuantity.unit = "mmol/L"
@@ -1944,6 +2085,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1015681000000109 "Serum cholesterol/high density lipoprotein ratio"
 * code.coding[+] = http://snomed.info/sct#1107741000000108 "HDL (high density lipoprotein) cholesterol/total cholesterol ratio in serum"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-07-05T08:52:00+00:00"
 * valueQuantity.value = 4.2
 * valueQuantity.unit = "1/1"
@@ -1959,6 +2103,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1006191000000106 "Serum non high density lipoprotein cholesterol level"
 * code.coding[+] = http://snomed.info/sct#12021000237106 "Non-HDL (high density lipoprotein) cholesterol molar concentration in serum"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-07-05T08:52:00+00:00"
 * valueQuantity.value = 4.7
 * valueQuantity.unit = "mmol/L"
@@ -2011,6 +2158,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#999791000000106 "Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
 * occurrenceDateTime = "2022-07-05T08:52:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2025,6 +2174,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#999791000000106 "Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-07-05T08:52:00+00:00"
 * valueQuantity.value = 38
 * valueQuantity.unit = "mmol/mol"
@@ -2071,6 +2223,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-Specimen-1
 * entry[+].fullUrl = "urn:uuid:c6d58731-d961-5bb6-81d8-338227728339"
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:c9c408e0-870d-5db8-b04a-e6bea7b2b6d2"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N82035
 * entry[+].fullUrl = "urn:uuid:87ddd916-2f81-54b9-acf0-c08e3fe4fc1b"
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-Observation-1
 * entry[+].fullUrl = "urn:uuid:2a03dc13-84b2-50e7-9102-12fddec7dc16"
@@ -2166,6 +2320,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022441000000101 "FBC - full blood count"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
 * occurrenceDateTime = "2022-02-08T10:23:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2181,6 +2337,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022541000000102 "Total white cell count"
 * code.coding[+] = http://snomed.info/sct#1110441000000100 "White blood cell count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 4.76
 * valueQuantity.unit = "10*9/L"
@@ -2196,6 +2355,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#1022451000000103 "Red blood cell count"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 3.63
 * valueQuantity.unit = "10*12/L"
@@ -2213,6 +2375,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022431000000105 "Haemoglobin estimation"
 * code.coding[+] = http://snomed.info/sct#1107511000000100 "Haemoglobin mass concentration in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 108
 * valueQuantity.unit = "g/L"
@@ -2230,6 +2395,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022291000000105 "Haematocrit"
 * code.coding[+] = http://snomed.info/sct#1111571000000101 "Haematocrit volume fraction of blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 0.352
 * valueQuantity.unit = "l/l"
@@ -2247,6 +2415,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022491000000106 "MCV - Mean corpuscular volume"
 * code.coding[+] = http://snomed.info/sct#1491000237105 "Erythrocytes MCV (mean corpuscular volume) in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 97
 * valueQuantity.unit = "fL"
@@ -2263,6 +2434,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022471000000107 "MCH - Mean corpuscular haemoglobin"
 * code.coding[+] = http://snomed.info/sct#1022471000000107 "MCH - Mean corpuscular haemoglobin"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 29.8
 * valueQuantity.unit = "pg"
@@ -2279,6 +2453,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022481000000109 "MCHC - Mean corpuscular haemoglobin concentration"
 * code.coding[+] = http://snomed.info/sct#1022481000000109 "MCHC - Mean corpuscular haemoglobin concentration"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 307
 * valueQuantity.unit = "g/L"
@@ -2296,6 +2473,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022651000000100 "Platelet count"
 * code.coding[+] = http://snomed.info/sct#1108041000000107 "Platelet count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 143
 * valueQuantity.unit = "10*9/L"
@@ -2312,6 +2492,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022551000000104 "Neutrophil count"
 * code.coding[+] = http://snomed.info/sct#1108071000000101 "Neutrophil count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 2.66
 * valueQuantity.unit = "10*9/L"
@@ -2328,6 +2511,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022581000000105 "Lymphocyte count"
 * code.coding[+] = http://snomed.info/sct#67541000237108 "Lymphocyte count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 0.7
 * valueQuantity.unit = "10*9/L"
@@ -2345,6 +2531,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022591000000107 "Monocyte count"
 * code.coding[+] = http://snomed.info/sct#1107991000000100 "Monocyte count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 1.3
 * valueQuantity.unit = "10*9/L"
@@ -2362,6 +2551,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022561000000101 "Eosinophil count"
 * code.coding[+] = http://snomed.info/sct#1107391000000104 "Eosinophil count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 0.07
 * valueQuantity.unit = "10*9/L"
@@ -2378,6 +2570,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1022571000000108 "Basophil count"
 * code.coding[+] = http://snomed.info/sct#1106091000000103 "Basophil count in blood"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-08T10:23:00+00:00"
 * valueQuantity.value = 0.03
 * valueQuantity.unit = "10*9/L"
@@ -2435,6 +2630,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-FBC-Specimen-1
 * entry[+].fullUrl = "urn:uuid:0cd51dda-64c9-535f-9af3-49a9ba688387"
 * entry[=].resource = HL7v2Msg-NHSE-FBC-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
 * entry[+].fullUrl = "urn:uuid:b991b175-d7dc-5407-9ffb-cced5ccb476d"
 * entry[=].resource = HL7v2Msg-NHSE-FBC-Observation-1
 * entry[+].fullUrl = "urn:uuid:41a81087-220a-53b4-8132-6e64656a0cea"
@@ -2543,6 +2740,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#51061000237103 "Hepatitis B surface antigen in serum qualitative result"
 * subject.reference = "urn:uuid:b6bfe811-d89b-5d9b-b89d-dc889461f450"
 * occurrenceDateTime = "2022-03-07T13:21:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2558,6 +2757,9 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1014211000000100 "Hepatitis B surface antigen level"
 * code.coding[+] = http://snomed.info/sct#51061000237103 "Hepatitis B surface antigen in serum qualitative result"
 * subject.reference = "urn:uuid:b6bfe811-d89b-5d9b-b89d-dc889461f450"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-07T13:21:00+00:00"
 * valueString = "Negative"
 * specimen.reference = "urn:uuid:690ab67f-2029-5a5a-b2ff-0e9a47f28495"
@@ -2602,6 +2804,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-Specimen-1
 * entry[+].fullUrl = "urn:uuid:50081a17-cc59-5dd5-ade2-248104e391f7"
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
 * entry[+].fullUrl = "urn:uuid:8f9f5107-af5b-5356-ba0f-d5b7e7f256bf"
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-Observation-1
 * entry[+].fullUrl = "urn:uuid:92341675-2f84-54dd-988b-faf862929f69"
@@ -2685,6 +2889,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#50121000237101 "Human papilloma virus RNA nucleic acid amplification qualitative result"
 * subject.reference = "urn:uuid:471dc517-a1fb-5059-974a-e92228d5d403"
 * occurrenceDateTime = "2022-03-22T11:04:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2699,6 +2905,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#50121000237101 "Human papilloma virus RNA nucleic acid amplification qualitative result"
 * subject.reference = "urn:uuid:471dc517-a1fb-5059-974a-e92228d5d403"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-03-22T11:04:00+00:00"
 * valueString = "Not detected"
 * specimen.reference = "urn:uuid:447c4851-5cb9-5b83-a01a-8b0c9f23ac8a"
@@ -2744,6 +2953,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HPV-Specimen-1
 * entry[+].fullUrl = "urn:uuid:7f55a586-fba6-53fb-a42f-b7da665cbbbd"
 * entry[=].resource = HL7v2Msg-NHSE-HPV-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
 * entry[+].fullUrl = "urn:uuid:9eff41ef-66da-5a44-a2b1-ad469f9de46e"
 * entry[=].resource = HL7v2Msg-NHSE-HPV-Observation-1
 * entry[+].fullUrl = "urn:uuid:48e8d73e-3888-5394-9fc2-1183c8f87230"
@@ -2869,6 +3080,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#1005711000000106 "Glucose tolerance test"
 * subject.reference = "urn:uuid:502b150c-d487-5452-b64b-6a02ae623589"
 * occurrenceDateTime = "2022-02-09T10:01:23+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -2885,6 +3098,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#1005711000000106 "Glucose tolerance test"
 * subject.reference = "urn:uuid:502b150c-d487-5452-b64b-6a02ae623589"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-09T10:01:23+00:00"
 * valueString = "GTT Fasting Glucose   4.8 mmol/L 
  GTT Glucose 60 min    8.8 mmol/L
@@ -2937,6 +3153,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-GTT-Specimen-3
 * entry[+].fullUrl = "urn:uuid:26ae572d-e0c9-57b5-8d71-4004beca9399"
 * entry[=].resource = HL7v2Msg-NHSE-GTT-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
 * entry[+].fullUrl = "urn:uuid:12b5b401-3f29-5d65-a808-791da244b8bf"
 * entry[=].resource = HL7v2Msg-NHSE-GTT-Observation-1
 * entry[+].fullUrl = "urn:uuid:a7f560c2-d33c-5a01-b95a-3a72ac9a7d7c"
@@ -3020,6 +3238,8 @@ Usage:      #inline
 * code.coding[+] = http://snomed.info/sct#995581000000104 "Urinary microscopy, culture and sensitivities"
 * subject.reference = "urn:uuid:61aca9c4-c09d-5862-8a2a-a5bb4db0eff0"
 * occurrenceDateTime = "2022-02-21T11:07:00+00:00"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
 * requester.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
 * requester.identifier.value = "C1008215"
 * requester.display = "Dr Gale GASKELL"
@@ -3034,6 +3254,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#995581000000104 "Urinary microscopy, culture and sensitivities"
 * subject.reference = "urn:uuid:61aca9c4-c09d-5862-8a2a-a5bb4db0eff0"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "Y8J7D"
+* performer.type = "Organization"
 * effectiveDateTime = "2022-02-21T11:07:00+00:00"
 * valueString = "Microscopy
 Casts  None seen
@@ -3090,6 +3313,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-Specimen-1
 * entry[+].fullUrl = "urn:uuid:b60b590e-434c-52d6-9ac4-25a91f4978eb"
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:cd4f36b7-693f-5f55-9b64-a2e9424baf07"
+* entry[=].resource = HL7v2-PractitionerRole-C1008215-N81027
 * entry[+].fullUrl = "urn:uuid:36dbbc3d-5f80-5be0-85bc-8ab9c771b8ed"
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-Observation-1
 * entry[+].fullUrl = "urn:uuid:00ecf3b0-de20-5a41-9e94-877ed4a70e09"
@@ -3165,6 +3390,8 @@ Usage:      #inline
 * code.coding[+] = http://www.acme.org/CodeSystem/HUB01#FITSCR "Bowel cancer screening faecal immunochemical test"
 * subject.reference = "urn:uuid:196af7f7-08a0-51e9-85d1-58f019e953f6"
 * occurrenceDateTime = "2025-10-29"
+* requester.type = "PractitionerRole"
+* requester.reference = "urn:uuid:03097093-91a3-5f31-a6ce-38ed0f892515"
 * requester.display = "BCSP Hub Manager"
 * specimen[+].reference = "urn:uuid:558e768a-9a27-51f7-b5a9-e2d9bfe39df3"
 
@@ -3178,6 +3405,9 @@ Usage:      #inline
 * code.coding[+] = http://loinc.org#27396-1 "Hemoglobin [Mass/mass] in Stool from gastrointestinal"
 * code.coding[+] = http://snomed.info/sct#1049361000000101 "Quantitative faecal immunochemical test"
 * subject.reference = "urn:uuid:196af7f7-08a0-51e9-85d1-58f019e953f6"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "HUB01"
+* performer.type = "Organization"
 * effectiveDateTime = "2025-11-03"
 * valueQuantity.value = 142
 * valueQuantity.unit = "microgram per gram"
@@ -3196,6 +3426,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://loinc.org#29771-3 "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"
 * subject.reference = "urn:uuid:196af7f7-08a0-51e9-85d1-58f019e953f6"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "HUB01"
+* performer.type = "Organization"
 * effectiveDateTime = "2025-11-03"
 * valueCodeableConcept.coding[+] = http://loinc.org#LA6576-8 "Positive"
 * specimen.reference = "urn:uuid:558e768a-9a27-51f7-b5a9-e2d9bfe39df3"
@@ -3209,6 +3442,9 @@ Usage:      #inline
 * category = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code.coding[+] = http://snomed.info/sct#368481000000103 "Bowel cancer screening programme: faecal occult blood result"
 * subject.reference = "urn:uuid:196af7f7-08a0-51e9-85d1-58f019e953f6"
+* performer.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* performer.identifier.value = "HUB01"
+* performer.type = "Organization"
 * effectiveDateTime = "2025-11-04"
 * valueCodeableConcept.coding[+] = http://snomed.info/sct#1101371000000105 "Bowel cancer screening programme liquid faecal immunochemical test abnormal"
 * specimen.reference = "urn:uuid:558e768a-9a27-51f7-b5a9-e2d9bfe39df3"
@@ -3254,6 +3490,8 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-FIT-Specimen-1
 * entry[+].fullUrl = "urn:uuid:496457cc-798c-56c9-89ee-a174344205b5"
 * entry[=].resource = HL7v2Msg-FIT-ServiceRequest-1
+* entry[+].fullUrl = "urn:uuid:03097093-91a3-5f31-a6ce-38ed0f892515"
+* entry[=].resource = HL7v2-PractitionerRole-BCSP-Hub-Manager-BCSS
 * entry[+].fullUrl = "urn:uuid:252b7960-f356-51e2-bdf2-a00aca06a9d4"
 * entry[=].resource = HL7v2Msg-FIT-Observation-1
 * entry[+].fullUrl = "urn:uuid:b156df68-feac-5b83-bdb8-545001f919a8"
@@ -3262,3 +3500,86 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-FIT-Observation-3
 * entry[+].fullUrl = "urn:uuid:1f3f37cb-c3c0-52e4-934c-6f7a08624575"
 * entry[=].resource = HL7v2Msg-FIT-DiagnosticReport-1
+
+// PractitionerRoles shared by the messages above
+
+Instance:   HL7v2-PractitionerRole-C3456789-R0A
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - Dr Samuel Darwin (R0A)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
+* practitioner.identifier.value = "C3456789"
+* practitioner.display = "Dr Samuel Darwin"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "R0A"
+* organization.display = "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST"
+
+Instance:   HL7v2-PractitionerRole-C7654321-POS01
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - Dr Alex FICTITIOUS (POS01)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
+* practitioner.identifier.value = "C7654321"
+* practitioner.display = "Dr Alex FICTITIOUS"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "POS01"
+* organization.display = "FICTITIOUS SHARED CARE UNIT"
+
+Instance:   HL7v2-PractitionerRole-C9000115-7A1
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - Dr Andar FICTITIOUS (7A1)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
+* practitioner.identifier.value = "C9000115"
+* practitioner.display = "Dr Andar FICTITIOUS"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "7A1"
+* organization.display = "BETSI CADWALADR UNIVERSITY LOCAL HEALTH BOARD"
+
+Instance:   HL7v2-PractitionerRole-C9000116-7A1
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - Dr Jane FICTITIOUS (7A1)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
+* practitioner.identifier.value = "C9000116"
+* practitioner.display = "Dr Jane FICTITIOUS"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "7A1"
+* organization.display = "BETSI CADWALADR UNIVERSITY LOCAL HEALTH BOARD"
+
+Instance:   HL7v2-PractitionerRole-C1008215-N82035
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - Dr Gale GASKELL (N82035)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
+* practitioner.identifier.value = "C1008215"
+* practitioner.display = "Dr Gale GASKELL"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "N82035"
+* organization.display = "MATHER AVENUE SURGERY"
+
+Instance:   HL7v2-PractitionerRole-C1008215-N81027
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - Dr Gale GASKELL (N81027)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.identifier.system = "https://fhir.hl7.org.uk/Id/gmc-number"
+* practitioner.identifier.value = "C1008215"
+* practitioner.display = "Dr Gale GASKELL"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "N81027"
+* organization.display = "READESMOOR MEDICAL GROUP PRACTICE"
+
+Instance:   HL7v2-PractitionerRole-BCSP-Hub-Manager-BCSS
+InstanceOf: PractitionerRole
+Title:      "PractitionerRole - BCSP Hub Manager (BCSS)"
+Description: "Fictitious example: requester (HL7 v2 OBR-16 / ORC-12) at the ordering organisation (ORC-21), shared by the FHIR Messages on the HL7 v2 page."
+Usage:      #inline
+* practitioner.display = "BCSP Hub Manager"
+* organization.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
+* organization.identifier.value = "BCSS"

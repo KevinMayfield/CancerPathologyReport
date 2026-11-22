@@ -20,12 +20,12 @@ Alias: $variable = http://hl7.org/fhir/StructureDefinition/variable
 
 Instance:       PalliativeCareRecordQuestionnaire
 InstanceOf:     Questionnaire
-Title:          "Palliative Care Record"
+Title:          "Palliative Care Record Questionnaire"
 Description:    "Proof of concept - not an authoritative source. SCCI1580 Palliative Care Co-ordination: Core Content as an SDC Questionnaire, with PRSB Palliative and End of Life Care Standard items where SCCI1580 is silent. Answers to coded items are extracted as Observations."
 Usage:          #definition
 * url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Questionnaire/PalliativeCareRecordQuestionnaire"
 * name = "PalliativeCareRecord"
-* title = "Palliative Care Record"
+* title = "Palliative Care Record Questionnaire"
 * status = #draft
 * experimental = true
 * subjectType = #Patient

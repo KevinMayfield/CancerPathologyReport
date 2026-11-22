@@ -34,28 +34,7 @@ US Cancer Pathology Data Sharing IG.
 * section[surgicalPathology].code = $loinc#11529-5 "Surgical pathology study"
 * section[surgicalPathology].text 1..1
 * section[surgicalPathology].entry 0..0
-* section[surgicalPathology].section ^slicing.discriminator.type = #pattern
-* section[surgicalPathology].section ^slicing.discriminator.path = "code"
-* section[surgicalPathology].section ^slicing.rules = #open
-* section[surgicalPathology].section contains
-    clinicalHistory 0..1 and
-    siteOfOrigin 0..1 and
-    grossDescription 0..1 and
-    microscopicObservation 0..1 and
-    finalDiagnosis 0..1
-* section[surgicalPathology].section[clinicalHistory].code = $loinc#22636-5 "Pathology report relevant history Narrative"
-* section[surgicalPathology].section[clinicalHistory].text 1..1
-* section[surgicalPathology].section[siteOfOrigin].code = $loinc#22633-2 "Pathology report site of origin Narrative"
-* section[surgicalPathology].section[siteOfOrigin].text 1..1
-* section[surgicalPathology].section[siteOfOrigin].entry only Reference(CancerPathologySpecimen)
-* section[surgicalPathology].section[grossDescription].code = $loinc#22634-0 "Pathology report gross observation Narrative"
-* section[surgicalPathology].section[grossDescription].text 1..1
-* section[surgicalPathology].section[microscopicObservation].code = $loinc#22635-7 "Pathology report microscopic observation Narrative Other stain"
-* section[surgicalPathology].section[microscopicObservation].text 1..1
-* section[surgicalPathology].section[finalDiagnosis].code = $loinc#22637-3 "Pathology report final diagnosis Narrative"
-* section[surgicalPathology].section[finalDiagnosis].text 1..1
-* section[surgicalPathology].section[finalDiagnosis].text ^short = "Pathology Report Text (pCR1020)"
-* section[surgicalPathology].section[finalDiagnosis].entry only Reference(PrimaryCancerCondition)
+* section[surgicalPathology].section ^short = "Narrative subsections, coded with the NAACCR Volume V LOINC section codes: 22636-5 clinical history, 22633-2 site of origin (entry: Cancer Pathology Specimen), 22634-0 gross description, 22635-7 microscopic observation, 22637-3 final diagnosis (pCR1020; entry: Primary Cancer Condition)"
 
 * section[synopticReport] ^short = "Pathology synoptic report - COSD Pathology core content"
 * section[synopticReport].code = $loinc#60568-3 "Pathology synoptic report"

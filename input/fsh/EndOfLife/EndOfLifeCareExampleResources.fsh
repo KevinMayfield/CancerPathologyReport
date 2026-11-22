@@ -108,7 +108,7 @@ Usage:      #example
 * author = Reference(EolPalliativeConsultant)
 * custodian = Reference(EolProvider)
 * content.attachment.contentType = #application/fhir+json
-* content.attachment.url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Bundle/EolDocument1"
+* content.attachment.url = "Bundle-EolDocument1.json"
 * content.attachment.title = "Palliative Care Record (version 1)"
 
 Instance:   EolDocumentReference2
@@ -125,7 +125,7 @@ Usage:      #example
 * relatesTo.code = #replaces
 * relatesTo.target = Reference(EolDocumentReference1)
 * content[+].attachment.contentType = #application/fhir+json
-* content[=].attachment.url = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Bundle/EolDocument2"
+* content[=].attachment.url = "Bundle-EolDocument2.json"
 * content[=].attachment.title = "Palliative Care Record (version 2)"
 * content[+].attachment.contentType = #application/pdf
 * content[=].attachment.url = "https://example.org/eol/EOL-0001-v2.pdf"

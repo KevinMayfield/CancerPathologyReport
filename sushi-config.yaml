@@ -26,6 +26,7 @@ dependencies:
 FSHOnly: false
 parameters:
   shownav: true
+  path-expansion-params: ../../input/_resources/exp-params.json
   apply-contact: 'true'
   apply-jurisdiction: 'true'
   apply-publisher: 'true'

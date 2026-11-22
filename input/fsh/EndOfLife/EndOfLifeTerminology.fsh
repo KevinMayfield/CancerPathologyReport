@@ -242,7 +242,7 @@ Description:    "Proof of concept - not an authoritative source. The person is o
 
 CodeSystem:     EOLDataItemCS
 Id:             scci1580-data-item
-Title:          "SCCI1580 Data Item"
+Title:          "SCCI1580 Data Item Code System"
 Description:    "Proof of concept - not an authoritative source. The 60 data items of SCCI1580 Palliative Care Co-ordination: Core Content (Amd 11/2015, v4.0), numbered as in the standard. Used here to code Questionnaire items and the Observations extracted from them. A local code system proposal - SCCI1580 publishes no code system for its data items."
 * ^status = #draft
 * ^experimental = true

@@ -16,7 +16,7 @@ RuleSet: COSDValueSet
 
 CodeSystem:     COSDServiceReportStatusCS
 Id:             cosd-service-report-status
-Title:          "COSD Service Report Status"
+Title:          "COSD Service Report Status Code System"
 Description:    "Proof of concept - not an authoritative source. Status of the pathology report. COSD Pathology Service Report Status (pCR0960)."
 * insert COSDCodeSystem(pCR0960)
 * #1 "Final (complete)"
@@ -37,7 +37,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDSpecimenNatureCS
 Id:             cosd-specimen-nature
-Title:          "COSD Specimen Nature"
+Title:          "COSD Specimen Nature Code System"
 Description:    "Proof of concept - not an authoritative source. The nature of the specimen reported on. COSD Pathology Specimen Nature (pCR0970)."
 * insert COSDCodeSystem(pCR0970)
 * #1 "Primary tumour"
@@ -57,7 +57,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDPathologyInvestigationTypeCS
 Id:             cosd-pathology-investigation-type
-Title:          "COSD Pathology Investigation Type"
+Title:          "COSD Pathology Investigation Type Code System"
 Description:    "Proof of concept - not an authoritative source. How the specimen was obtained. COSD Pathology Investigation Type (pCR0760)."
 * insert COSDCodeSystem(pCR0760)
 * #CY "Cytology"
@@ -83,7 +83,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDSnomedVersionCS
 Id:             cosd-snomed-version
-Title:          "COSD SNOMED Version"
+Title:          "COSD SNOMED Version Code System"
 Description:    "Proof of concept - not an authoritative source. The version of SNOMED used for topography and morphology. Only SNOMED CT is licensed for use since April 2017. COSD Pathology SNOMED Version (pCR6990)."
 * insert COSDCodeSystem(pCR6990)
 * #01 "SNOMED II"
@@ -104,7 +104,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDTumourLateralityCS
 Id:             cosd-tumour-laterality
-Title:          "COSD Tumour Laterality"
+Title:          "COSD Tumour Laterality Code System"
 Description:    "Proof of concept - not an authoritative source. Which side of the body the tumour is on. COSD Pathology Tumour Laterality (Pathological) (pCR0820)."
 * insert COSDCodeSystem(pCR0820)
 * #L "Left"
@@ -125,7 +125,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDGradeOfDifferentiationCS
 Id:             cosd-grade-of-differentiation
-Title:          "COSD Grade of Differentiation"
+Title:          "COSD Grade of Differentiation Code System"
 Description:    "Proof of concept - not an authoritative source. Histological grade of the tumour. Site specific grades map to these general categories. COSD Pathology Grade of Differentiation (Pathological) (pCR0860)."
 * insert COSDCodeSystem(pCR0860)
 * #GX "Grade of differentiation is not appropriate or cannot be assessed"
@@ -145,7 +145,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDVascularOrLymphaticInvasionCS
 Id:             cosd-vascular-or-lymphatic-invasion
-Title:          "COSD Cancer Vascular or Lymphatic Invasion"
+Title:          "COSD Cancer Vascular or Lymphatic Invasion Code System"
 Description:    "Proof of concept - not an authoritative source. Whether the cancer has invaded blood or lymph vessels. COSD Pathology Cancer Vascular or Lymphatic Invasion (pCR0870)."
 * insert COSDCodeSystem(pCR0870)
 * #NU "No - vascular or lymphatic invasion not present"
@@ -168,7 +168,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDPerineuralInvasionCS
 Id:             cosd-perineural-invasion
-Title:          "COSD Perineural Invasion"
+Title:          "COSD Perineural Invasion Code System"
 Description:    "Proof of concept - not an authoritative source. Whether the cancer has invaded the tissue around nerves. COSD Pathology Perineural Invasion (pCR1100)."
 * insert COSDCodeSystem(pCR1100)
 * #1 "Present"
@@ -189,7 +189,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDExcisionMarginCS
 Id:             cosd-excision-margin
-Title:          "COSD Excision Margin"
+Title:          "COSD Excision Margin Code System"
 Description:    "Proof of concept - not an authoritative source. Whether the excision margin is clear of or involved by tumour. COSD Pathology Excision Margin (pCR0880)."
 * insert COSDCodeSystem(pCR0880)
 * #01 "Excision margin is clear (distance from margin not stated)"
@@ -215,7 +215,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDCircumferentialMarginCS
 Id:             cosd-circumferential-margin
-Title:          "COSD Excision Margin (Circumferential)"
+Title:          "COSD Excision Margin (Circumferential) Code System"
 Description:    "Proof of concept - not an authoritative source. Whether the circumferential margin is involved. Involved means tumour 1mm or less from the margin. COSD Pathology Excision Margin (Circumferential) (pCR1150)."
 * insert COSDCodeSystem(pCR1150)
 * #0 "Not involved"
@@ -234,7 +234,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDYesNoNotKnownCS
 Id:             cosd-yes-no-not-known
-Title:          "COSD Yes No Not Known"
+Title:          "COSD Yes No Not Known Code System"
 Description:    "Proof of concept - not an authoritative source. Yes, no or not known. Used by COSD Pathology Synchronous Tumour Indicator (pCR0840) and Neoadjuvant Therapy Indicator (pCR1000)."
 * insert COSDCodeSystem(pCR0840 and pCR1000)
 * #Y "Yes"
@@ -259,7 +259,7 @@ Description:    "Proof of concept - not an authoritative source. Whether treatme
 
 CodeSystem:     COSDTNMCodingEditionCS
 Id:             cosd-tnm-coding-edition
-Title:          "COSD TNM Coding Edition"
+Title:          "COSD TNM Coding Edition Code System"
 Description:    "Proof of concept - not an authoritative source. The TNM staging system used. COSD Pathology TNM Coding Edition (pCR6980)."
 * insert COSDCodeSystem(pCR6980)
 * #1 "UICC (Union for International Cancer Control)"
@@ -277,7 +277,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDKi67IndicatorCS
 Id:             cosd-ki67-indicator
-Title:          "COSD Ki-67 Indicator"
+Title:          "COSD Ki-67 Indicator Code System"
 Description:    "Proof of concept - not an authoritative source. Whether Ki-67 staining was done and the result is available. COSD Pathology Ki-67 Indicator (pCR7000)."
 * insert COSDCodeSystem(pCR7000)
 * #1 "Done and result available"
@@ -296,7 +296,7 @@ Description:    "Proof of concept - not an authoritative source. COSD Pathology 
 
 CodeSystem:     COSDNuclearExpressionIntactCS
 Id:             cosd-nuclear-expression-intact
-Title:          "COSD Nuclear Expression Intact"
+Title:          "COSD Nuclear Expression Intact Code System"
 Description:    "Proof of concept - not an authoritative source. Whether mismatch repair (MMR) protein nuclear expression is intact by immunohistochemistry. N (expression lost) suggests MMR deficiency. COSD Pathology MLH1, PMS2, MSH2 and MSH6 Nuclear Expression Intact (pCR7020-pCR7050)."
 * insert COSDCodeSystem(pCR7020 to pCR7050)
 * #Y "Yes - nuclear expression intact"

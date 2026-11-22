@@ -814,7 +814,7 @@ Usage:      #example
 
 Instance:   EolObs2-46
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 46 Date for review of cardiopulmonary resuscitation decision"
+Title:      "SCCI1580 46 Date for review of cardiopulmonary resuscitation decision (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -827,7 +827,7 @@ Usage:      #example
 
 Instance:   EolObs2-29
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 29 Functional status (Australia-modified Karnofsky Performance Status score 0-100)"
+Title:      "SCCI1580 29 Functional status (Australia-modified Karnofsky Performance Status score 0-100) (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -840,7 +840,7 @@ Usage:      #example
 
 Instance:   EolObs2-34
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 34 Likely prognosis"
+Title:      "SCCI1580 34 Likely prognosis (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -853,7 +853,7 @@ Usage:      #example
 
 Instance:   EolObs2-36
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 36 Preferred place of death 1st choice"
+Title:      "SCCI1580 36 Preferred place of death 1st choice (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -866,7 +866,7 @@ Usage:      #example
 
 Instance:   EolObs2-39
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 39 Preferred place of death (1st choice) is usual place of residence"
+Title:      "SCCI1580 39 Preferred place of death (1st choice) is usual place of residence (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -879,7 +879,7 @@ Usage:      #example
 
 Instance:   EolObs2-40
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 40 Preferred place of death 2nd choice"
+Title:      "SCCI1580 40 Preferred place of death 2nd choice (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -892,7 +892,7 @@ Usage:      #example
 
 Instance:   EolObs2-58
 InstanceOf: PalliativeCareRecordObservation
-Title:      "SCCI1580 58 Other relevant issues or preferences about provision of care"
+Title:      "SCCI1580 58 Other relevant issues or preferences about provision of care (amended)"
 Description: "Fictitious example. Extracted from EolQuestionnaireResponse2."
 Usage:      #example
 * status = #amended
@@ -1170,8 +1170,6 @@ Usage:      #example
 * entry[=].resource = PathSpecimenH23-41022
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Practitioner/PathPathologist"
 * entry[=].resource = PathPathologist
-* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Organization/PathLaboratory"
-* entry[=].resource = PathLaboratory
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/QuestionnaireResponse/EolQuestionnaireResponse1"
 * entry[=].resource = EolQuestionnaireResponse1
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Observation/EolObs1-1"
@@ -1262,8 +1260,6 @@ Usage:      #example
 * entry[=].resource = PathSpecimenH23-41022
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Practitioner/PathPathologist"
 * entry[=].resource = PathPathologist
-* entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/Organization/PathLaboratory"
-* entry[=].resource = PathLaboratory
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/QuestionnaireResponse/EolQuestionnaireResponse1"
 * entry[=].resource = EolQuestionnaireResponse1
 * entry[+].fullUrl = "https://fhir.nwgenomics.nhs.uk/CancerPathologyReport/QuestionnaireResponse/EolQuestionnaireResponse2"

@@ -55,9 +55,8 @@ Description: "Fictitious example diagnosis (pCR0810, pCR6410)."
 Usage:      #example
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
-* code = http://hl7.org/fhir/sid/icd-10#C18.0 "Caecum"
-* code.coding[+] = http://snomed.info/sct#363350007 "Malignant neoplasm of caecum"
-* code.text = "Adenocarcinoma of the caecum"
+* code = http://snomed.info/sct#363350007 "Malignant neoplasm of caecum"
+* code.text = "Adenocarcinoma of the caecum (ICD-10 C18.0)"
 * bodySite = http://snomed.info/sct#32713005 "Caecum structure"
 * subject = Reference(EolPatient)
 * recordedDate = "2023-08-21"
@@ -136,7 +135,7 @@ Instance:   PathComposition
 InstanceOf: CancerPathologyComposition
 Title:      "Histopathology report H23-41022 - Composition"
 Description: "Fictitious example Cancer Pathology Composition."
-Usage:      #inline
+Usage:      #example
 * extension[diagnosticReport].valueReference = Reference(PathDiagnosticReport)
 * identifier.system = "https://fhir.nhs.uk/Id/690S0/report"
 * identifier.value = "H23-41022"
@@ -153,28 +152,28 @@ Usage:      #inline
 * section[surgicalPathology].code = http://loinc.org#11529-5 "Surgical pathology study"
 * section[surgicalPathology].text.status = #generated
 * section[surgicalPathology].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Histopathology report H23-41022, Manchester Royal Infirmary Laboratory (690S0).</p></div>"
-* section[surgicalPathology].section[clinicalHistory].title = "Clinical details"
-* section[surgicalPathology].section[clinicalHistory].code = http://loinc.org#22636-5 "Pathology report relevant history Narrative"
-* section[surgicalPathology].section[clinicalHistory].text.status = #generated
-* section[surgicalPathology].section[clinicalHistory].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Change in bowel habit. Colonoscopy: ulcerated mass in the caecum.</p></div>"
-* section[surgicalPathology].section[siteOfOrigin].title = "Specimen"
-* section[surgicalPathology].section[siteOfOrigin].code = http://loinc.org#22633-2 "Pathology report site of origin Narrative"
-* section[surgicalPathology].section[siteOfOrigin].text.status = #generated
-* section[surgicalPathology].section[siteOfOrigin].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>A: Caecal mass, colonoscopic biopsies, collected 14-Aug-2023. Fixed in buffered 10% formalin.</p></div>"
-* section[surgicalPathology].section[siteOfOrigin].entry = Reference(PathSpecimenH23-41022)
-* section[surgicalPathology].section[grossDescription].title = "Macroscopy"
-* section[surgicalPathology].section[grossDescription].code = http://loinc.org#22634-0 "Pathology report gross observation Narrative"
-* section[surgicalPathology].section[grossDescription].text.status = #generated
-* section[surgicalPathology].section[grossDescription].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Four cores of tan tissue, 2 to 5 mm. All embedded in block A1.</p></div>"
-* section[surgicalPathology].section[microscopicObservation].title = "Microscopy"
-* section[surgicalPathology].section[microscopicObservation].code = http://loinc.org#22635-7 "Pathology report microscopic observation Narrative Other stain"
-* section[surgicalPathology].section[microscopicObservation].text.status = #generated
-* section[surgicalPathology].section[microscopicObservation].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Fragments of large bowel mucosa infiltrated by an adenocarcinoma, forming irregular glands with a desmoplastic stroma. Tumour-infiltrating lymphocytes are prominent. Mismatch repair immunohistochemistry: MLH1 loss of nuclear expression; PMS2 loss of nuclear expression; MSH2 retained; MSH6 retained.</p></div>"
-* section[surgicalPathology].section[finalDiagnosis].title = "Diagnosis"
-* section[surgicalPathology].section[finalDiagnosis].code = http://loinc.org#22637-3 "Pathology report final diagnosis Narrative"
-* section[surgicalPathology].section[finalDiagnosis].text.status = #generated
-* section[surgicalPathology].section[finalDiagnosis].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Caecum, biopsy: adenocarcinoma. Mismatch repair deficient (loss of MLH1 and PMS2). MLH1 promoter hypermethylation testing requested to assess for Lynch syndrome.</p></div>"
-* section[surgicalPathology].section[finalDiagnosis].entry = Reference(PathPrimaryCancerCondition)
+* section[surgicalPathology].section[+].title = "Clinical details"
+* section[surgicalPathology].section[=].code = http://loinc.org#22636-5 "Pathology report relevant history Narrative"
+* section[surgicalPathology].section[=].text.status = #generated
+* section[surgicalPathology].section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Change in bowel habit. Colonoscopy: ulcerated mass in the caecum.</p></div>"
+* section[surgicalPathology].section[+].title = "Specimen"
+* section[surgicalPathology].section[=].code = http://loinc.org#22633-2 "Pathology report site of origin Narrative"
+* section[surgicalPathology].section[=].text.status = #generated
+* section[surgicalPathology].section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>A: Caecal mass, colonoscopic biopsies, collected 14-Aug-2023. Fixed in buffered 10% formalin.</p></div>"
+* section[surgicalPathology].section[=].entry = Reference(PathSpecimenH23-41022)
+* section[surgicalPathology].section[+].title = "Macroscopy"
+* section[surgicalPathology].section[=].code = http://loinc.org#22634-0 "Pathology report gross observation Narrative"
+* section[surgicalPathology].section[=].text.status = #generated
+* section[surgicalPathology].section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Four cores of tan tissue, 2 to 5 mm. All embedded in block A1.</p></div>"
+* section[surgicalPathology].section[+].title = "Microscopy"
+* section[surgicalPathology].section[=].code = http://loinc.org#22635-7 "Pathology report microscopic observation Narrative Other stain"
+* section[surgicalPathology].section[=].text.status = #generated
+* section[surgicalPathology].section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Fragments of large bowel mucosa infiltrated by an adenocarcinoma, forming irregular glands with a desmoplastic stroma. Tumour-infiltrating lymphocytes are prominent. Mismatch repair immunohistochemistry: MLH1 loss of nuclear expression; PMS2 loss of nuclear expression; MSH2 retained; MSH6 retained.</p></div>"
+* section[surgicalPathology].section[+].title = "Diagnosis"
+* section[surgicalPathology].section[=].code = http://loinc.org#22637-3 "Pathology report final diagnosis Narrative"
+* section[surgicalPathology].section[=].text.status = #generated
+* section[surgicalPathology].section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Caecum, biopsy: adenocarcinoma. Mismatch repair deficient (loss of MLH1 and PMS2). MLH1 promoter hypermethylation testing requested to assess for Lynch syndrome.</p></div>"
+* section[surgicalPathology].section[=].entry = Reference(PathPrimaryCancerCondition)
 * section[synopticReport].title = "Cancer data summary"
 * section[synopticReport].code = http://loinc.org#60568-3 "Pathology synoptic report"
 * section[synopticReport].text.status = #generated

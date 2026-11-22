@@ -57,3 +57,41 @@ SNOMED II/3/RT T and M codes are not included.
 {:.grid}
 
 The other LOINC codes are fixed in their profiles - see [Profiles](profiles.html).
+
+### PaLM Requestable Tests and LOINC
+
+Copied from the [Pathology and Laboratory](https://kevinmayfield.github.io/PathologyAndLaboratory/en/terminology.html)
+IG, so the [HL7 v2](HL7v2.html) examples and their FHIR versions can be read against them:
+
+- [PaLM Requestable Tests](ValueSet-palm-procedure.html) - the 358 members of the SNOMED CT UK Edition
+  refset `1853561000000109` *Pathology and laboratory medicine procedure simple reference set* (UK
+  Edition 2 July 2025): the laboratory tests that can be requested, which laboratories map their local
+  test codes to. Results are coded from the PaLM observables refset `1853551000000106` instead. The codes
+  are listed, rather than given as a refset rule, because the UK Edition on tx.fhir.org does not yet
+  contain the refset.
+- [PaLM Requestable Tests to LOINC Order Codes](ConceptMap-palm-procedure-to-loinc.html) - an
+  **illustrative** map to the LOINC order codes HL7 Europe Laboratory prefers for `ServiceRequest.code`
+  (`lab-orderCodes-eu-lab`), for the tests in the NHS England examples only:
+
+| PaLM requestable (SNOMED CT UK) | LOINC | Equivalence | Why |
+|---|---|---|---|
+| `26604007` Full blood count | `57021-8` CBC W Auto Differential panel - Blood | inexact | Panel members differ |
+| `252167001` Urea and electrolytes | `24321-2` Basic metabolic 2000 panel - Serum or Plasma | inexact | No LOINC U&E panel |
+| `26958001` Hepatic function panel | `24325-3` Hepatic function 2000 panel - Serum or Plasma | inexact | Panel members differ |
+| `271244005` Measurement of serum lipid level | `24331-1` Lipid 1996 panel - Serum or Plasma | inexact | Panel members differ |
+| `135842001` Serum C reactive protein level | `1988-5` C reactive protein [Mass/volume] in Serum or Plasma | wider | LOINC is serum or plasma |
+| `371981000000106` Hb A1c measurement - IFCC standardised | `59261-8` Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood | equivalent | |
+| `47758006` Hepatitis B surface antigen measurement | `5195-3` Hepatitis B virus surface Ag [Presence] in Serum | narrower | LOINC gives scale and specimen |
+| `700152009` Human papilloma virus screening | `82675-0` HPV 16+18+31+...+68 DNA [Presence] in Cervix by NAA with probe detection | narrower | LOINC names the types and method |
+| `113076002` Glucose tolerance test | `72171-2` Glucose tolerance 2 hours panel - Serum or Plasma | narrower | The 2 hour (75 g) test |
+| `401324008` Urinary microscopy, culture and sensitivities | `50554-5` microscopy, `630-4` culture, `29576-6` susceptibility | narrower (each) | No single LOINC order code |
+{:.grid}
+
+Equivalence is the LOINC code relative to the PaLM code. LOINC panels follow US practice, so most panel
+maps are `inexact` - the LOINC panel does not say what an England laboratory's FBC or U&E contains.
+
+<div class="alert alert-warning" role="alert">
+<b>Open - national map.</b> This map is illustrative only. NHS England is understood to be producing the
+national PaLM to LOINC map (<b>To confirm</b>); when it is published this guide should reference it and
+drop this example.
+</div>

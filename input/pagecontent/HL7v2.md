@@ -296,6 +296,31 @@ column. Earlier conversions of the same examples, with NHS England EDI test pati
 in [PathologyAndLaboratory](https://github.com/KevinMayfield/PathologyAndLaboratory)
 (`examples/hl7v2/ORU_R01/`).
 
+Each example therefore has **two FHIR Documents**: the NHS England original, which the
+`ORU_R01` was created from, and the FHIR Document generated here from the `ORU_R01`, which
+follows the HL7 Europe Laboratory Report (`Bundle-eu-lab`, `Composition-eu-lab`). They
+carry the same results, but their Compositions differ:
+
+| | NHS England original | Generated from HL7 v2 (this guide) |
+|---|---|---|
+| Human-readable narrative | Not included | Included in every section - a FHIR Document requires it (`Composition.section.text`) |
+| Section codes | Not the HL7 Europe codes | HL7 Europe Laboratory LOINC codes: `26436-6` Laboratory studies, with one subsection per `OBR` coded with the `OBR-4` test code, and `48767-8` for comments (`NTE`) |
+| Grouping of observations | The original's grouping | One subsection per `OBR`, with that `OBR`'s `OBX` results as entries; a single `DiagnosticReport` for the whole report |
+| Practitioners and organisations | Practitioner and Organization resources | Continues the HL7 v2 pattern of national identifiers, as FHIR identifier references (`Reference.identifier`): GMC number for practitioners, ODS code for organisations. No Practitioner resources; the requester is a PractitionerRole whose `practitioner` and `organization` are identifier references. The only Organization resource is the laboratory, as the Composition `author` and `custodian` |
+{:.grid}
+
+Where a recipient needs Practitioner or Organization resources, they can be looked up from the
+identifiers using the NHS England directory APIs or downloads - for organisations the Organisation
+Data Service ([ODS FHIR API](https://digital.nhs.uk/developer/api-catalogue/organisation-data-terminology),
+[ORD API](https://digital.nhs.uk/developer/api-catalogue/organisation-data-service-ord) or
+[CSV downloads](https://digital.nhs.uk/services/organisation-data-service/data-search-and-export/csv-downloads),
+which also list GP practitioners). Which directory to use for GMC numbers of other practitioners is
+**To confirm**.
+
+The difference in grouping probably comes from how HL7 v2 is converted to FHIR: `ORU_R01`
+has only two levels, the `OBR` test and its `OBX` results, so any further structure in the
+original is not carried through (**To confirm**).
+
 
 **HbA1c** - HbA1c (LIVERPOOL, Ned) - NHS England original: [Bundle-HbA1c-Report-Example](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/FHIRAssets/AllAssets/Profiles/Examples/Bundles/Bundle-HbA1c-Report-Example?version=0.5.1):
 

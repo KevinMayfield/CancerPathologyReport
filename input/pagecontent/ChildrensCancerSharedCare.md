@@ -83,7 +83,7 @@ comms and laboratory - **To confirm**.
 
 ### Current Process
 
-##### As is Process
+#### As is Process
 
 (From the North West Children's Cancer *Test Orders and Results* document, v11)
 
@@ -103,7 +103,7 @@ comms and laboratory - **To confirm**.
 The document's text calls the PTC the *Primary* Treatment Centre and its BPMN
 diagram the *Principal* Treatment Centre; *Principal* is used on this page.
 
-##### Blood Test Workflow
+#### Blood Test Workflow
 
 The source BPMN diagram as a sequence diagram. Dashed lines are not electronic.
 

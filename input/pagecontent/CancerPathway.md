@@ -440,6 +440,16 @@ through the trust's local cancer register - varies by trust (**to confirm**).
    it sooner. This guide proposes using the COSD content and codes **at the point
    the report is issued** (LAB-3, LAB-35), so the clinical, operational management
    and analytic routes can start from the same structured data.
+3. **Research use is a third consumer of the same data.** The
+   [HL7 Europe Common Cancer Model](https://build.fhir.org/ig/hl7-eu/cancer-common/index.html)
+   aims to map one model to FHIR for exchange and to
+   [OMOP](https://build.fhir.org/ig/hl7-eu/cancer-common/omopmodelmap.html) for research,
+   treating primary and secondary use as "a single continuum". Its OMOP mappings are
+   informative placeholders: only the patient is mapped, and every cancer entity is
+   "TBD". The same argument applies as for COSD: content coded when the report is
+   issued could feed OMOP without a further transformation. **Open**: whether NHS
+   England research environments use OMOP for cancer data, and how that would relate
+   to NDRS.
 
 ### Patient-Reported Outcomes
 

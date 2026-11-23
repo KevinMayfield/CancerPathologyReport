@@ -726,9 +726,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-LAB3-FBC-ResultCopy-DiagnosticReport-1
 
 Instance:   HL7v2Msg-LAB3-FBC-ResultCopy-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - Full Blood Count with Result Copy - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:36f9b36b-27ae-5e85-83fc-09b4baa33e95"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/POL01"
@@ -737,6 +737,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "POL01"
 * status = #final
 * category[studyType] = http://loinc.org#18723-7 "Hematology studies (set)"
+* category[specialty] = http://snomed.info/sct#394916005 "Hematopathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:8abb28b0-4485-5207-9bb9-f89d3d88eb56"
 * date = "2026-11-18T11:25:00+00:00"
@@ -745,8 +746,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:2ccf21fa-322f-5185-9e5d-511c0838d328"
 * custodian.display = "Laboratory POL01 (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Haematology"
+* section[=].code = http://loinc.org#18723-7 "Hematology studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory POL01 (placeholder) (POL01) - report LB26-552901</p></div>"
 * section[=].section[+].title = "CBC panel - Blood by Automated count"
@@ -1182,9 +1183,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-DHCW-PathologyResult-DiagnosticReport-2
 
 Instance:   HL7v2Msg-DHCW-PathologyResult-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - DHCW Pathology Result, adapted - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:2e25e6e8-2cab-599a-acb7-3ab7581d347b"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/REM"
@@ -1193,6 +1194,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "REM"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:1afdc4ca-b4a4-5931-bad7-60a67126a20e"
 * date = "2018-03-09T15:00:00+00:00"
@@ -1201,8 +1203,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:e2a29496-c2d7-5692-a4ef-075110fcfb29"
 * custodian.display = "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST (REM) - report 914694928301</p></div>"
 * section[=].section[+].title = "HbA1c (IFCC traceable)"
@@ -1451,9 +1453,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-DHCW-TextReport-DiagnosticReport-1
 
 Instance:   HL7v2Msg-DHCW-TextReport-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - DHCW Text Based Report, adapted - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:fc3b2a14-2627-54f3-84de-02d2bb6c4e66"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/RBT"
@@ -1462,6 +1464,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "RBT"
 * status = #final
 * category[studyType] = http://loinc.org#26436-6 "Laboratory studies (set)"
+* category[specialty] = http://snomed.info/sct#394915009 "General pathology (specialty)"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:e6833d74-df72-53b5-ae7c-3fac2efc0cb4"
 * date = "2018-05-24T00:00:00+00:00"
@@ -1470,7 +1473,7 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:3d069a08-eced-5be1-8ead-38f9a9b0db39"
 * custodian.display = "MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST"
-* section[+].title = "Laboratory examinations"
+* section[+].title = "Laboratory studies"
 * section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>MID CHESHIRE HOSPITALS NHS FOUNDATION TRUST (RBT) - report 8005372251-1-M0007</p></div>"
@@ -1687,9 +1690,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HbA1c-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-HbA1c-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England HbA1c - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:907b4720-22f9-55df-ad83-20ef0aea54aa"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -1698,6 +1701,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:51375e90-72df-5a62-b44c-4b674a374462"
 * date = "2022-01-30T12:48:00+00:00"
@@ -1706,8 +1710,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220130-007843</p></div>"
 * section[=].section[+].title = "Haemoglobin A1c level - International Federation of Clinical Chemistry and Laboratory Medicine standardised"
@@ -1919,9 +1923,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-CRP-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-CRP-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England CRP - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:09f59654-c4dd-5c9b-b082-e2797aee63e0"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -1930,6 +1934,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:02ef74c9-a078-507a-b085-b63cd50dd5a6"
 * date = "2022-03-08T12:09:00+00:00"
@@ -1938,8 +1943,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220308-004205</p></div>"
 * section[=].section[+].title = "Serum CRP (C reactive protein) level"
@@ -2401,9 +2406,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-LFT-UandE-DiagnosticReport-2
 
 Instance:   HL7v2Msg-NHSE-LFT-UandE-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England LFT and U&E - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:babefb84-ecc8-519e-ad2a-ee02bbe72c3e"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -2412,6 +2417,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:773d6c85-9d13-5dc6-8cc1-48979523d1d8"
 * date = "2022-03-08T14:23:00+00:00"
@@ -2420,8 +2426,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220308-008902</p></div>"
 * section[=].section[+].title = "Liver function tests"
@@ -2813,9 +2819,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-Lipids-HbA1c-DiagnosticReport-2
 
 Instance:   HL7v2Msg-NHSE-Lipids-HbA1c-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England Lipids and HbA1c - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:b56e75ca-8808-5668-872c-fe40afdf4a6e"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -2824,6 +2830,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:7a3aa601-1d95-5a29-8bac-510d678f5538"
 * date = "2022-07-06T10:49:00+00:00"
@@ -2832,8 +2839,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220706-002378</p></div>"
 * section[=].section[+].title = "Serum lipids level"
@@ -3333,9 +3340,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-FBC-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-FBC-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England FBC - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:2d53df52-27a7-5795-9d3f-c52d01b9a725"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -3344,6 +3351,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18723-7 "Hematology studies (set)"
+* category[specialty] = http://snomed.info/sct#394916005 "Hematopathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:40840042-5c08-5323-8892-ce1ab0ff820a"
 * date = "2022-02-09T11:17:00+00:00"
@@ -3352,8 +3360,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Haematology"
+* section[=].code = http://loinc.org#18723-7 "Hematology studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220209-001369</p></div>"
 * section[=].section[+].title = "FBC - full blood count"
@@ -3609,9 +3617,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HBsAg-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-HBsAg-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England HBsAg - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:cd4c19a8-286a-5469-a444-c10c260854b1"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -3620,6 +3628,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18725-2 "Microbiology studies (set)"
+* category[specialty] = http://snomed.info/sct#408454008 "Clinical microbiology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:b6bfe811-d89b-5d9b-b89d-dc889461f450"
 * date = "2022-03-11T10:06:00+00:00"
@@ -3628,8 +3637,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Microbiology"
+* section[=].code = http://loinc.org#18725-2 "Microbiology studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220311-003927</p></div>"
 * section[=].section[+].title = "Hepatitis B surface antigen level"
@@ -3837,9 +3846,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-HPV-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-HPV-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England HPV - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:d7dffa11-6f24-53a9-87ec-0817c7b71ccc"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -3848,6 +3857,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18725-2 "Microbiology studies (set)"
+* category[specialty] = http://snomed.info/sct#408454008 "Clinical microbiology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:471dc517-a1fb-5059-974a-e92228d5d403"
 * date = "2022-04-03T15:43:00+00:00"
@@ -3856,8 +3866,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Microbiology"
+* section[=].code = http://loinc.org#18725-2 "Microbiology studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220403-008209</p></div>"
 * section[=].section[+].title = "Human papilloma virus RNA nucleic acid amplification qualitative result"
@@ -4115,9 +4125,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-GTT-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-GTT-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England GTT (unstructured) - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:dbc1c69e-9639-5a78-86dc-6a4367e10d4c"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -4126,6 +4136,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:502b150c-d487-5452-b64b-6a02ae623589"
 * date = "2022-02-10T11:49:00+00:00"
@@ -4134,8 +4145,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220210-000218</p></div>"
 * section[=].section[+].title = "Glucose tolerance test"
@@ -4364,9 +4375,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-NHSE-UrineMCS-DiagnosticReport-1
 
 Instance:   HL7v2Msg-NHSE-UrineMCS-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - NHS England Urine MC&S (unstructured) - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:44f90139-2dd4-5976-9c8e-842cb4883660"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/Y8J7D"
@@ -4375,6 +4386,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "Y8J7D"
 * status = #final
 * category[studyType] = http://loinc.org#18725-2 "Microbiology studies (set)"
+* category[specialty] = http://snomed.info/sct#408454008 "Clinical microbiology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:61aca9c4-c09d-5862-8a2a-a5bb4db0eff0"
 * date = "2022-02-25T13:47:00+00:00"
@@ -4383,8 +4395,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:bc94dae4-fefd-5285-abf0-a1f0f7648f4b"
 * custodian.display = "Laboratory Y8J7D (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Microbiology"
+* section[=].code = http://loinc.org#18725-2 "Microbiology studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory Y8J7D (placeholder) (Y8J7D) - report REP-20220225-006301</p></div>"
 * section[=].section[+].title = "Urinary microscopy, culture and sensitivities"
@@ -4629,9 +4641,9 @@ Usage:      #example
 * entry[=].resource = HL7v2Msg-FIT-DiagnosticReport-1
 
 Instance:   HL7v2Msg-FIT-Doc-Composition
-InstanceOf: http://hl7.eu/fhir/laboratory/StructureDefinition/Composition-eu-lab
+InstanceOf: PathologyTestResultComposition
 Title:      "Laboratory Report (LAB-3) - Bowel Cancer Screening FIT - Composition"
-Description: "Fictitious example: the HL7 Europe Laboratory Report Composition, one subsection per HL7 v2 OBR."
+Description: "Fictitious example: a Pathology Test Result Composition (HL7 Europe Laboratory Report) - one specialty section, with one report item subsection per HL7 v2 OBR."
 Usage:      #inline
 * extension[diagnosticReport].valueReference.reference = "urn:uuid:80b2a624-5893-58b6-933a-52353aca7fcc"
 * identifier.system = "http://www.acme.org/diagnosticreport/identifiers/HUB01"
@@ -4640,6 +4652,7 @@ Usage:      #inline
 * identifier.assigner.identifier.value = "HUB01"
 * status = #final
 * category[studyType] = http://loinc.org#18719-5 "Chemistry studies (set)"
+* category[specialty] = http://snomed.info/sct#394596001 "Chemical pathology"
 * type = http://loinc.org#11502-2 "Laboratory report"
 * subject.reference = "urn:uuid:196af7f7-08a0-51e9-85d1-58f019e953f6"
 * date = "2025-11-04T10:15:00+00:00"
@@ -4648,8 +4661,8 @@ Usage:      #inline
 * title = "Laboratory Report"
 * custodian.reference = "urn:uuid:72be280e-d5fc-5286-9a37-53eff0ef28be"
 * custodian.display = "Laboratory HUB01 (placeholder)"
-* section[+].title = "Laboratory examinations"
-* section[=].code = http://loinc.org#26436-6 "Laboratory studies (set)"
+* section[+].title = "Clinical biochemistry"
+* section[=].code = http://loinc.org#18719-5 "Chemistry studies (set)"
 * section[=].text.status = #generated
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Laboratory HUB01 (placeholder) (HUB01) - report F25-118204</p></div>"
 * section[=].section[+].title = "Bowel cancer screening faecal immunochemical test"

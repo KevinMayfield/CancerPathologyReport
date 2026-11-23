@@ -114,6 +114,7 @@ menu:
   Data Models (Volume 3):
     Cancer Pathology Report: StructureDefinition-CancerPathologyComposition.html
     Cancer Pathology Report Logical Model: StructureDefinition-PathologyReport.html
+    Pathology Test Result: StructureDefinition-PathologyTestResultComposition.html
     Palliative Care Record: StructureDefinition-PalliativeCareRecordComposition.html
     Palliative Care Record Logical Model: StructureDefinition-PalliativeCareRecord.html
     Profiles: profiles.html

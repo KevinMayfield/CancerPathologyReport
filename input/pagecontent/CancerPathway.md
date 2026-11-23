@@ -13,7 +13,10 @@ This page places the [Cancer Pathology Report](StructureDefinition-CancerPatholo
 **diagnostic** part of the pathway - pathology, and how it meets imaging and
 genomics. Treatment, follow-up and patient-reported outcomes are shown for
 context only: they are **out of scope**, and the national datasets and FHIR
-patterns that cover them are listed so readers know where to look.
+patterns that cover them are listed so readers know where to look. The stages are
+aligned with the [cancer patient journey](https://build.fhir.org/ig/hl7-eu/cancer-common/journey.html)
+of the HL7 Europe Common Cancer Model - see
+[HL7 Europe Common Cancer Model](#hl7-europe-common-cancer-model).
 
 ### Overview
 
@@ -52,6 +55,7 @@ flowchart TB
     F --> G & H & I
     G -.->|"resection specimen"| D
     G & H & I --> J --> K
+    J -.->|"recurrence or progression<br/>(new evidence)"| B
 
     classDef inscope fill:#d4edda,stroke:#155724,color:#155724
     classDef context fill:#f8f9fa,stroke:#6c757d,color:#495057
@@ -73,23 +77,80 @@ together:
 Green: covered by this guide. Grey: context only. The Pathology Report is also
 the input to the genomic reflex order. The dotted line shows surgery producing a
 **resection specimen**, which goes back to pathology for a further report - often
-restaging the cancer (pTNM, or ypTNM after neoadjuvant therapy). Each stage is
-described in [Pathway Stages](#pathway-stages) below.
+restaging the cancer (pTNM, or ypTNM after neoadjuvant therapy). The dotted line
+from follow-up shows the pathway is not linear: a suspected recurrence or progression
+goes back through diagnostic testing, as in the HL7 Europe journey's repeated
+*evidence - assessment - decision* loop. Each stage is described in
+[Pathway Stages](#pathway-stages) below.
 
 ### Pathway Stages
 
-| Stage | What happens | In this guide | Workflow |
-|---|---|---|---|
-| Referral | Urgent suspected cancer referral, or a positive screening result | Context | [Cancer Screening](Screening.html) |
-| Imaging | Lesion found; clinical staging (cTNM); image-guided biopsy | Context | [Imaging and Radiology](Imaging.html) |
-| Biopsy / resection | Specimen taken and sent to histopathology with a request | **In scope** | [LTW](LTW.html) LAB-1 |
-| Pathology | Diagnosis, grade, pathological stage, IHC; Cancer Pathology Report | **In scope** | [LTW](LTW.html) LAB-3 |
-| Genomics | Reflex order from pathology; genomic report | **In scope** (as the pathology report's consumer) | [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) |
-| MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and treatment plan | Context | - |
-| Treatment | Surgery, systemic anti-cancer therapy, radiotherapy | Out of scope | - |
-| Follow-up | Response to treatment, recurrence, surveillance | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#follow-up-after-treatment) |
-| Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) |
+| Stage | What happens | In this guide | Workflow | HL7 Europe journey (entities) |
+|---|---|---|---|---|
+| Referral | Urgent suspected cancer referral, or a positive screening result | Context | [Cancer Screening](Screening.html) | Before the journey, which starts at diagnosis |
+| Imaging | Lesion found; clinical staging (cTNM); image-guided biopsy | Context | [Imaging and Radiology](Imaging.html) | Diagnosis - evidence: `Imaging`; clinical `CancerStage` |
+| Biopsy / resection | Specimen taken and sent to histopathology with a request | **In scope** | [LTW](LTW.html) LAB-1 | Diagnosis - evidence: `CancerConditionAtDiagnosis.biopsyDate`; a resection is `Surgery` |
+| Pathology | Diagnosis, grade, pathological stage, IHC; Cancer Pathology Report | **In scope** | [LTW](LTW.html) LAB-3 | Diagnosis - evidence: `CancerConditionAtDiagnosis` (histology, body site, grade, `labReportDate`); pathological `CancerStage` |
+| Genomics | Reflex order from pathology; genomic report | **In scope** (as the pathology report's consumer) | [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) | `[biomarker]` placeholder only - genomic and advanced biomarker models are excluded from release 1 |
+| MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and treatment plan | Context | - | Diagnosis - assessment and decision: `CancerConditionAtDiagnosis` asserted, `CancerStage`; treatment plan excluded from release 1 |
+| Treatment | Surgery, systemic anti-cancer therapy, radiotherapy | Out of scope | - | Treatment: `Surgery`, `SystemicTreatment`, `Radiotherapy`, `ActiveSurveillance` |
+| Follow-up | Response to treatment, recurrence, surveillance | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#follow-up-after-treatment) | Evidence and follow-up: `OverallCancerTreatmentResponse`, `ClinicalCancerProgression`, `LastFollowUp` |
+| Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) | Excluded from release 1 (QoL and PROMs) |
 {:.grid}
+
+### HL7 Europe Common Cancer Model
+
+The [HL7 Europe Common Cancer Model](https://build.fhir.org/ig/hl7-eu/cancer-common/)
+(1.0.0-ballot, continuous build read 23 November 2026) describes the
+[cancer patient journey](https://build.fhir.org/ig/hl7-eu/cancer-common/journey.html)
+as an iterative, evidence-driven process rather than a linear pathway: evidence is
+collected, assessed and acted on - diagnosis, treatment, follow-up - and the loop repeats
+over the course of the disease, until follow-up ends at completion or death. Its
+[conceptual model](https://build.fhir.org/ig/hl7-eu/cancer-common/conceptualmodel.html)
+has a small set of entities, and its
+[data evolution](https://build.fhir.org/ig/hl7-eu/cancer-common/journey-data-evolution.html)
+rule is that records are **not updated or overwritten** - each time point creates new
+records. FHIR Documents follow the same rule: each Cancer Pathology Report is a snapshot,
+and a supplementary report is a new document (`Composition.relatesTo`).
+
+The model names the evidence behind a diagnosis - "imaging, biopsy" - but has no entity
+for the pathology report or the specimen. This guide fills in that evidence. The
+diagnostic testing in [Pathway Stages](#pathway-stages) is the detail behind the
+journey's first step, *Diagnosis*, and the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html)
+is where most of `CancerConditionAtDiagnosis` and the pathological `CancerStage` come
+from:
+
+| HL7 Europe entity and attribute | This guide - COSD Pathology item | FHIR in this guide |
+|---|---|---|
+| `CancerPatient` | Patient (NHS number) | `patient-eu-core` (the model has its own `patient-eu-ccm`) |
+| `CancerConditionAtDiagnosis.histologyBehaviour` | Morphology (SNOMED) pCR6420 | [Histologic Behavior and Type](StructureDefinition-HistologicBehaviorAndType.html); [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html) |
+| `CancerConditionAtDiagnosis.bodySite` | Topography (SNOMED) pCR6410, Tumour Laterality pCR0820 | [Primary Cancer Condition](StructureDefinition-PrimaryCancerCondition.html) `bodySite` |
+| `CancerConditionAtDiagnosis.tumourGradeSystem` / `tumourGradeValue` | Grade of Differentiation (Pathological) pCR0860 | [Histologic Grade](StructureDefinition-HistologicGrade.html) |
+| `CancerConditionAtDiagnosis.biopsyDate` | Sample Collection Date pCR1010 | [Cancer Pathology Specimen](StructureDefinition-CancerPathologySpecimen.html) `collection.collectedDateTime` |
+| `CancerConditionAtDiagnosis.labReportDate` | Investigation Result Date pCR0780 | [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html) `issued`; Composition `attester.time` |
+| `CancerConditionAtDiagnosis.imagingDate` | - | Imaging report - see [Imaging and Radiology](Imaging.html) |
+| `CancerConditionAtDiagnosis.[biomarker]` | Ki-67 pCR7000/7010, MMR IHC pCR7020-7050 | [Tumor Marker Test](StructureDefinition-TumorMarkerTest.html); genomic results in the [genomic report](Genomics.html) |
+| `CancerStage` (type Pathological, classificationType TNM, value) | TNM Coding Edition pCR6980, T/N/M pCR0910-0930, Stage Grouping pCR0940, Neoadjuvant Therapy Indicator pCR1000 | [TNM Primary Tumor](StructureDefinition-TNMPrimaryTumorCategory.html), [Regional Nodes](StructureDefinition-TNMRegionalNodesCategory.html), [Distant Metastases](StructureDefinition-TNMDistantMetastasesCategory.html), [Stage Group](StructureDefinition-TNMStageGroup.html) |
+| `CancerStage.surgeryReference` | Specimen Nature pCR0970, Pathology Investigation Type pCR0760 | The resection specimen ([Cancer Pathology Specimen](StructureDefinition-CancerPathologySpecimen.html)) in the report |
+| `CancerStage` (type Clinical), `imagingReference`; `Imaging` | - | Not in this guide - imaging and the MDT |
+{:.grid}
+
+Differences, and what is still **Open**:
+
+- In the model, the pathological stage comes from `Surgery`. Here it comes from the
+  pathology report of the specimen - usually a resection, but a biopsy can also give a
+  pathological category - and the link to the surgery is through the specimen.
+  A stage after neoadjuvant therapy (ypTNM) is flagged with pCR1000.
+- The model has no FHIR mapping yet - its [FHIR model map](https://build.fhir.org/ig/hl7-eu/cancer-common/fhirmodelmap.html)
+  says "FHIR Resource (TBD)" for every cancer entity - so the alignment here is at the
+  conceptual level. **Open** - align the profiles when HL7 Europe maps
+  `CancerConditionAtDiagnosis` and `CancerStage` to FHIR.
+- Genomics, biomarker models, the treatment plan, and PROMs are excluded from the
+  model's release 1; this guide covers genomics as the consumer of the pathology report,
+  and PROMs as context.
+- The model covers adults with solid tumours, one cancer at a time. This guide's
+  [Children's Cancer Shared Care](ChildrensCancerSharedCare.html) process is outside it.
+
 
 ### Timing Standards
 
@@ -116,16 +177,16 @@ Where each later stage of the pathway is defined. The national datasets are
 collected by the National Disease Registration Service (NDRS); the FHIR patterns
 are from [mCODE](https://hl7.org/fhir/us/mcode/), which this guide is aligned with.
 
-| Stage | National dataset | FHIR pattern (mCODE) |
-|---|---|---|
-| MDT and integrated stage | COSD (core and site-specific) | [Primary Cancer Condition](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-primary-cancer-condition.html), [TNM Stage Group](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-tnm-stage-group.html) |
-| Surgery | COSD, [Hospital Episode Statistics](https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics) | [Cancer-Related Surgical Procedure](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-surgical-procedure.html) |
-| Systemic anti-cancer therapy | [Systemic Anti-Cancer Therapy (SACT) data set](https://digital.nhs.uk/ndrs/data/data-sets/sact) | [Cancer-Related Medication Request](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-request.html) / [Administration](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-administration.html) |
-| Radiotherapy | [Radiotherapy Data Set (RTDS)](https://digital.nhs.uk/ndrs/data/data-sets/rtds) | [Radiotherapy Course Summary](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-radiotherapy-course-summary.html) |
-| Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) |
-| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) |
-| Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - |
-| Palliative and end of life care | [SCCI1580 Palliative Care Co-ordination: Core Content](https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content) | `Questionnaire` and logical model - see [End of Life Care](EndOfLifeCare.html) |
+| Stage | National dataset | FHIR pattern (mCODE) | HL7 Europe Common Cancer Model |
+|---|---|---|---|
+| MDT and integrated stage | COSD (core and site-specific) | [Primary Cancer Condition](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-primary-cancer-condition.html), [TNM Stage Group](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-tnm-stage-group.html) | `CancerConditionAtDiagnosis`, `CancerStage` |
+| Surgery | COSD, [Hospital Episode Statistics](https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics) | [Cancer-Related Surgical Procedure](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-surgical-procedure.html) | `Surgery` |
+| Systemic anti-cancer therapy | [Systemic Anti-Cancer Therapy (SACT) data set](https://digital.nhs.uk/ndrs/data/data-sets/sact) | [Cancer-Related Medication Request](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-request.html) / [Administration](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-administration.html) | `SystemicTreatment` |
+| Radiotherapy | [Radiotherapy Data Set (RTDS)](https://digital.nhs.uk/ndrs/data/data-sets/rtds) | [Radiotherapy Course Summary](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-radiotherapy-course-summary.html) | `Radiotherapy` |
+| Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) | `OverallCancerTreatmentResponse`, `ClinicalCancerProgression`, `LastFollowUp` |
+| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) | Excluded from release 1 |
+| Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - | - |
+| Palliative and end of life care | [SCCI1580 Palliative Care Co-ordination: Core Content](https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content) | `Questionnaire` and logical model - see [End of Life Care](EndOfLifeCare.html) | - (`LastFollowUp` records vital status and death) |
 {:.grid}
 
 ### Operational Management (FDP Cancer 360)

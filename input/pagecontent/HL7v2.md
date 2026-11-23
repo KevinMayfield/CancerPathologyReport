@@ -130,7 +130,7 @@ message.
 
 [LAB-3](LAB-3.html): a child on chemotherapy has a full blood count taken at a Paediatric
 Oncology Shared Care Unit; the Principal Treatment Centre is named as a result copy recipient
-(`OBR-28`), so the laboratory sends the same report to both - option A of the
+(`OBR-28`), so the laboratory sends the same report to both - option 1 of the
 [Children's Cancer Shared Care](ChildrensCancerSharedCare.html#future-process) use case.
 Results are LOINC coded with UCUM units, reference ranges and abnormal flags. `POS01`
 (shared care unit), `POL01` (its laboratory) and `PTC01` (treatment centre) are

@@ -136,22 +136,29 @@ end
 
 ### Future Process
 
-The PTC's need for the result becomes part of the order, so the laboratory sends
-the same report, coded and readable, **directly to both organisations**. Two
-options, depending on what the laboratory and the two organisations can support:
+The PTC's need for the result becomes part of the order, so the PTC receives the same
+report, coded and readable, without the POSCU forwarding it. There are three options for
+how the report reaches the PTC, depending on what the laboratory, the trusts and the
+region can support:
 
-| Option | Order Placer | How the PTC gets the result | Notes |
+| Option | How the PTC gets the result | How the PTC stores it | Notes |
 |---|---|---|---|
-| A - Result copy | POSCU (as today) | The PTC is named on the order as a result copy recipient (HL7 v2 `OBR-28` Result Copies To, with the PTC's ODS code); the laboratory sends the same `ORU_R01` (`LAB-3`) to both | Smallest change - the POSCU's order comms and laboratory stay the same |
-| B - PTC places the order | PTC | The PTC's order (`LAB-1`) names the POSCU or community nurse as specimen collector; the report (`LAB-3`) returns to the PTC, with a copy to the POSCU | Matches clinical responsibility, but the local laboratory must accept orders from another organisation |
+| 1 - Result copy to the PTC's TIE | The PTC is named on the order as a result copy recipient (HL7 v2 `OBR-28` Result Copies To, with the PTC's ODS code); the laboratory sends the same `ORU_R01` (`LAB-3`) to the POSCU and to the PTC's Trust Integration Engine (TIE) | The PTC's TIE files it in the EPR and/or the trust's local EDMS (electronic document management system) | Smallest change - the POSCU's order comms and laboratory stay the same; needs a point-to-point interface from each laboratory to each PTC |
+| 2 - Regional document sharing | A TIE (the laboratory's or the POSCU's) publishes the report to a regional EDMS, such as an [IHE XDS](https://profiles.ihe.net/ITI/TF/Volume1/ch-10.html) document repository and registry ([ITI-41] Provide and Register Document Set-b); the PTC queries and retrieves it ([ITI-18], [ITI-43]), or is notified of new documents (IHE DSUB) | The regional EDMS holds the report as structured data - the `ORU_R01`, or a FHIR Document such as the [Pathology Test Result Composition](StructureDefinition-PathologyTestResultComposition.html) - and/or a PDF; the PTC can also file a copy locally | The report is available to any authorised organisation in the region, not only the PTC - for example the community nurse or a hospice |
+| 3 - NHS England Pathology Laboratory Reporting API | Laboratory middleware sends the report as a FHIR Document to the national [Pathology and Laboratory Medicine Reporting API](https://digital.nhs.uk/developer/api-catalogue/pathology-laboratory-reporting); it is stored in Patient Data Manager, with a Multicast Notification Service event | National store (Patient Data Manager) | Sends reports "to the requesting general practice organisation" - tests ordered by a POSCU or a PTC may not be included; secondary care access is not described. In private beta (invite only); replaces the Pathology Messaging EDIFACT API |
 {:.grid}
 
-Option A:
+In options 1 and 2 the order still comes from the POSCU. A variant is for the **PTC to
+place the order** (`LAB-1`), naming the POSCU or community nurse as specimen collector,
+so the report returns to the PTC with a copy to the POSCU. This matches clinical
+responsibility, but the local laboratory must accept orders from another organisation.
+
+Option 1:
 
 ```mermaid
 sequenceDiagram
 
-participant PTC as Order Result Tracker (PTC)
+participant PTC as Order Result Tracker (PTC TIE - EPR or EDMS)
 participant POSCU as Order Placer (Community Nurse / POSCU)
 participant LIMS as Order Filler (Laboratory)
 
@@ -161,18 +168,45 @@ POSCU ->> LIMS: Laboratory Order O21 (LAB-1) - Result Copies To PTC
 LIMS -->> LIMS: Performs Test
 LIMS ->> POSCU: Laboratory Report R01 (LAB-3)
 LIMS ->> PTC: Laboratory Report R01 (LAB-3) - result copy
+PTC -->> PTC: Filed in EPR and/or EDMS - prescription changed if required
+```
+
+Option 2:
+
+```mermaid
+sequenceDiagram
+
+participant PTC as Document Consumer (PTC)
+participant XDS as Regional EDMS (XDS Registry / Repository)
+participant TIE as Document Source (TIE)
+participant POSCU as Order Placer (Community Nurse / POSCU)
+participant LIMS as Order Filler (Laboratory)
+
+POSCU ->> LIMS: Laboratory Order O21 (LAB-1)
+LIMS ->> POSCU: Laboratory Report R01 (LAB-3)
+LIMS ->> TIE: Laboratory Report R01 (LAB-3)
+TIE ->> XDS: Provide and Register Document Set-b [ITI-41] - R01 / FHIR Document / PDF
+XDS -->> PTC: Notification of a new document (DSUB), if subscribed
+PTC ->> XDS: Registry Stored Query [ITI-18] (NHS number)
+PTC ->> XDS: Retrieve Document Set [ITI-43]
 PTC -->> PTC: Prescription changed if required
 ```
 
-Either option removes the steps that cause the problems - forwarding by email,
-phone confirmation, re-sending and rewriting results. An example option A message
-(a full blood count with a result copy to the PTC) is on the
-[HL7 v2 Pathology Examples](HL7v2.html#laboratory-report-lab-3---full-blood-count-with-result-copy) page.
+Each option removes the steps that cause the problems - forwarding by email, phone
+confirmation, re-sending and rewriting results. An example option 1 message (a full blood
+count with a result copy to the PTC) is on the
+[HL7 v2 Pathology Examples](HL7v2.html#laboratory-report-lab-3---full-blood-count-with-result-copy)
+page, with the same report as a FHIR Document.
 
 **To confirm:**
 
 - Which laboratories and LIMS serve the POSCUs and community nurses, and whether
-  they can send result copies to the PTC (option A) or accept PTC orders (option B).
+  they can send result copies to the PTC (option 1) or accept PTC orders.
+- Whether a regional EDMS (XDS) is available across the PTC's and POSCUs' region, and
+  which formats it accepts - HL7 v2, FHIR Document, PDF (option 2).
+- Whether the NHS England Pathology Laboratory Reporting API will cover tests not
+  ordered by a GP, and whether secondary care will be able to read the reports
+  (option 3).
 - Whether the PTC's order number can be carried through the POSCU's order comms.
 - How a prescription change at the PTC should be shared with the POSCU - for example
   through a shared regimen or care plan.
@@ -185,8 +219,8 @@ phone confirmation, re-sending and rewriting results. An example option A messag
 | Item | Why | How (HL7 v2) | Status |
 |---|---|---|---|
 | Patient identity | The result must match the right child in both organisations | NHS number, and each organisation's hospital number with its ODS code as assigning authority (`PID-3`) | [LTW](LTW.html) conventions |
-| Order numbers | The PTC must match the result to its request | PTC request number (`ORC-2`, PTC ODS code), laboratory number (`ORC-3`, laboratory ODS code) | **Open** - option B, or carried through the POSCU order |
-| Result recipients | Both organisations receive the same report | `OBR-28` Result Copies To (option A), or the PTC as Order Placer (option B) | **Open** |
+| Order numbers | The PTC must match the result to its request | PTC request number (`ORC-2`, PTC ODS code), laboratory number (`ORC-3`, laboratory ODS code) | **Open** - the PTC as Order Placer, or carried through the POSCU order |
+| Result recipients | Both organisations receive the same report | `OBR-28` Result Copies To (option 1), the PTC as Order Placer, or a regional EDMS (option 2) | **Open** |
 | Specimen collection | Collected by the POSCU or community nurse, not the requester | `SPM` with collection date and time; collector | [LTW](LTW.html) conventions |
 | Coded results | So the PTC's system can read them - the "defective message" problem | LOINC for each test (`OBX-3`), UCUM units (`OBX-6`), reference range (`OBX-7`), abnormal flag (`OBX-8`) | [LTW](LTW.html) conventions; local test codes **To confirm** |
 {:.grid}

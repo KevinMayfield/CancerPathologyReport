@@ -34,7 +34,8 @@ flowchart TB
         ER(["Genomic Report"])
     end
 
-    F["MDT<br/>diagnosis and plan"]
+    F["MDT<br/>diagnosis and integrated stage"]
+    FP(["Treatment Plan<br/>recommended by the MDT,<br/>agreed with the patient"])
 
     subgraph TX["Treatment"]
         G["Surgery"]
@@ -45,6 +46,9 @@ flowchart TB
     J["Follow-up"]
     K["PROMs"]
 
+    PT{{"Task<br/>complete the Palliative Care Record"}}
+    PC(["Palliative Care Record<br/>(palliative care plan)"])
+
     A --> B
     B --> BR
     B -->|"image-guided"| C
@@ -52,18 +56,21 @@ flowchart TB
     DR -->|"reflex order"| E
     E --> ER
     BR & DR & ER --> F
-    F --> G & H & I
+    F --> FP --> G & H & I
     G -.->|"resection specimen"| D
     G & H & I --> J --> K
     J -.->|"recurrence or progression<br/>(new evidence)"| B
+    F -.->|"poor prognosis,<br/>non-curative intent"| PT
+    J -.->|"no longer curable"| PT
+    PT --> PC
 
     classDef inscope fill:#d4edda,stroke:#155724,color:#155724
     classDef context fill:#f8f9fa,stroke:#6c757d,color:#495057
     class C,D,DR,E inscope
-    class A,B,BR,ER,F,G,H,I,J,K context
+    class A,B,BR,ER,F,FP,G,H,I,J,K,PT,PC context
 ```
 
-Rectangles are activities; rounded boxes are the **reports** they produce. Each
+Rectangles are activities; rounded boxes are the **reports** and plans they produce. Each
 diagnostic service produces its own report, and the MDT brings the three
 together:
 
@@ -80,7 +87,12 @@ the input to the genomic reflex order. The dotted line shows surgery producing a
 restaging the cancer (pTNM, or ypTNM after neoadjuvant therapy). The dotted line
 from follow-up shows the pathway is not linear: a suspected recurrence or progression
 goes back through diagnostic testing, as in the HL7 Europe journey's repeated
-*evidence - assessment - decision* loop. Each stage is described in
+*evidence - assessment - decision* loop. The hexagon is the **Task** to complete the
+[Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html),
+raised when the MDT judges the prognosis to be poor (a non-curative care plan intent), or
+when follow-up shows the cancer is no longer curable. The record is then completed by the
+person's clinicians with the person, not by the MDT - see
+[Palliative and End of Life Care](EndOfLifeCare.html). Each stage is described in
 [Pathway Stages](#pathway-stages) below.
 
 ### Pathway Stages
@@ -92,7 +104,7 @@ goes back through diagnostic testing, as in the HL7 Europe journey's repeated
 | Biopsy / resection | Specimen taken and sent to histopathology with a request | **In scope** | [LTW](LTW.html) LAB-1 | Diagnosis - evidence: `CancerConditionAtDiagnosis.biopsyDate`; a resection is `Surgery` |
 | Pathology | Diagnosis, grade, pathological stage, IHC; Cancer Pathology Report | **In scope** | [LTW](LTW.html) LAB-3 | Diagnosis - evidence: `CancerConditionAtDiagnosis` (histology, body site, grade, `labReportDate`); pathological `CancerStage` |
 | Genomics | Reflex order from pathology; genomic report | **In scope** (as the pathology report's consumer) | [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) | `[biomarker]` placeholder only - genomic and advanced biomarker models are excluded from release 1 |
-| MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and treatment plan | Context | - | Diagnosis - assessment and decision: `CancerConditionAtDiagnosis` asserted, `CancerStage`; treatment plan excluded from release 1 |
+| MDT | Imaging, pathology and genomic results combined; diagnosis, integrated stage and recommended treatment plan ([COSD Cancer Care Plan](https://digital.nhs.uk/ndrs/data/data-sets/cosd/cosd-user-guide-v10/core---cancer-care-plan): intent and planned treatment types), agreed afterwards with the patient. A non-curative intent can lead to a referral to palliative care - a Task to complete the [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html) | Context | [Palliative and End of Life Care](EndOfLifeCare.html) | Diagnosis - assessment and decision: `CancerConditionAtDiagnosis` asserted, `CancerStage`; treatment plan excluded from release 1 |
 | Treatment | Surgery, systemic anti-cancer therapy, radiotherapy | Out of scope | - | Treatment: `Surgery`, `SystemicTreatment`, `Radiotherapy`, `ActiveSurveillance` |
 | Follow-up | Response to treatment, recurrence, surveillance | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#follow-up-after-treatment) | Evidence and follow-up: `OverallCancerTreatmentResponse`, `ClinicalCancerProgression`, `LastFollowUp` |
 | Outcomes | Patient-reported outcomes (PROMs) and experience (PREMs) | Out of scope | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) | Excluded from release 1 (QoL and PROMs) |

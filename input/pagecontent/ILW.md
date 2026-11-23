@@ -8,7 +8,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 </div>
 
 
-This page describes how the [Cancer Pathology Report](PathologyReport.html) fits
+This page describes how the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) fits
 the [IHE Inter-Laboratory Workflow (ILW)](https://wiki.ihe.net/index.php/Inter_Laboratory_Workflow)
 profile: a laboratory as **Requestor** placing a sub-order with another laboratory
 (the **Subcontractor**) - for example a reflex order to genomics - sending the
@@ -56,7 +56,7 @@ is organisational, not technical.
 
 | Transaction | From | To | Content |
 |---|---|---|---|
-| [Sub-order Management [LAB-35]](LAB-35.html) | Requestor | Subcontractor | Sub-order, with the [Cancer Pathology Report](PathologyReport.html) as supporting information. HL7 v2 `OML_O21` or FHIR `ServiceRequest` (`intent` = `reflex-order`, `basedOn` the original order) |
+| [Sub-order Management [LAB-35]](LAB-35.html) | Requestor | Subcontractor | Sub-order, with the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) as supporting information. HL7 v2 `OML_O21` or FHIR `ServiceRequest` (`intent` = `reflex-order`, `basedOn` the original order) |
 | [Sub-order Results Delivery [LAB-36]](LAB-36.html) | Subcontractor | Requestor | Sub-order results - for example a Genomic Test Report. HL7 v2 `ORU_R01` or FHIR `DiagnosticReport` |
 {:.grid}
 

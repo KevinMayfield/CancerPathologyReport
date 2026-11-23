@@ -19,9 +19,9 @@ results, and FHIR Documents for sharing reports - see
 
 It defines two report models:
 
-- the **[Cancer Pathology Report](PathologyReport.html)** - the structured cancer
+- the **[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html)** - the structured cancer
   pathology report, based on COSD Pathology; and
-- the **[Palliative Care Record](PalliativeCareRecord.html)** - the palliative care
+- the **[Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html)** - the palliative care
   co-ordination record, based on SCCI1580.
 
 #### Cancer Pathology Report
@@ -72,7 +72,7 @@ laboratory when the report is issued - see the [Cancer Pathway](CancerPathway.ht
 - [Sharing and Workflow - Lessons from a Cancer Pathway](PathwayInteroperability.html) -
   why this guide uses HL7 v2 for workflow and FHIR Documents for sharing, and what
   that means for the Single Patient Record
-- [Cancer Pathology Report](PathologyReport.html) - the report's domain archetype
+- [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) - the report's domain archetype
   and detailed model, with COSD, HL7 v2 and FHIR mappings
 - [Pathology Report](StructureDefinition-PathologyReport.html) - logical model of the
   COSD Pathology (v5) **Core - Pathology** content, with an entity relationship
@@ -80,7 +80,7 @@ laboratory when the report is issued - see the [Cancer Pathway](CancerPathway.ht
 - [Profiles](profiles.html) - FHIR profiles for that content, built on HL7 Europe
   Base and HL7 Europe Laboratory, and aligned with mCODE where mCODE has an
   equivalent profile
-- [Palliative Care Record](PalliativeCareRecord.html) - outside the cancer pathology
+- [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html) - outside the cancer pathology
   model: the SCCI1580 Palliative Care Co-ordination: Core Content record, with its
   logical model, SDC Questionnaire and a FHIR Document laid out in ReSPECT order;
   its care process is [Palliative and End of Life Care](EndOfLifeCare.html)
@@ -101,7 +101,7 @@ testing for Lynch syndrome in a patient with colorectal cancer (fictitious):
 | 0 | Referral - urgent suspected cancer, or a positive bowel screening result | - | [Cancer Pathway](CancerPathway.html), [Cancer Screening](Screening.html) |
 | ① | A colonoscopy biopsy is sent to histopathology | LAB-1 | [LTW](LTW.html), [LAB-1](LAB-1.html) |
 | ② | Pathology finds loss of mismatch repair (MMR) proteins and reflexes MLH1 promoter hypermethylation (M1.5) to the Genomic Laboratory Hub, sending the pathology report as prior results. The result comes back to pathology | LAB-35, LAB-36 | [ILW](ILW.html), [LAB-35](LAB-35.html) (HL7 v2 example), [LAB-36](LAB-36.html), [Genomics](Genomics.html) |
-| ③ | The Cancer Pathology Report, with a supplementary report, goes back to the clinician | LAB-3 | [LAB-3](LAB-3.html), [Cancer Pathology Report](PathologyReport.html) |
+| ③ | The Cancer Pathology Report, with a supplementary report, goes back to the clinician | LAB-3 | [LAB-3](LAB-3.html), [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) |
 | ④ | The clinician orders germline testing for Lynch syndrome; the genomic report goes back to the clinician and to the Unified Genomic Record | Outside this guide | [Genomics](Genomics.html#not-reflex-orders) |
 | ⑤ | If a pathogenic variant is found, the family is referred to clinical genetics | Outside this guide | - |
 {:.grid}

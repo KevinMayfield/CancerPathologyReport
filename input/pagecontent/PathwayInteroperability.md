@@ -315,7 +315,7 @@ health records and cancer registries, with defined data items, codes and value s
 
 A UK version can be built from the existing COSD and NDRS data standards, bringing
 registry standards upstream into the pathway. This guide's
-[Cancer Pathology Report](PathologyReport.html) is a proof of concept of that approach.
+[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) is a proof of concept of that approach.
 
 <div class="alert alert-info" role="alert">
 <b>We need a UK cancer pathology data standard, built from COSD/NDRS, that works in

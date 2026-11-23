@@ -8,7 +8,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 </div>
 
 
-This page places the [Cancer Pathology Report](PathologyReport.html) in the
+This page places the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) in the
 **whole cancer pathway**, from referral to survivorship. This guide covers the
 **diagnostic** part of the pathway - pathology, and how it meets imaging and
 genomics. Treatment, follow-up and patient-reported outcomes are shown for
@@ -66,7 +66,7 @@ together:
 | Service | Report | Defined by |
 |---|---|---|
 | Imaging | Imaging Report | [HL7 Europe Imaging Report](https://hl7.eu/fhir/imaging/en/) - see [Imaging and Radiology](Imaging.html) |
-| Pathology | Pathology Report | This guide - [Cancer Pathology Report](PathologyReport.html) |
+| Pathology | Pathology Report | This guide - [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) |
 | Genomics | Genomic Report | NW Genomics [Genomic Test Report](https://nw-gmsa.github.io/en/Questionnaire-GenomicTestReport.html) - see [Genomic Testing and Reporting](Genomics.html) |
 {:.grid}
 

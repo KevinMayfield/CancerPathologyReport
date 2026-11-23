@@ -9,7 +9,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 
 **Sub-order Management [LAB-35]** (IHE ILW) - the pathology laboratory (Requester)
 placing a sub-order, for example a reflex order to genomics, with the
-[Cancer Pathology Report](PathologyReport.html) as supporting information. HL7 v2
+[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) as supporting information. HL7 v2
 `OML_O21` or FHIR `ServiceRequest`/`Task`.
 
 <div class="alert alert-warning" role="alert">
@@ -128,7 +128,7 @@ COSD `E` Equivocal and `F` Test failed have no LOINC answer in this example.
 
 The report the clinician sees (fictitious), including the supplementary report
 written for molecular testing. This is the PDF in `OBR-1` `OBX-2`; as a
-[FHIR Document](PathologyReport.html#fhir-document) it would be the section narratives.
+[FHIR Document](StructureDefinition-CancerPathologyComposition.html#fhir-document) it would be the section narratives.
 
 <div style="border:1px solid #bbb; box-shadow:0 2px 8px rgba(0,0,0,0.15); background:#fff; color:#222; max-width:820px; margin:16px auto; padding:24px 32px; font-family:Georgia,'Times New Roman',serif; font-size:15px; line-height:1.5;">
 <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #333; padding-bottom:8px; margin-bottom:12px;">

@@ -9,7 +9,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 
 
 This page describes how **imaging and radiology** relate to the
-[Cancer Pathology Report](PathologyReport.html). Radiology has its own workflow
+[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html). Radiology has its own workflow
 (for example IHE Radiology Scheduled Workflow) and its own report - a separate
 imaging `DiagnosticReport` - so it is **not** part of the
 [Laboratory Testing Workflow (LTW)](LTW.html). Imaging and pathology meet at four

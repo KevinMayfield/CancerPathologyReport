@@ -8,7 +8,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 </div>
 
 
-This page describes how the [Cancer Pathology Report](PathologyReport.html) fits
+This page describes how the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) fits
 the [IHE Laboratory Testing Workflow (LTW)](https://wiki.ihe.net/index.php/Laboratory_Testing_Workflow)
 profile: the pathology laboratory as **Order Filler** returning the report to the
 **Order Placer** (the requesting clinician's EPR or order communications system).
@@ -69,7 +69,7 @@ is combined with the pathology report at the MDT - see
 | Transaction | From | To | Content |
 |---|---|---|---|
 | [Placer Order Management [LAB-1]](LAB-1.html) | Order Placer | Order Filler | Histopathology request. HL7 v2 `OML_O21` or FHIR `ServiceRequest` |
-| [Order Results Management [LAB-3]](LAB-3.html) | Order Filler | Order Placer / Order Result Tracker | [Cancer Pathology Report](PathologyReport.html). HL7 v2 `ORU_R01` or FHIR [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html) |
+| [Order Results Management [LAB-3]](LAB-3.html) | Order Filler | Order Placer / Order Result Tracker | [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html). HL7 v2 `ORU_R01` or FHIR [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html) |
 | Work Order Management [LAB-4] | Order Filler | Automation Manager | Slides and staining protocols for IHC. Internal to the laboratory - see [Internal Tests](#internal-tests-ihc-and-in-house-molecular) |
 | Test Results Management [LAB-5] | Automation Manager | Order Filler | Staining status (the result itself is entered by the pathologist). Internal to the laboratory |
 {:.grid}
@@ -125,7 +125,7 @@ sequenceDiagram
     MDT -->> clinician: Diagnosis, stage and treatment decision
 ```
 
-The [Cancer Pathology Report](PathologyReport.html) is **optional** in its link to
+The [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) is **optional** in its link to
 the order (`DiagnosticReport.basedOn`): many histopathology requests are still made
 on paper, so the LIMS may not hold an electronic order to reference.
 

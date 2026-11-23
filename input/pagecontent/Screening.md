@@ -38,7 +38,7 @@ information.
 If the screening test is positive the patient is referred for diagnostic tests.
 From there the pathway is the same as for any suspected cancer: a biopsy or
 resection is sent to histopathology ([LAB-1](LAB-1.html)), and the
-[Cancer Pathology Report](PathologyReport.html) goes back to the requester
+[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) goes back to the requester
 ([LAB-3](LAB-3.html)) and, if needed, on to genomics ([LAB-35](LAB-35.html)).
 
 ```mermaid
@@ -313,7 +313,7 @@ in by screening centre staff.
 | Screening test result to GP | Bowel screening system to GP practice | EDIFACT NHS004 over MESH; optionally converted to FHIR DSTU3 by the Lab Results adaptor | Out of scope - not a cancer pathology report |
 | Referral after a positive result | Hub to screening centre SSP clinic, then colonoscopy | Within BCSS | Context - pathway entry point |
 | Biopsy or polypectomy to histopathology | Screening centre endoscopist (Order Placer) to histopathology (Order Filler) | HL7 v2 `OML_O21` / order comms | [LAB-1](LAB-1.html) |
-| Histopathology report | Histopathology to the requester | HL7 v2 `ORU_R01` | [LAB-3](LAB-3.html) - the [Cancer Pathology Report](PathologyReport.html) when cancer is found |
+| Histopathology report | Histopathology to the requester | HL7 v2 `ORU_R01` | [LAB-3](LAB-3.html) - the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) when cancer is found |
 | Histopathology result to the screening programme | Pathologist to screening centre, keyed into BCSS | BCSP proforma (paper or "computerised version"), not a message | Out of scope today; BCSS could be a LAB-3 result copy recipient |
 | Report to GP | Histopathology to GP practice | EDIFACT NHS003 (PMIP), moving to the NHS England Pathology FHIR IG | Possible additional LAB-3 recipient |
 | Reflex genomic test (e.g. MMR deficient) | Histopathology to the Genomic Laboratory Hub | HL7 v2 `OML_O21` | [LAB-35](LAB-35.html) |

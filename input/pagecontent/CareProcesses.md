@@ -35,10 +35,10 @@ flowchart LR
 | Process | Starts with | Main exchanges | Record produced | Page |
 |---|---|---|---|---|
 | Screening | A national programme invitation (e.g. FIT kit from a bowel screening hub) | Screening result to the GP (EDIFACT NHS004); referral to a screening centre | Screening result | [Cancer Screening](Screening.html) |
-| Diagnostic testing | A positive screening result or an urgent suspected cancer referral | Imaging orders and reports; histopathology order and report ([LTW](LTW.html) LAB-1, LAB-3); reflex genomic order ([ILW](ILW.html) LAB-35, LAB-36) | **[Cancer Pathology Report](PathologyReport.html)** (Volume 3); genomic report | [Imaging and Radiology](Imaging.html), [LTW](LTW.html), [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) |
+| Diagnostic testing | A positive screening result or an urgent suspected cancer referral | Imaging orders and reports; histopathology order and report ([LTW](LTW.html) LAB-1, LAB-3); reflex genomic order ([ILW](ILW.html) LAB-35, LAB-36) | **[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html)** (Volume 3); genomic report | [Imaging and Radiology](Imaging.html), [LTW](LTW.html), [ILW](ILW.html), [Genomic Testing and Reporting](Genomics.html) |
 | MDT and treatment | The diagnostic results | Treatment itself is outside this guide; blood tests during treatment are LTW orders and results, often across organisations | Integrated stage, treatment plan; laboratory reports | [Cancer Pathway](CancerPathway.html), [Children's Cancer Shared Care](ChildrensCancerSharedCare.html) |
 | Monitoring and PROMs | The end of treatment with curative intent | Surveillance tests (blood tests, imaging, colonoscopy) as ordinary LTW orders and results; patient-reported outcomes; remote monitoring | Results; PROM responses; a new Cancer Pathology Report if a recurrence is biopsied | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html) |
-| Palliative and end of life care | A poor prognosis at the MDT, or monitoring showing the cancer is no longer curable - a **Task** to complete the record | SDC Questionnaire, extraction, FHIR Document, printed copy; retrieval by urgent and emergency care | **[Palliative Care Record](PalliativeCareRecord.html)** (Volume 3) | [Palliative and End of Life Care](EndOfLifeCare.html) |
+| Palliative and end of life care | A poor prognosis at the MDT, or monitoring showing the cancer is no longer curable - a **Task** to complete the record | SDC Questionnaire, extraction, FHIR Document, printed copy; retrieval by urgent and emergency care | **[Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html)** (Volume 3) | [Palliative and End of Life Care](EndOfLifeCare.html) |
 {:.grid}
 
 ### How They Connect
@@ -71,11 +71,11 @@ The fictitious examples in this guide follow one person, Ned LIVERPOOL:
 
 | When | What happens | Where |
 |---|---|---|
-| August 2023 | Colonoscopy biopsy of a caecal mass; the Cancer Pathology Report shows adenocarcinoma with loss of MLH1 and PMS2 | [LAB-35](LAB-35.html#example-lynch-syndrome), [Cancer Pathology Report](PathologyReport.html#what-the-reader-sees) |
+| August 2023 | Colonoscopy biopsy of a caecal mass; the Cancer Pathology Report shows adenocarcinoma with loss of MLH1 and PMS2 | [LAB-35](LAB-35.html#example-lynch-syndrome), [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html#what-the-reader-sees) |
 | August 2023 | Reflex order to the Genomic Laboratory Hub for MLH1 promoter hypermethylation (Lynch syndrome triage) | [LAB-35](LAB-35.html#example-lynch-syndrome), [Home - worked example](index.html#worked-example-lynch-syndrome) |
 | 2023 - 2026 | Treatment and follow-up | [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html) |
-| October 2026 | Liver metastases; the MDT judges his prognosis to be last months of life and raises a Task; the Palliative Care Record is completed, shared and printed | [Palliative and End of Life Care](EndOfLifeCare.html#example-scenario), [Palliative Care Record](PalliativeCareRecord.html#what-the-reader-sees) |
-| November 2026 | The record is amended - hospice now his first choice, prognosis last weeks of life | [Palliative Care Record examples](PalliativeCareRecord.html#examples) |
+| October 2026 | Liver metastases; the MDT judges his prognosis to be last months of life and raises a Task; the Palliative Care Record is completed, shared and printed | [Palliative and End of Life Care](EndOfLifeCare.html#example-scenario), [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html#what-the-reader-sees) |
+| November 2026 | The record is amended - hospice now his first choice, prognosis last weeks of life | [Palliative Care Record examples](StructureDefinition-PalliativeCareRecordComposition.html#examples) |
 {:.grid}
 
 ### Across All Processes

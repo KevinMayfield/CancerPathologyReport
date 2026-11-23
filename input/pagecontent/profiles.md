@@ -48,7 +48,7 @@ results on the report using the base `Observation-resultslab-eu-lab`. Profiles
 for them can be added later.
 
 **End of life care** profiles are outside the COSD model and are described on
-[Palliative Care Record](PalliativeCareRecord.html): the
+[Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html): the
 [Palliative Care Record Composition](StructureDefinition-PalliativeCareRecordComposition.html)
 (sections in ReSPECT order) and the
 [Palliative Care Record Observation](StructureDefinition-PalliativeCareRecordObservation.html).

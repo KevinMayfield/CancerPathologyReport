@@ -84,7 +84,7 @@ Usage:          #definition
 * instance[+].resourceId = "EolDocument1"
 * instance[=].resourceType = #Bundle
 * instance[=].name = "Palliative Care Record (FHIR Document) - first issue"
-* instance[=].description = "Bundle of type document. The Composition's sections follow the ReSPECT form's section order, and each section's entries are the Observations; each section has a narrative for display. See [What the reader sees](PalliativeCareRecord.html#what-the-reader-sees). Example: [Bundle/EolDocument1](Bundle-EolDocument1.html)."
+* instance[=].description = "Bundle of type document. The Composition's sections follow the ReSPECT form's section order, and each section's entries are the Observations; each section has a narrative for display. See [What the reader sees](StructureDefinition-PalliativeCareRecordComposition.html#what-the-reader-sees). Example: [Bundle/EolDocument1](Bundle-EolDocument1.html)."
 * instance[+].resourceId = "EolDocument2"
 * instance[=].resourceType = #Bundle
 * instance[=].name = "Palliative Care Record (FHIR Document) - replacement"

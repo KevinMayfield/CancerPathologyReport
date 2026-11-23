@@ -15,7 +15,7 @@ After treatment with curative intent, patients are monitored to detect recurrenc
 Monitoring is a series of ordinary tests - blood tests, imaging and endoscopy -
 tracked over several years, alongside what patients report about their symptoms
 and quality of life. When a test suggests the cancer has come back, a biopsy
-produces a new [Cancer Pathology Report](PathologyReport.html), so monitoring leads
+produces a new [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html), so monitoring leads
 back into this guide.
 
 Patient-reported outcome measures (PROMs) are **outside the scope of the Cancer

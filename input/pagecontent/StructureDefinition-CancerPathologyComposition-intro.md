@@ -536,4 +536,4 @@ code, and the entries behind each block - a real viewer would not show them.
   [primary cancer condition](Condition-PathPrimaryCancerCondition.html),
   [histologic type](Observation-PathHistologicType.html) and the four MMR
   [tumour marker results](Observation-PathMLH1.html). The patient is the same
-  person as the [Palliative Care Record](PalliativeCareRecord.html#examples) examples.
+  person as the [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html#examples) examples.

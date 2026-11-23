@@ -171,7 +171,7 @@ ReSPECT form rather than an EPaCCS record laid out like one.
 
 #### What the reader sees
 
-Like the [Cancer Pathology Report](PathologyReport.html#what-the-reader-sees), the
+Like the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html#what-the-reader-sees), the
 Palliative Care Record Document is a real document: a viewer shows each section's
 narrative (`Composition.section.text`) in order, and the same view is printed for
 the copy kept at home. The coded Observations sit behind the narrative.

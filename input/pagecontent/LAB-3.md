@@ -9,7 +9,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 
 
 **Order Results Management [LAB-3]** (IHE LTW) - the pathology laboratory (Order
-Filler) sending the [Cancer Pathology Report](PathologyReport.html) to the Order
+Filler) sending the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) to the Order
 Placer. HL7 v2 `ORU_R01` or FHIR
 [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html).
 

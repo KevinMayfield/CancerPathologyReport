@@ -38,6 +38,8 @@ another NHS domain.
   (LAB-1, LAB-3, LAB-35, LAB-36, and `HL7v2.md` - pathology HL7 v2 examples only,
   following the NW Genomics HL7 v2 page for segment definitions), Volume 3 Data Models - for each report a model
   page with its FHIR Document and an example rendering ("What the reader sees"),
+  written as the intro of its Composition profile
+  (`StructureDefinition-<Id>-intro.md`, not in `pages:`),
   and its logical model (Cancer Pathology Report, Palliative Care Record).
 - A new page must be added to both `pages:` and `menu:` in `sushi-config.yaml`.
 - Research notes and open questions that should not be published:

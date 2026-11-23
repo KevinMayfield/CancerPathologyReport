@@ -13,7 +13,7 @@ preferences, the CPR decision and other advance care planning known to everyone
 caring for them - in particular urgent and emergency care. This page describes the
 care process: how the record is started from the cancer pathway, captured, shared,
 printed and amended. The record itself is in Volume 3,
-[Palliative Care Record](PalliativeCareRecord.html).
+[Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html).
 
 ### Overview
 
@@ -40,7 +40,7 @@ flowchart LR
 ```
 
 The content of the record - its data items, the FHIR Document and an example
-rendering - is described in [Palliative Care Record](PalliativeCareRecord.html).
+rendering - is described in [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html).
 
 ### Example Scenario
 
@@ -74,7 +74,7 @@ sequenceDiagram
 
 Fictitious instances for each step - the Task, QuestionnaireResponses,
 Observations, care plan and both Document versions - are listed in the
-[Palliative Care Record examples](PalliativeCareRecord.html#examples).
+[Palliative Care Record examples](StructureDefinition-PalliativeCareRecordComposition.html#examples).
 
 ### Relationship to the Cancer Pathway
 
@@ -82,7 +82,7 @@ Observations, care plan and both Document versions - are listed in the
   prognosis at the MDT, or when [Cancer Monitoring](PatientReportedOutcomes.html#follow-up-after-treatment) shows the
   cancer is no longer curable.
 - `$populate` can pre-fill item 26 **primary end of life care diagnosis** from the
-  cancer diagnosis - for example the [Cancer Pathology Report](PathologyReport.html)
+  cancer diagnosis - for example the [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html)
   morphology and topography.
 - [Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) and Holistic Needs
   Assessments continue alongside.

@@ -9,7 +9,7 @@ or <a href="https://standards.nhs.uk/published-standards/palliative-care-coordin
 
 
 This page describes how **genomic testing and reporting** relate to the
-[Cancer Pathology Report](PathologyReport.html). Genomics is the main downstream
+[Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html). Genomics is the main downstream
 user of the report: the
 [Pathology to Genomics Reflex](https://github.com/nw-gmsa/nw-gmsa-use-cases/blob/main/PathologyToGenomicsReflex.md)
 use case uses it as the pathology report semantics of a reflex order. The reflex

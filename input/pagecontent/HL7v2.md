@@ -82,7 +82,7 @@ the North West GLH, sending the pathology report as prior results. The full mess
 
 - NW Genomics HL7 v2 - [ORU_R01](https://nw-gmsa.github.io/en/hl7v2.html#oru_r01-unsolicited-transmission-of-an-observation-message) - message structure and segments
 - [Order Results Management [LAB-3]](LAB-3.html) - NAACCR Volume V, and the proposed coding of COSD Pathology items in `OBX`
-- [Cancer Pathology Report](PathologyReport.html) - the content of a histopathology report
+- [Cancer Pathology Report](StructureDefinition-CancerPathologyComposition.html) - the content of a histopathology report
 - NHS England [Pathology FHIR Implementation Guide - Examples](https://simplifier.net/guide/pathology-fhir-implementation-guide/Home/Examples/Examples-Index?version=0.5.1) (0.5.1) - source of the [NHS England examples](#laboratory-report-lab-3---nhs-england-pathology-fhir-ig-examples) below
 - [Digital Health and Care Wales - HL7 ORU_R01 2.5.1 Implementation Guide](https://nw-gmsa.github.io/DHCW-HL7-v2-5-1-ORUR01-Specification.pdf) (v2.0.0) - source of the [DHCW examples](#laboratory-report-lab-3---dhcw-examples-adapted) below, re-cast as Cheshire and Merseyside laboratories reporting to a Welsh health board
 
@@ -120,7 +120,7 @@ OBX|4|CWE|81693-4^MSH-6 Ag [Presence] in Cancer specimen by Immune stain^LN^pCR7
 
 > FHIR Message Example: [Bundle Message - Laboratory Report (LAB-3) - Histopathology](Bundle-HL7v2Msg-LAB3-Histopathology.html)
 
-> FHIR Document Example (HL7 Europe Laboratory Report): [Cancer Pathology Report - Histopathology report H23-41022](Bundle-PathDocument.html) - [Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) and [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html); see [What the reader sees](PathologyReport.html#what-the-reader-sees)
+> FHIR Document Example (HL7 Europe Laboratory Report): [Cancer Pathology Report - Histopathology report H23-41022](Bundle-PathDocument.html) - [Cancer Pathology Composition](StructureDefinition-CancerPathologyComposition.html) and [Cancer Pathology Diagnostic Report](StructureDefinition-CancerPathologyDiagnosticReport.html); see [What the reader sees](StructureDefinition-CancerPathologyComposition.html#what-the-reader-sees)
 
 The supplementary *tumour assessment for molecular testing* (block A1, tumour cell
 content 40%) follows as a further `OBR` (`TMA`) - see the [LAB-35](LAB-35.html#example-lynch-syndrome)

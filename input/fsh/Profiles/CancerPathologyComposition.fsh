@@ -7,7 +7,7 @@ Description:    """
 
 The Composition of a cancer pathology report sent as a FHIR Document, for document
 sharing. Based on HL7 Europe Laboratory `Composition-eu-lab`, following the
-[inferred layout](PathologyReport.html#inferred-layout): a narrative surgical
+[inferred layout](StructureDefinition-CancerPathologyComposition.html#inferred-layout): a narrative surgical
 pathology section using the NAACCR Volume V LOINC section codes, a synoptic report
 section whose entries are the COSD Pathology coded results, and the HL7 Europe
 annotations section. Plays the same role as the US Pathology Composition in the HL7

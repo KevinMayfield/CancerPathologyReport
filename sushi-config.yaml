@@ -84,12 +84,6 @@ pages:
   HL7v2.md:
     title: HL7 v2 Pathology Examples
     generation: markdown
-  PathologyReport.md:
-    title: Cancer Pathology Report
-    generation: markdown
-  PalliativeCareRecord.md:
-    title: Palliative Care Record
-    generation: markdown
   profiles.md:
     title: Profiles
     generation: markdown
@@ -118,9 +112,9 @@ menu:
     Sub-order Results Delivery [LAB-36]: LAB-36.html
     HL7 v2 Pathology Examples: HL7v2.html
   Data Models (Volume 3):
-    Cancer Pathology Report: PathologyReport.html
+    Cancer Pathology Report: StructureDefinition-CancerPathologyComposition.html
     Cancer Pathology Report Logical Model: StructureDefinition-PathologyReport.html
-    Palliative Care Record: PalliativeCareRecord.html
+    Palliative Care Record: StructureDefinition-PalliativeCareRecordComposition.html
     Palliative Care Record Logical Model: StructureDefinition-PalliativeCareRecord.html
     Profiles: profiles.html
     Terminology: terminology.html

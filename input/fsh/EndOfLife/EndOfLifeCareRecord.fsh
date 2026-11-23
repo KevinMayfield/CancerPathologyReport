@@ -15,7 +15,7 @@ Sources, in order of precedence:
    SCCI1580 does not define, marked **(PRSB)**.
 
 The NHS Digital End of Life Care API (alpha, FHIR STU3, 2019) is shown as a mapping.
-See [Palliative Care Record](PalliativeCareRecord.html).
+See [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html).
 """
 Characteristics: #can-be-target
 

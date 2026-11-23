@@ -25,7 +25,7 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9737383206"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/R0A"
+* identifier[=].system = "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14"
 * identifier[=].value = "7742315"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "R0A"
@@ -143,7 +143,7 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9737383206"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/R0A"
+* identifier[=].system = "urn:oid:1.2.840.114350.1.13.611.3.7.5.737384.14"
 * identifier[=].value = "7742315"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "R0A"
@@ -532,7 +532,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9991000011"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/POS01"
 * identifier[=].value = "P2219834"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "POS01"
@@ -843,7 +842,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9737383257"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/REM"
 * identifier[=].value = "REM7676150"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "REM"
@@ -1326,7 +1324,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999506"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/RBT"
 * identifier[=].value = "RBT4948902"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "RBT"
@@ -1556,7 +1553,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999468"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -1793,7 +1789,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999468"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -2029,7 +2024,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999468"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -2550,7 +2544,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999468"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0381527"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -2945,7 +2938,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999549"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -3491,7 +3483,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999549"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -3721,7 +3712,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999549"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -3949,7 +3939,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999549"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"
@@ -4239,7 +4228,6 @@ Usage:      #inline
 * identifier[+].system = "https://fhir.nhs.uk/Id/nhs-number"
 * identifier[=].value = "9999999549"
 * identifier[+].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
-* identifier[=].system = "http://www.acme.org/patient/Y8J7D"
 * identifier[=].value = "Y8J7D0592374"
 * identifier[=].assigner.identifier.system = "https://fhir.nhs.uk/Id/ods-organization-code"
 * identifier[=].assigner.identifier.value = "Y8J7D"

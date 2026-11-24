@@ -46,7 +46,7 @@ flowchart TB
     J["Follow-up"]
     K["PROMs"]
 
-    PT{{"Task<br/>complete the Palliative Care Record"}}
+    PT[["Task<br/>complete the Palliative Care Record"]]
     PC(["Palliative Care Record<br/>(palliative care plan)"])
 
     A --> B

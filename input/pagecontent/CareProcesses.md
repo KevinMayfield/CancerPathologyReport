@@ -27,7 +27,7 @@ flowchart LR
     DX --> MDT["MDT and treatment"]
     MDT --> MON["Monitoring and PROMs"]
     MON -- "suspected recurrence" --> DX
-    MDT -- "poor prognosis,<br/>non-curative intent" --> TASK{{"Task<br/>complete the Palliative Care Record"}}
+    MDT -- "poor prognosis,<br/>non-curative intent" --> TASK[["Task<br/>complete the Palliative Care Record"]]
     MON -- "no longer curable" --> TASK
     TASK --> EOL["Palliative and end of life care<br/>Palliative Care Record"]
     GEN -. "Lynch syndrome" .-> SCR

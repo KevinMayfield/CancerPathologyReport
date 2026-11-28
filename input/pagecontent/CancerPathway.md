@@ -187,18 +187,22 @@ pathway.
 
 Where each later stage of the pathway is defined. The national datasets are
 collected by the National Disease Registration Service (NDRS); the FHIR patterns
-are from [mCODE](https://hl7.org/fhir/us/mcode/), which this guide is aligned with.
+are from [mCODE](https://hl7.org/fhir/us/mcode/), which this guide is aligned with. The openEHR
+archetypes are mainly from the CKM [Oncology modelling](https://ckm.openehr.org/ckm/projects/1013.30.56)
+project (read 28 November 2026); the pathology report's own archetypes are on the
+[logical model](StructureDefinition-PathologyReport.html#openehr-archetypes) page, and
+the palliative care record's on the [Palliative Care Record](StructureDefinition-PalliativeCareRecordComposition.html#openehr-archetypes) page.
 
-| Stage | National dataset | FHIR pattern (mCODE) | HL7 Europe Common Cancer Model |
-|---|---|---|---|
-| MDT and integrated stage | COSD (core and site-specific) | [Primary Cancer Condition](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-primary-cancer-condition.html), [TNM Stage Group](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-tnm-stage-group.html) | `CancerConditionAtDiagnosis`, `CancerStage` |
-| Surgery | COSD, [Hospital Episode Statistics](https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics) | [Cancer-Related Surgical Procedure](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-surgical-procedure.html) | `Surgery` |
-| Systemic anti-cancer therapy | [Systemic Anti-Cancer Therapy (SACT) data set](https://digital.nhs.uk/ndrs/data/data-sets/sact) | [Cancer-Related Medication Request](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-request.html) / [Administration](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-administration.html) | `SystemicTreatment` |
-| Radiotherapy | [Radiotherapy Data Set (RTDS)](https://digital.nhs.uk/ndrs/data/data-sets/rtds) | [Radiotherapy Course Summary](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-radiotherapy-course-summary.html) | `Radiotherapy` |
-| Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) | `OverallCancerTreatmentResponse`, `ClinicalCancerProgression`, `LastFollowUp` |
-| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) | Excluded from release 1 |
-| Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - | - |
-| Palliative and end of life care | [SCCI1580 Palliative Care Co-ordination: Core Content](https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content) | `Questionnaire` and logical model - see [End of Life Care](EndOfLifeCare.html) | - (`LastFollowUp` records vital status and death) |
+| Stage | National dataset | FHIR pattern (mCODE) | HL7 Europe Common Cancer Model | openEHR archetypes (CKM) |
+|---|---|---|---|---|
+| MDT and integrated stage | COSD (core and site-specific) | [Primary Cancer Condition](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-primary-cancer-condition.html), [TNM Stage Group](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-tnm-stage-group.html) | `CancerConditionAtDiagnosis`, `CancerStage` | [TNM clinical classification](https://ckm.openehr.org/ckm/archetypes/1013.1.2413), [TNM pathological classification](https://ckm.openehr.org/ckm/archetypes/1013.1.4191), [FIGO staging](https://ckm.openehr.org/ckm/archetypes/1013.1.7610), [Problem/Diagnosis](https://ckm.openehr.org/ckm/archetypes/1013.1.169) |
+| Surgery | COSD, [Hospital Episode Statistics](https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/hospital-episode-statistics) | [Cancer-Related Surgical Procedure](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-surgical-procedure.html) | `Surgery` | - |
+| Systemic anti-cancer therapy | [Systemic Anti-Cancer Therapy (SACT) data set](https://digital.nhs.uk/ndrs/data/data-sets/sact) | [Cancer-Related Medication Request](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-request.html) / [Administration](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-related-medication-administration.html) | `SystemicTreatment` | Adverse events: [CTCAE](https://ckm.openehr.org/ckm/archetypes/1013.1.5151) |
+| Radiotherapy | [Radiotherapy Data Set (RTDS)](https://digital.nhs.uk/ndrs/data/data-sets/rtds) | [Radiotherapy Course Summary](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-radiotherapy-course-summary.html) | `Radiotherapy` | [Irradiation](https://ckm.openehr.org/ckm/archetypes/1013.1.5699) (draft) |
+| Response and recurrence | COSD | [Cancer Disease Status](https://hl7.org/fhir/us/mcode/StructureDefinition-mcode-cancer-disease-status.html) | `OverallCancerTreatmentResponse`, `ClinicalCancerProgression`, `LastFollowUp` | - |
+| Patient-reported outcomes | [Cancer Quality of Life Survey](https://nhsd-proxy.openprescribing.net/ndrs/data/data-outputs/cancer-data-hub/cancer-quality-of-life-survey) | `Questionnaire` / `QuestionnaireResponse` - see [Cancer Monitoring and Patient-Reported Outcomes](PatientReportedOutcomes.html#patient-reported-outcome-measures) | Excluded from release 1 | Prostate: [EPIC](https://ckm.openehr.org/ckm/archetypes/1013.1.7439), [EPIC-CP](https://ckm.openehr.org/ckm/archetypes/1013.1.6133) |
+| Patient experience | [National Cancer Patient Experience Survey (CPES)](https://www.ncpes.co.uk/) | - | - | - |
+| Palliative and end of life care | [SCCI1580 Palliative Care Co-ordination: Core Content](https://standards.nhs.uk/published-standards/palliative-care-coordination-core-content) | `Questionnaire` and logical model - see [End of Life Care](EndOfLifeCare.html) | - (`LastFollowUp` records vital status and death) | [ECOG performance status](https://ckm.openehr.org/ckm/archetypes/1013.1.8091), [Karnofsky Performance Status](https://ckm.openehr.org/ckm/archetypes/1013.1.5145) (not the Australia-modified scale SCCI1580 uses), [Advance care directive](https://ckm.openehr.org/ckm/archetypes/1013.1.6499), [Advance intervention decisions](https://ckm.openehr.org/ckm/archetypes/1013.1.4902) |
 {:.grid}
 
 ### Operational Management (FDP Cancer 360)

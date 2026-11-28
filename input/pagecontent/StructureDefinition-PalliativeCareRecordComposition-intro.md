@@ -28,7 +28,7 @@ example rendering. How the record is used is described in Volume 1,
 
 | Artifact | Role |
 |---|---|
-| [Palliative Care Record](StructureDefinition-PalliativeCareRecord.html) | Logical model: SCCI1580's 16 sections and 60 data items, plus PRSB items where SCCI1580 is silent. Mappings to SCCI1580, PRSB and the 2019 API |
+| [Palliative Care Record](StructureDefinition-PalliativeCareRecord.html) | Logical model: SCCI1580's 16 sections and 60 data items, plus PRSB items where SCCI1580 is silent. Mappings to SCCI1580, PRSB, the 2019 API and [openEHR](#openehr-archetypes) |
 | [Palliative Care Record](Questionnaire-PalliativeCareRecordQuestionnaire.html) Questionnaire | SDC capture form. linkIds are the SCCI1580 item numbers; each item's `definition` points to the logical model; coded items are extracted as Observations |
 | [SCCI1580 Data Item](CodeSystem-scci1580-data-item.html) code system | The 60 SCCI1580 data items, used as `Questionnaire.item.code` and `Observation.code` - a local proposal, as SCCI1580 publishes no code system |
 | [Palliative Care Plan](StructureDefinition-PalliativeCarePlan.html) | Profile: the person's palliative care plan. `addresses` the diagnoses (SCCI1580 items 26-27) as Conditions, `careTeam` links to the care team, `supportingInfo` holds the Observations |
@@ -327,6 +327,43 @@ The death location type codes (10 Hospital ... 50 Other) are defined locally in
 [Death Location Type](CodeSystem-eol-death-location-type.html), as no FHIR code
 system for the NHS Data Model and Dictionary DEATH LOCATION TYPE CODE was found -
 **To confirm**.
+
+### openEHR Archetypes
+
+The logical model's **Mappings** tab gives an indicative
+[openEHR CKM](https://ckm.openehr.org/ckm/) element for each item, read from the
+[CKM REST API](https://ckm.openehr.org/ckm/rest/v1/archetypes) on 28 November 2026.
+It has not been checked against an openEHR template. The main archetypes:
+
+| Items | openEHR archetype | Status |
+|---|---|---|
+| CPR decision (44-47), awareness (48), treatment escalation | [Advance intervention decisions](https://ckm.openehr.org/ckm/archetypes/1013.1.4902) `EVALUATION.advance_intervention_decisions.v1` | Published |
+| Advance statement (35), ADRT (49-50) | [Advance care directive](https://ckm.openehr.org/ckm/archetypes/1013.1.6499) `EVALUATION.advance_care_directive.v2` | Published |
+| Lasting power of attorney (51-53) | [Legal authority](https://ckm.openehr.org/ckm/archetypes/1013.1.4831) `ADMIN_ENTRY.legal_authority.v0` | Initial |
+| Mental capacity assessment (PRSB) | [Mental capacity](https://ckm.openehr.org/ckm/archetypes/1013.1.4824) `EVALUATION.mental_capacity.v0` | Initial |
+| Functional status (29) | [Karnofsky Performance Status (KPS) scale](https://ckm.openehr.org/ckm/archetypes/1013.1.5145) `OBSERVATION.karnofsky_performance_status_scale.v1` | Published |
+| Diagnoses (26-27), disability (28) | [Problem/Diagnosis](https://ckm.openehr.org/ckm/archetypes/1013.1.169) `EVALUATION.problem_diagnosis.v1` | Published |
+| Allergies (30) | [Adverse reaction risk](https://ckm.openehr.org/ckm/archetypes/1013.1.7022) `EVALUATION.adverse_reaction_risk.v2` | Published |
+| Anticipatory medicines (31-32) | [Medication summary](https://ckm.openehr.org/ckm/archetypes/1013.1.2825) `EVALUATION.medication_summary.v1` | Published |
+| Interpreter (14), language (15) | [Translation requirement](https://ckm.openehr.org/ckm/archetypes/1013.1.3539), [Communication capability](https://ckm.openehr.org/ckm/archetypes/1013.1.3155) | Published |
+| EoLC tool in use (33), palliative care register (PRSB) | [Care pathway management](https://ckm.openehr.org/ckm/archetypes/1013.1.7254) `ACTION.care_pathway.v1` | Published |
+| Contingency plans (PRSB) | [Recommendation](https://ckm.openehr.org/ckm/archetypes/1013.1.5755) `EVALUATION.recommendation.v2` | Published |
+| Carer, GP, key worker, care workers (16-25, 54-57) | [Person](https://ckm.openehr.org/ckm/archetypes/1013.1.5358), [Organisation](https://ckm.openehr.org/ckm/archetypes/1013.1.371), [Electronic communication](https://ckm.openehr.org/ckm/archetypes/1013.1.5356) clusters | Published |
+| Date and place of death (59-60) | [Death summary](https://ckm.openehr.org/ckm/archetypes/1013.1.5605) `EVALUATION.death_summary.v1` | Published |
+| Whole record | [Advance care](https://ckm.openehr.org/ckm/archetypes/1013.1.5349) `COMPOSITION.advance_care.v0` | Draft |
+{:.grid}
+
+Gaps found:
+
+- The KPS archetype is the original Karnofsky scale; SCCI1580 uses the
+  **Australia-modified** scale (AKPS), which has no archetype.
+- No archetype was found for preferred place of death (36-43), likely prognosis
+  (34) or carer awareness of prognosis (18).
+- Consent (1) is consent to share the record; the openEHR
+  [Informed consent](https://ckm.openehr.org/ckm/archetypes/1013.1.1303) archetype (draft) is for procedures, so the fit is
+  **To confirm**.
+- Demographics (5-13) belong to an openEHR demographic service rather than the EHR;
+  the mapping uses the Person cluster where they are carried in the record.
 
 ### Open
 

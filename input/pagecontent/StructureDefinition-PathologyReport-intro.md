@@ -157,3 +157,21 @@ Differences to note:
 - Genomic results, which the reflex order produces, have their own CKM
   [Genomics](https://ckm.openehr.org/ckm/archetypes/1013.1.3759) archetypes
   (`CLUSTER.genomic_variant_result.v1` and variant types) and are outside this model.
+
+#### openEHR items not in COSD core
+
+These archetype items have no COSD Pathology v5 core item, so they are **out of
+scope** of this model. RCPath datasets and COSD site-specific sections cover some of
+them; otherwise they are carried in the report text (`pCR1020`).
+
+| openEHR item | Archetype | Nearest item in this model |
+|---|---|---|
+| Residual tumour (R0, R1, R2, RX) | [TNM pathological classification](https://ckm.openehr.org/ckm/archetypes/1013.1.4191) | Excision margin (`pCR0880`, `pCR1150`) - margin status, not completeness of resection |
+| Recurrent (r), autopsy (a) and carcinoma in situ (is) prefixes | TNM pathological classification | None; y is `pCR1000`, m is close to `pCR0840` |
+| Sentinel node (sn), micrometastases (mi), isolated tumour cells in nodes and distant sites (i+, i-, mol+, mol-) | TNM pathological classification | Sentinel node counts (`pCR1110`, `pCR1120`) only; the qualifiers may be in the pN text (`pCR0920`) |
+| Extranodal and extracapsular extension, lymph node site, extent of tumour, marker dye uptake, radioactivity count | [Lymph node metastases](https://ckm.openehr.org/ckm/archetypes/1013.1.396) (draft) | Node counts (`pCR0890`-`pCR1140`) |
+| Per named margin: location, distance, maximum linear involvement, nature of involvement | [Surgical resection margins](https://ckm.openehr.org/ckm/archetypes/1013.1.355) (draft) | One excision margin and the circumferential margin (`pCR0880`, `pCR1150`) |
+| Direct invasion of named tissues, focal or extensive | [Tumour - direct invasion](https://ckm.openehr.org/ckm/archetypes/1013.1.411) (draft) | None; in pT (`pCR0910`) |
+| Macroscopic and microscopic findings as separate sections | [Anatomical pathology examination](https://ckm.openehr.org/ckm/archetypes/1013.1.2680) | Report text (`pCR1020`) |
+| Specimen identifiers, tissue available, fixation and processing | [Specimen](https://ckm.openehr.org/ckm/archetypes/1013.1.331), [Specimen processing](https://ckm.openehr.org/ckm/archetypes/1013.1.358) | None - see the [Genomics gaps](Genomics.html#gaps) |
+{:.grid}

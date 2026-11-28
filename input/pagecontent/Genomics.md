@@ -150,6 +150,9 @@ cancer (`PrimaryCancerCondition`), which links them at the MDT.
 | Item | Why it matters | Status in this guide |
 |---|---|---|
 | Neoplastic (tumour) cell content % | Says whether the block is suitable for genomic testing; assessed per block | Not in COSD core - out of scope. Belongs with the specimen or the order |
+| Block or slide identifier, parent specimen | Identifies the block sent for testing and links it to the reported specimen | Not in COSD core - out of scope. Named on the reflex order; openEHR has it in [Specimen](https://ckm.openehr.org/ckm/archetypes/1013.1.331) (laboratory and parent specimen identifiers, container) |
+| Tissue available | Whether enough tissue remains for genomic testing | Not in COSD core - out of scope. openEHR has it in [Anatomical pathology examination](https://ckm.openehr.org/ckm/archetypes/1013.1.2680) and [Lymph node metastases](https://ckm.openehr.org/ckm/archetypes/1013.1.396) |
+| Fixation and cold ischaemia times | Affect DNA and RNA quality | Not in COSD core - out of scope. openEHR has it in [Specimen processing](https://ckm.openehr.org/ckm/archetypes/1013.1.358) (process, method, start and end times) |
 | IHC other than MMR (e.g. lung markers) | Triggers other reflex orders | Not in COSD core - out of scope |
 | Requesting clinician of the reflex order | The pathologist placing the order and the original clinician differ | Open in the use case |
 {:.grid}
